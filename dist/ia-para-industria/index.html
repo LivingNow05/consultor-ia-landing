@@ -132,7 +132,7 @@
                     <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
                 </button>
 
-                <a href="https://wa.me/573151206985?text={WA_MENSAJE_ENCODED}" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
+                <a href="https://wa.me/573151206985?text=Hola%2C+quiero+info+sobre+inteligencia+artificial+en+la+industria" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
                     <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
                     <span class="relative z-10 flex items-center gap-2 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
                         Asesoría <i class="fab fa-whatsapp text-sm"></i>
@@ -170,7 +170,7 @@
             </nav>
 
             <div class="mt-auto pt-8 border-t border-zinc-200 dark:border-zinc-800">
-                <a href="https://wa.me/573151206985?text={WA_MENSAJE_ENCODED}" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
+                <a href="https://wa.me/573151206985?text=Hola%2C+quiero+info+sobre+inteligencia+artificial+en+la+industria" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
                     Asesoría WhatsApp <i class="fab fa-whatsapp text-lg"></i>
                 </a>
             </div>
@@ -436,10 +436,36 @@
         // Mobile menu
         var mobileMenuBtn = document.getElementById('mobile-menu-btn');
         var mobileMenu = document.getElementById('mobile-menu');
-        var mobileMenuClose = document.getElementById('mobile-menu-close');
+        var closeMobileBtn = document.getElementById('close-menu-btn');
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener('click', function() { mobileMenu.classList.remove('translate-x-full'); });
-            mobileMenuClose.addEventListener('click', function() { mobileMenu.classList.add('translate-x-full'); });
+        }
+        if (closeMobileBtn) {
+            closeMobileBtn.addEventListener('click', function() { mobileMenu.classList.add('translate-x-full'); });
+        }
+        // Mobile theme toggle
+        var themeMobileBtn = document.getElementById('theme-toggle-mobile');
+        var themeMobileDark = document.getElementById('theme-toggle-dark-icon-mobile');
+        var themeMobileLight = document.getElementById('theme-toggle-light-icon-mobile');
+        if (themeMobileDark && themeMobileLight) {
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                themeMobileLight.classList.remove('hidden');
+            } else {
+                themeMobileDark.classList.remove('hidden');
+            }
+        }
+        if (themeMobileBtn) {
+            themeMobileBtn.addEventListener('click', function() {
+                themeMobileDark.classList.toggle('hidden');
+                themeMobileLight.classList.toggle('hidden');
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            });
         }
     </script>
 </body>
