@@ -646,7 +646,7 @@ def build_home_page(data):
                     colors: {{
                         'brand': '#18181b',
                         'brand-light': '#f4f4f5',
-                        'accent': '#4f46e5',
+                        'accent': '#2563eb',
                         'success': '#10b981',
                         'gray-2': '#52525b',
                         'gray-border': '#e4e4e7',
@@ -1005,7 +1005,7 @@ def build_legal_pages(data):
             theme: {{
                 extend: {{
                     colors: {{
-                        'brand': '#18181b', 'brand-light': '#f4f4f5', 'accent': '#4f46e5',
+                        'brand': '#18181b', 'brand-light': '#f4f4f5', 'accent': '#2563eb',
                         'success': '#10b981', 'gray-2': '#52525b', 'gray-border': '#e4e4e7',
                     }},
                     fontFamily: {{
@@ -1027,7 +1027,7 @@ def build_legal_pages(data):
     <header class="border-b border-gray-border dark:border-zinc-800 py-4 px-6">
         <div class="max-w-4xl mx-auto flex items-center justify-between">
             <a href="/" class="font-header font-extrabold tracking-tighter text-2xl text-zinc-900 dark:text-white">
-                Consultor<span class="text-[#4f46e5]">IA</span>
+                Consultor<span class="text-accent">IA</span>
             </a>
             <a href="/" class="text-sm text-gray-2 hover:text-zinc-900 dark:hover:text-white transition-colors">← Volver al inicio</a>
         </div>
