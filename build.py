@@ -463,7 +463,7 @@ def build_footer_html(data):
             <!-- Col 1: Brand -->
             <div class="flex flex-col gap-6">
                 <a href="/" class="flex items-center gap-2">
-                    <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-accent">IA</span></span>
+                    <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 </a>
                 <p class="text-gray-2 dark:text-slate-400 text-sm leading-relaxed">
                     Transformamos la atención al cliente en LATAM con Agentes de Inteligencia Artificial que trabajan 24/7 en WhatsApp.
@@ -1027,7 +1027,7 @@ def build_legal_pages(data):
     <header class="border-b border-gray-border dark:border-zinc-800 py-4 px-6">
         <div class="max-w-4xl mx-auto flex items-center justify-between">
             <a href="/" class="font-header font-extrabold tracking-tighter text-2xl text-zinc-900 dark:text-white">
-                Consultor<span class="text-accent">IA</span>
+                Consultor-<span class="text-brand dark:text-brand-light">IA</span>
             </a>
             <a href="/" class="text-sm text-gray-2 hover:text-zinc-900 dark:hover:text-white transition-colors">← Volver al inicio</a>
         </div>
@@ -1290,6 +1290,14 @@ def build_pillar_content(row):
     steps = data['steps']
     faqs = data['faqs']
     extra_html = data.get('extra_html', '')
+    callout = data.get('callout', '')
+
+    # Build callout block
+    callout_html = ''
+    if callout:
+        callout_html = f'''<div class="mt-8 border-l-4 border-accent pl-6 py-1">
+                <p class="text-xl font-medium text-zinc-800 dark:text-zinc-100 leading-relaxed">{callout}</p>
+            </div>'''
 
     # Build stats strip
     stats_html = ''
