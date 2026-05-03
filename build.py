@@ -1047,6 +1047,225 @@ def build_legal_pages(data):
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(html)
 
+def build_pillar_content(row):
+    slug = row.get('Slug', '').strip('/')
+    kw = row.get('Keyword_Principal', '')
+
+    PILLAR_DATA = {
+        'ia-para-negocios': {
+            'intro': 'La inteligencia artificial ya no es exclusiva de las grandes corporaciones. En 2026, miles de PYMES en Colombia, México, Argentina y toda LATAM están implementando agentes IA para WhatsApp que trabajan 24/7, responden clientes, agendan citas y cierran ventas sin intervención humana.',
+            'intro2': 'El principal dolor de los negocios LATAM es la atención al cliente manual: se pierden mensajes, los tiempos de respuesta son lentos y el personal se desgasta con preguntas repetitivas. Un agente IA resuelve esto desde el primer día.',
+            'benefits': [('fa-bolt', 'Respuesta inmediata 24/7', 'Ningún cliente espera más de 3 segundos. El agente responde preguntas, cotiza y agenda en tiempo real, incluso a las 3am.'), ('fa-chart-line', 'Más ventas, menos costo', 'Negocios con agente IA reportan entre 25% y 40% más conversiones al eliminar la fricción en el primer contacto.'), ('fa-brain', 'Aprende de tu negocio', 'El agente se entrena con tu menú, catálogo, precios y políticas. Responde como tu mejor vendedor, no como un bot genérico.')],
+            'steps': [('Diagnóstico', 'Analizamos tus flujos de atención actuales e identificamos dónde se pierden clientes.'), ('Entrenamiento', 'Cargamos tu información: precios, productos, políticas y tono de marca.'), ('Lanzamiento', 'Activamos el agente en tu WhatsApp Business en menos de 72 horas.')],
+            'faqs': [('¿Cuánto cuesta implementar IA en un negocio en LATAM?', 'Los planes empiezan desde USD 79/mes dependiendo del país y el volumen de conversaciones. Incluye configuración, entrenamiento y soporte.'), ('¿Necesito conocimientos técnicos?', 'No. Nosotros nos encargamos de todo: configuración, entrenamiento e integración con tu WhatsApp Business. Tú solo apruebas el contenido.'), ('¿En cuánto tiempo veo resultados?', 'La mayoría de negocios nota mejoras en la tasa de respuesta desde el primer día. Las métricas de conversión mejoran en las primeras 2-4 semanas.'), ('¿Funciona para cualquier tipo de negocio?', 'Sí. Tenemos experiencia en restaurantes, clínicas, hoteles, inmobiliarias, salones de belleza, gimnasios, talleres y más.')],
+        },
+        'consultor-inteligencia-artificial': {
+            'intro': 'Un consultor en inteligencia artificial ayuda a tu empresa a identificar qué procesos pueden automatizarse, qué herramientas son adecuadas para tu presupuesto y cómo implementar IA de forma que genere ROI real desde el primer mes.',
+            'intro2': 'En Consultor IA trabajamos con empresas de todos los tamaños en LATAM: desde restaurantes con 3 empleados hasta empresas con 200 personas. El enfoque siempre es el mismo: IA práctica, implementada rápido, con resultados medibles.',
+            'benefits': [('fa-user-tie', 'Estrategia personalizada', 'No hay soluciones genéricas. Analizamos tu modelo de negocio y diseñamos una hoja de ruta IA específica para tus objetivos.'), ('fa-tools', 'Implementación completa', 'No solo asesoramos: construimos, configuramos y entrenamos los agentes IA. Entregamos el sistema funcionando.'), ('fa-headset', 'Soporte continuo', 'Después del lanzamiento te acompañamos con monitoreo, ajustes y optimización mensual basada en datos reales.')],
+            'steps': [('Auditoría', 'Revisamos tus procesos actuales de atención, ventas y operaciones para detectar dónde la IA genera más valor.'), ('Propuesta', 'Presentamos un plan de implementación con costos, tiempos y ROI esperado. Sin letra pequeña.'), ('Ejecución', 'Implementamos, entrenamos y lanzamos. En 5-10 días hábiles tu agente IA está operando.')],
+            'faqs': [('¿Qué diferencia a Consultor IA de otras consultoras?', 'Nos especializamos exclusivamente en PYMES LATAM y en agentes conversacionales para WhatsApp. No vendemos proyectos enormes: vendemos resultados rápidos y medibles.'), ('¿Trabajan con empresas fuera de Colombia?', 'Sí. Tenemos clientes en México, Argentina, Chile, Perú, Ecuador, Panamá, Costa Rica, Uruguay y República Dominicana.'), ('¿Qué información necesito preparar?', 'Lista de preguntas frecuentes, catálogo de productos/servicios y tono de comunicación. Nosotros lo convertimos en el agente.'), ('¿Puedo ver una demo antes de contratar?', 'Sí. Agendamos una demo gratuita de 30 minutos donde muestras tu negocio en vivo y te mostramos cómo respondería el agente.')],
+        },
+        'ia-para-empresas': {
+            'intro': 'Implementar inteligencia artificial en una empresa en 2026 no requiere meses de desarrollo ni millones de inversión. Las empresas LATAM que más crecen son las que adoptan IA de forma incremental: empiezan por automatizar la atención al cliente y escalan según los resultados.',
+            'intro2': 'El error más común es intentar digitalizar todo a la vez. La estrategia correcta es identificar el proceso con mayor impacto (generalmente atención al cliente o ventas) e implementar ahí primero.',
+            'benefits': [('fa-comments', 'Atención 24/7 sin contratar', 'Un agente IA maneja cientos de conversaciones simultáneas sin fatiga, errores ni días libres.'), ('fa-funnel-dollar', 'Pipeline de ventas automatizado', 'Califica leads, responde objeciones y agenda demos automáticamente mientras tu equipo se enfoca en cerrar.'), ('fa-sync', 'Integración con tus sistemas', 'Conectamos el agente con tu CRM, calendario, catálogo y sistema de pagos sin necesidad de cambiar tus herramientas.')],
+            'steps': [('Mapeo de procesos', 'Identificamos los 3 procesos de mayor impacto para automatizar primero.'), ('Piloto rápido', 'Implementamos en 10 días y medimos resultados reales durante 30 días.'), ('Escala', 'Con los datos del piloto, expandimos a más procesos y canales.')],
+            'faqs': [('¿Qué tamaño de empresa necesita IA?', 'Desde 5 empleados. Si tienes más de 20 conversaciones diarias por WhatsApp, ya necesitas automatización.'), ('¿Requiere integración con nuestro ERP?', 'Depende del caso. La mayoría de implementaciones funciona sin integración en la primera fase. Las integraciones se agregan después si hay necesidad.'), ('¿Cómo se mide el ROI?', 'Medimos tiempo de respuesta, tasa de conversión, leads calificados y horas de atención ahorradas. El promedio de nuestros clientes recupera la inversión en 60-90 días.'), ('¿La IA reemplaza a mi equipo?', 'No. La IA se encarga de las consultas repetitivas (70-80% del volumen). Tu equipo se enfoca en las conversaciones que realmente necesitan toque humano.')],
+        },
+        'ia-para-industria': {
+            'intro': 'La inteligencia artificial está transformando cada industria de LATAM de forma diferente. En manufactura optimiza inventarios. En retail personaliza la experiencia de compra. En salud automatiza el agendamiento y seguimiento de pacientes. En servicios profesionales califica y nutre leads automáticamente.',
+            'intro2': 'Lo que tienen en común todas las industrias: la IA empieza resolviendo el problema de la comunicación. WhatsApp es el canal dominante en LATAM y los agentes IA que operan allí tienen tasas de apertura del 98% frente al 22% del email.',
+            'benefits': [('fa-industry', 'Manufactura y logística', 'Automatiza pedidos, consultas de inventario y seguimiento de envíos. Reduce el 60% de llamadas entrantes al equipo de ventas.'), ('fa-shopping-cart', 'Retail y e-commerce', 'Asistentes de compra que recomiendan productos, responden sobre stock y recuperan carritos abandonados por WhatsApp.'), ('fa-heartbeat', 'Salud y bienestar', 'Agendamiento automático, recordatorios de citas, triaje básico y seguimiento post-consulta sin carga al personal.')],
+            'steps': [('Evaluación sectorial', 'Analizamos las particularidades de tu industria y los casos de uso con mayor impacto.'), ('Configuración específica', 'El agente se entrena con el vocabulario, procesos y regulaciones de tu sector.'), ('Medición de KPIs', 'Definimos métricas específicas de la industria para evaluar el éxito.')],
+            'faqs': [('¿Qué industrias atiende Consultor IA?', 'Restaurantes, hoteles, clínicas dentales, salones de belleza, spas, gimnasios, inmobiliarias, veterinarias y talleres automotrices, entre otros.'), ('¿La IA entiende terminología técnica de mi industria?', 'Sí. El agente se entrena con tu glosario, catálogo y procesos específicos. Responde con el vocabulario de tu sector.'), ('¿Puede manejar múltiples idiomas?', 'Sí. Especialmente útil para hoteles y turismo. El agente detecta el idioma del cliente y responde en el mismo.'), ('¿Funciona en sectores regulados como salud?', 'Sí, con los límites apropiados. El agente maneja agendamiento y consultas básicas pero escala al profesional cuando es necesario.')],
+        },
+        'automatizacion-con-ia': {
+            'intro': 'Automatizar con inteligencia artificial en 2026 significa algo muy concreto: que tu negocio responda, venda y opere incluso cuando tú no estás disponible. No es ciencia ficción ni requiere un departamento de tecnología.',
+            'intro2': 'El 73% de las PYMES LATAM pierde clientes por respuesta tardía. La automatización con IA resuelve esto en 72 horas: el agente responde en segundos, sin importar la hora o el día.',
+            'benefits': [('fa-robot', 'Atención automatizada', 'Respuestas instantáneas a preguntas frecuentes, cotizaciones y agendamiento. Sin intervención humana para el 80% de los casos.'), ('fa-calendar-check', 'Agenda inteligente', 'El agente consulta disponibilidad real y confirma citas automáticamente. Cero llamadas para coordinar horarios.'), ('fa-bell', 'Recordatorios automáticos', 'Notifica a clientes sobre citas, pagos pendientes y promociones. Reduce ausentismo hasta un 40%.')],
+            'steps': [('Identificar', 'Detectamos las 5 tareas más repetitivas de tu operación diaria.'), ('Automatizar', 'Configuramos flujos de automatización con IA para cada tarea identificada.'), ('Optimizar', 'Con los datos del primer mes, afinamos los flujos para maximizar conversiones.')],
+            'faqs': [('¿Qué procesos se pueden automatizar con IA?', 'Atención al cliente, agendamiento, cotizaciones, seguimiento post-venta, recordatorios, calificación de leads y respuestas a preguntas frecuentes.'), ('¿La automatización suena robótica?', 'No. Nuestros agentes tienen conversaciones naturales: entienden contexto, jerga local y mensajes de voz.'), ('¿Se puede personalizar el tono?', 'Totalmente. El agente habla con el tono de tu marca: formal, cercano, técnico o desenfadado según definas.'), ('¿Qué pasa con consultas complejas?', 'El agente detecta cuándo una consulta supera su capacidad y escala al equipo humano con todo el contexto de la conversación.')],
+        },
+        'transformacion-digital-con-ia': {
+            'intro': 'La transformación digital no es instalar software nuevo. Es cambiar la forma en que tu empresa crea valor para los clientes usando tecnología. En 2026, la IA es el acelerador más potente de esa transformación para las empresas LATAM.',
+            'intro2': 'Las empresas que lideran la transformación digital en LATAM no empezaron con grandes proyectos. Empezaron automatizando la atención al cliente y fueron escalando. La clave: resultados rápidos que financian las siguientes etapas.',
+            'benefits': [('fa-rocket', 'Velocidad de adopción', 'Un agente IA para WhatsApp puede estar operando en 5 días. El ROI es visible en las primeras 4 semanas.'), ('fa-users', 'Toda la organización se beneficia', 'Ventas convierte más. Operaciones responde menos consultas básicas. Dirección tiene datos para decidir.'), ('fa-shield-alt', 'Sin riesgo tecnológico', 'No tocamos tus sistemas existentes. El agente se integra sobre lo que ya tienes: WhatsApp Business y tu equipo.')],
+            'steps': [('Diagnóstico digital', 'Evaluamos tu madurez digital actual y definimos el roadmap más realista para tu etapa.'), ('Quick wins', 'Implementamos las automatizaciones de mayor impacto inmediato para generar confianza interna.'), ('Escala sostenible', 'Con los aprendizajes del piloto, construimos la arquitectura de largo plazo.')],
+            'faqs': [('¿Por dónde empezar la transformación digital con IA?', 'Por el proceso que más duele hoy: generalmente es la atención al cliente o la generación de leads. Ahí es donde la IA tiene impacto inmediato.'), ('¿Cuánto tiempo toma la transformación digital?', 'Las primeras mejoras tangibles se ven en 30-60 días. La transformación profunda es un proceso de 12-24 meses. Pero el retorno empieza desde el día 1.'), ('¿Necesitamos cambiar toda nuestra tecnología?', 'No. Empezamos sobre lo que ya tienes. WhatsApp Business, tu CRM actual, tu calendario. La IA se integra, no reemplaza.'), ('¿Cómo medimos el éxito?', 'Velocidad de respuesta, tasa de conversión, satisfacción del cliente, horas ahorradas y reducción de costos operativos.')],
+        },
+        'ia-para-pymes': {
+            'intro': 'Las PYMES de LATAM tienen el mismo problema: pocos recursos, mucha demanda de atención y competencia de empresas más grandes. La IA nivela el campo de juego: una PYME con agente IA puede responder tan rápido y bien como una empresa de 500 empleados.',
+            'intro2': 'El mito es que la IA es cara. La realidad: un agente IA para WhatsApp cuesta menos que el 20% del salario de un asesor de atención al cliente, trabaja 24/7 y nunca se cansa.',
+            'benefits': [('fa-dollar-sign', 'Costo accesible', 'Planes desde USD 79/mes. Menos que contratar medio tiempo de atención al cliente, con el triple de capacidad.'), ('fa-expand-arrows-alt', 'Escala sin contratar', 'Maneja 10 o 1.000 conversaciones simultáneas con el mismo costo. La IA crece con tu negocio sin escalar costos.'), ('fa-star', 'Experiencia de gran empresa', 'Tus clientes reciben la misma calidad de atención que ofrecen las grandes marcas: inmediata, precisa y 24/7.')],
+            'steps': [('Onboarding express', 'En 48 horas configuramos el agente con la información básica de tu PYME.'), ('Ajuste fino', 'Durante los primeros 14 días afinamos respuestas según las conversaciones reales.'), ('Crecimiento', 'Con el agente funcionando, tu equipo puede enfocarse en crecer el negocio, no en responder mensajes.')],
+            'faqs': [('¿Funciona para negocios muy pequeños?', 'Sí. Si tienes WhatsApp Business y recibes más de 10 mensajes al día, ya te conviene automatizar.'), ('¿Cuánto cuesta para una PYME en Colombia?', 'Desde COP 320.000/mes. Ajustamos los precios a la moneda y poder adquisitivo de cada país LATAM.'), ('¿Necesito equipo técnico?', 'No. Nos encargamos de todo. Solo necesitas aprobar el contenido de entrenamiento y conectar tu WhatsApp Business.'), ('¿Puedo cancelar cuando quiera?', 'Sí. Trabajamos mes a mes. Sin contratos anuales ni penalidades por cancelación.')],
+        },
+        'ia-para-retail': {
+            'intro': 'El retail LATAM enfrenta dos desafíos simultáneos: competencia de e-commerce masivo y clientes que exigen atención inmediata en WhatsApp. Los retailers que sobreviven y crecen son los que combinan la cercanía del negocio local con la velocidad de la tecnología.',
+            'intro2': 'Un agente IA para retail responde consultas de stock, precios y disponibilidad en segundos, recomienda productos según el perfil del cliente y recupera ventas abandonadas automáticamente.',
+            'benefits': [('fa-search', 'Búsqueda de productos inteligente', 'El cliente describe lo que busca y el agente recomienda opciones de tu catálogo al instante.'), ('fa-shopping-bag', 'Proceso de compra guiado', 'El agente acompaña al cliente desde la consulta hasta la confirmación del pedido sin fricción.'), ('fa-redo', 'Recuperación de abandono', 'Detecta clientes que consultaron pero no compraron y los contacta proactivamente con incentivos personalizados.')],
+            'steps': [('Catálogo digital', 'Cargamos tu catálogo completo: fotos, precios, variantes y stock.'), ('Flujos de compra', 'Configuramos el proceso de consulta, cotización y confirmación de pedido.'), ('Recuperación automática', 'Activamos secuencias de seguimiento para leads que no convirtieron.')],
+            'faqs': [('¿Se puede integrar con mi sistema de inventario?', 'Sí. Conectamos con los principales sistemas de inventario y e-commerce para que el agente conozca el stock en tiempo real.'), ('¿El agente puede procesar pagos?', 'El agente puede enviar links de pago y confirmar transacciones. La pasarela de pago la configuras tú.'), ('¿Funciona para tiendas físicas y online?', 'Sí para ambas. Para tiendas físicas gestiona reservas de productos. Para online acompaña todo el funnel de compra.'), ('¿Cómo maneja las devoluciones?', 'El agente recopila la información de la devolución y escala al equipo humano con todos los datos listos.')],
+        },
+        'ia-para-salud': {
+            'intro': 'El sector salud en LATAM tiene un problema estructural: la demanda supera la capacidad de atención. Los pacientes esperan días para agendar, las clínicas pierden citas por falta de seguimiento y el personal gasta horas en llamadas administrativas.',
+            'intro2': 'Un agente IA para salud automatiza el 80% de la gestión administrativa: agendamiento, confirmaciones, recordatorios y triaje básico. El personal médico se enfoca en lo que realmente importa: el paciente.',
+            'benefits': [('fa-calendar-plus', 'Agendamiento 24/7', 'Los pacientes agendan citas a cualquier hora por WhatsApp. El agente consulta disponibilidad real y confirma en segundos.'), ('fa-bell', 'Reducción de ausentismo', 'Recordatorios automáticos 24h y 2h antes de la cita reducen el ausentismo entre un 30% y 45%.'), ('fa-clipboard-list', 'Triaje inicial', 'El agente recopila síntomas y urgencia antes de la cita, permitiendo al médico prepararse y priorizar correctamente.')],
+            'steps': [('Configuración clínica', 'Cargamos horarios, especialidades, médicos disponibles y protocolos de atención.'), ('Integración de agenda', 'Conectamos con tu sistema de agenda actual para sincronización en tiempo real.'), ('Protocolo de escalada', 'Definimos claramente cuándo el agente escala a personal humano en casos de urgencia.')],
+            'faqs': [('¿Es seguro para datos de pacientes?', 'Sí. Cumplimos con los estándares de manejo de datos del sector salud. Los datos se transmiten encriptados y no se almacenan en terceros no autorizados.'), ('¿Puede el agente dar diagnósticos?', 'No y nunca lo hace. El agente gestiona la parte administrativa y escala siempre al profesional para cualquier consulta médica.'), ('¿Funciona para clínicas especializadas?', 'Sí. Tenemos experiencia con odontología, dermatología, psicología, fisioterapia y medicina general.'), ('¿Cuánto tiempo toma la implementación?', 'Entre 5 y 10 días hábiles incluyendo la carga de información y pruebas.')],
+        },
+        'ia-para-restaurantes': {
+            'intro': 'Los restaurantes LATAM pierden entre el 15% y 25% de sus reservas por falta de confirmación oportuna. Un agente IA para restaurantes maneja reservas, pedidos para llevar, consultas de menú y recuperación de clientes inactivos, todo por WhatsApp.',
+            'intro2': 'El cliente de 2026 no llama para reservar: escribe por WhatsApp. Si no obtienes respuesta en 5 minutos, va al restaurante de al lado. Con un agente IA, respondes en 3 segundos.',
+            'benefits': [('fa-utensils', 'Reservas automáticas', 'El agente verifica disponibilidad y confirma la reserva en tiempo real, sin intervención del equipo.'), ('fa-motorcycle', 'Pedidos para llevar', 'Gestiona pedidos, personaliza por alergias o preferencias y confirma tiempos de entrega automáticamente.'), ('fa-user-clock', 'Recuperación de clientes', 'Identifica clientes que no han visitado en 30+ días y les envía una oferta personalizada para reactivarlos.')],
+            'steps': [('Menú digital', 'Cargamos tu menú completo con precios, fotos y opciones de personalización.'), ('Flujos de reserva', 'Configuramos el proceso de reserva, lista de espera y confirmaciones.'), ('Fidelización', 'Activamos secuencias de recuperación para clientes inactivos y fechas especiales.')],
+            'faqs': [('¿Puede el agente manejar pedidos a domicilio?', 'Sí. Gestiona el pedido completo, calcula el total y coordina con tu equipo de cocina.'), ('¿Funciona para restaurantes con múltiples sucursales?', 'Sí. Configuramos el agente para dirigir al cliente a la sucursal más cercana o disponible.'), ('¿Cómo maneja las alergias?', 'El agente pregunta activamente por restricciones alimentarias y las agrega como nota al pedido.'), ('¿Se puede integrar con delivery apps?', 'El agente maneja el canal de WhatsApp. La integración con Rappi o iFood requiere desarrollo adicional.')],
+        },
+        'ia-para-hoteles': {
+            'intro': 'Los hoteles boutique y hostales de LATAM compiten con las grandes cadenas internacionales sin los mismos recursos. Un agente IA multiidioma para WhatsApp les permite ofrecer atención instantánea en español, inglés y portugués, 24/7, a una fracción del costo de personal.',
+            'intro2': 'El 68% de los viajeros preguntan por WhatsApp antes de reservar. Si tardas más de 10 minutos en responder, reservan en otro hotel. Con IA, tu respuesta es instantánea.',
+            'benefits': [('fa-globe', 'Multiidioma automático', 'El agente detecta el idioma del huésped y responde en español, inglés o portugués sin configuración adicional.'), ('fa-bed', 'Reservas directas', 'Evita comisiones de OTAs: el agente toma reservas directas por WhatsApp con confirmación automática.'), ('fa-concierge-bell', 'Servicio al huésped', 'Durante la estadía, el agente resuelve solicitudes de housekeeping, restaurante y check-out sin que el huésped llame a recepción.')],
+            'steps': [('Perfil del hotel', 'Cargamos habitaciones, tarifas, políticas y servicios disponibles.'), ('Flujo de reserva', 'Configuramos verificación de disponibilidad, cotización y confirmación de reserva.'), ('Protocolo de estadía', 'Activamos mensajes de bienvenida, guía de servicios y check-out automatizado.')],
+            'faqs': [('¿Puede el agente conectarse con el PMS del hotel?', 'Dependiendo del PMS. Tenemos integración con los principales sistemas. Consultamos caso por caso.'), ('¿Cómo maneja las cancelas y cambios?', 'El agente gestiona cambios de fecha y cancelas según la política del hotel, con confirmación automática.'), ('¿Funciona para hostales pequeños?', 'Perfectamente. De hecho, los hostales obtienen mayor beneficio proporcional porque tienen menos personal para atender tantas consultas.'), ('¿En qué idiomas opera?', 'Principalmente español, inglés y portugués. Otros idiomas se evalúan caso a caso.')],
+        },
+        'ia-para-salones-de-belleza': {
+            'intro': 'Los salones de belleza tienen el mismo problema en toda LATAM: clientes que escriben por WhatsApp para agendar cita, estilistas ocupadas que no pueden responder y citas que se pierden por falta de seguimiento. Un agente IA lo resuelve completamente.',
+            'intro2': 'Imagina que tu salón responde automáticamente a las 11pm cuando una clienta pregunta si hay cita disponible mañana. El agente verifica la agenda, confirma el turno y envía un recordatorio. Sin que tú hagas nada.',
+            'benefits': [('fa-scissors', 'Agenda inteligente', 'El agente consulta disponibilidad de cada estilista y tipo de servicio en tiempo real para ofrecer opciones precisas.'), ('fa-sms', 'Recordatorios automáticos', 'Envía recordatorios 24h y 1h antes de la cita. Reduce las ausencias hasta un 35%.'), ('fa-gift', 'Fidelización y paquetes', 'Notifica a clientas sobre promociones, paquetes y fechas especiales como cumpleaños para aumentar el ticket promedio.')],
+            'steps': [('Catálogo de servicios', 'Cargamos todos tus servicios, tiempos, precios y estilistas disponibles.'), ('Agenda digital', 'Sincronizamos con tu agenda actual o configuramos una nueva completamente manejada por el agente.'), ('Secuencias de fidelización', 'Activamos mensajes automáticos de cumpleaños, inactividad y promociones especiales.')],
+            'faqs': [('¿El agente agenda con estilistas específicas?', 'Sí. Las clientas pueden pedir a su estilista favorita o al primero disponible.'), ('¿Cómo maneja los depósitos para citas?', 'El agente puede solicitar depósito y enviar el link de pago correspondiente antes de confirmar la cita.'), ('¿Funciona para salones con varias sedes?', 'Sí. El agente identifica la sede más conveniente para la clienta y gestiona la agenda de cada una.'), ('¿Qué pasa si la clienta llega tarde?', 'El agente puede enviar recordatorio 30 minutos antes y gestionar reprogramación si la clienta avisa que no puede llegar.')],
+        },
+        'ia-para-inmobiliarias': {
+            'intro': 'Las inmobiliarias LATAM reciben decenas de leads por día pero solo cierran el 3-5%. El cuello de botella no está en los inmuebles: está en la calificación tardía. Un agente IA califica, filtra y agenda visitas automáticamente para que tus asesores solo hablen con leads listos para decidir.',
+            'intro2': 'Cada minuto que tardas en responder a un lead inmobiliario, la probabilidad de cierre cae un 1%. Con un agente IA, respondes en segundos y cualificas en la misma conversación.',
+            'benefits': [('fa-filter', 'Calificación automática', 'El agente pregunta zona, presupuesto, tipo de propiedad y urgencia. Solo pasa a tus asesores los leads con perfil de compra.'), ('fa-map-marker-alt', 'Presentación de propiedades', 'Muestra fichas de propiedades relevantes según el perfil del cliente, incluyendo fotos y precios.'), ('fa-handshake', 'Agenda de visitas', 'Coordina visitas directamente con el asesor disponible sin correos de ida y vuelta.')],
+            'steps': [('Portafolio digital', 'Cargamos todas las propiedades disponibles con filtros por zona, precio y tipo.'), ('Flujo de calificación', 'Configuramos las preguntas clave para calificar leads según tu criterio.'), ('Agenda con asesores', 'Integramos el calendario de cada asesor para agendar visitas automáticamente.')],
+            'faqs': [('¿Puede el agente mostrar fotos de propiedades?', 'Sí. Envía fichas con fotos, planos y link al listado completo directamente por WhatsApp.'), ('¿Cómo maneja leads de arriendos y ventas?', 'El agente detecta el tipo de operación desde la primera pregunta y personaliza el flujo correspondiente.'), ('¿Se integra con portales como Finca Raíz o Properati?', 'Manejamos el canal de WhatsApp. Los portales generan los leads y el agente los convierte.'), ('¿El agente puede dar precios?', 'Sí, los precios que cargues. Para negociación de precio, escala al asesor humano.')],
+        },
+        'precios-agente-ia-latam': {
+            'intro': 'Una de las primeras preguntas que recibimos es: ¿cuánto cuesta un agente IA? La respuesta depende del país, el volumen de conversaciones y las integraciones necesarias. Aquí te damos los rangos reales de 2026, sin letra pequeña.',
+            'intro2': 'El costo de un agente IA siempre debe compararse contra su alternativa: contratar personal de atención al cliente. En LATAM, un asesor de atención cuesta entre USD 400-800/mes y atiende entre 50-100 conversaciones diarias. Un agente IA atiende conversaciones ilimitadas por una fracción de ese costo.',
+            'benefits': [('fa-tag', 'Plan Básico: desde USD 79/mes', 'Hasta 500 conversaciones mensuales. Ideal para PYMES con menos de 20 consultas diarias. Incluye configuración y soporte básico.'), ('fa-star', 'Plan Estándar: desde USD 149/mes', 'Conversaciones ilimitadas para un número de WhatsApp. Integraciones con CRM y calendario. Soporte prioritario.'), ('fa-crown', 'Plan Empresa: desde USD 299/mes', 'Múltiples números, integraciones avanzadas, reportes de analytics y gerente de cuenta dedicado.')],
+            'steps': [('Consulta gratuita', 'Analizamos tu volumen de conversaciones actual y necesidades específicas.'), ('Propuesta personalizada', 'Presentamos el plan más adecuado con precios exactos en tu moneda local.'), ('Implementación', 'Empezamos en 5 días hábiles. Pagas cuando el agente está funcionando.')],
+            'faqs': [('¿Los precios incluyen el número de WhatsApp?', 'No. Debes tener WhatsApp Business con un número propio. Te acompañamos en el proceso de activación si lo necesitas.'), ('¿Hay contrato de permanencia?', 'No. Trabajamos mes a mes. Puedes cancelar cuando quieras sin penalidades.'), ('¿Los precios incluyen IVA?', 'Los precios base son en USD y no incluyen impuestos locales. Para Colombia aplica IVA del 19% sobre el servicio digital.'), ('¿Se puede cambiar de plan?', 'Sí. Puedes escalar o reducir el plan en cualquier momento. El ajuste aplica desde el siguiente mes.')],
+        },
+        'como-implementar-agente-ia': {
+            'intro': 'Implementar un agente IA en tu empresa en 2026 es mucho más rápido de lo que imaginas. No requiere un equipo de tecnología ni meses de desarrollo. En Consultor IA lo hacemos en 5 pasos y entre 5 y 10 días hábiles.',
+            'intro2': 'El error más común es creer que necesitas tener todo perfecto antes de empezar. La realidad es que el agente mejora con el uso. Lanza rápido, mide, ajusta.',
+            'benefits': [('fa-clock', 'En menos de 10 días', 'Desde el primer call hasta el agente funcionando en producción. Rápido porque usamos metodología probada con cientos de implementaciones.'), ('fa-check-double', 'Sin riesgo', 'Los primeros 14 días son de prueba. Si el agente no funciona como esperabas, te devolvemos el dinero.'), ('fa-graduation-cap', 'Capacitación incluida', 'Entrenamos a tu equipo para revisar conversaciones, ajustar respuestas y sacar el máximo provecho del agente.')],
+            'steps': [('Kick-off (Día 1)', 'Call de 60 minutos para entender tu negocio, flujos de atención y objetivos del agente.'), ('Entrenamiento (Días 2-5)', 'Cargamos tu información y configuramos los flujos de conversación. Tú apruebas el contenido.'), ('QA y lanzamiento (Días 6-10)', 'Pruebas internas, ajustes finos y activación del agente en producción con monitoreo en tiempo real.')],
+            'faqs': [('¿Necesito cambiar mi número de WhatsApp?', 'No. El agente opera sobre tu número actual de WhatsApp Business. Si no tienes cuenta Business, te ayudamos a crearla.'), ('¿Qué información necesito preparar?', 'Lista de preguntas frecuentes, catálogo de servicios/productos con precios, horarios de atención y nombre del negocio. Eso es suficiente para empezar.'), ('¿Cuánto tiempo me toma a mí durante la implementación?', 'Aproximadamente 3-4 horas distribuidas en 10 días: el kick-off, revisión del contenido y pruebas finales.'), ('¿Qué pasa después del lanzamiento?', 'Monitoreo durante 30 días, informe mensual de conversaciones y sesión de optimización a los 30 días.')],
+        },
+        'agente-ia-vs-chatbot': {
+            'intro': 'No todos los bots son iguales. Existe una diferencia fundamental entre un chatbot tradicional y un agente IA que muchas empresas descubren tarde, después de frustrar a sus clientes con menús de "presione 1 para ventas, presione 2 para soporte".',
+            'intro2': 'En 2026, el estándar mínimo que exigen los clientes LATAM es una conversación natural, que entienda el contexto y que resuelva en la misma interacción. Eso solo lo da un agente IA.',
+            'benefits': [('fa-comments', 'Agente IA: conversación natural', 'Entiende preguntas en lenguaje libre, con errores de ortografía, jerga local y mensajes de voz. Responde con contexto.'), ('fa-sitemap', 'Chatbot: menús predefinidos', 'Solo responde a opciones preconfiguradas. Si el cliente se sale del flujo, el bot se rompe o dice "no entiendo".'), ('fa-trophy', 'El veredicto', 'Para negocios con conversaciones diversas y clientes exigentes: agente IA. Para FAQs simples con 5 opciones: chatbot puede funcionar.')],
+            'steps': [('Evalúa tu caso', 'Analiza el 20% de conversaciones más difíciles que recibes. Si un chatbot no las manejaría, necesitas agente IA.'), ('Calcula el ROI', 'Compara el costo del agente vs chatbot vs personal humano en tu volumen de conversaciones.'), ('Implementa el correcto', 'Te asesoramos gratis para que elijas la tecnología más adecuada para tu caso específico.')],
+            'faqs': [('¿Cuánto más caro es un agente IA vs chatbot?', 'Entre 30-50% más caro que un chatbot básico. Pero la tasa de resolución es 3-4x mayor, lo que se traduce en más conversiones.'), ('¿Los chatbots son obsoletos?', 'Para casos muy simples (horarios, dirección, menú fijo) un chatbot sigue siendo válido. Para ventas y atención compleja, el agente IA es claramente superior.'), ('¿Puedo migrar de chatbot a agente IA?', 'Sí. Si ya tienes un chatbot, migramos la información y flujos al agente IA. El proceso toma 3-5 días adicionales.'), ('¿Qué pasa cuando el agente no sabe responder?', 'El agente IA escala al humano con todo el contexto de la conversación. El chatbot generalmente solo dice "no entendí" sin contexto.')],
+        },
+        'casos-exito-ia-pymes': {
+            'intro': 'La mejor prueba de que la IA funciona para PYMES LATAM no son las estadísticas globales: son los negocios reales en Colombia, México y Argentina que implementaron un agente IA y midieron resultados concretos.',
+            'intro2': 'Estos son casos representativos de los tipos de resultados que nuestros clientes reportan. Los números varían según el negocio, pero la tendencia es consistente: más respuestas, más ventas, menos carga para el equipo.',
+            'benefits': [('fa-tooth', 'Clínica dental en Bogotá', 'Redujo el ausentismo de citas de 28% a 11% con recordatorios automáticos. Recuperó 40 horas mensuales de tiempo de recepcionista.'), ('fa-utensils', 'Restaurante en Ciudad de México', 'Aumentó reservas confirmadas en 34% en los primeros 60 días. El agente maneja el 85% de las conversaciones sin intervención humana.'), ('fa-building', 'Inmobiliaria en Buenos Aires', 'Pasó de calificar 15 leads/semana manualmente a 80+ leads/semana con el agente. Tasa de cierre mejoró del 3% al 8%.')],
+            'steps': [('Mide antes', 'Antes de implementar, registra tu tasa de respuesta, tiempo promedio de atención y conversión actual.'), ('Implementa', 'Lanza el agente con los flujos básicos y mide semanalmente durante el primer mes.'), ('Compara y escala', 'Con los datos reales, optimiza y expande a más canales y procesos.')],
+            'faqs': [('¿Estos resultados están garantizados?', 'No garantizamos números específicos porque dependen del negocio, la industria y cómo se implemente. Sí garantizamos que si en 14 días no ves mejora, te devolvemos el dinero.'), ('¿Puedo hablar con clientes actuales de Consultor IA?', 'Sí. En la demo gratuita podemos conectarte con un cliente de tu misma industria para que escuches su experiencia directamente.'), ('¿Cuánto tiempo tarda en verse el primer impacto?', 'La velocidad de respuesta mejora desde el día 1. Las métricas de conversión suelen mejorar en las primeras 2-4 semanas.'), ('¿Qué industrias tienen mejores resultados?', 'Salud (por la reducción de ausentismo), restaurantes (por el volumen de reservas) e inmobiliarias (por la calificación de leads) son los casos con mayor ROI documentado.')],
+        },
+    }
+
+    data = PILLAR_DATA.get(slug, {
+        'intro': f'La inteligencia artificial está transformando los negocios LATAM. Descubre cómo implementar {kw} para mejorar tu atención al cliente y aumentar tus ventas.',
+        'intro2': 'Nuestros agentes IA para WhatsApp trabajan 24/7, responden en segundos y se adaptan completamente a tu negocio.',
+        'benefits': [('fa-robot', 'Automatización inteligente', 'Responde clientes, agenda citas y cierra ventas automáticamente.'), ('fa-chart-line', 'Más resultados', 'Aumenta conversiones y reduce costos operativos desde el primer mes.'), ('fa-headset', 'Soporte incluido', 'Acompañamiento completo durante la implementación y el primer mes.')],
+        'steps': [('Diagnóstico', 'Analizamos tu negocio y definimos la mejor estrategia.'), ('Implementación', 'Configuramos y entrenamos el agente en 5-10 días.'), ('Optimización', 'Ajustamos basándonos en datos reales del primer mes.')],
+        'faqs': [('¿Cuánto cuesta?', 'Desde USD 79/mes dependiendo del volumen y las integraciones necesarias.'), ('¿Cuánto tarda la implementación?', 'Entre 5 y 10 días hábiles desde el kick-off hasta el lanzamiento.'), ('¿Necesito conocimientos técnicos?', 'No. Nos encargamos de todo el proceso técnico.'), ('¿Funciona para mi industria?', 'Sí. Tenemos experiencia en más de 10 industrias LATAM.')],
+    })
+
+    intro = data['intro']
+    intro2 = data['intro2']
+    benefits = data['benefits']
+    steps = data['steps']
+    faqs = data['faqs']
+
+    # Build benefits cards
+    benefits_html = ''
+    for icon, title, desc in benefits:
+        benefits_html += f'''
+        <div class="bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+            <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-5">
+                <i class="fas {icon} text-2xl text-accent"></i>
+            </div>
+            <h3 class="font-header font-bold text-xl mb-3 text-zinc-900 dark:text-white">{title}</h3>
+            <p class="text-gray-2 dark:text-zinc-400 leading-relaxed">{desc}</p>
+        </div>'''
+
+    # Build steps
+    steps_html = ''
+    for i, (title, desc) in enumerate(steps, 1):
+        steps_html += f'''
+        <div class="flex gap-6 items-start">
+            <div class="w-12 h-12 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-lg flex items-center justify-center flex-shrink-0">{i}</div>
+            <div>
+                <h3 class="font-header font-bold text-lg mb-2 text-zinc-900 dark:text-white">{title}</h3>
+                <p class="text-gray-2 dark:text-zinc-400 leading-relaxed">{desc}</p>
+            </div>
+        </div>'''
+
+    # Build FAQs
+    faqs_html = ''
+    for question, answer in faqs:
+        faqs_html += f'''
+        <details class="group border border-gray-border dark:border-zinc-800 rounded-2xl overflow-hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-zinc-900 dark:text-white hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors">
+                {question}
+                <i class="fas fa-chevron-down text-gray-2 dark:text-zinc-500 group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4"></i>
+            </summary>
+            <div class="px-6 pb-6 text-gray-2 dark:text-zinc-400 leading-relaxed border-t border-gray-border dark:border-zinc-800 pt-4">
+                {answer}
+            </div>
+        </details>'''
+
+    return f'''
+    <!-- Intro -->
+    <section class="py-16">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="prose max-w-none">
+                <p class="text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed mb-6">{intro}</p>
+                <p class="text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">{intro2}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-16 bg-zinc-50 dark:bg-zinc-900/30">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-3xl font-header font-bold text-center mb-12 text-zinc-900 dark:text-white">¿Por qué elegir esta solución?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {benefits_html}
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="py-16">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl font-header font-bold text-center mb-12 text-zinc-900 dark:text-white">Cómo funciona</h2>
+            <div class="flex flex-col gap-10">
+                {steps_html}
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-zinc-50 dark:bg-zinc-900/30">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-3xl font-header font-bold text-center mb-12 text-zinc-900 dark:text-white">Preguntas frecuentes</h2>
+            <div class="flex flex-col gap-4">
+                {faqs_html}
+            </div>
+        </div>
+    </section>'''
+
 def setup_dist():
 
     if not os.path.exists(DIST_DIR):
@@ -1329,38 +1548,38 @@ def build():
     # Generate Pillar Pages
     with open(os.path.join(SRC_DIR, "pillar.html"), "r", encoding="utf-8") as f:
         pillar_template = f.read()
-        
+
     if os.path.exists(PILLARS_CSV):
         with open(PILLARS_CSV, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f)
             pillars_data = list(reader)
-            
+
         for row in pillars_data:
             out_html = pillar_template
-            
             slug = row.get('Slug', '').strip('/')
-            
-            # Simple content list based on priority (placeholder logic)
-            content_html = f'<div class="p-4 bg-gray-50 dark:bg-slate-800 rounded-xl border border-gray-border dark:border-slate-700"><h3 class="font-bold text-brand dark:text-brand-light">{row.get("H1")}</h3><p class="text-sm mt-2 text-gray-600 dark:text-slate-400">Contenido en desarrollo para {row.get("Keyword_Principal")}.</p></div>'
-            
+            content_html = build_pillar_content(row)
+
             replacements = {
                 '{FOOTER_HTML}': footer_html,
+                '{MEGA_MENU}': mega_menu_html,
                 '{H1}': row.get('H1', ''),
                 '{H1_HTML}': format_h1(row.get('H1', '')),
                 '{TITLE_SEO}': row.get('Title', ''),
                 '{META_DESCRIPTION}': row.get('MetaDescription', ''),
-                '{CONTENT_HTML}': content_html
+                '{CONTENT_HTML}': content_html,
+                '{SLUG}': slug,
+                '{WA_NUMERO}': WA_NUMERO,
             }
-            
+
             for k, v in replacements.items():
                 out_html = out_html.replace(k, str(v))
-                
+
             output_path = os.path.join(DIST_DIR, slug, "index.html")
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
-            
+
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(out_html)
-                
+
             urls.append(f"https://consultor-ia.com.co/{slug}/")
             
     # Generate Sitemap
