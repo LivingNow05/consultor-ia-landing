@@ -533,14 +533,14 @@ def build_home_page(data):
     for ind, url in industry_first_url.items():
         icon = industry_icons.get(ind, 'fa-robot')
         industries_html += f"""
-        <a href="{{url}}" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm overflow-hidden hover:border-brand dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(255,255,255,0.05)] text-center">
+        <a href="{url}" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm overflow-hidden hover:border-brand dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(255,255,255,0.05)] text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            
+
             <div class="relative z-10 w-16 h-16 rounded-2xl bg-brand/5 dark:bg-white/5 border border-brand/10 dark:border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand/10 dark:group-hover:bg-white/10 transition-all duration-500 shadow-inner">
-                <i class="fas {{icon}} text-2xl text-brand dark:text-white group-hover:text-accent transition-colors"></i>
+                <i class="fas {icon} text-2xl text-brand dark:text-white group-hover:text-accent transition-colors"></i>
             </div>
-            
+
             <div class="relative z-10 flex flex-col items-center">
                 <span class="text-sm font-bold text-zinc-900 dark:text-white tracking-wide">{ind}</span>
                 <div class="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:mt-2 transition-all duration-300 overflow-hidden flex items-center justify-center">
