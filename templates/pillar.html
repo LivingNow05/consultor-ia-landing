@@ -104,51 +104,77 @@
 </head>
 <body class="bg-white dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 transition-colors duration-300">
 
-    <!-- Header -->
+    <!-- 1. Header (Sticky & Glass) -->
     <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
         <div class="w-full max-w-7xl glass rounded-full border border-gray-200 dark:border-zinc-800/80 shadow-2xl pointer-events-auto flex justify-between items-center px-6 py-3">
-            <a href="/" class="flex items-center gap-2">
-                <span class="font-header font-extrabold tracking-tighter text-2xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
+            <a href="/" class="text-2xl font-header flex items-center gap-2">
+                <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
             </a>
-            <nav class="hidden md:flex space-x-6 items-center">
+            
+            <nav class="hidden md:flex space-x-8 items-center">
+                <!-- Mega Menu Industrias -->
                 <div class="relative group z-50 py-2">
-                    <button class="font-medium text-gray-2 dark:text-zinc-300 hover:text-accent flex items-center gap-1 transition-colors text-sm">
+                    <button class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light flex items-center gap-1 transition-colors">
                         Industrias <i class="fas fa-chevron-down text-xs"></i>
                     </button>
-                    <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu">
+                    <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
                         {MEGA_MENU}
                     </div>
                 </div>
-                <a href="/" class="text-sm font-medium text-gray-2 dark:text-zinc-300 hover:text-accent transition-colors">Inicio</a>
-                <a href="/blog/" class="text-sm font-medium text-gray-2 dark:text-zinc-300 hover:text-accent transition-colors">Blog</a>
-                <button id="theme-toggle" class="text-gray-500 dark:text-zinc-400 hover:text-accent focus:outline-none rounded-lg text-lg p-2 transition-colors">
+                
+                <a href="/#como-funciona" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
                     <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                     <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
                 </button>
-                <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C+quiero+info+sobre+{SLUG}" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
+
+                <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
                     <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
                     <span class="relative z-10 flex items-center gap-2 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
                         Asesoría <i class="fab fa-whatsapp text-sm"></i>
                     </span>
                 </a>
             </nav>
-            <!-- Mobile -->
-            <button id="mobile-menu-btn" class="md:hidden text-zinc-700 dark:text-zinc-300 text-xl p-2">
+            
+            <button class="md:hidden text-gray-1 dark:text-slate-200 text-2xl" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-[99] bg-white dark:bg-zinc-950 transform translate-x-full transition-transform duration-300 pt-24 px-6">
-        <button id="mobile-menu-close" class="absolute top-6 right-6 text-2xl text-zinc-700 dark:text-zinc-300"><i class="fas fa-times"></i></button>
-        <nav class="flex flex-col gap-4">
-            <a href="/" class="text-lg font-medium text-zinc-800 dark:text-zinc-200 border-b border-gray-border dark:border-zinc-800 pb-4">Inicio</a>
-            <a href="/blog/" class="text-lg font-medium text-zinc-800 dark:text-zinc-200 border-b border-gray-border dark:border-zinc-800 pb-4">Blog</a>
-            <a href="https://wa.me/{WA_NUMERO}" class="mt-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-6 py-3 rounded-full text-center font-semibold">
-                <i class="fab fa-whatsapp mr-2"></i> Hablar con asesor
-            </a>
-        </nav>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[110] bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <div class="flex flex-col h-full p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="font-header font-extrabold text-2xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand focus:outline-none rounded-lg text-2xl p-2 transition-colors">
+                        <i id="theme-toggle-dark-icon-mobile" class="fas fa-moon hidden"></i>
+                        <i id="theme-toggle-light-icon-mobile" class="fas fa-sun hidden"></i>
+                    </button>
+                    <button id="close-menu-btn" class="text-3xl text-zinc-900 dark:text-white focus:outline-none">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <nav class="flex flex-col space-y-6 text-2xl font-header font-bold">
+                <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a>
+                <a href="/#como-funciona" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+                <a href="/blog/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
+            </nav>
+
+            <div class="mt-auto pt-8 border-t border-zinc-200 dark:border-zinc-800">
+                <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
+                    Asesoría WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+        </div>
     </div>
 
     <main>
