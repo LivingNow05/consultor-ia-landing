@@ -1204,6 +1204,17 @@ def build():
     # Generate Homepage
     build_home_page(data)
 
+    # Copy Assets (Favicon, etc.) to dist
+    import shutil
+    ASSETS_DIR = "assets"
+    if os.path.exists(ASSETS_DIR):
+        for item in os.listdir(ASSETS_DIR):
+            s = os.path.join(ASSETS_DIR, item)
+            d = os.path.join(DIST_DIR, item)
+            if os.path.isfile(s) and not item.endswith('.png_source'):
+                shutil.copy2(s, d)
+                print(f"Copied asset: {item}")
+
     print(f"Build complete! Generated {len(urls)} localized pages + homepage.")
 
 if __name__ == "__main__":
