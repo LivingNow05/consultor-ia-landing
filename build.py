@@ -495,14 +495,14 @@ def build_footer_html(data):
                 <a href="/sitemap.xml" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Sitemap</a>
             </div>
             <div class="flex gap-4">
-                <a href="#" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Aviso Legal</a>
-                <a href="#" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Política de Privacidad</a>
+                <a href="/aviso-legal/" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Aviso Legal</a>
+                <a href="/politica-de-privacidad/" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Política de Privacidad</a>
             </div>
         </div>
     </div>
 </footer>
 '''
-    return footer.replace("{{WA_NUMERO}}", str(WA_NUMERO))
+    return footer.replace("{WA_NUMERO}", str(WA_NUMERO))
 def build_home_page(data):
     footer_html = build_footer_html(data)
     """Genera homepage con el mismo design system de las landings."""
@@ -571,11 +571,61 @@ def build_home_page(data):
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="shortcut icon" href="/favicon.ico">
     <title>Consultor IA | Expertos en Automatización con Inteligencia Artificial</title>
-    <meta name="description" content="Automatiza la atencion al cliente, ventas y reservas con Agentes IA para WhatsApp 24/7. Para restaurantes, clinicas, hoteles y mas en LATAM.">
+    <meta name="description" content="Automatiza la atención al cliente, ventas y reservas con Agentes IA para WhatsApp 24/7. Para restaurantes, clínicas, hoteles y más en LATAM.">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://consultor-ia.com.co/">
     <meta property="og:title" content="Consultor IA | Agentes IA para Negocios LATAM">
-    <meta property="og:description" content="Implementamos Agentes de Inteligencia Artificial en WhatsApp para negocios en LATAM.">
+    <meta property="og:description" content="Automatiza la atención al cliente, ventas y reservas con Agentes IA para WhatsApp 24/7. Para restaurantes, clínicas, hoteles y más en LATAM.">
     <meta property="og:url" content="https://consultor-ia.com.co/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:site_name" content="Consultor IA">
+    <meta property="og:image" content="https://consultor-ia.com.co/images/og-home.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Consultor IA | Agentes IA para Negocios LATAM">
+    <meta name="twitter:description" content="Automatiza la atención al cliente, ventas y reservas con Agentes IA para WhatsApp 24/7.">
+    <meta name="twitter:image" content="https://consultor-ia.com.co/images/og-home.webp">
+    <!-- Schema: Organization -->
+    <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Consultor IA",
+      "url": "https://consultor-ia.com.co",
+      "logo": "https://consultor-ia.com.co/favicon-32x32.png",
+      "description": "Automatizamos la atención al cliente, ventas y operaciones con Agentes de Inteligencia Artificial para empresas en toda Latinoamérica.",
+      "areaServed": "LATAM",
+      "sameAs": [
+        "https://www.instagram.com/consultor.ia",
+        "https://www.linkedin.com/company/consultor-ia"
+      ],
+      "contactPoint": {{
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "availableLanguage": "Spanish",
+        "url": "https://wa.me/573151206985"
+      }}
+    }}
+    </script>
+    <!-- Schema: AggregateRating -->
+    <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Agente IA para WhatsApp",
+      "description": "Agente de Inteligencia Artificial para automatizar atención al cliente, ventas y reservas por WhatsApp en negocios LATAM.",
+      "brand": {{"@type": "Brand", "name": "Consultor IA"}},
+      "aggregateRating": {{
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "87"
+      }}
+    }}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
@@ -645,7 +695,7 @@ def build_home_page(data):
                 <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                 <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
             </button>
-            <a href="https://wa.me/WA_NUM?text=Hola%2C+quiero+una+demo+del+agente+IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
+            <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C+quiero+una+demo+del+agente+IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
                 <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
                 <span class="relative z-10 flex items-center gap-2 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">Demo <i class="fab fa-whatsapp text-sm"></i></span>
             </a>
@@ -674,7 +724,7 @@ def build_home_page(data):
                     Implementamos <strong>Agentes de Inteligencia Artificial</strong> en WhatsApp que responden, agendan y venden por ti. Sin contratar mas personal. Sin perder un solo cliente.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                    <a href="https://wa.me/WA_NUM?text=Hola%2C+quiero+una+demo+del+agente+IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-8 py-4 overflow-hidden transition-all duration-500">
+                    <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C+quiero+una+demo+del+agente+IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-8 py-4 overflow-hidden transition-all duration-500">
                         <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
                         <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">Solicitar Demo Gratis <i class="fab fa-whatsapp text-[14px]"></i></span>
                     </a>
@@ -763,7 +813,7 @@ def build_home_page(data):
         <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-4 block">Listo para empezar?</span>
         <h2 class="text-4xl md:text-6xl font-header font-bold mb-6">Nunca pierdas<br>un cliente mas</h2>
         <p class="text-xl text-gray-2 dark:text-slate-400 mb-10 max-w-2xl mx-auto">Unete a los negocios de LATAM que ya atienden, agendan y venden en piloto automatico.</p>
-        <a href="https://wa.me/WA_NUM?text=Hola%2C+quiero+una+demo+del+agente+IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
+        <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C+quiero+una+demo+del+agente+IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
             <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
             <span class="relative z-10 flex items-center gap-3 font-body text-sm font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75"><i class="fab fa-whatsapp text-lg"></i> Hablar con un Asesor</span>
         </a>
@@ -863,12 +913,128 @@ def build_home_page(data):
 </body>
 </html>"""
 
-    html = html.replace('WA_NUM', WA_NUMERO)
+    html = html.replace('{WA_NUMERO}', WA_NUMERO)
 
     output_path = os.path.join(DIST_DIR, "index.html")
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html)
     return output_path
+
+def build_legal_pages(data):
+    footer_html = build_footer_html(data)
+
+    pages = [
+        {
+            "slug": "aviso-legal",
+            "title": "Aviso Legal | Consultor IA",
+            "h1": "Aviso Legal",
+            "content": """
+            <p>En cumplimiento de la normativa vigente, <strong>Consultor IA</strong> pone a disposición de los usuarios la siguiente información legal sobre el uso del sitio web <a href="https://consultor-ia.com.co" class="text-accent underline">consultor-ia.com.co</a>.</p>
+            <h2 class="text-2xl font-header font-bold mt-10 mb-4">Titular del sitio web</h2>
+            <p>Razón social: Consultor IA<br>Correo electrónico: contacto@consultor-ia.com.co<br>Sitio web: https://consultor-ia.com.co</p>
+            <h2 class="text-2xl font-header font-bold mt-10 mb-4">Objeto y aceptación</h2>
+            <p>El presente Aviso Legal regula el acceso y uso del sitio web de Consultor IA. El acceso y uso del sitio implica la aceptación plena de estas condiciones.</p>
+            <h2 class="text-2xl font-header font-bold mt-10 mb-4">Propiedad intelectual</h2>
+            <p>Todos los contenidos del sitio web (textos, imágenes, logotipos, código fuente) son propiedad de Consultor IA o de sus licenciantes y están protegidos por las leyes de propiedad intelectual. Queda prohibida su reproducción total o parcial sin autorización expresa.</p>
+            <h2 class="text-2xl font-header font-bold mt-10 mb-4">Limitación de responsabilidad</h2>
+            <p>Consultor IA no se responsabiliza de los daños y perjuicios que pudieran derivarse del uso del sitio web o de la imposibilidad de acceder al mismo. Nos reservamos el derecho de modificar o interrumpir el servicio sin previo aviso.</p>
+            <h2 class="text-2xl font-header font-bold mt-10 mb-4">Legislación aplicable</h2>
+            <p>Este aviso legal se rige por la legislación colombiana. Para cualquier controversia, las partes se someten a los tribunales competentes de Colombia.</p>
+            """
+        },
+        {
+            "slug": "politica-de-privacidad",
+            "title": "Política de Privacidad | Consultor IA",
+            "h1": "Política de Privacidad",
+            "content": """
+            <p>En <strong>Consultor IA</strong> nos tomamos muy en serio la privacidad de nuestros usuarios. Esta política describe cómo recopilamos, usamos y protegemos tu información personal.</p>
+            <h2 class="text-2xl font-header font-bold mt-10 mb-4">Datos que recopilamos</h2>
+            <p>Podemos recopilar los siguientes datos cuando interactúas con nuestro sitio o servicios:</p>
+            <ul class="list-disc list-inside space-y-2 mt-4">
+                <li>Nombre y datos de contacto (al solicitar información o demo)</li>
+                <li>Número de teléfono (para contacto vía WhatsApp)</li>
+                <li>Datos de navegación (mediante cookies y herramientas de analítica)</li>
+                <li>Información sobre tu negocio (al contratar nuestros servicios)</li>
+            </ul>
+            <h2 class="text-2xl font-header font-bold mt-10 mb-4">Finalidad del tratamiento</h2>
+            <p>Usamos tus datos para: responder solicitudes de información, proveer los servicios contratados, mejorar nuestros productos, y enviar comunicaciones comerciales relevantes (siempre con tu consentimiento).</p>
+            <h2 class="text-2xl font-header font-bold mt-10 mb-4">Compartir datos con terceros</h2>
+            <p>No vendemos ni alquilamos tus datos a terceros. Podemos compartirlos con proveedores de servicios (hosting, analítica, pagos) bajo acuerdos de confidencialidad y solo en la medida necesaria para prestar el servicio.</p>
+            <h2 class="text-2xl font-header font-bold mt-10 mb-4">Tus derechos</h2>
+            <p>Tienes derecho a acceder, rectificar, cancelar u oponerte al tratamiento de tus datos. Para ejercer estos derechos, contáctanos en: <a href="mailto:contacto@consultor-ia.com.co" class="text-accent underline">contacto@consultor-ia.com.co</a>.</p>
+            <h2 class="text-2xl font-header font-bold mt-10 mb-4">Cookies</h2>
+            <p>Nuestro sitio puede utilizar cookies propias y de terceros para mejorar la experiencia de navegación y realizar análisis estadísticos. Puedes configurar tu navegador para rechazar cookies, aunque esto puede afectar la funcionalidad del sitio.</p>
+            <h2 class="text-2xl font-header font-bold mt-10 mb-4">Cambios en esta política</h2>
+            <p>Nos reservamos el derecho de actualizar esta política en cualquier momento. La versión vigente siempre estará disponible en esta página.</p>
+            <p class="mt-6 text-sm text-gray-400">Última actualización: mayo 2026</p>
+            """
+        }
+    ]
+
+    for page in pages:
+        html = f"""<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <title>{page['title']}</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://consultor-ia.com.co/{page['slug']}/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {{
+            darkMode: 'class',
+            theme: {{
+                extend: {{
+                    colors: {{
+                        'brand': '#18181b', 'brand-light': '#f4f4f5', 'accent': '#4f46e5',
+                        'success': '#10b981', 'gray-2': '#52525b', 'gray-border': '#e4e4e7',
+                    }},
+                    fontFamily: {{
+                        body: ['"Inter"', 'sans-serif'], header: ['"Playfair Display"', 'serif'],
+                    }}
+                }}
+            }}
+        }}
+    </script>
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {{
+            document.documentElement.classList.add('dark');
+        }} else {{
+            document.documentElement.classList.remove('dark');
+        }}
+    </script>
+</head>
+<body class="bg-white dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 font-body">
+    <header class="border-b border-gray-border dark:border-zinc-800 py-4 px-6">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <a href="/" class="font-header font-extrabold tracking-tighter text-2xl text-zinc-900 dark:text-white">
+                Consultor<span class="text-[#4f46e5]">IA</span>
+            </a>
+            <a href="/" class="text-sm text-gray-2 hover:text-zinc-900 dark:hover:text-white transition-colors">← Volver al inicio</a>
+        </div>
+    </header>
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <h1 class="text-4xl md:text-5xl font-header font-bold mb-8">{page['h1']}</h1>
+        <div class="prose max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed space-y-4">
+            {page['content']}
+        </div>
+    </main>
+    {footer_html}
+</body>
+</html>"""
+
+        out_path = os.path.join(DIST_DIR, page['slug'], "index.html")
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
+        with open(out_path, "w", encoding="utf-8") as f:
+            f.write(html)
 
 def setup_dist():
 
@@ -1187,9 +1353,12 @@ def build():
             urls.append(f"https://consultor-ia.com.co/{slug}/")
             
     # Generate Sitemap
+    from datetime import date
+    lastmod = date.today().isoformat()
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    sitemap += f'  <url>\n    <loc>https://consultor-ia.com.co/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
     for url in urls:
-        sitemap += f'  <url>\n    <loc>{url}</loc>\n    <changefreq>weekly</changefreq>\n  </url>\n'
+        sitemap += f'  <url>\n    <loc>{url}</loc>\n    <changefreq>weekly</changefreq>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
     sitemap += '</urlset>'
     
     with open(os.path.join(DIST_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
@@ -1202,6 +1371,9 @@ def build():
 
     # Generate Homepage
     build_home_page(data)
+
+    # Generate Legal Pages
+    build_legal_pages(data)
 
     # Copy Assets (Favicon, etc.) to dist
     import shutil
