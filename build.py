@@ -570,6 +570,8 @@ def build_home_page(data):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=10">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=10">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=10">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=10">
     <link rel="shortcut icon" href="/favicon.ico?v=10">
@@ -980,9 +982,11 @@ def build_legal_pages(data):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=10">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=10">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=10">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=10">
+    <link rel="shortcut icon" href="/favicon.ico?v=10">
     <title>{page['title']}</title>
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://consultor-ia.com.co/{page['slug']}/">
