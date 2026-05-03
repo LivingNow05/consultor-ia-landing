@@ -427,8 +427,9 @@ def build_footer_html(data):
         if ind and ind not in industries:
             industries[ind] = row.get('URL_Final')
             
-    # Obtener ciudades principales (agrupar por país)
+    # Obtener ciudades principales (agrupar por país, sin duplicados)
     countries = {}
+    seen_cities = {}
     for row in data:
         if row.get('Estado') != 'PUBLICAR': continue
         pais = row.get('País')
@@ -437,8 +438,10 @@ def build_footer_html(data):
         if pais and ciudad and url:
             if pais not in countries:
                 countries[pais] = []
-            if len(countries[pais]) < 8: # Limitar a 8 ciudades por país
+                seen_cities[pais] = set()
+            if ciudad not in seen_cities[pais] and len(countries[pais]) < 8:
                 countries[pais].append((ciudad, url))
+                seen_cities[pais].add(ciudad)
 
     # Construir HTML de industrias
     ind_links = ""
@@ -567,9 +570,9 @@ def build_home_page(data):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=10">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=10">
+    <link rel="shortcut icon" href="/favicon.ico?v=10">
     <title>Consultor IA | Expertos en Automatización con Inteligencia Artificial</title>
     <meta name="description" content="Automatiza la atención al cliente, ventas y reservas con Agentes IA para WhatsApp 24/7. Para restaurantes, clínicas, hoteles y más en LATAM.">
     <meta name="robots" content="index, follow">
