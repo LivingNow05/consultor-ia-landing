@@ -779,9 +779,15 @@ def build_home_page(data):
     <div class="flex flex-col h-full p-8">
         <div class="flex justify-between items-center mb-12">
             <span class="font-header font-extrabold text-2xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
-            <button id="close-menu-btn" class="text-3xl text-zinc-900 dark:text-white focus:outline-none">
-                <i class="fas fa-times"></i>
-            </button>
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand focus:outline-none rounded-lg text-2xl p-2 transition-colors">
+                    <i id="theme-toggle-dark-icon-mobile" class="fas fa-moon hidden"></i>
+                    <i id="theme-toggle-light-icon-mobile" class="fas fa-sun hidden"></i>
+                </button>
+                <button id="close-menu-btn" class="text-3xl text-zinc-900 dark:text-white focus:outline-none">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
         </div>
         
         <nav class="flex flex-col space-y-6 text-2xl font-header font-bold">
@@ -803,10 +809,25 @@ def build_home_page(data):
     var themeToggleBtn = document.getElementById('theme-toggle');
     var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-    if (document.documentElement.classList.contains('dark')) {{ themeToggleLightIcon.classList.remove('hidden'); }} else {{ themeToggleDarkIcon.classList.remove('hidden'); }}
-    themeToggleBtn.addEventListener('click', function() {{
+    
+    var themeToggleBtnMobile = document.getElementById('theme-toggle-mobile');
+    var themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+    var themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
+
+    if (document.documentElement.classList.contains('dark')) {{ 
+        themeToggleLightIcon.classList.remove('hidden'); 
+        if(themeToggleLightIconMobile) themeToggleLightIconMobile.classList.remove('hidden');
+    }} else {{ 
+        themeToggleDarkIcon.classList.remove('hidden'); 
+        if(themeToggleDarkIconMobile) themeToggleDarkIconMobile.classList.remove('hidden');
+    }}
+
+    const toggleThemeLogic = () => {{
         themeToggleDarkIcon.classList.toggle('hidden');
         themeToggleLightIcon.classList.toggle('hidden');
+        if(themeToggleDarkIconMobile) themeToggleDarkIconMobile.classList.toggle('hidden');
+        if(themeToggleLightIconMobile) themeToggleLightIconMobile.classList.toggle('hidden');
+        
         if (document.documentElement.classList.contains('dark')) {{
             document.documentElement.classList.remove('dark');
             localStorage.setItem('color-theme', 'light');
@@ -814,7 +835,10 @@ def build_home_page(data):
             document.documentElement.classList.add('dark');
             localStorage.setItem('color-theme', 'dark');
         }}
-    }});
+    }};
+
+    themeToggleBtn.addEventListener('click', toggleThemeLogic);
+    if(themeToggleBtnMobile) themeToggleBtnMobile.addEventListener('click', toggleThemeLogic);
 
     // --- Mobile Menu Toggle ---
     const mobileMenu = document.getElementById('mobile-menu');
