@@ -272,7 +272,7 @@
                         </h1>
                         
                         <p class="text-xl text-gray-2 dark:text-slate-300 mb-10 leading-relaxed max-w-2xl">
-                            Llena la agenda de tu salón en Barranquilla mientras trabajas. Tu agente IA responde tarifas, toma citas 24/7 y envía recordatorios para que tus sillones nunca estén vacíos. Factura más presupuesto, organizando menos.
+                            Llena la agenda de tu salón en Barranquilla mientras trabajas. Tu agente IA responde tarifas, toma citas 24/7 y envía recordatorios para que tus sillones nunca estén vacíos. Factura más plata, organizando menos.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -330,7 +330,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Qué más, a q hora tienen libre mañana para balayage y corte?
+                                        Quiubo, a q hora tienen libre mañana para balayage y corte?
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -641,52 +641,51 @@
                 <p class="text-lg text-gray-500 dark:text-slate-400">Estima cuánto dinero y tiempo estás dejando en la mesa por no automatizar.</p>
             </div>
             
-            <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 shadow-xl flex flex-col md:flex-row gap-12">
+            <div class="bg-[#FDFBF7] dark:bg-zinc-900/50 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 shadow-2xl flex flex-col md:flex-row gap-12 backdrop-blur-sm">
                 
                 <!-- Controles -->
-                <div class="w-full md:w-1/2 flex flex-col justify-center space-y-8">
+                <div class="w-full md:w-1/2 flex flex-col justify-center space-y-10">
                     <div>
-                        <div class="flex justify-between mb-2">
-                            <label class="font-bold text-gray-700 dark:text-slate-300">Chats diarios recibidos</label>
-                            <span id="calc-chats-val" class="text-brand font-bold">50</span>
+                        <div class="flex justify-between mb-4">
+                            <label class="font-header font-bold text-gray-700 dark:text-zinc-200 text-lg">Chats diarios recibidos</label>
+                            <span id="calc-chats-val" class="text-[#28D366] font-bold text-2xl">50</span>
                         </div>
-                        <input type="range" id="calc-chats" min="10" max="500" value="50" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-zinc-700 accent-brand">
-                        <p class="text-xs text-gray-400 mt-2">Mensajes de WhatsApp por día</p>
+                        <input type="range" id="calc-chats" min="10" max="500" value="50" class="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-[#28D366]">
+                        <p class="text-xs text-gray-400 dark:text-zinc-500 mt-3 font-medium uppercase tracking-wider">Mensajes de WhatsApp por día</p>
                     </div>
                     
                     <div>
-                        <div class="flex justify-between mb-2">
-                            <label class="font-bold text-gray-700 dark:text-slate-300">Ticket promedio de venta</label>
-                            <span id="calc-ticket-val" class="text-brand font-bold">COP 100</span>
+                        <div class="flex justify-between mb-4">
+                            <label class="font-header font-bold text-gray-700 dark:text-zinc-200 text-lg">Ticket promedio de venta</label>
+                            <span id="calc-ticket-val" class="text-[#28D366] font-bold text-2xl">COP 100</span>
                         </div>
-                        <input type="range" id="calc-ticket" min="10" max="1000" step="10" value="100" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-zinc-700 accent-brand">
-                        <p class="text-xs text-gray-400 mt-2">Valor promedio de lo que vendes</p>
+                        <input type="range" id="calc-ticket" min="10" max="1000" step="10" value="100" class="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-[#28D366]">
+                        <p class="text-xs text-gray-400 dark:text-zinc-500 mt-3 font-medium uppercase tracking-wider">Valor promedio de lo que vendes</p>
                     </div>
                 </div>
                 
                 <!-- Resultados -->
-                <div class="w-full md:w-1/2 bg-white dark:bg-zinc-950 border border-gray-100 dark:border-zinc-800 rounded-2xl p-6 flex flex-col justify-center space-y-6">
+                <div class="w-full md:w-1/2 bg-white dark:bg-zinc-950/80 border border-gray-100 dark:border-zinc-800 rounded-2xl p-8 flex flex-col justify-center space-y-8 shadow-inner">
                     <div class="text-center">
-                        <p class="text-sm text-gray-500 dark:text-slate-400 mb-1">Horas operativas ahorradas al mes</p>
-                        <div class="text-4xl font-bold text-gray-800 dark:text-white" id="res-hours">125h</div>
+                        <p class="text-sm text-gray-500 dark:text-zinc-400 mb-2 uppercase tracking-widest font-semibold">Horas ahorradas al mes</p>
+                        <div class="text-5xl font-header font-extrabold text-zinc-900 dark:text-white" id="res-hours">125h</div>
                     </div>
                     
-                    <div class="h-px bg-gray-100 dark:bg-zinc-800 w-full"></div>
+                    <div class="h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-zinc-800 to-transparent w-full"></div>
                     
                     <div class="text-center">
-                        <p class="text-sm text-gray-500 dark:text-slate-400 mb-1">Leads recuperados al mes (Est. 20%)</p>
-                        <div class="text-3xl font-bold text-gray-800 dark:text-white" id="res-leads">300</div>
+                        <p class="text-sm text-gray-500 dark:text-zinc-400 mb-2 uppercase tracking-widest font-semibold">Leads recuperados (Est. 20%)</p>
+                        <div class="text-4xl font-header font-extrabold text-zinc-900 dark:text-white" id="res-leads">+300</div>
                     </div>
                     
-                    <div class="h-px bg-gray-100 dark:bg-zinc-800 w-full"></div>
+                    <div class="h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-zinc-800 to-transparent w-full"></div>
                     
-                    <div class="text-center bg-brand/5 dark:bg-brand/10 rounded-xl p-4 border border-brand/20">
-                        <p class="text-sm text-brand dark:text-brand-light font-bold mb-1">Ingresos Extra Estimados (Mes)</p>
-                        <div class="text-4xl font-bold text-brand dark:text-brand-light" id="res-revenue">COP 4,500</div>
-                        <p class="text-[10px] text-gray-400 mt-2">*Asumiendo un cierre del 15% sobre leads recuperados.</p>
+                    <div class="text-center bg-[#28D366]/5 dark:bg-[#28D366]/10 rounded-2xl p-6 border border-[#28D366]/20">
+                        <p class="text-xs text-[#28D366] dark:text-[#28D366] font-bold mb-2 uppercase tracking-tighter">Ingresos Extra Estimados (Mes)</p>
+                        <div class="text-4xl font-header font-extrabold text-[#28D366]" id="res-revenue">COP 4,500</div>
+                        <p class="text-[10px] text-gray-400 dark:text-zinc-500 mt-4 leading-tight">*Basado en una tasa de cierre conservadora del 15%.</p>
                     </div>
                 </div>
-                
             </div>
         </div>
         
