@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     
-    <title>IA en Colombia | Consultor IA</title>
+    <title>Spas y Centros de Estética en Colombia | Consultor IA</title>
     
-        <!-- Fonts: Google Sans (Headers) + Inter (Body) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,17 +21,25 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand': '#28D366', 'brand-dark': '#1da851', 'brand-light': '#4ade80',
-                        'accent': '#FFD967', 'success': '#0EB16A',
-                        'gray-1': '#262627', 'gray-2': '#434345', 'gray-card': '#FAF9FF', 'gray-border': '#EEEEF3',
+                        'brand': '#18181b',      /* Zinc 900 */
+                        'brand-light': '#f4f4f5',/* Zinc 100 */
+                        'accent': '#2563eb',     /* Blue 600 */
+                        'success': '#10b981',
+                        'gray-1': '#18181b',
+                        'gray-2': '#52525b',
+                        'gray-card': '#ffffff',
+                        'gray-border': '#e4e4e7',
                     },
                     fontFamily: {
-                        body: ['"Inter"', 'sans-serif'], header: ['"Google Sans"', 'sans-serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                        header: ['"Playfair Display"', 'serif'],
                     }
                 }
             }
         }
     </script>
+    
+    <!-- Dark Mode Init -->
     <script>
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -42,112 +49,90 @@
     </script>
     <style>
         body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Google Sans', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
         
-        .dark 
-        @property --border-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
-        .border-beam { position: relative; z-index: 1; }
-        .border-beam::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 3px; background: conic-gradient(from var(--border-angle), transparent 75%, #28D366 85%, #4ade80 90%, #3B82F6 95%, #6366f1 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: spin-border 3s linear infinite; pointer-events: none; filter: drop-shadow(0 0 12px rgba(40, 211, 102, 0.7)) blur(1px); }
-        .dark .border-beam::after { filter: drop-shadow(0 0 15px rgba(40, 211, 102, 0.9)) blur(1px); }
-        @keyframes spin-border { from { --border-angle: 0deg; } to { --border-angle: 360deg; } }
-    
-
-
-    /* TYPEWRITER CURSOR */
-    .typewriter-cursor {
-        display: inline-block;
-        width: 3px;
-        height: 1.15em;
-        background-color: var(--color-brand);
-        vertical-align: text-bottom;
-        margin-left: 6px;
-        animation: blink 1s step-end infinite;
-    }
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-    
-    /* INTERACTIVE CANVAS BG */
-    #canvas-bg {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100vw; height: 100vh;
-        z-index: -1;
-        pointer-events: none;
-    }
-    
-    /* FIX OVERSCROLL (RUBBER BANDING) */
-    html, body {
-        overscroll-behavior: none;
-    }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .dark .glass {
+            background: rgba(24, 24, 27, 0.7);
+        }
+        
+        /* FIX OVERSCROLL */
+        html, body { overscroll-behavior: none; }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-gray-1 dark:text-slate-200 transition-colors duration-300 flex flex-col min-h-screen">
 
-    <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
-        <div class="w-full max-w-7xl glass rounded-full border border-gray-200 dark:border-zinc-800/80 shadow-2xl pointer-events-auto flex justify-between items-center px-6 py-3">
-            <a href="/" class="text-2xl font-header flex items-center gap-2">
-                <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
-            </a>
-            <nav class="hidden md:flex space-x-8 items-center">
-                <a href="/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand transition-colors">Inicio</a>
-                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand transition-colors">Blog</a>
-                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
-                    <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
-                    <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
-                </button>
-                <a href="https://wa.me/573151206985" class="border-beam bg-white/90 dark:bg-zinc-900/50 backdrop-blur-md border border-gray-200/80 dark:border-slate-700 text-slate-800 dark:text-white px-6 py-2 rounded-full font-normal hover:shadow-[0_8px_30px_-12px_rgba(16,185,129,0.5)] hover:-translate-y-0.5 transition-all duration-300">
-                    Hablar con asesor
-                </a>
-            </nav>
+    <!-- HEADER -->
+    {MEGA_MENU}
+
+    <!-- 2. Breadcrumbs -->
+    <div class="pt-24 pb-2 border-b border-gray-200/50 dark:border-zinc-800/50 relative z-10">
+        <div class="container mx-auto px-4 py-3 text-sm text-gray-2 dark:text-slate-400">
+            <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a> <span class="mx-2 opacity-50">&gt;</span> 
+            <a href="/{INDUSTRIA_SLUG}/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Spas y Centros de Estética</a> <span class="mx-2 opacity-50">&gt;</span> 
+            <span class="text-gray-1 dark:text-slate-200 font-normal">Colombia</span>
         </div>
-    </header>
+    </div>
 
     <main class="flex-grow">
-        <section class="py-24 dark:bg-zinc-900/30 border-b border-gray-border dark:border-zinc-800">
-            <div class="container mx-auto px-4 max-w-4xl text-center">
-                <h1 class="text-4xl md:text-6xl font-header font-bold mb-6 text-gradient">Agencias de IA en Colombia</h1>
-                <p class="text-xl text-gray-2 dark:text-slate-400 mb-10">Encuentra expertos en Inteligencia Artificial en tu ciudad.</p>
+        <!-- Hero Section -->
+        <section class="py-24 relative overflow-hidden dark:bg-zinc-900/10 border-b border-gray-200 dark:border-zinc-800">
+            <!-- Glow Effect -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-3/4 bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
+            
+            <div class="container mx-auto px-4 max-w-4xl text-center relative z-10">
+                <span class="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">Soluciones Especializadas</span>
+                <h1 class="text-4xl md:text-6xl font-header font-bold mb-6">Inteligencia Artificial para <br><span class="text-brand dark:text-brand-light">Spas y Centros de Estética en Colombia</span></h1>
+                <p class="text-xl text-gray-2 dark:text-slate-400 mb-10 max-w-2xl mx-auto">Selecciona tu ciudad para conocer las soluciones de IA disponibles y adaptadas al mercado local.</p>
             </div>
         </section>
 
-        <section class="py-16">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-lg">
-                    <h2 class="text-2xl font-header font-bold mb-6">Ciudades Principales</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <a href="/spas-centros-esteticos/colombia/bogota/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover:shadow-xl transition-all"><h3 class="text-xl font-bold mb-2">Bogotá</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
+        <!-- Ciudades Grid Section -->
+        <section class="py-20 bg-white dark:bg-zinc-950">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <h2 class="text-3xl font-header font-bold mb-10 text-center">Disponibilidad por Ciudad</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <a href="/spas-centros-esteticos/colombia/bogota/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover:shadow-xl transition-all"><h3 class="text-xl font-bold mb-2">Bogotá</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
 <a href="/spas-centros-esteticos/colombia/medellin/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover:shadow-xl transition-all"><h3 class="text-xl font-bold mb-2">Medellín</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
 <a href="/spas-centros-esteticos/colombia/cali/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover:shadow-xl transition-all"><h3 class="text-xl font-bold mb-2">Cali</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
 <a href="/spas-centros-esteticos/colombia/barranquilla/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover:shadow-xl transition-all"><h3 class="text-xl font-bold mb-2">Barranquilla</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
 <a href="/spas-centros-esteticos/colombia/cartagena/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover:shadow-xl transition-all"><h3 class="text-xl font-bold mb-2">Cartagena</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
 <a href="/spas-centros-esteticos/colombia/bucaramanga/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover:shadow-xl transition-all"><h3 class="text-xl font-bold mb-2">Bucaramanga</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
 
-                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-1 dark:bg-black text-white pt-12 pb-8 border-t border-slate-800">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-400 text-sm">&copy; 2026 Consultor IA. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-    
+    {FOOTER_HTML}
+
+    <!-- Dark Mode Toggle Script -->
     <script>
-        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        // Setup Theme Toggle
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+        const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
+
+        // Check current state
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            themeToggleLightIcon.classList.remove('hidden');
+            if (themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
+            if (themeToggleLightIconMobile) themeToggleLightIconMobile.classList.remove('hidden');
         } else {
-            themeToggleDarkIcon.classList.remove('hidden');
+            if (themeToggleDarkIcon) themeToggleDarkIcon.classList.remove('hidden');
+            if (themeToggleDarkIconMobile) themeToggleDarkIconMobile.classList.remove('hidden');
         }
-        var themeToggleBtn = document.getElementById('theme-toggle');
-        themeToggleBtn.addEventListener('click', function() {
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
+
+        function toggleTheme() {
+            if (themeToggleDarkIcon) themeToggleDarkIcon.classList.toggle('hidden');
+            if (themeToggleLightIcon) themeToggleLightIcon.classList.toggle('hidden');
+            if (themeToggleDarkIconMobile) themeToggleDarkIconMobile.classList.toggle('hidden');
+            if (themeToggleLightIconMobile) themeToggleLightIconMobile.classList.toggle('hidden');
+
             if (localStorage.getItem('color-theme')) {
                 if (localStorage.getItem('color-theme') === 'light') {
                     document.documentElement.classList.add('dark');
@@ -165,9 +150,13 @@
                     localStorage.setItem('color-theme', 'dark');
                 }
             }
-        });
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+
+        if(themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+        if(themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
     </script>
-    
-    <script src="/js/canvas-bg.js"></script>
 </body>
 </html>

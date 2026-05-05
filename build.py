@@ -1780,13 +1780,23 @@ def build():
         # Build Industry Hub
         html = hub_ind_template
         ind_name = ind_data['name']
-        html = html.replace('{INDUSTRIA}', ind_name)
-        html = html.replace('{WA_NUMERO}', WA_NUMERO)
+        wa_mensaje = f"Hola%2C+quiero+info+sobre+agentes+IA+para+{quote(ind_name)}"
         
+        replacements = {
+            '{INDUSTRIA}': ind_name,
+            '{WA_NUMERO}': WA_NUMERO,
+            '{WA_MENSAJE_ENCODED}': wa_mensaje,
+            '{MEGA_MENU}': mega_menu_html,
+            '{FOOTER_HTML}': footer_html
+        }
+        
+        for k, v in replacements.items():
+            html = html.replace(k, str(v))
+            
         enlaces_paises = ""
         for p_slug, p_data in ind_data['paises'].items():
             p_name = p_data['name']
-            enlaces_paises += f'<a href="/{ind_slug}/{p_slug}/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover:shadow-xl transition-all"><h3 class="text-xl font-bold mb-2">{p_name}</h3><span class="text-sm text-accent">Ver ciudades &rarr;</span></a>\n'
+            enlaces_paises += f'<a href="/{ind_slug}/{p_slug}/" class="group block p-6 rounded-3xl bg-white dark:bg-zinc-900/50 backdrop-blur-sm border border-gray-200 dark:border-zinc-800 hover:border-brand dark:hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden relative"><div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="relative z-10 flex flex-col items-center text-center"><h3 class="text-xl font-bold mb-2 text-zinc-900 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">{p_name}</h3><span class="text-sm font-semibold text-accent flex items-center gap-1 uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Explorar Ciudades <i class="fas fa-arrow-right text-[10px]"></i></span></div></a>\n'
         
         html = html.replace('{ENLACES_PAISES}', enlaces_paises)
         
