@@ -1748,6 +1748,76 @@ def build():
 
             urls.append(f"https://consultor-ia.com.co/{slug}/")
             
+
+    # --- Generate Hub Pages ---
+    with open(os.path.join(SRC_DIR, "hub-industria.html"), "r", encoding="utf-8") as f:
+        hub_ind_template = f.read()
+
+    with open(os.path.join(SRC_DIR, "hub-pais.html"), "r", encoding="utf-8") as f:
+        hub_pais_template = f.read()
+
+    industries_tree = {}
+    for row in data:
+        ind_slug = row.get('Industria_Slug', '').strip('/')
+        ind_name = row.get('Industria', '')
+        pais_slug = row.get('País_Slug', '').strip('/')
+        pais_name = row.get('País', '')
+        ciudad_slug = row.get('Ciudad_Slug', '').strip('/')
+        ciudad_name = row.get('Ciudad', '')
+        
+        if ind_slug not in industries_tree:
+            industries_tree[ind_slug] = {'name': ind_name, 'paises': {}}
+            
+        if pais_slug not in industries_tree[ind_slug]['paises']:
+            industries_tree[ind_slug]['paises'][pais_slug] = {'name': pais_name, 'ciudades': []}
+            
+        industries_tree[ind_slug]['paises'][pais_slug]['ciudades'].append({
+            'slug': ciudad_slug,
+            'name': ciudad_name
+        })
+
+    for ind_slug, ind_data in industries_tree.items():
+        # Build Industry Hub
+        html = hub_ind_template
+        ind_name = ind_data['name']
+        html = html.replace('{INDUSTRIA}', ind_name)
+        html = html.replace('{WA_NUMERO}', WA_NUMERO)
+        
+        enlaces_paises = ""
+        for p_slug, p_data in ind_data['paises'].items():
+            p_name = p_data['name']
+            enlaces_paises += f'<a href="/{ind_slug}/{p_slug}/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover:shadow-xl transition-all"><h3 class="text-xl font-bold mb-2">{p_name}</h3><span class="text-sm text-accent">Ver ciudades &rarr;</span></a>\n'
+        
+        html = html.replace('{ENLACES_PAISES}', enlaces_paises)
+        
+        out_dir = os.path.join(DIST_DIR, ind_slug)
+        os.makedirs(out_dir, exist_ok=True)
+        with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
+            f.write(html)
+        urls.append(f"https://consultor-ia.com.co/{ind_slug}/")
+            
+        for p_slug, p_data in ind_data['paises'].items():
+            # Build Pais Hub
+            p_html = hub_pais_template
+            p_name = p_data['name']
+            p_html = p_html.replace('{INDUSTRIA}', ind_name)
+            p_html = p_html.replace('{PAIS}', p_name)
+            p_html = p_html.replace('{WA_NUMERO}', WA_NUMERO)
+            
+            enlaces_ciudades = ""
+            for c in p_data['ciudades']:
+                c_slug = c['slug']
+                c_name = c['name']
+                enlaces_ciudades += f'<a href="/{ind_slug}/{p_slug}/{c_slug}/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover:shadow-xl transition-all"><h3 class="text-xl font-bold mb-2">{c_name}</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>\n'
+                
+            p_html = p_html.replace('{ENLACES_CIUDADES}', enlaces_ciudades)
+            
+            p_out_dir = os.path.join(DIST_DIR, ind_slug, p_slug)
+            os.makedirs(p_out_dir, exist_ok=True)
+            with open(os.path.join(p_out_dir, 'index.html'), 'w', encoding='utf-8') as f:
+                f.write(p_html)
+            urls.append(f"https://consultor-ia.com.co/{ind_slug}/{p_slug}/")
+
     # Generate Sitemap
     from datetime import date
     lastmod = date.today().isoformat()
