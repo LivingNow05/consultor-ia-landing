@@ -579,13 +579,9 @@ def build_home_page(data):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=11">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=11">
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=11">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=11">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=11">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=11">
-    <link rel="shortcut icon" href="/favicon.ico?v=11">
+    <link rel="icon" type="image/png" sizes="48x48" href="https://consultor-ia.com.co/favicon-48x48.png">
+    <link rel="icon" type="image/x-icon" href="https://consultor-ia.com.co/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://consultor-ia.com.co/apple-touch-icon.png">
     <title>Consultor IA | Expertos en Automatización con Inteligencia Artificial</title>
     <meta name="description" content="Automatiza la atención al cliente, ventas y reservas con Agentes IA para WhatsApp 24/7. Para restaurantes, clínicas, hoteles y más en LATAM.">
     <meta name="robots" content="index, follow">
@@ -638,7 +634,7 @@ def build_home_page(data):
         "ratingValue": "4.9",
         "bestRating": "5",
         "worstRating": "1",
-        "ratingCount": "87"
+        "ratingCount": "115"
       }}
     }}
     </script>
@@ -993,13 +989,9 @@ def build_legal_pages(data):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=11">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=11">
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=11">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=11">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=11">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=11">
-    <link rel="shortcut icon" href="/favicon.ico?v=11">
+    <link rel="icon" type="image/png" sizes="48x48" href="https://consultor-ia.com.co/favicon-48x48.png">
+    <link rel="icon" type="image/x-icon" href="https://consultor-ia.com.co/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://consultor-ia.com.co/apple-touch-icon.png">
     <title>{page['title']}</title>
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://consultor-ia.com.co/{page['slug']}/">
