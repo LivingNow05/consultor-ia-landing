@@ -145,11 +145,17 @@
       urgency: { pronto: 'Alta (Quiero implementar pronto)', explorando: 'Baja (Solo explorando opciones)' }
     };
 
-    let msg = '\n\n📋 *Perfil de Empresa:*\n';
-    msg += `🏢 Tamaño: ${labels.size[state.size] || state.size}\n`;
-    msg += `🎯 Objetivo principal: ${labels.goal[state.goal] || state.goal}\n`;
-    msg += `💻 Gestión actual: ${labels.crm[state.crm] || state.crm}\n`;
-    msg += `⏱️ Urgencia: ${labels.urgency[state.urgency] || state.urgency}`;
+    const eClip = decodeURIComponent('%F0%9F%93%8B');
+    const eBldg = decodeURIComponent('%F0%9F%8F%A2');
+    const eDart = decodeURIComponent('%F0%9F%8E%AF');
+    const eLapt = decodeURIComponent('%F0%9F%92%BB');
+    const eWatc = decodeURIComponent('%E2%8F%B1%EF%B8%8F');
+
+    let msg = `\n\n${eClip} *Perfil de Empresa:*\n`;
+    msg += `${eBldg} Tamaño: ${labels.size[state.size] || state.size}\n`;
+    msg += `${eDart} Objetivo principal: ${labels.goal[state.goal] || state.goal}\n`;
+    msg += `${eLapt} Gestión actual: ${labels.crm[state.crm] || state.crm}\n`;
+    msg += `${eWatc} Urgencia: ${labels.urgency[state.urgency] || state.urgency}`;
     return msg;
   }
 
@@ -159,6 +165,12 @@
     try {
       const urlObj = new URL(pendingHref);
       let currentText = urlObj.searchParams.get('text') || '';
+      
+      // Si el botón original no tenía mensaje, agregamos un saludo genérico
+      if (!currentText.trim()) {
+        currentText = "Hola, me interesa agendar una asesoría sobre automatización con IA.";
+      }
+      
       const msg = buildMessage();
       urlObj.searchParams.set('text', currentText + msg);
       finalUrl = urlObj.toString();

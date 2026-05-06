@@ -505,7 +505,7 @@ def build_footer_html(data):
     </div>
 </footer>
 <!-- Script del Modal de WhatsApp (con cache buster) -->
-<script src="/js/wa-modal.js?v=1.1" charset="utf-8" defer></script>
+<script src="/js/wa-modal.js?v=1.2" charset="utf-8" defer></script>
 '''
     return footer.replace("{WA_NUMERO}", str(WA_NUMERO))
 def build_home_page(data):
