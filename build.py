@@ -1894,9 +1894,14 @@ def build_agencia_pages(data, footer_html, mega_menu_html, urls):
         wa_mensaje = f"Hola, busco una Agencia de IA en {ciudad}"
         wa_encoded = quote(wa_mensaje)
         
+        hero_chat_user = f"Hola, quisiera saber si tienen inventario del producto X y el estado de mi envío a {ciudad}."
+        hero_chat_bot = f"¡Hola! Sí tenemos stock del producto X. Tu envío actual llegará mañana en la tarde. ¿Deseas que agregue el producto X a tu pedido?"
+        
         replacements = {
             '{FOOTER_HTML}': footer_html,
             '{MEGA_MENU}': mega_menu_html,
+            '{HERO_CHAT_USER}': hero_chat_user,
+            '{HERO_CHAT_BOT}': hero_chat_bot,
             '{H1}': f"Agencia de Inteligencia Artificial en {ciudad}",
             '{H1_HTML}': f'Agencia de <span class="text-brand dark:text-brand-light block mt-2">Inteligencia Artificial en {ciudad}<span class="typewriter-cursor"></span></span>',
             '{TITLE_SEO}': f"Agencia de Inteligencia Artificial en {ciudad} 2026 | Consultor IA",
@@ -1916,8 +1921,8 @@ def build_agencia_pages(data, footer_html, mega_menu_html, urls):
         for k, v in replacements.items():
             out_html = out_html.replace(k, str(v))
             
-        # Limpiar variables no reemplazadas
-        out_html = re.sub(r'{.*?}', '', out_html)
+        # Limpiar variables no reemplazadas (solo variables en mayúsculas tipo {VARIABLE})
+        out_html = re.sub(r'\{[A-Z0-9_]+\}', '', out_html)
             
         page_dir = os.path.join(DIST_DIR, url_final.strip('/'))
         os.makedirs(page_dir, exist_ok=True)
