@@ -43,12 +43,36 @@
         "@type": "Brand",
         "name": "Consultor IA"
       },
+      "image": "https://consultor-ia.com.co/images/og-spas-centros-esteticos.webp",
       "description": "Implementamos agentes IA para spas y centros de estética en Montevideo. Agente IA que vende paquetes, agenda tratamientos y fideliza con promos personal. Wha...",
       "offers": {
         "@type": "Offer",
         "priceCurrency": "UYU",
         "price": "8.0",
-        "priceValidUntil": "2026-12-31"
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "UYU"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "businessDays": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+            }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "Uruguay",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": "30",
+          "returnMethod": "https://schema.org/ReturnByMail"
+        }
       },
       "aggregateRating": {
         "@type": "AggregateRating",

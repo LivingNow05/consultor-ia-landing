@@ -43,12 +43,36 @@
         "@type": "Brand",
         "name": "Consultor IA"
       },
+      "image": "https://consultor-ia.com.co/images/og-spas-centros-esteticos.webp",
       "description": "Implementamos agentes IA para spas y centros de estética en San José. Agente IA que vende paquetes, agenda tratamientos y fideliza con promos personal. Whats...",
       "offers": {
         "@type": "Offer",
         "priceCurrency": "CRC",
         "price": "120.0",
-        "priceValidUntil": "2026-12-31"
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "CRC"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "businessDays": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+            }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "Costa Rica",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": "30",
+          "returnMethod": "https://schema.org/ReturnByMail"
+        }
       },
       "aggregateRating": {
         "@type": "AggregateRating",

@@ -43,12 +43,36 @@
         "@type": "Brand",
         "name": "Consultor IA"
       },
+      "image": "https://consultor-ia.com.co/images/og-agencias-de-marketing.webp",
       "description": "{META_DESCRIPTION}",
       "offers": {
         "@type": "Offer",
         "priceCurrency": "{MONEDA}",
         "price": "{PRECIO_BAJO}",
-        "priceValidUntil": "2026-12-31"
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "{MONEDA}"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "businessDays": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+            }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "{PAIS}",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": "30",
+          "returnMethod": "https://schema.org/ReturnByMail"
+        }
       },
       "aggregateRating": {
         "@type": "AggregateRating",

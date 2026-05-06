@@ -43,12 +43,36 @@
         "@type": "Brand",
         "name": "Consultor IA"
       },
+      "image": "https://consultor-ia.com.co/images/og-gimnasios.webp",
       "description": "Implementamos agentes IA para gimnasios en Santo Domingo. Agente IA que vende membresías, retiene clientes con seguimiento y agenda clases. WhatsApp 24/7.",
       "offers": {
         "@type": "Offer",
         "priceCurrency": "DOP",
         "price": "12.0",
-        "priceValidUntil": "2026-12-31"
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "DOP"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "businessDays": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+            }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "Rep. Dominicana",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": "30",
+          "returnMethod": "https://schema.org/ReturnByMail"
+        }
       },
       "aggregateRating": {
         "@type": "AggregateRating",

@@ -43,12 +43,36 @@
         "@type": "Brand",
         "name": "Consultor IA"
       },
+      "image": "https://consultor-ia.com.co/images/og-talleres-automotrices.webp",
       "description": "Implementamos agentes IA para talleres automotrices en Mérida. Agente IA que agenda servicios, envía cotizaciones rápidas y recuerda mantenimie. WhatsApp 24/7.",
       "offers": {
         "@type": "Offer",
         "priceCurrency": "MXN",
         "price": "8.0",
-        "priceValidUntil": "2026-12-31"
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "MXN"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "businessDays": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+            }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "México",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": "30",
+          "returnMethod": "https://schema.org/ReturnByMail"
+        }
       },
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -270,7 +294,7 @@
                         </h1>
                         
                         <p class="text-xl text-gray-2 dark:text-slate-300 mb-10 leading-relaxed max-w-2xl">
-                            No pares de trabajar bajo el auto por contestar el celular. Tu asistente IA en Mérida entrega presupuestos básicos, da turnos de mantenimiento y notifica cuando el vehículo está listo. ¡Va! Todo automático.
+                            No pares de trabajar bajo el auto por contestar el celular. Tu asistente IA en Mérida entrega presupuestos básicos, da turnos de mantenimiento y notifica cuando el vehículo está listo. ¡Sale! Todo automático.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">

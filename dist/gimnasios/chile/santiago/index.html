@@ -43,12 +43,36 @@
         "@type": "Brand",
         "name": "Consultor IA"
       },
+      "image": "https://consultor-ia.com.co/images/og-gimnasios.webp",
       "description": "Implementamos agentes IA para gimnasios en Santiago. Agente IA que vende membresías, retiene clientes con seguimiento y agenda clases. WhatsApp 24/7.",
       "offers": {
         "@type": "Offer",
         "priceCurrency": "CLP",
         "price": "400.0",
-        "priceValidUntil": "2026-12-31"
+        "priceValidUntil": "2026-12-31",
+        "availability": "https://schema.org/InStock",
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "CLP"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "businessDays": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+            }
+          }
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "Chile",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": "30",
+          "returnMethod": "https://schema.org/ReturnByMail"
+        }
       },
       "aggregateRating": {
         "@type": "AggregateRating",
@@ -270,7 +294,7 @@
                         </h1>
                         
                         <p class="text-xl text-gray-2 dark:text-slate-300 mb-10 leading-relaxed max-w-2xl">
-                            Inscribe nuevos socios a las 3 AM. Tu bot de WhatsApp responde tarifas de tu gimnasio en Santiago, envía links de pago y gestiona cobros atrasados. Aumenta tu retención y genera más plata sin esfuerzo humano.
+                            Inscribe nuevos socios a las 3 AM. Tu bot de WhatsApp responde tarifas de tu gimnasio en Santiago, envía links de pago y gestiona cobros atrasados. Aumenta tu retención y genera más lucas sin esfuerzo humano.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
