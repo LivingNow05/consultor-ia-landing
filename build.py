@@ -638,6 +638,16 @@ def build_home_page(data):
       }}
     }}
     </script>
+    <!-- Schema: WebSite (Site Name) -->
+    <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Consultor IA",
+      "alternateName": "Consultor Inteligencia Artificial",
+      "url": "https://consultor-ia.com.co/"
+    }}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
