@@ -1678,6 +1678,7 @@ def build():
             '{CODIGO_PAIS}': row.get('País_Slug', '')[:2], # approx
             '{CIUDAD}': row.get('Ciudad', ''),
             '{CIUDAD_SLUG}': row.get('Ciudad_Slug', ''),
+            '{CONTENIDO_EEAT}': row.get('Contenido_EEAT', ''),
             '{DEMONIMO}': row.get('Demónimo', ''),
             '{MONEDA}': row.get('Moneda', ''),
             '{AEROPUERTO}': row.get('Aeropuerto', ''),
