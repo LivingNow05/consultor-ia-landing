@@ -145,10 +145,10 @@
       urgency: { pronto: 'Alta (Quiero implementar pronto)', explorando: 'Baja (Solo explorando opciones)' }
     };
 
-    let msg = '\\n\\n📋 *Perfil de Empresa:*\\n';
-    msg += `🏢 Tamaño: ${labels.size[state.size] || state.size}\\n`;
-    msg += `🎯 Objetivo principal: ${labels.goal[state.goal] || state.goal}\\n`;
-    msg += `💻 Gestión actual: ${labels.crm[state.crm] || state.crm}\\n`;
+    let msg = '\n\n📋 *Perfil de Empresa:*\n';
+    msg += `🏢 Tamaño: ${labels.size[state.size] || state.size}\n`;
+    msg += `🎯 Objetivo principal: ${labels.goal[state.goal] || state.goal}\n`;
+    msg += `💻 Gestión actual: ${labels.crm[state.crm] || state.crm}\n`;
     msg += `⏱️ Urgencia: ${labels.urgency[state.urgency] || state.urgency}`;
     return msg;
   }
