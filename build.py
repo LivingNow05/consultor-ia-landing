@@ -1786,13 +1786,32 @@ def build():
         html = hub_ind_template
         ind_name = ind_data['name']
         wa_mensaje = f"Hola%2C+quiero+info+sobre+agentes+IA+para+{quote(ind_name)}"
-        
+        ind_canonical = f"https://consultor-ia.com.co/{ind_slug}/"
+        ind_description = f"Implementamos agentes de Inteligencia Artificial para {ind_name} en toda Latinoamérica. Automatiza WhatsApp, gestiona citas y aumenta tus ventas 24/7 con IA conversacional."
+        ind_schema = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": f"IA para {ind_name} en LATAM | Consultor IA",
+            "description": ind_description,
+            "url": ind_canonical,
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://consultor-ia.com.co/"},
+                    {"@type": "ListItem", "position": 2, "name": ind_name, "item": ind_canonical}
+                ]
+            }
+        }, ensure_ascii=False, indent=2)
+
         replacements = {
             '{INDUSTRIA}': ind_name,
             '{WA_NUMERO}': WA_NUMERO,
             '{WA_MENSAJE_ENCODED}': wa_mensaje,
             '{MEGA_MENU}': mega_menu_html,
-            '{FOOTER_HTML}': footer_html
+            '{FOOTER_HTML}': footer_html,
+            '{IND_CANONICAL}': ind_canonical,
+            '{IND_DESCRIPTION}': ind_description,
+            '{IND_SCHEMA}': ind_schema,
         }
         
         for k, v in replacements.items():
@@ -1815,9 +1834,37 @@ def build():
             # Build Pais Hub
             p_html = hub_pais_template
             p_name = p_data['name']
-            p_html = p_html.replace('{INDUSTRIA}', ind_name)
-            p_html = p_html.replace('{PAIS}', p_name)
-            p_html = p_html.replace('{WA_NUMERO}', WA_NUMERO)
+            pais_canonical = f"https://consultor-ia.com.co/{ind_slug}/{p_slug}/"
+            pais_description = f"Agentes de IA para {ind_name} en {p_name}. Automatiza WhatsApp, reservas y ventas con Inteligencia Artificial conversacional. Atiende 24/7 sin contratar más personal."
+            pais_schema = json.dumps({
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": f"IA para {ind_name} en {p_name} | Consultor IA",
+                "description": pais_description,
+                "url": pais_canonical,
+                "breadcrumb": {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://consultor-ia.com.co/"},
+                        {"@type": "ListItem", "position": 2, "name": ind_name, "item": ind_canonical},
+                        {"@type": "ListItem", "position": 3, "name": p_name, "item": pais_canonical}
+                    ]
+                }
+            }, ensure_ascii=False, indent=2)
+
+            p_replacements = {
+                '{INDUSTRIA}': ind_name,
+                '{PAIS}': p_name,
+                '{INDUSTRIA_SLUG}': ind_slug,
+                '{WA_NUMERO}': WA_NUMERO,
+                '{MEGA_MENU}': mega_menu_html,
+                '{FOOTER_HTML}': footer_html,
+                '{PAIS_CANONICAL}': pais_canonical,
+                '{PAIS_DESCRIPTION}': pais_description,
+                '{PAIS_SCHEMA}': pais_schema,
+            }
+            for k, v in p_replacements.items():
+                p_html = p_html.replace(k, str(v))
             
             enlaces_ciudades = ""
             for c in p_data['ciudades']:
