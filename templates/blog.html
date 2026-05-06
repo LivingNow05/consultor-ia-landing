@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- SEO & Favicon -->
+    <link rel="icon" type="image/png" sizes="48x48" href="https://consultor-ia.com.co/favicon-48x48.png">
+    <link rel="icon" type="image/x-icon" href="https://consultor-ia.com.co/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://consultor-ia.com.co/apple-touch-icon.png">
     
     <title>Blog | Consultor IA</title>
     
-        <!-- Fonts: Google Sans (Headers) + Inter (Body) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,17 +25,25 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand': '#28D366', 'brand-dark': '#1da851', 'brand-light': '#4ade80',
-                        'accent': '#FFD967', 'success': '#0EB16A',
-                        'gray-1': '#262627', 'gray-2': '#434345', 'gray-card': '#FAF9FF', 'gray-border': '#EEEEF3',
+                        'brand': '#18181b',      /* Zinc 900 */
+                        'brand-light': '#f4f4f5',/* Zinc 100 */
+                        'accent': '#2563eb',     /* Blue 600 */
+                        'success': '#10b981',
+                        'gray-1': '#18181b',
+                        'gray-2': '#52525b',
+                        'gray-card': '#ffffff',
+                        'gray-border': '#e4e4e7',
                     },
                     fontFamily: {
-                        body: ['"Inter"', 'sans-serif'], header: ['"Google Sans"', 'sans-serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                        header: ['"Playfair Display"', 'serif'],
                     }
                 }
             }
         }
     </script>
+    
+    <!-- Dark Mode Init -->
     <script>
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -42,45 +53,19 @@
     </script>
     <style>
         body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, h4, h5, h6 { font-family: 'Google Sans', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
         
-        .dark 
-        @property --border-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
-        .border-beam { position: relative; z-index: 1; }
-        .border-beam::after { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 3px; background: conic-gradient(from var(--border-angle), transparent 75%, #28D366 85%, #4ade80 90%, #3B82F6 95%, #6366f1 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: spin-border 3s linear infinite; pointer-events: none; filter: drop-shadow(0 0 12px rgba(40, 211, 102, 0.7)) blur(1px); }
-        .dark .border-beam::after { filter: drop-shadow(0 0 15px rgba(40, 211, 102, 0.9)) blur(1px); }
-        @keyframes spin-border { from { --border-angle: 0deg; } to { --border-angle: 360deg; } }
-    
-
-
-    /* TYPEWRITER CURSOR */
-    .typewriter-cursor {
-        display: inline-block;
-        width: 3px;
-        height: 1.15em;
-        background-color: var(--color-brand);
-        vertical-align: text-bottom;
-        margin-left: 6px;
-        animation: blink 1s step-end infinite;
-    }
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-    
-    /* INTERACTIVE CANVAS BG */
-    #canvas-bg {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100vw; height: 100vh;
-        z-index: -1;
-        pointer-events: none;
-    }
-    
-    /* FIX OVERSCROLL (RUBBER BANDING) */
-    html, body {
-        overscroll-behavior: none;
-    }
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .dark .glass {
+            background: rgba(24, 24, 27, 0.7);
+        }
+        
+        /* FIX OVERSCROLL */
+        html, body { overscroll-behavior: none; }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-gray-1 dark:text-slate-200 transition-colors duration-300 flex flex-col min-h-screen">
