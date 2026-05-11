@@ -1,0 +1,416 @@
+✅ PASS | https://consultor-ia.com.co/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-barranquilla/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-bogota/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-bucaramanga/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-cali/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-cartagena/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-medellin/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/agente-ia-vs-chatbot/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/automatizacion-con-ia/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/aviso-legal/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/casos-exito-ia-pymes/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/como-implementar-agente-ia/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/consultor-inteligencia-artificial/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/ | Google no reconoce esta URL
+✅ PASS | https://consultor-ia.com.co/ia-para-empresas/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/ia-para-hoteles/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/ia-para-industria/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/ia-para-inmobiliarias/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/ia-para-negocios/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/ia-para-pymes/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/ia-para-restaurantes/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/ia-para-retail/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/ia-para-salones-de-belleza/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/ia-para-salud/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/politica-de-privacidad/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/precios-agente-ia-latam/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/ | Se ha bloqueado debido a que el acceso no está permitido (403)
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/transformacion-digital-con-ia/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/argentina/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/chile/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/academias-cursos/colombia/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/costa-rica/ | Google no reconoce esta URL
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/ecuador/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/mexico/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/academias-cursos/panama/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/academias-cursos/peru/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/academias-cursos/republica-dominicana/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/academias-cursos/uruguay/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/argentina/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/chile/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/colombia/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/costa-rica/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/ecuador/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/mexico/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/panama/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/peru/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/republica-dominicana/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/uruguay/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/argentina/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/gimnasios/chile/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/colombia/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/gimnasios/costa-rica/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/gimnasios/ecuador/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/mexico/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/panama/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/gimnasios/peru/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/gimnasios/republica-dominicana/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/gimnasios/uruguay/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/argentina/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/chile/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/colombia/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/costa-rica/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/ecuador/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/mexico/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/panama/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/peru/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/republica-dominicana/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/uruguay/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/argentina/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/chile/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/colombia/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/costa-rica/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/ecuador/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/mexico/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/panama/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/peru/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/republica-dominicana/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/uruguay/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/argentina/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/chile/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/colombia/ | Google no reconoce esta URL
+✅ PASS | https://consultor-ia.com.co/restaurantes/costa-rica/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/restaurantes/ecuador/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/mexico/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/restaurantes/panama/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/peru/ | Se ha bloqueado debido a que el acceso no está permitido (403)
+✅ PASS | https://consultor-ia.com.co/restaurantes/republica-dominicana/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/uruguay/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/argentina/ | Se ha bloqueado debido a que el acceso no está permitido (403)
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/chile/ | Se ha bloqueado debido a que el acceso no está permitido (403)
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/colombia/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/costa-rica/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/ecuador/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/mexico/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/panama/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/peru/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/republica-dominicana/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/uruguay/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/argentina/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/chile/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/colombia/ | Google no reconoce esta URL
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/costa-rica/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/ecuador/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/mexico/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/panama/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/peru/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/republica-dominicana/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/uruguay/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/argentina/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/chile/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/colombia/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/costa-rica/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/ecuador/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/mexico/ | Google no reconoce esta URL
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/panama/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/peru/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/republica-dominicana/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/uruguay/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/veterinarias/argentina/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/chile/ | Google no reconoce esta URL
+✅ PASS | https://consultor-ia.com.co/veterinarias/colombia/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/veterinarias/costa-rica/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/veterinarias/ecuador/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/mexico/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/veterinarias/panama/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/peru/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/veterinarias/republica-dominicana/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/veterinarias/uruguay/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/academias-cursos/argentina/buenos-aires/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/academias-cursos/argentina/cordoba-ar/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/academias-cursos/argentina/mendoza/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/argentina/rosario/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/academias-cursos/chile/santiago/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/academias-cursos/chile/valparaiso/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/colombia/barranquilla/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/academias-cursos/colombia/bogota/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/colombia/bucaramanga/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/colombia/cali/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/colombia/cartagena/ | Google no reconoce esta URL
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/colombia/medellin/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/academias-cursos/costa-rica/san-jose-cr/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/academias-cursos/ecuador/guayaquil/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/ecuador/quito/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/mexico/cancun/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/academias-cursos/mexico/ciudad-de-mexico/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/mexico/guadalajara/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/academias-cursos/mexico/merida/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/academias-cursos/mexico/monterrey/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/academias-cursos/mexico/puebla/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/academias-cursos/mexico/queretaro/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/mexico/tijuana/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/panama/ciudad-de-panama/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/peru/arequipa/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/peru/lima/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/academias-cursos/republica-dominicana/santo-domingo/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/academias-cursos/uruguay/montevideo/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/argentina/buenos-aires/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/argentina/cordoba-ar/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/argentina/mendoza/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/argentina/rosario/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/chile/santiago/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/chile/valparaiso/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/colombia/barranquilla/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/colombia/bogota/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/colombia/bucaramanga/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/colombia/cali/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/colombia/cartagena/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/colombia/medellin/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/costa-rica/san-jose-cr/ | Google no reconoce esta URL
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/ecuador/guayaquil/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/ecuador/quito/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/mexico/cancun/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/mexico/ciudad-de-mexico/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/mexico/guadalajara/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/mexico/merida/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/mexico/monterrey/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/mexico/puebla/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/mexico/queretaro/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/mexico/tijuana/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/panama/ciudad-de-panama/ | Google no reconoce esta URL
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/peru/arequipa/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/peru/lima/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/clinicas-dentales/republica-dominicana/santo-domingo/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/clinicas-dentales/uruguay/montevideo/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/gimnasios/argentina/buenos-aires/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/argentina/cordoba-ar/ | Google no reconoce esta URL
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/argentina/mendoza/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/argentina/rosario/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/chile/santiago/ | Google no reconoce esta URL
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/chile/valparaiso/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/colombia/barranquilla/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/gimnasios/colombia/bogota/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/colombia/bucaramanga/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/colombia/cali/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/colombia/cartagena/ | Google no reconoce esta URL
+✅ PASS | https://consultor-ia.com.co/gimnasios/colombia/medellin/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/costa-rica/san-jose-cr/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/ecuador/guayaquil/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/gimnasios/ecuador/quito/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/gimnasios/mexico/cancun/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/gimnasios/mexico/ciudad-de-mexico/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/gimnasios/mexico/guadalajara/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/mexico/merida/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/mexico/monterrey/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/mexico/puebla/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/gimnasios/mexico/queretaro/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/gimnasios/mexico/tijuana/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/gimnasios/panama/ciudad-de-panama/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/peru/arequipa/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/gimnasios/peru/lima/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/republica-dominicana/santo-domingo/ | Google no reconoce esta URL
+🔄 NEUTRAL | https://consultor-ia.com.co/gimnasios/uruguay/montevideo/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/argentina/buenos-aires/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/argentina/cordoba-ar/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/argentina/mendoza/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/argentina/rosario/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/chile/santiago/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/chile/valparaiso/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/colombia/barranquilla/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/colombia/bogota/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/colombia/bucaramanga/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/colombia/cali/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/colombia/cartagena/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/colombia/medellin/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/costa-rica/san-jose-cr/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/ecuador/guayaquil/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/ecuador/quito/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/mexico/cancun/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/mexico/ciudad-de-mexico/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/mexico/guadalajara/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/mexico/merida/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/mexico/monterrey/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/mexico/puebla/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/mexico/queretaro/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/mexico/tijuana/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/panama/ciudad-de-panama/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/peru/arequipa/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/peru/lima/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/hoteles-y-hostales/republica-dominicana/santo-domingo/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/hoteles-y-hostales/uruguay/montevideo/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/argentina/buenos-aires/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/argentina/cordoba-ar/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/argentina/mendoza/ | Google no reconoce esta URL
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/argentina/rosario/ | Google no reconoce esta URL
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/chile/santiago/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/chile/valparaiso/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/colombia/barranquilla/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/colombia/bogota/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/colombia/bucaramanga/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/colombia/cali/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/colombia/cartagena/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/colombia/medellin/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/costa-rica/san-jose-cr/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/ecuador/guayaquil/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/ecuador/quito/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/mexico/cancun/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/mexico/ciudad-de-mexico/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/mexico/guadalajara/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/mexico/merida/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/mexico/monterrey/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/mexico/puebla/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/mexico/queretaro/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/mexico/tijuana/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/panama/ciudad-de-panama/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/peru/arequipa/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/peru/lima/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/inmobiliarias/republica-dominicana/santo-domingo/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/inmobiliarias/uruguay/montevideo/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/restaurantes/argentina/buenos-aires/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/argentina/cordoba-ar/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/restaurantes/argentina/mendoza/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/restaurantes/argentina/rosario/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/restaurantes/chile/santiago/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/chile/valparaiso/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/colombia/barranquilla/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/restaurantes/colombia/bogota/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/colombia/bucaramanga/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/colombia/cali/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/colombia/cartagena/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/colombia/medellin/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/restaurantes/costa-rica/san-jose-cr/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/ecuador/guayaquil/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/ecuador/quito/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/mexico/cancun/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/mexico/ciudad-de-mexico/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/restaurantes/mexico/guadalajara/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/restaurantes/mexico/merida/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/restaurantes/mexico/monterrey/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/mexico/puebla/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/restaurantes/mexico/queretaro/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/mexico/tijuana/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/panama/ciudad-de-panama/ | Google no reconoce esta URL
+✅ PASS | https://consultor-ia.com.co/restaurantes/peru/arequipa/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/restaurantes/peru/lima/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/republica-dominicana/santo-domingo/ | Google no reconoce esta URL
+🔄 NEUTRAL | https://consultor-ia.com.co/restaurantes/uruguay/montevideo/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/argentina/buenos-aires/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/argentina/cordoba-ar/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/argentina/mendoza/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/argentina/rosario/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/chile/santiago/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/chile/valparaiso/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/colombia/barranquilla/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/colombia/bogota/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/colombia/bucaramanga/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/colombia/cali/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/colombia/cartagena/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/colombia/medellin/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/costa-rica/san-jose-cr/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/ecuador/guayaquil/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/ecuador/quito/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/mexico/cancun/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/mexico/ciudad-de-mexico/ | Google no reconoce esta URL
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/mexico/guadalajara/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/mexico/merida/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/mexico/monterrey/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/mexico/puebla/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/mexico/queretaro/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/mexico/tijuana/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/panama/ciudad-de-panama/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/peru/arequipa/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/salones-de-belleza/peru/lima/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/republica-dominicana/santo-domingo/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/salones-de-belleza/uruguay/montevideo/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/argentina/buenos-aires/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/argentina/cordoba-ar/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/argentina/mendoza/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/argentina/rosario/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/chile/santiago/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/chile/valparaiso/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/colombia/barranquilla/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/colombia/bogota/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/colombia/bucaramanga/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/colombia/cali/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/colombia/cartagena/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/colombia/medellin/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/costa-rica/san-jose-cr/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/ecuador/guayaquil/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/ecuador/quito/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/mexico/cancun/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/mexico/ciudad-de-mexico/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/mexico/guadalajara/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/mexico/merida/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/mexico/monterrey/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/mexico/puebla/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/mexico/queretaro/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/mexico/tijuana/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/panama/ciudad-de-panama/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/spas-centros-esteticos/peru/arequipa/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/peru/lima/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/republica-dominicana/santo-domingo/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/spas-centros-esteticos/uruguay/montevideo/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/argentina/buenos-aires/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/argentina/cordoba-ar/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/argentina/mendoza/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/argentina/rosario/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/chile/santiago/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/chile/valparaiso/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/colombia/barranquilla/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/colombia/bogota/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/colombia/bucaramanga/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/colombia/cali/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/colombia/cartagena/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/colombia/medellin/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/costa-rica/san-jose-cr/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/ecuador/guayaquil/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/ecuador/quito/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/mexico/cancun/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/mexico/ciudad-de-mexico/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/mexico/guadalajara/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/mexico/merida/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/mexico/monterrey/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/mexico/puebla/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/mexico/queretaro/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/mexico/tijuana/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/panama/ciudad-de-panama/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/peru/arequipa/ | Google no reconoce esta URL
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/peru/lima/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/talleres-automotrices/republica-dominicana/santo-domingo/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/talleres-automotrices/uruguay/montevideo/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/veterinarias/argentina/buenos-aires/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/veterinarias/argentina/cordoba-ar/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/veterinarias/argentina/mendoza/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/veterinarias/argentina/rosario/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/chile/santiago/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/veterinarias/chile/valparaiso/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/veterinarias/colombia/barranquilla/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/colombia/bogota/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/colombia/bucaramanga/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/colombia/cali/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/veterinarias/colombia/cartagena/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/colombia/medellin/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/costa-rica/san-jose-cr/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/veterinarias/ecuador/guayaquil/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/ecuador/quito/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/mexico/cancun/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/veterinarias/mexico/ciudad-de-mexico/ | Enviada e indexada
+✅ PASS | https://consultor-ia.com.co/veterinarias/mexico/guadalajara/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/mexico/merida/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/veterinarias/mexico/monterrey/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/mexico/puebla/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/veterinarias/mexico/queretaro/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/mexico/tijuana/ | Descubierta: actualmente sin indexar
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/panama/ciudad-de-panama/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/veterinarias/peru/arequipa/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/peru/lima/ | Descubierta: actualmente sin indexar
+✅ PASS | https://consultor-ia.com.co/veterinarias/republica-dominicana/santo-domingo/ | Enviada e indexada
+🔄 NEUTRAL | https://consultor-ia.com.co/veterinarias/uruguay/montevideo/ | Google no reconoce esta URL
