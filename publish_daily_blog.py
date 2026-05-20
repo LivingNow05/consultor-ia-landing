@@ -32,9 +32,9 @@ def publish_blog(json_path):
     wa_msg_encoded = urllib.parse.quote(wa_msg)
     
     html = template.replace('{TITLE_SEO}', title_seo)
-    html = template.replace('{META_DESCRIPTION}', meta_desc)
-    html = template.replace('{SLUG}', f"blog/{slug}")
-    html = template.replace('{H1}', h1)
+    html = html.replace('{META_DESCRIPTION}', meta_desc)
+    html = html.replace('{SLUG}', f"blog/{slug}")
+    html = html.replace('{H1}', h1)
     
     # En pillar.html, {H1_HTML} está dentro de un <h1>. No podemos inyectar un div ahí.
     html = html.replace('{H1_HTML}', h1)
