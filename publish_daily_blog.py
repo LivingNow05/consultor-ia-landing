@@ -2,23 +2,8 @@ import json
 import os
 import urllib.parse
 import datetime
+import shutil
 from build_blog import build_blog_index
-
-def get_footer_and_menu():
-    try:
-        with open('templates/home.html', 'r', encoding='utf-8') as f:
-            home = f.read()
-            # Simplista: extraemos mega menu y footer asumiendo que build.py hace algo similar,
-            # o simplemente podemos leer los partials si existen.
-            # En consultor-ia parece que mega_menu y footer se inyectan.
-            # Para el blog, podemos usar componentes estáticos o simplemente dejar lo que build.py haga.
-            # Pero build.py no maneja el blog. Así que los extraeremos de agencia.html o home.html.
-            pass
-    except:
-        pass
-    # Por simplicidad, si {MEGA_MENU} está, lo reemplazamos con un header básico o lo leemos.
-    # Vamos a usar fix_mega_menu.py o similar si es necesario. Para no romper, pondremos vacío.
-    return "", ""
 
 def publish_blog(json_path):
     with open(json_path, 'r', encoding='utf-8') as f:
@@ -30,6 +15,13 @@ def publish_blog(json_path):
     meta_desc = data['meta_description']
     content_html = data['content_html']
     image_url = f"/images/blog/{slug}/hero.webp"
+    
+    # Copiar la imagen a dist/ para que Vercel la sirva
+    src_image = f"images/blog/{slug}/hero.webp"
+    dist_image_dir = f"dist/images/blog/{slug}"
+    if os.path.exists(src_image):
+        os.makedirs(dist_image_dir, exist_ok=True)
+        shutil.copy2(src_image, f"{dist_image_dir}/hero.webp")
     
     # Renderizar template
     with open('templates/pillar.html', 'r', encoding='utf-8') as f:
@@ -44,46 +36,42 @@ def publish_blog(json_path):
     html = template.replace('{SLUG}', f"blog/{slug}")
     html = template.replace('{H1}', h1)
     
-    # H1_HTML con un diseño bonito para blog
-    h1_html = f"""
-    <div class="text-center mb-8">
-        <span class="text-brand dark:text-brand-light font-medium tracking-wider uppercase text-sm mb-4 block">Blog / Negocios</span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-header font-bold text-gradient mb-6 leading-tight">{h1}</h1>
-        <p class="text-lg text-gray-2 dark:text-slate-400 max-w-3xl mx-auto">{meta_desc}</p>
-    </div>
-    <div class="w-full h-[50vh] md:h-[60vh] rounded-3xl overflow-hidden mb-12 shadow-2xl relative">
+    # En pillar.html, {H1_HTML} está dentro de un <h1>. No podemos inyectar un div ahí.
+    html = html.replace('{H1_HTML}', h1)
+    
+    # Envolver contenido en prose, inyectando la imagen Hero al principio.
+    hero_html = f"""
+    <div class="w-full h-[40vh] md:h-[50vh] rounded-3xl overflow-hidden mb-12 shadow-2xl relative mt-12 max-w-5xl mx-auto">
         <img src="{image_url}" alt="{h1}" class="w-full h-full object-cover">
     </div>
     """
-    html = html.replace('{H1_HTML}', h1_html)
     
-    # Envolver contenido en prose
+    # A custom Table of Contents or Rich formatting should be part of content_html.
     content_wrapped = f"""
-    <div class="prose prose-lg dark:prose-invert max-w-4xl mx-auto prose-headings:font-header prose-headings:font-bold prose-a:text-brand dark:prose-a:text-brand-light prose-img:rounded-2xl prose-img:shadow-lg">
-        {content_html}
-    </div>
+    <section class="py-12 bg-white dark:bg-zinc-950">
+        {hero_html}
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-header prose-headings:font-bold prose-a:text-brand dark:prose-a:text-brand-light prose-img:rounded-2xl prose-img:shadow-lg prose-table:rounded-xl prose-table:overflow-hidden">
+                {content_html}
+            </div>
+        </div>
+    </section>
     """
     html = html.replace('{CONTENT_HTML}', content_wrapped)
     html = html.replace('{WA_NUMERO}', wa_num)
     html = html.replace('{WA_MENSAJE_ENCODED}', wa_msg_encoded)
     
-    # Reemplazar mega menu y footer por ahora con cadena vacía si no tenemos la función de build.py,
-    # o usar build.py functions. Para no liarnos, dejaremos que build.py reemplace MEGA_MENU si lo corre,
-    # o lo reemplazamos con un header básico.
-    # En realidad, si dejamos {MEGA_MENU} y corremos build.py, ¿build.py lo procesará?
-    # build.py lee de templates/ y escribe en dist/.
-    # Entonces guardaremos el HTML en templates/blog_{slug}.html y lo compilamos? No, build.py itera sobre CSVs.
-    
-    # Mejor copiemos el header de blog.html.
-    with open('templates/blog.html', 'r', encoding='utf-8') as f:
-        blog_template = f.read()
-        try:
+    # Header y footer
+    try:
+        with open('templates/blog.html', 'r', encoding='utf-8') as f:
+            blog_template = f.read()
             header = blog_template.split('<header')[1].split('</header>')[0]
             header = '<header' + header + '</header>'
             footer = blog_template.split('<footer')[1].split('</footer>')[0]
             footer = '<footer' + footer + '</footer>'
-        except:
-            header, footer = "", ""
+    except Exception as e:
+        print("Error extract header/footer", e)
+        header, footer = "", ""
             
     html = html.replace('{MEGA_MENU}', header)
     html = html.replace('{FOOTER_HTML}', footer)
@@ -104,7 +92,6 @@ def publish_blog(json_path):
     else:
         blogs = []
         
-    # Remover si ya existe (para actualizar)
     blogs = [b for b in blogs if b['slug'] != slug]
     
     blogs.append({
