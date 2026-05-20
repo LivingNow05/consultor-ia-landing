@@ -67,7 +67,10 @@ def publish_blog(json_path):
             blog_template = f.read()
             header = blog_template.split('<header')[1].split('</header>')[0]
             header = '<header' + header + '</header>'
-            footer = blog_template.split('<footer')[1].split('</footer>')[0]
+            
+        with open('templates/home.html', 'r', encoding='utf-8') as f:
+            home_template = f.read()
+            footer = home_template.split('<footer')[1].split('</footer>')[0]
             footer = '<footer' + footer + '</footer>'
     except Exception as e:
         print("Error extract header/footer", e)
