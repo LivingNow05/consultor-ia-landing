@@ -88,6 +88,41 @@ def publish_blog(json_path):
         
     print(f"✅ Artículo {slug} compilado en {out_dir}/index.html")
     
+    # Indexar automáticamente en Google
+    try:
+        url_to_index = f"https://consultor-ia.com.co/blog/{slug}/"
+        print(f"🚀 Enviando notificación de indexación para: {url_to_index}")
+        
+        from google.oauth2 import service_account
+        from google.auth.transport.requests import Request as GoogleRequest
+        import requests
+        
+        SCOPES = ["https://www.googleapis.com/auth/indexing"]
+        INDEXING_API_URL = "https://indexing.googleapis.com/v3/urlNotifications:publish"
+        
+        if os.path.exists("service-account.json"):
+            creds = service_account.Credentials.from_service_account_file(
+                "service-account.json", scopes=SCOPES
+            )
+            creds.refresh(GoogleRequest())
+            token = creds.token
+            
+            headers = {
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+            }
+            body = {"url": url_to_index, "type": "URL_UPDATED"}
+            response = requests.post(INDEXING_API_URL, headers=headers, json=body)
+            
+            if response.status_code == 200:
+                print(f"✅ Éxito: Google ha recibido la notificación de indexación para: {url_to_index}")
+            else:
+                print(f"❌ Error al notificar a Google ({response.status_code}): {response.text}")
+        else:
+            print("⚠️ No se encontró service-account.json, se omite la indexación automática.")
+    except Exception as e:
+        print(f"⚠️ Error durante la indexación automática: {e}")
+    
     # Actualizar published_blogs.json
     blogs_file = 'data/published_blogs.json'
     if os.path.exists(blogs_file):
