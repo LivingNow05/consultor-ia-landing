@@ -58,9 +58,6 @@ def publish_blog(json_path):
     </section>
     """
     html = html.replace('{CONTENT_HTML}', content_wrapped)
-    html = html.replace('{WA_NUMERO}', wa_num)
-    html = html.replace('{WA_MENSAJE_ENCODED}', wa_msg_encoded)
-    
     # Header y footer
     try:
         with open('templates/blog.html', 'r', encoding='utf-8') as f:
@@ -78,6 +75,10 @@ def publish_blog(json_path):
             
     html = html.replace('{MEGA_MENU}', header)
     html = html.replace('{FOOTER_HTML}', footer)
+    
+    # Reemplazar variables de WhatsApp en todo el documento (incluyendo header/footer)
+    html = html.replace('{WA_NUMERO}', wa_num)
+    html = html.replace('{WA_MENSAJE_ENCODED}', wa_msg_encoded)
     
     # Guardar en dist
     out_dir = f"dist/blog/{slug}"

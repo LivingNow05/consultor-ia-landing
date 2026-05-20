@@ -65,6 +65,25 @@ def build_blog_index():
             print("Error: No se encontró la grilla en blog.html")
             return
 
+    # Reemplazar footer y variables de WhatsApp
+    import urllib.parse
+    wa_num = "573151206985"
+    wa_msg = "Hola, vengo del blog. Me gustaría más información sobre sus servicios de IA."
+    wa_msg_encoded = urllib.parse.quote(wa_msg)
+    
+    try:
+        with open('templates/home.html', 'r', encoding='utf-8') as f:
+            home_template = f.read()
+            footer = home_template.split('<footer')[1].split('</footer>')[0]
+            footer = '<footer' + footer + '</footer>'
+    except Exception as e:
+        print("Error extract footer", e)
+        footer = ""
+
+    final_html = final_html.replace('{FOOTER_HTML}', footer)
+    final_html = final_html.replace('{WA_NUMERO}', wa_num)
+    final_html = final_html.replace('{WA_MENSAJE_ENCODED}', wa_msg_encoded)
+
     # Escribir en dist/blog/index.html
     os.makedirs('dist/blog', exist_ok=True)
     with open('dist/blog/index.html', 'w', encoding='utf-8') as f:

@@ -141,11 +141,7 @@
         </section>
     </main>
 
-    <footer class="bg-gray-1 dark:bg-black text-white pt-12 pb-8 border-t border-slate-800">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-400 text-sm">&copy; 2026 Consultor IA. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    {FOOTER_HTML}
     
     <script>
         var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -180,5 +176,15 @@
     </script>
     
     <script src="/js/canvas-bg.js"></script>
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30 z-50 hover:scale-110 transition-transform hover:shadow-2xl group">
+        <i class="fab fa-whatsapp"></i>
+        <span class="absolute right-full mr-4 bg-white dark:bg-zinc-800 text-gray-800 dark:text-white text-sm font-normal px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">
+            ¡Escríbenos!
+        </span>
+    </a>
+
+    <!-- Script del Modal de WhatsApp (con cache buster) -->
+    <script src="/js/wa-modal.js?v=1.3" charset="utf-8" defer></script>
 </body>
 </html>
