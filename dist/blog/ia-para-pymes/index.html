@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Favicon -->
+    <link rel="icon" type="image/png" sizes="48x48" href="https://consultor-ia.com.co/favicon-48x48.png">
+    <link rel="icon" type="image/x-icon" href="https://consultor-ia.com.co/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://consultor-ia.com.co/apple-touch-icon.png">
+
+    <title>IA para PYMES 2026 | Guía Práctica LATAM | Consultor IA</title>
+    <meta name="description" content="La IA ya no es solo para grandes empresas. Guía práctica para implementar inteligencia artificial en tu PYME LATAM con presupuesto real.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://consultor-ia.com.co/blog/ia-para-pymes/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="IA para PYMES 2026 | Guía Práctica LATAM | Consultor IA">
+    <meta property="og:description" content="La IA ya no es solo para grandes empresas. Guía práctica para implementar inteligencia artificial en tu PYME LATAM con presupuesto real.">
+    <meta property="og:url" content="https://consultor-ia.com.co/blog/ia-para-pymes/">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:site_name" content="Consultor IA">
+    <meta property="og:image" content="https://consultor-ia.com.co/images/og-home.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IA para PYMES 2026 | Guía Práctica LATAM | Consultor IA">
+    <meta name="twitter:description" content="La IA ya no es solo para grandes empresas. Guía práctica para implementar inteligencia artificial en tu PYME LATAM con presupuesto real.">
+    <meta name="twitter:image" content="https://consultor-ia.com.co/images/og-home.webp">
+
+    <!-- Schema: Article + Breadcrumb -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Inteligencia Artificial para PYMES: Guía Práctica",
+      "description": "La IA ya no es solo para grandes empresas. Guía práctica para implementar inteligencia artificial en tu PYME LATAM con presupuesto real.",
+      "author": {"@type": "Organization", "name": "Consultor IA"},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Consultor IA",
+        "logo": {"@type": "ImageObject", "url": "https://consultor-ia.com.co/favicon-96x96.png"}
+      },
+      "url": "https://consultor-ia.com.co/blog/ia-para-pymes/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://consultor-ia.com.co/"},
+        {"@type": "ListItem", "position": 2, "name": "Inteligencia Artificial para PYMES: Guía Práctica", "item": "https://consultor-ia.com.co/blog/ia-para-pymes/"}
+      ]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'brand': '#18181b',      /* Zinc 900 */
+                        'brand-light': '#f4f4f5',/* Zinc 100 */
+                        'accent': '#2563eb',     /* Blue 600 */
+                        'success': '#10b981',
+                        'gray-1': '#18181b',
+                        'gray-2': '#52525b',
+                        'gray-card': '#ffffff',
+                        'gray-border': '#e4e4e7',
+                    },
+                    fontFamily: {
+                        body: ['"Inter"', 'sans-serif'],
+                        header: ['"Playfair Display"', 'serif'],
+                    },
+                    borderRadius: { '3xl': '24px' }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        .glass { background: rgba(253,251,247,0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .dark .glass { background: rgba(30,28,26,0.85); }
+        .mega-menu { display: none; }
+        .group:hover .mega-menu { display: block; }
+        html, body { overscroll-behavior: none; }
+    </style>
+</head>
+<body class="bg-white dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 transition-colors duration-300">
+
+    <!-- 1. Header (Sticky & Glass) -->
+    <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
+        <div class="w-full max-w-7xl glass rounded-full border border-gray-200 dark:border-zinc-800/80 shadow-2xl pointer-events-auto flex justify-between items-center px-6 py-3">
+            <a href="/" class="text-2xl font-header flex items-center gap-2">
+                <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 items-center">
+                <!-- Mega Menu Industrias -->
+                <div class="relative group z-50 py-2">
+                    <button class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light flex items-center gap-1 transition-colors">
+                        Industrias <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
+                        <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
+        <div class="w-full max-w-7xl glass rounded-full border border-gray-200 dark:border-zinc-800/80 shadow-2xl pointer-events-auto flex justify-between items-center px-6 py-3">
+            <a href="/" class="text-2xl font-header flex items-center gap-2">
+                <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand transition-colors">Inicio</a>
+                <a href="/blog/" class="font-normal text-brand transition-colors">Blog</a>
+                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
+                    <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
+                    <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
+                </button>
+                <a href="https://wa.me/573151206985" class="border-beam bg-white/90 dark:bg-zinc-900/50 backdrop-blur-md border border-gray-200/80 dark:border-slate-700 text-slate-800 dark:text-white px-6 py-2 rounded-full font-normal hover:shadow-[0_8px_30px_-12px_rgba(16,185,129,0.5)] hover:-translate-y-0.5 transition-all duration-300">
+                    Hablar con asesor
+                </a>
+            </nav>
+        </div>
+    </header>
+                    </div>
+                </div>
+                
+                <a href="/#como-funciona" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
+                    <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
+                    <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
+                </button>
+
+                <a href="https://wa.me/573151206985?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20del%20blog%3A%20Inteligencia%20Artificial%20para%20PYMES%3A%20Gu%C3%ADa%20Pr%C3%A1ctica.%20Me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
+                    <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                    <span class="relative z-10 flex items-center gap-2 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                        Asesoría <i class="fab fa-whatsapp text-sm"></i>
+                    </span>
+                </a>
+            </nav>
+            
+            <button class="md:hidden text-gray-1 dark:text-slate-200 text-2xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[110] bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <div class="flex flex-col h-full p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="font-header font-extrabold text-2xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand focus:outline-none rounded-lg text-2xl p-2 transition-colors">
+                        <i id="theme-toggle-dark-icon-mobile" class="fas fa-moon hidden"></i>
+                        <i id="theme-toggle-light-icon-mobile" class="fas fa-sun hidden"></i>
+                    </button>
+                    <button id="close-menu-btn" class="text-3xl text-zinc-900 dark:text-white focus:outline-none">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <nav class="flex flex-col space-y-6 text-2xl font-header font-bold">
+                <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a>
+                <a href="/#como-funciona" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+                <a href="/blog/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
+            </nav>
+
+            <div class="mt-auto pt-8 border-t border-zinc-200 dark:border-zinc-800">
+                <a href="https://wa.me/573151206985?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20del%20blog%3A%20Inteligencia%20Artificial%20para%20PYMES%3A%20Gu%C3%ADa%20Pr%C3%A1ctica.%20Me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
+                    Asesoría WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero -->
+        <section class="pt-32 pb-20 bg-zinc-50 dark:bg-zinc-900/50 border-b border-zinc-200 dark:border-zinc-800">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-6 border border-accent/20">
+                    <i class="fas fa-robot text-xs"></i>
+                    Consultor IA — Recursos
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-header font-bold mb-6 leading-tight text-zinc-900 dark:text-white">Inteligencia Artificial para PYMES: Guía Práctica</h1>
+                <p class="text-xl text-gray-2 dark:text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed">La IA ya no es solo para grandes empresas. Guía práctica para implementar inteligencia artificial en tu PYME LATAM con presupuesto real.</p>
+                <a href="https://wa.me/573151206985?text=Hola%2C+quiero+saber+m%C3%A1s+sobre+blog/ia-para-pymes" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-8 py-4 overflow-hidden transition-all duration-500">
+                    <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                    <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">Hablar con un asesor gratis <i class="fab fa-whatsapp text-[14px]"></i></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        
+    <section class="py-12 bg-white dark:bg-zinc-950">
+        
+    <div class="w-full h-[40vh] md:h-[50vh] rounded-3xl overflow-hidden mb-12 shadow-2xl relative mt-12 max-w-5xl mx-auto">
+        <img src="/images/blog/ia-para-pymes/hero.webp" alt="Inteligencia Artificial para PYMES: Guía Práctica" class="w-full h-full object-cover">
+    </div>
+    
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-header prose-headings:font-bold prose-a:text-brand dark:prose-a:text-brand-light prose-img:rounded-2xl prose-img:shadow-lg prose-table:rounded-xl prose-table:overflow-hidden">
+                <div class="bg-zinc-50 dark:bg-zinc-900/50 p-8 rounded-3xl mb-12 border border-zinc-200 dark:border-zinc-800">
+  <h3 class="text-2xl font-bold mt-0 mb-6 font-header flex items-center gap-2">
+    <i class="fas fa-list-ul text-brand"></i> Tabla de Contenidos
+  </h3>
+  <ul class="list-none pl-0 m-0 space-y-3 font-medium text-lg">
+    <li><a href="#nuevo-paradigma" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 1. El Nuevo Paradigma: Inteligencia Artificial para PYMES en LATAM (2026)</a></li>
+    <li><a href="#casos-uso" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 2. Casos de Uso Prácticos de la IA en la Pequeña y Mediana Empresa</a></li>
+    <li><a href="#comparativa-pymes" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 3. Comparativa: Software Tradicional vs. Automatización con IA</a></li>
+    <li><a href="#hoja-ruta" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 4. Hoja de Ruta en 5 Pasos para Implementar IA con Presupuesto Real</a></li>
+    <li><a href="#presupuesto-roi" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 5. Presupuestos Estimados y Retorno de Inversión (ROI) Realista</a></li>
+    <li><a href="#faq-pymes" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 6. Preguntas Frecuentes (FAQ) sobre IA para PYMES</a></li>
+  </ul>
+</div>
+
+<h2 id="nuevo-paradigma" class="text-3xl font-header font-bold mb-6">1. El Nuevo Paradigma: Inteligencia Artificial para PYMES en LATAM (2026)</h2>
+<p class="text-lg leading-relaxed mb-6">Durante años, se pensó que la adopción de tecnologías avanzadas era terreno exclusivo de las multinacionales y grandes corporaciones con millones de dólares en presupuesto. En 2026, la realidad es diametralmente opuesta: la <strong>ia para pymes</strong> se ha convertido en el ecualizador competitivo más potente del mercado. Hoy en día, una pequeña empresa en Colombia, México, Perú o Chile puede utilizar modelos avanzados de procesamiento de lenguaje natural y agentes autónomos para operar con la eficiencia, rapidez y sofisticación de un gigante del sector, pero con una inversión extremadamente baja y escalable.</p>
+<p class="text-lg leading-relaxed mb-6">El secreto de la <strong>inteligencia artificial para pymes</strong> radica en la democratización del acceso a las APIs cognitivas (como Gemini 1.5). Ya no es necesario contratar un equipo entero de científicos de datos ni construir modelos desde cero. Con integraciones inteligentes de bajo código (low-code), cualquier negocio local puede estructurar agentes de servicio en WhatsApp, optimizar sus procesos de marketing o digitalizar toda su facturación contable de manera automática, eliminando tareas repetitivas y permitiendo al equipo humano enfocarse en la estrategia y el crecimiento.</p>
+<blockquote class="border-l-4 border-brand pl-6 my-8 italic text-xl text-gray-2 dark:text-slate-300">"La inteligencia artificial no viene a reemplazar a los equipos de las PYMES; viene a liberarlos del trabajo administrativo rutinario para que puedan dedicar su tiempo a lo que realmente genera valor: la creatividad, el cierre de negocios y la relación humana con el cliente."</blockquote>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
+  <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+    <div class="text-3xl text-brand mb-4"><i class="fab fa-whatsapp"></i></div>
+    <h3 class="text-xl font-bold mb-2">WhatsApp Corporativo 24/7</h3>
+    <p class="text-sm text-gray-600 dark:text-zinc-400">Automatiza la atención a clientes, resuelve dudas recurrentes sobre precios o menús, califica prospectos comerciales y agenda citas directamente en tu CRM, todo sin que nadie de tu equipo intervenga.</p>
+  </div>
+  <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+    <div class="text-3xl text-brand mb-4"><i class="fas fa-file-invoice-dollar"></i></div>
+    <h3 class="text-xl font-bold mb-2">Contabilidad sin Papeleo</h3>
+    <p class="text-sm text-gray-600 dark:text-zinc-400">Sistemas de visión artificial que extraen información crítica de facturas o soportes de pago en PDF o imágenes, y los sincronizan automáticamente con tu software contable local.</p>
+  </div>
+  <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+    <div class="text-3xl text-brand mb-4"><i class="fas fa-funnel-dollar"></i></div>
+    <h3 class="text-xl font-bold mb-2">Calificación de leads</h3>
+    <p class="text-sm text-gray-600 dark:text-zinc-400">Filtra prospectos automáticamente, detecta a los que realmente tienen intención y presupuesto de compra, e inicia flujos de seguimiento personalizados sin demoras operativas.</p>
+  </div>
+</div>
+
+<h2 id="casos-uso" class="text-3xl font-header font-bold mb-6">2. Casos de Uso Prácticos de la IA en la Pequeña y Mediana Empresa</h2>
+<p class="text-lg leading-relaxed mb-6">La aplicación de la <strong>inteligencia artificial para pymes</strong> no es una teoría; hoy en día se traduce en herramientas puntuales que resuelven cuellos de botella específicos de la operación diaria. A continuación, exploramos los casos de uso con mayor tasa de adopción y éxito en América Latina:</p>
+
+<h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-comments text-brand"></i> WhatsApp Inteligente: Chatbots vs. Agentes de IA</h3>
+<p class="text-lg leading-relaxed mb-6">El flujo de ventas de la gran mayoría de las PYMES latinoamericanas depende enteramente de WhatsApp. Sin embargo, un chatbot tradicional basado en botones o árboles de respuesta rígida frustra a los clientes porque no tolera faltas de ortografía ni entiende preguntas complejas. En contraste, un <strong>agente de IA para pymes</strong> basado en modelos de lenguaje natural lee el mensaje, comprende la intención exacta del usuario, consulta tu inventario o base de conocimientos en milisegundos (RAG), y responde con total naturalidad, calidez y precisión. Si el cliente está listo para comprar o agendar una reunión, el agente coordina de forma síncrona el flujo.</p>
+
+<h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-robot text-brand"></i> Automatización de Procesos Administrativos (RPA + IA)</h3>
+<p class="text-lg leading-relaxed mb-6">El tiempo administrativo es el mayor drenaje de recursos de una PYME. Automatizar procesos contables —como recibir facturas de proveedores, extraer los montos, verificar los datos tributarios y subirlos a plataformas como Alegra, Siigo o QuickBooks— tomaba horas semanales de personal administrativo. Con un flujo inteligente orquestado por IA, este procesamiento se realiza en segundos. La IA lee el documento adjunto al correo electrónico, procesa la información en texto estructurado y ejecuta la API de tu software contable sin errores tipográficos.</p>
+
+<h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-chart-line text-brand"></i> Marketing Digital de Alto Rendimiento y Copywriting Personalizado</h3>
+<p class="text-lg leading-relaxed mb-6">Competir en pauta digital requiere generar contenido creativo de forma constante. La <strong>ia para pymes</strong> permite que pequeñas marcas generen variaciones de anuncios para Facebook, Instagram y Google Ads optimizados para conversión según el perfil exacto de su buyer persona. Al alimentar al modelo con la identidad corporativa y el tono de voz de la marca, se obtienen textos comerciales listos para publicar, reduciendo el tiempo de diseño de campañas en un 80%.</p>
+
+<h2 id="comparativa-pymes" class="text-3xl font-header font-bold mb-6">3. Comparativa: Software Tradicional vs. Automatización con IA</h2>
+<p class="text-lg leading-relaxed mb-6">Para comprender la diferencia fundamental en la agilidad operativa, comparemos las limitaciones del software SaaS tradicional frente al potencial adaptativo de la inteligencia artificial moderna:</p>
+
+<div class="overflow-x-auto mb-12 shadow-xl rounded-2xl">
+  <table class="min-w-full text-left border-collapse bg-white dark:bg-zinc-950">
+    <thead class="bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
+      <tr>
+        <th class="p-6 font-bold text-lg text-zinc-900 dark:text-white">Característica Estratégica</th>
+        <th class="p-6 font-bold text-lg text-brand border-l border-zinc-200 dark:border-zinc-800 w-1/3">Software Tradicional (Enfoque Clásico)</th>
+        <th class="p-6 font-bold text-lg text-accent border-l border-zinc-200 dark:border-zinc-800 w-1/3">Agentes y Flujos de IA (Modelo 2026)</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800">
+      <tr>
+        <td class="p-6 font-semibold">Flexibilidad en Flujos</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-red-600 dark:text-red-400">Rígido. El usuario debe seguir menús estrictos y hacer clics exactos.</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-green-600 dark:text-green-400 font-medium">Adaptativo. Entiende el contexto libre, textos con errores de digitación y notas de voz.</td>
+      </tr>
+      <tr class="bg-zinc-50 dark:bg-zinc-900/30">
+        <td class="p-6 font-semibold">Costos de Configuración</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800">Suscripciones mensuales elevadas por usuario y costosas consultorías de configuración.</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-green-600 dark:text-green-400 font-medium">Inversión inicial moderada y cobro por uso exacto de tokens o APIs (fracciones de centavo).</td>
+      </tr>
+      <tr>
+        <td class="p-6 font-semibold">Manejo de Datos Complejos</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-red-600 dark:text-red-400">Incapaz de procesar PDFs escaneados, imágenes, audios o textos sin formato.</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-green-600 dark:text-green-400 font-medium">Procesamiento multimodal. Extrae datos clave de cualquier archivo no estructurado.</td>
+      </tr>
+      <tr class="bg-zinc-50 dark:bg-zinc-900/30">
+        <td class="p-6 font-semibold">Tiempo de Implementación</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800">Semanas o meses de migración de datos y capacitación intensiva del personal.</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-green-600 dark:text-green-400 font-medium">Días. El agente se alimenta directamente de manuales PDF y políticas existentes.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="hoja-ruta" class="text-3xl font-header font-bold mb-6">4. Hoja de Ruta en 5 Pasos para Implementar IA con Presupuesto Real</h2>
+<p class="text-lg leading-relaxed mb-6">El mayor error que cometen las PYMES es intentar automatizar todo al mismo tiempo debido al FOMO (temor a quedarse fuera). Para lograr una implementación exitosa, recomendamos una metodología progresiva de cinco pasos:</p>
+
+<div class="space-y-6 mb-12">
+  <div class="p-6 bg-white dark:bg-zinc-900 border-l-4 border-brand rounded-r-xl shadow-md">
+    <h4 class="text-xl font-bold mb-2 flex items-center gap-3"><span class="bg-brand text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span> Definir un Único Caso de Uso de Alto Impacto</h4>
+    <p class="text-gray-600 dark:text-zinc-400">Analiza en qué tareas manuales gasta tu equipo la mayor parte del día. Comienza con una sola automatización sencilla pero muy valiosa (por ejemplo, calificar y filtrar leads de anuncios de Instagram y agendar en tu calendario).</p>
+  </div>
+  
+  <div class="p-6 bg-white dark:bg-zinc-900 border-l-4 border-brand rounded-r-xl shadow-md">
+    <h4 class="text-xl font-bold mb-2 flex items-center gap-3"><span class="bg-brand text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span> Consolidar tu Base de Conocimientos</h4>
+    <p class="text-gray-600 dark:text-zinc-400">Un agente inteligente es tan bueno como la información de la que dispone. Redacta o reúne en un solo lugar las preguntas frecuentes de tus clientes, las políticas de devolución, la lista de precios y la descripción de tus servicios en un archivo de texto o PDF.</p>
+  </div>
+
+  <div class="p-6 bg-white dark:bg-zinc-900 border-l-4 border-brand rounded-r-xl shadow-md">
+    <h4 class="text-xl font-bold mb-2 flex items-center gap-3"><span class="bg-brand text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">3</span> Conectar Herramientas con APIs Modernas (Low-Code)</h4>
+    <p class="text-gray-600 dark:text-zinc-400">Utiliza plataformas de orquestación ágiles (Make, n8n) para conectar los canales de entrada (WhatsApp, correos, formularios) con el motor de IA y el destino (CRM, Hojas de Google o tu base de datos). Esto reduce el costo de desarrollo a una fracción.</p>
+  </div>
+
+  <div class="p-6 bg-white dark:bg-zinc-900 border-l-4 border-brand rounded-r-xl shadow-md">
+    <h4 class="text-xl font-bold mb-2 flex items-center gap-3"><span class="bg-brand text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">4</span> Fase de Pruebas Controlada (Humano en el Bucle)</h4>
+    <p class="text-gray-600 dark:text-zinc-400">Antes de lanzar el agente de cara al público general, pruébalo internamente. Tus colaboradores deben chatear con él, simular consultas difíciles y validar que el tono y la precisión sean los correctos, ajustando las instrucciones para prevenir errores.</p>
+  </div>
+
+  <div class="p-6 bg-white dark:bg-zinc-900 border-l-4 border-brand rounded-r-xl shadow-md">
+    <h4 class="text-xl font-bold mb-2 flex items-center gap-3"><span class="bg-brand text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">5</span> Despliegue, Lanzamiento y Medición de Ahorro</h4>
+    <p class="text-gray-600 dark:text-zinc-400">Pon el agente en producción y mide indicadores clave: ¿cuántas horas operativas se liberaron en el equipo?, ¿cuántos prospectos se atendieron de forma síncrona en la noche?, ¿cuál es el porcentaje de satisfacción de tus clientes?</p>
+  </div>
+</div>
+
+<h2 id="presupuesto-roi" class="text-3xl font-header font-bold mb-6">5. Presupuestos Estimados y Retorno de Inversión (ROI) Realista</h2>
+<p class="text-lg leading-relaxed mb-6">Una de las mayores ventajas de la <strong>ia para pymes</strong> en LATAM es que los costos operativos de la infraestructura en la nube se basan estrictamente en el consumo real. A continuación, presentamos una estimación realista de la inversión necesaria para una pequeña empresa de la región:</p>
+
+<div class="overflow-x-auto mb-12 shadow-xl rounded-2xl">
+  <table class="min-w-full text-left border-collapse bg-white dark:bg-zinc-950">
+    <thead class="bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
+      <tr>
+        <th class="p-6 font-bold text-lg text-zinc-900 dark:text-white">Concepto / Recurso</th>
+        <th class="p-6 font-bold text-lg text-brand border-l border-zinc-200 dark:border-zinc-800">Costo Estimado Mensual (USD)</th>
+        <th class="p-6 font-bold text-lg text-brand border-l border-zinc-200 dark:border-zinc-800">Equivalente Promedio Local (COP / MXN)</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800">
+      <tr>
+        <td class="p-6 font-semibold">Consumo de API de Inteligencia Artificial (Gemini)</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800">$5 a $15 USD (dependiendo del volumen de mensajes)</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-gray-600 dark:text-zinc-400">~ $20,000 a $60,000 COP / ~ $85 a $250 MXN</td>
+      </tr>
+      <tr class="bg-zinc-50 dark:bg-zinc-900/30">
+        <td class="p-6 font-semibold">Suscripción de Plataforma de Orquestación (Make / n8n)</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800">$9 a $29 USD (planes de entrada)</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-gray-600 dark:text-zinc-400">~ $36,000 a $116,000 COP / ~ $150 a $500 MXN</td>
+      </tr>
+      <tr>
+        <td class="p-6 font-semibold">API de WhatsApp Business (Muchas veces gratuita o de bajo costo)</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800">$0 a $20 USD (primeros 1,000 chats del mes gratis)</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-gray-600 dark:text-zinc-400">~ $0 a $80,000 COP / ~ $0 a $340 MXN</td>
+      </tr>
+      <tr class="bg-zinc-50 dark:bg-zinc-900/30">
+        <td class="p-6 font-semibold font-bold text-accent">Total Infraestructura Mensual Aproximado</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-green-600 dark:text-green-400 font-bold">$14 a $64 USD</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-green-600 dark:text-green-400 font-bold">~ $56,000 a $256,000 COP / ~ $235 a $1,090 MXN</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="text-lg leading-relaxed mb-6"><strong>Retorno de Inversión (ROI):</strong> Un agente de IA que atiende automáticamente en WhatsApp o automatiza facturas contables puede ahorrarle a una PYME entre 20 y 45 horas semanales de trabajo operativo de su equipo. Si calculamos el costo de las horas laborales de tus colaboradores dedicadas a tareas repetitivas, el ROI de la inversión se recupera típicamente en las primeras 4 semanas posteriores al lanzamiento del sistema.</p>
+
+<h2 id="faq-pymes" class="text-3xl font-header font-bold mb-8">6. Preguntas Frecuentes (FAQ) sobre IA para PYMES</h2>
+<div itemscope itemtype="https://schema.org/FAQPage" class="space-y-6 mb-12">
+  
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-zinc-50 dark:bg-zinc-900/40 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+    <h3 itemprop="name" class="text-xl font-bold font-header flex items-center gap-3">
+      <i class="fas fa-question-circle text-brand"></i> ¿Necesito conocimientos avanzados de programación para implementar IA en mi PYME?
+    </h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="mt-4 text-gray-700 dark:text-zinc-300">
+      <p itemprop="text">No necesariamente. En 2026, la mayoría de las integraciones de inteligencia artificial para pymes se realizan utilizando herramientas low-code (de bajo código) como Make o n8n, lo que permite conectar sistemas visualmente. Sin embargo, para integraciones personalizadas complejas con tus sistemas contables, ERP locales o flujos avanzados, contar con un consultor experto en IA garantiza un despliegue seguro, optimizado y sin errores operativos en tiempo récord.</p>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-zinc-50 dark:bg-zinc-900/40 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+    <h3 itemprop="name" class="text-xl font-bold font-header flex items-center gap-3">
+      <i class="fas fa-question-circle text-brand"></i> ¿Qué tan seguro es el manejo de datos comerciales con la IA?
+    </h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="mt-4 text-gray-700 dark:text-zinc-300">
+      <p itemprop="text">Es sumamente seguro cuando se configura de forma profesional. Al integrar las APIs corporativas de modelos avanzados de IA (como Gemini), se establecen contratos de protección de datos que aseguran que las consultas de tus clientes y la información confidencial de tu empresa nunca sean utilizadas para entrenar modelos públicos externos. Todo tu flujo opera en un canal encriptado y seguro.</p>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-zinc-50 dark:bg-zinc-900/40 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+    <h3 itemprop="name" class="text-xl font-bold font-header flex items-center gap-3">
+      <i class="fas fa-question-circle text-brand"></i> ¿Los agentes de IA tienden a alucinar o inventar respuestas?
+    </h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="mt-4 text-gray-700 dark:text-zinc-300">
+      <p itemprop="text">Los modelos públicos generales de IA pueden alucinar si se les deja responder libremente. No obstante, al estructurar un agente inteligente corporativo con la arquitectura adecuada (RAG o generación aumentada por recuperación), restringimos al agente para que responda única y estrictamente a partir de la información de tu base de datos empresarial oficial. Si el agente no sabe la respuesta, se le programa para derivar la conversación con un agente humano de forma transparente.</p>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-zinc-50 dark:bg-zinc-900/40 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+    <h3 itemprop="name" class="text-xl font-bold font-header flex items-center gap-3">
+      <i class="fas fa-question-circle text-brand"></i> ¿Cuánto tiempo toma ver funcionando un agente de IA en mi negocio?
+    </h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="mt-4 text-gray-700 dark:text-zinc-300">
+      <p itemprop="text">Una automatización estándar para PYMES —como un agente calificador y agendador en WhatsApp integrado con CRM— toma típicamente de 1 a 2 semanas en implementarse y probarse por completo. Flujos más complejos que requieran lectura contable e integración con bases de datos legadas pueden requerir de 3 a 4 semanas para asegurar su estabilidad.</p>
+    </div>
+  </div>
+
+</div>
+
+<h2 class="text-3xl font-header font-bold mb-6">Da el Salto y Escala tu Negocio con Inteligencia Artificial</h2>
+<p class="text-lg leading-relaxed mb-6">El uso de la inteligencia artificial para pymes en América Latina ha dejado de ser una opción tecnológica futurista para consolidarse como un requisito básico de eficiencia operativa en 2026. Postergar esta decisión operacional solo beneficia a los competidores que ya están automatizando sus flujos, respondiendo a los leads en segundos y operando con estructuras de costos sumamente optimizadas.</p>
+<p class="text-lg leading-relaxed font-semibold mb-8">Si estás listo para evaluar la viabilidad de la automatización en tus procesos, entender qué áreas de tu PYME se beneficiarían de forma inmediata de la IA y obtener un diagnóstico estratégico 100% personalizado y sin compromiso, agenda una sesión de consultoría en nuestro calendario interactivo ahora mismo.</p>
+            </div>
+        </div>
+    </section>
+    
+
+        <!-- 6. Precios (Tarjetas Premium) -->
+        <section id="precios" class="py-24 bg-white dark:bg-zinc-950">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-16">
+                    <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios</h2>
+                    <p class="text-xl text-gray-2 dark:text-slate-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
+                    <!-- Pricing Card 1: Setup -->
+                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+                        <h3 class="font-header font-bold text-2xl mb-2">Configuración Completa</h3>
+                        <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Pago único por la creación del sistema</p>
+                        <div class="text-4xl font-bold mb-6 text-gray-1 dark:text-white">$497 <span class="text-lg font-normal text-gray-400">USD</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-slate-300">
+                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Desarrollo y entrenamiento del Agente IA</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Integración completa con WhatsApp y Web</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Ingesta de base de conocimiento (FAQ, servicios)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Pruebas y despliegue inicial (5-7 días)</li>
+                        </ul>
+                        <a href="https://wa.me/573151206985" target="_blank" class="block w-full text-center border border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-zinc-800 py-3 rounded-xl font-medium transition-colors">Solicitar Configuración</a>
+                    </div>
+                    
+                    <!-- Pricing Card 2: Mantenimiento (Destacada) -->
+                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Esencial</div>
+                        <h3 class="font-header font-bold text-2xl mb-2 text-white">Mantenimiento Mensual</h3>
+                        <p class="text-brand-100 text-sm mb-6">Suscripción para el funcionamiento de la IA</p>
+                        <div class="text-4xl font-bold mb-6 text-white">$97 <span class="text-lg font-normal text-brand-200">USD /mes</span></div>
+                        <ul class="space-y-4 mb-8 text-sm">
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Hosting del agente y consumo de IA</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Soporte técnico prioritario</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Ajustes y optimizaciones mensuales</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Actualizaciones de plataforma automáticas</li>
+                        </ul>
+                        <a href="https://wa.me/573151206985" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-3.5 rounded-xl overflow-hidden transition-all duration-500">
+                            <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                            <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                                Ver Detalles <i class="fas fa-arrow-right text-[12px]"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-20 bg-zinc-900 dark:bg-zinc-950 text-white">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
+                <h2 class="text-3xl md:text-4xl font-header font-bold mb-4">¿Listo para implementar IA en tu negocio?</h2>
+                <p class="text-zinc-400 text-lg mb-8">Agenda una demo gratuita de 30 minutos. Te mostramos en vivo cómo funciona para tu industria específica.</p>
+                <a href="https://wa.me/573151206985?text=Hola%2C+quiero+una+demo+gratuita+del+agente+IA" target="_blank" class="group relative inline-flex items-center justify-center border border-white px-10 py-5 overflow-hidden transition-all duration-500">
+                    <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                    <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">Solicitar demo gratuita <i class="fab fa-whatsapp text-[14px]"></i></span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-1 dark:bg-black text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="/" class="text-2xl font-header font-normal text-brand-light flex items-center gap-2 mb-4">
+                        <span class="font-header font-normal tracking-tighter text-3xl">Consultor IA</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-sm">Automatizando negocios en LATAM con tecnología de punta en Inteligencia Artificial y WhatsApp API.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="/ia-para-negocios/" class="hover:text-brand-light transition-colors">Consultoría IA</a></li>
+                        <li><a href="/ia-para-pymes/" class="hover:text-brand-light transition-colors">IA para PYMES</a></li>
+                        <li><a href="/automatizacion-con-ia/" class="hover:text-brand-light transition-colors">Automatización</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="https://wa.me/573151206985" target="_blank" class="hover:text-brand-light transition-colors"><i class="fab fa-whatsapp mr-2"></i> +57 315 120 6985</a></li>
+                        <li><i class="fas fa-envelope mr-2"></i> hola@consultor-ia.com.co</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> LATAM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-slate-800">
+                <p class="text-gray-500 text-sm">&copy; 2026 Consultor IA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        var themeToggleBtn = document.getElementById('theme-toggle');
+        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (themeToggleDarkIcon && themeToggleLightIcon) {
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                themeToggleLightIcon.classList.remove('hidden');
+            } else {
+                themeToggleDarkIcon.classList.remove('hidden');
+            }
+        }
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', function() {
+                themeToggleDarkIcon.classList.toggle('hidden');
+                themeToggleLightIcon.classList.toggle('hidden');
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            });
+        }
+        // Mobile menu
+        var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var closeMobileBtn = document.getElementById('close-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() { mobileMenu.classList.remove('translate-x-full'); });
+        }
+        if (closeMobileBtn) {
+            closeMobileBtn.addEventListener('click', function() { mobileMenu.classList.add('translate-x-full'); });
+        }
+        // Mobile theme toggle
+        var themeMobileBtn = document.getElementById('theme-toggle-mobile');
+        var themeMobileDark = document.getElementById('theme-toggle-dark-icon-mobile');
+        var themeMobileLight = document.getElementById('theme-toggle-light-icon-mobile');
+        if (themeMobileDark && themeMobileLight) {
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                themeMobileLight.classList.remove('hidden');
+            } else {
+                themeMobileDark.classList.remove('hidden');
+            }
+        }
+        if (themeMobileBtn) {
+            themeMobileBtn.addEventListener('click', function() {
+                themeMobileDark.classList.toggle('hidden');
+                themeMobileLight.classList.toggle('hidden');
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            });
+        }
+    </script>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/573151206985?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20del%20blog%3A%20Inteligencia%20Artificial%20para%20PYMES%3A%20Gu%C3%ADa%20Pr%C3%A1ctica.%20Me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30 z-50 hover:scale-110 transition-transform hover:shadow-2xl group">
+        <i class="fab fa-whatsapp"></i>
+        <span class="absolute right-full mr-4 bg-white dark:bg-zinc-800 text-gray-800 dark:text-white text-sm font-normal px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">
+            ¡Escríbenos!
+        </span>
+    </a>
+
+    <!-- Script del Modal de WhatsApp (con cache buster) -->
+    <script src="/js/wa-modal.js?v=1.3" charset="utf-8" defer></script>
+</body>
+</html>
