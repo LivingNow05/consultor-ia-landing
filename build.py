@@ -1438,9 +1438,9 @@ def setup_dist():
     if not os.path.exists(DIST_DIR):
         os.makedirs(DIST_DIR)
     else:
-        # Delete everything inside DIST_DIR except .git
+        # Delete everything inside DIST_DIR except .git and blog
         for filename in os.listdir(DIST_DIR):
-            if filename not in ['.git', 'Dosckerfile', 'Dockerfile']:
+            if filename not in ['.git', 'Dosckerfile', 'Dockerfile', 'blog']:
                 file_path = os.path.join(DIST_DIR, filename)
                 if os.path.isfile(file_path) or os.path.islink(file_path):
                     os.unlink(file_path)
