@@ -73,7 +73,14 @@ def publish_blog(json_path):
         print("Error extract header/footer", e)
         header, footer = "", ""
             
-    html = html.replace('{MEGA_MENU}', header)
+    # Extraer el header original de pillar.html (que ya está en html) y reemplazarlo completamente por el header de blog.html
+    try:
+        original_header = html.split('<header')[1].split('</header>')[0]
+        original_header_full = '<header' + original_header + '</header>'
+        html = html.replace(original_header_full, header)
+    except:
+        pass
+        
     html = html.replace('{FOOTER_HTML}', footer)
     
     # Reemplazar variables de WhatsApp en todo el documento (incluyendo header/footer)
