@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Favicon -->
+    <link rel="icon" type="image/png" sizes="48x48" href="https://consultor-ia.com.co/favicon-48x48.png">
+    <link rel="icon" type="image/x-icon" href="https://consultor-ia.com.co/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://consultor-ia.com.co/apple-touch-icon.png">
+
+    <title>IA para Retail 2026 | Automatización y Ventas | Consultor IA</title>
+    <meta name="description" content="Aplicaciones de la inteligencia artificial en retail LATAM. Optimiza inventarios, automatiza ventas por WhatsApp e hiperpersonaliza la compra en 2026.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://consultor-ia.com.co/blog/ia-para-retail/">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="IA para Retail 2026 | Automatización y Ventas | Consultor IA">
+    <meta property="og:description" content="Aplicaciones de la inteligencia artificial en retail LATAM. Optimiza inventarios, automatiza ventas por WhatsApp e hiperpersonaliza la compra en 2026.">
+    <meta property="og:url" content="https://consultor-ia.com.co/blog/ia-para-retail/">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:site_name" content="Consultor IA">
+    <meta property="og:image" content="https://consultor-ia.com.co/images/og-home.webp">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IA para Retail 2026 | Automatización y Ventas | Consultor IA">
+    <meta name="twitter:description" content="Aplicaciones de la inteligencia artificial en retail LATAM. Optimiza inventarios, automatiza ventas por WhatsApp e hiperpersonaliza la compra en 2026.">
+    <meta name="twitter:image" content="https://consultor-ia.com.co/images/og-home.webp">
+
+    <!-- Schema: Article + Breadcrumb -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "IA para Retail y Comercio: Automatización y Personalización",
+      "description": "Aplicaciones de la inteligencia artificial en retail LATAM. Optimiza inventarios, automatiza ventas por WhatsApp e hiperpersonaliza la compra en 2026.",
+      "author": {"@type": "Organization", "name": "Consultor IA"},
+      "publisher": {
+        "@type": "Organization",
+        "name": "Consultor IA",
+        "logo": {"@type": "ImageObject", "url": "https://consultor-ia.com.co/favicon-96x96.png"}
+      },
+      "url": "https://consultor-ia.com.co/blog/ia-para-retail/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://consultor-ia.com.co/"},
+        {"@type": "ListItem", "position": 2, "name": "IA para Retail y Comercio: Automatización y Personalización", "item": "https://consultor-ia.com.co/blog/ia-para-retail/"}
+      ]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'brand': '#18181b',      /* Zinc 900 */
+                        'brand-light': '#f4f4f5',/* Zinc 100 */
+                        'accent': '#2563eb',     /* Blue 600 */
+                        'success': '#10b981',
+                        'gray-1': '#18181b',
+                        'gray-2': '#52525b',
+                        'gray-card': '#ffffff',
+                        'gray-border': '#e4e4e7',
+                    },
+                    fontFamily: {
+                        body: ['"Inter"', 'sans-serif'],
+                        header: ['"Playfair Display"', 'serif'],
+                    },
+                    borderRadius: { '3xl': '24px' }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        .glass { background: rgba(253,251,247,0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .dark .glass { background: rgba(30,28,26,0.85); }
+        .mega-menu { display: none; }
+        .group:hover .mega-menu { display: block; }
+        html, body { overscroll-behavior: none; }
+    </style>
+</head>
+<body class="bg-white dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 transition-colors duration-300">
+
+    <!-- 1. Header (Sticky & Glass) -->
+    <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
+        <div class="w-full max-w-7xl glass rounded-full border border-gray-200 dark:border-zinc-800/80 shadow-2xl pointer-events-auto flex justify-between items-center px-6 py-3">
+            <a href="/" class="text-2xl font-header flex items-center gap-2">
+                <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 items-center">
+                <!-- Mega Menu Industrias -->
+                <div class="relative group z-50 py-2">
+                    <button class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light flex items-center gap-1 transition-colors">
+                        Industrias <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
+                        <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
+        <div class="w-full max-w-7xl glass rounded-full border border-gray-200 dark:border-zinc-800/80 shadow-2xl pointer-events-auto flex justify-between items-center px-6 py-3">
+            <a href="/" class="text-2xl font-header flex items-center gap-2">
+                <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand transition-colors">Inicio</a>
+                <a href="/blog/" class="font-normal text-brand transition-colors">Blog</a>
+                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
+                    <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
+                    <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
+                </button>
+                <a href="https://wa.me/573151206985" class="border-beam bg-white/90 dark:bg-zinc-900/50 backdrop-blur-md border border-gray-200/80 dark:border-slate-700 text-slate-800 dark:text-white px-6 py-2 rounded-full font-normal hover:shadow-[0_8px_30px_-12px_rgba(16,185,129,0.5)] hover:-translate-y-0.5 transition-all duration-300">
+                    Hablar con asesor
+                </a>
+            </nav>
+        </div>
+    </header>
+                    </div>
+                </div>
+                
+                <a href="/#como-funciona" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
+                    <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
+                    <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
+                </button>
+
+                <a href="https://wa.me/573151206985?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20del%20blog%3A%20IA%20para%20Retail%20y%20Comercio%3A%20Automatizaci%C3%B3n%20y%20Personalizaci%C3%B3n.%20Me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
+                    <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                    <span class="relative z-10 flex items-center gap-2 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                        Asesoría <i class="fab fa-whatsapp text-sm"></i>
+                    </span>
+                </a>
+            </nav>
+            
+            <button class="md:hidden text-gray-1 dark:text-slate-200 text-2xl" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[110] bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <div class="flex flex-col h-full p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="font-header font-extrabold text-2xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand focus:outline-none rounded-lg text-2xl p-2 transition-colors">
+                        <i id="theme-toggle-dark-icon-mobile" class="fas fa-moon hidden"></i>
+                        <i id="theme-toggle-light-icon-mobile" class="fas fa-sun hidden"></i>
+                    </button>
+                    <button id="close-menu-btn" class="text-3xl text-zinc-900 dark:text-white focus:outline-none">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <nav class="flex flex-col space-y-6 text-2xl font-header font-bold">
+                <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a>
+                <a href="/#como-funciona" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+                <a href="/blog/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
+            </nav>
+
+            <div class="mt-auto pt-8 border-t border-zinc-200 dark:border-zinc-800">
+                <a href="https://wa.me/573151206985?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20del%20blog%3A%20IA%20para%20Retail%20y%20Comercio%3A%20Automatizaci%C3%B3n%20y%20Personalizaci%C3%B3n.%20Me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
+                    Asesoría WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero -->
+        <section class="pt-32 pb-20 bg-zinc-50 dark:bg-zinc-900/50 border-b border-zinc-200 dark:border-zinc-800">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-6 border border-accent/20">
+                    <i class="fas fa-robot text-xs"></i>
+                    Consultor IA — Recursos
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-header font-bold mb-6 leading-tight text-zinc-900 dark:text-white">IA para Retail y Comercio: Automatización y Personalización</h1>
+                <p class="text-xl text-gray-2 dark:text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed">Aplicaciones de la inteligencia artificial en retail LATAM. Optimiza inventarios, automatiza ventas por WhatsApp e hiperpersonaliza la compra en 2026.</p>
+                <a href="https://wa.me/573151206985?text=Hola%2C+quiero+saber+m%C3%A1s+sobre+blog/ia-para-retail" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-8 py-4 overflow-hidden transition-all duration-500">
+                    <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                    <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">Hablar con un asesor gratis <i class="fab fa-whatsapp text-[14px]"></i></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        
+    <section class="py-12 bg-white dark:bg-zinc-950">
+        
+    <div class="w-full h-[40vh] md:h-[50vh] rounded-3xl overflow-hidden mb-12 shadow-2xl relative mt-12 max-w-5xl mx-auto">
+        <img src="/images/blog/ia-para-retail/hero.webp" alt="IA para Retail y Comercio: Automatización y Personalización" class="w-full h-full object-cover">
+    </div>
+    
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="prose prose-lg dark:prose-invert max-w-none prose-headings:font-header prose-headings:font-bold prose-a:text-brand dark:prose-a:text-brand-light prose-img:rounded-2xl prose-img:shadow-lg prose-table:rounded-xl prose-table:overflow-hidden">
+                <div class="bg-zinc-50 dark:bg-zinc-900/50 p-8 rounded-3xl mb-12 border border-zinc-200 dark:border-zinc-800">
+  <h3 class="text-2xl font-bold mt-0 mb-6 font-header flex items-center gap-2">
+    <i class="fas fa-list-ul text-brand"></i> Tabla de Contenidos
+  </h3>
+  <ul class="list-none pl-0 m-0 space-y-3 font-medium text-lg">
+    <li><a href="#revolucion-retail" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 1. El Nuevo Paradigma: Inteligencia Artificial en el Retail LATAM (2026)</a></li>
+    <li><a href="#casos-uso-retail" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 2. Casos de Uso Prácticos: Hiperpersonalización y Operaciones Eficientes</a></li>
+    <li><a href="#comparativa-retail" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 3. Comparativa: Retail Tradicional vs. Retail Optimizado con IA</a></li>
+    <li><a href="#hoja-ruta-retail" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 4. Hoja de Ruta en 5 Pasos para Implementar IA en tu Comercio</a></li>
+    <li><a href="#presupuesto-roi-retail" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 5. Presupuestos Estimados y Retorno de Inversión (ROI) en Retail</a></li>
+    <li><a href="#faq-retail" class="no-underline hover:underline text-brand dark:text-brand-light flex items-center gap-2"><i class="fas fa-arrow-right text-xs"></i> 6. Preguntas Frecuentes (FAQ) sobre IA para Retail</a></li>
+  </ul>
+</div>
+
+<h2 id="revolucion-retail" class="text-3xl font-header font-bold mb-6">1. El Nuevo Paradigma: Inteligencia Artificial en el Retail LATAM (2026)</h2>
+<p class="text-lg leading-relaxed mb-6">El sector minorista o retail en América Latina está experimentando la transformación más profunda de su historia. En 2026, la competencia ya no se define únicamente por el tamaño del local físico o el presupuesto de pauta digital, sino por la capacidad de procesar datos en tiempo real para entender y predecir lo que el cliente desea. La adopción de la <strong>ia para retail</strong> ha dejado de ser un lujo de los gigantes del e-commerce como Amazon o Mercado Libre, convirtiéndose en una herramienta accesible para comercios medianos y marcas locales que buscan disparar sus ventas y fidelizar a sus compradores.</p>
+<p class="text-lg leading-relaxed mb-6">La combinación de la IA cognitiva, los sistemas de recomendación avanzados y la automatización conversacional a través de WhatsApp ha redefinido el viaje de compra (customer journey). Hoy en día, un cliente en Bogotá, Ciudad de México, Lima o Santiago espera una atención inmediata, recomendaciones de productos basadas en sus gustos reales y un proceso de compra sin fricciones. Implementar <strong>inteligencia artificial en retail</strong> permite a las empresas automatizar tareas complejas —desde la gestión predictiva de stocks hasta la atención personalizada de clientes— reduciendo costos operativos y multiplicando la tasa de conversión.</p>
+<blockquote class="border-l-4 border-brand pl-6 my-8 italic text-xl text-gray-2 dark:text-slate-300">"En el retail moderno, la personalización ya no es saludar al cliente por su nombre en un correo; es entender su contexto actual, predecir su próxima necesidad de consumo y presentarle la oferta exacta en el canal adecuado y en el momento preciso."</blockquote>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
+  <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+    <div class="text-3xl text-brand mb-4"><i class="fas fa-heart text-rose-500"></i></div>
+    <h3 class="text-xl font-bold mb-2">Hiperpersonalización</h3>
+    <p class="text-sm text-gray-600 dark:text-zinc-400">Recomendaciones de productos personalizadas basadas en el comportamiento histórico de navegación, compras previas y tendencias en tiempo real, aumentando el ticket promedio de compra en más de un 25%.</p>
+  </div>
+  <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+    <div class="text-3xl text-brand mb-4"><i class="fab fa-whatsapp text-green-500"></i></div>
+    <h3 class="text-xl font-bold mb-2">Ventas por WhatsApp</h3>
+    <p class="text-sm text-gray-600 dark:text-zinc-400">Agentes conversacionales autónomos que asisten al comprador en WhatsApp, le ayudan a elegir tallas, muestran catálogo interactivo, procesan pagos y gestionan envíos de forma síncrona 24/7.</p>
+  </div>
+  <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
+    <div class="text-3xl text-brand mb-4"><i class="fas fa-boxes text-blue-500"></i></div>
+    <h3 class="text-xl font-bold mb-2">Stock Inteligente</h3>
+    <p class="text-sm text-gray-600 dark:text-zinc-400">Modelos predictivos que analizan factores estacionales, festivos locales y velocidad de venta para proyectar el inventario óptimo, evitando el agotamiento de productos estrella y los excesos de stock.</p>
+  </div>
+</div>
+
+<h2 id="casos-uso-retail" class="text-3xl font-header font-bold mb-6">2. Casos de Uso Prácticos: Hiperpersonalización y Operaciones Eficientes</h2>
+<p class="text-lg leading-relaxed mb-6">La implementación de <strong>ia para retail</strong> en LATAM se traduce en aplicaciones sumamente concretas que impactan positivamente tanto la experiencia de cara al cliente (front-office) como la eficiencia de los procesos internos (back-office):</p>
+
+<h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-comments text-brand"></i> Asistentes Virtuales y Personal Shoppers con IA Conversacional</h3>
+<p class="text-lg leading-relaxed mb-6">El canal preferido de compra y contacto en nuestra región es WhatsApp. Un chatbot tradicional frustra al cliente con respuestas acartonadas y árboles de decisión infinitos. Por el contrario, un <strong>agente de IA para retail</strong> actúa como un personal shopper altamente capacitado: entiende el lenguaje coloquial, interpreta imágenes enviadas por el usuario (por ejemplo, "busco un vestido con este tipo de corte"), sugiere combinaciones de prendas de vestir, asesora sobre la compatibilidad de productos tecnológicos y cierra la venta con links de pago integrados (como Mercado Pago, Kushki o Bold), logrando una tasa de conversión hasta 4 veces superior que el e-commerce clásico.</p>
+
+<h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-magic text-brand"></i> Motores de Recomendación en E-commerce y Puntos de Venta (POS)</h3>
+<p class="text-lg leading-relaxed mb-6">Los motores de recomendación inteligentes analizan múltiples variables del usuario en microsegundos para presentar ofertas dinámicas. Si un cliente está navegando en tu e-commerce buscando zapatillas para correr, la IA no solo le sugiere zapatillas similares, sino que, aplicando venta cruzada inteligente (cross-selling), le muestra calcetines deportivos térmicos o un termo de agua que otros corredores compraron juntos. Esta misma inteligencia puede integrarse en las tablets o pantallas de los vendedores en el punto de venta físico, sugiriendo ofertas en tiempo real basadas en la ficha de fidelización del cliente que acaba de ingresar a la tienda.</p>
+
+<h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-chart-line text-brand"></i> Análisis Predictivo para la Previsión de la Demanda</h3>
+<p class="text-lg leading-relaxed mb-6">El inventario parado es dinero perdido, y el desabastecimiento es una venta que se lleva la competencia. Los algoritmos de previsión de la demanda alimentados por IA cruzan datos históricos de ventas con variables externas: clima local, inflación, días festivos nacionales (como el Día de la Madre, Black Friday o Buen Fin) e incluso las tendencias de redes sociales. Esto permite a los retailers optimizar sus compras de insumos o productos importados con meses de antelación, garantizando que el stock responda exactamente al comportamiento del mercado.</p>
+
+<h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-undo text-brand"></i> Gestión de Cambios, Devoluciones y Postventa</h3>
+<p class="text-lg leading-relaxed mb-6">El costo logístico de la logística inversa puede quebrar un retail digital. La automatización con IA permite procesar las solicitudes de cambio de forma autónoma. El cliente interactúa con el asistente inteligente, explica la razón del cambio (por ejemplo, "me quedó pequeña la talla M"), el agente verifica el inventario disponible de la talla L, reserva la prenda, genera la etiqueta de envío de devolución con la transportadora integrada (como Coordinadora, Servientrega, DHL o 99 Minutos) y agenda la recogida del producto defectuoso, todo en menos de dos minutos y sin requerir atención humana.</p>
+
+<h2 id="comparativa-retail" class="text-3xl font-header font-bold mb-6">3. Comparativa: Retail Tradicional vs. Retail Optimizado con IA</h2>
+<p class="text-lg leading-relaxed mb-6">Para dimensionar los beneficios de adoptar tecnologías inteligentes, analizamos los cuellos de botella del enfoque tradicional frente a las ventajas del retail impulsado por IA:</p>
+
+<div class="overflow-x-auto mb-12 shadow-xl rounded-2xl">
+  <table class="min-w-full text-left border-collapse bg-white dark:bg-zinc-950">
+    <thead class="bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
+      <tr>
+        <th class="p-6 font-bold text-lg text-zinc-900 dark:text-white">Dimensión Operativa</th>
+        <th class="p-6 font-bold text-lg text-brand border-l border-zinc-200 dark:border-zinc-800 w-1/3">Retail Tradicional (Reactivo)</th>
+        <th class="p-6 font-bold text-lg text-accent border-l border-zinc-200 dark:border-zinc-800 w-1/3">Retail con IA (Proactivo y Predictivo)</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800">
+      <tr>
+        <td class="p-6 font-semibold">Atención y Ventas Digitales</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-red-600 dark:text-red-400">Chatbots rígidos de botones que frustran al usuario y derivan en largas esperas de agentes humanos.</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-green-600 dark:text-green-400 font-medium">Asistencia natural 24/7 en WhatsApp y Web. Resuelve dudas complejas y realiza upselling dinámico.</td>
+      </tr>
+      <tr class="bg-zinc-50 dark:bg-zinc-900/30">
+        <td class="p-6 font-semibold">Recomendaciones de Producto</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800">Genéricas e iguales para todos los visitantes del sitio web (estilo "lo más vendido").</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-green-600 dark:text-green-400 font-medium">Hiperpersonalizadas en tiempo real según historial, clicks recientes, perfil demográfico y comportamiento.</td>
+      </tr>
+      <tr>
+        <td class="p-6 font-semibold">Control de Inventarios</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-red-600 dark:text-red-400">Revisiones manuales de hojas de cálculo basadas en intuición y ventas del mes anterior.</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-green-600 dark:text-green-400 font-medium">Predicción automatizada de stock analizando factores locales, estacionales y tendencias online.</td>
+      </tr>
+      <tr class="bg-zinc-50 dark:bg-zinc-900/30">
+        <td class="p-6 font-semibold">Fidelización de Clientes</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800">Envío masivo de newsletters y SMS genéricos de descuento que terminan en la carpeta de spam.</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-green-600 dark:text-green-400 font-medium">Campañas automatizadas y personalizadas que recuerdan compras periódicas u ofrecen regalos en fechas clave.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="hoja-ruta-retail" class="text-3xl font-header font-bold mb-6">4. Hoja de Ruta en 5 Pasos para Implementar IA en tu Comercio</h2>
+<p class="text-lg leading-relaxed mb-6">Para transformar tu comercio físico o digital en un retail inteligente de forma ordenada y sin arriesgar la operación diaria, te proponemos la siguiente metodología de implementación en 5 pasos:</p>
+
+<div class="space-y-6 mb-12">
+  <div class="p-6 bg-white dark:bg-zinc-900 border-l-4 border-brand rounded-r-xl shadow-md">
+    <h4 class="text-xl font-bold mb-2 flex items-center gap-3"><span class="bg-brand text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span> Integrar tus Canales de Venta (Omnicanalidad)</h4>
+    <p class="text-gray-600 dark:text-zinc-400">Antes de desplegar inteligencia, conecta tu tienda física (POS), tu plataforma de e-commerce (Shopify, WooCommerce, VTEX) y tus canales sociales en una única base de datos centralizada de productos y clientes.</p>
+  </div>
+  
+  <div class="p-6 bg-white dark:bg-zinc-900 border-l-4 border-brand rounded-r-xl shadow-md">
+    <h4 class="text-xl font-bold mb-2 flex items-center gap-3"><span class="bg-brand text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span> Implementar un Agente IA de Ventas en WhatsApp</h4>
+    <p class="text-gray-600 dark:text-zinc-400">Despliega un asistente inteligente en WhatsApp alimentado con tu catálogo, stock disponible y políticas de compra. Este agente debe calificar y guiar a los prospectos resolviendo objeciones recurrentes.</p>
+  </div>
+
+  <div class="p-6 bg-white dark:bg-zinc-900 border-l-4 border-brand rounded-r-xl shadow-md">
+    <h4 class="text-xl font-bold mb-2 flex items-center gap-3"><span class="bg-brand text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">3</span> Activar el Motor de Recomendaciones Personalizadas</h4>
+    <p class="text-gray-600 dark:text-zinc-400">Configura un modelo de recomendación inteligente en tu e-commerce para mostrar sugerencias personalizadas de productos en la página de inicio, en la ficha de producto y en el carrito de compras (cross-selling).</p>
+  </div>
+
+  <div class="p-6 bg-white dark:bg-zinc-900 border-l-4 border-brand rounded-r-xl shadow-md">
+    <h4 class="text-xl font-bold mb-2 flex items-center gap-3"><span class="bg-brand text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">4</span> Automatizar la Postventa y Logística Reversa</h4>
+    <p class="text-gray-600 dark:text-zinc-400">Configura flujos automatizados para que las consultas sobre el estado del envío, la solicitud de facturas tributarias y los procesos de cambios o garantías sean resueltos de forma 100% autónoma por el agente.</p>
+  </div>
+
+  <div class="p-6 bg-white dark:bg-zinc-900 border-l-4 border-brand rounded-r-xl shadow-md">
+    <h4 class="text-xl font-bold mb-2 flex items-center gap-3"><span class="bg-brand text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">5</span> Entrenar Modelos de Demanda y Optimizar Stock</h4>
+    <p class="text-gray-600 dark:text-zinc-400">Conecta tu historial de ventas de los últimos 12 a 24 meses con una herramienta de análisis predictivo. Usa estos reportes inteligentes para realizar tus compras a proveedores de manera óptima y automatizada.</p>
+  </div>
+</div>
+
+<h2 id="presupuesto-roi-retail" class="text-3xl font-header font-bold mb-6">5. Presupuestos Estimados y Retorno de Inversión (ROI) en Retail</h2>
+<p class="text-lg leading-relaxed mb-6">Una de las grandes ventajas de las tecnologías de IA basadas en consumo de API es que escalan junto con el crecimiento de tu comercio. A continuación, te mostramos una estructura de inversión estimada para un retail mediano en LATAM en 2026:</p>
+
+<div class="overflow-x-auto mb-12 shadow-xl rounded-2xl">
+  <table class="min-w-full text-left border-collapse bg-white dark:bg-zinc-950">
+    <thead class="bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800">
+      <tr>
+        <th class="p-6 font-bold text-lg text-zinc-900 dark:text-white">Componente del Sistema</th>
+        <th class="p-6 font-bold text-lg text-brand border-l border-zinc-200 dark:border-zinc-800">Costo Mensual Estimado (USD)</th>
+        <th class="p-6 font-bold text-lg text-brand border-l border-zinc-200 dark:border-zinc-800">Impacto Esperado en el Negocio</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800">
+      <tr>
+        <td class="p-6 font-semibold">API de IA y Procesamiento de Lenguaje (Modelos Gemini)</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800">$15 a $45 USD (según volumen de conversaciones)</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-gray-600 dark:text-zinc-400">Atención automatizada al 85% de los leads, liberando tiempo del equipo de ventas.</td>
+      </tr>
+      <tr class="bg-zinc-50 dark:bg-zinc-900/30">
+        <td class="p-6 font-semibold">Plataforma Omnicanal y CRM (Make, n8n o similar)</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800">$29 a $89 USD</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-gray-600 dark:text-zinc-400">Sincronización síncrona de inventarios, generación de guías logísticas y links de pago.</td>
+      </tr>
+      <tr>
+        <td class="p-6 font-semibold">Motor de Recomendación de IA en E-commerce</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800">$19 a $59 USD</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-gray-600 dark:text-zinc-400">Incremento de hasta un 30% en ventas cruzadas (cross-selling y upselling) dentro del sitio web.</td>
+      </tr>
+      <tr class="bg-zinc-50 dark:bg-zinc-900/30">
+        <td class="p-6 font-semibold font-bold text-accent">Total Infraestructura Mensual Sugerido</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-800 text-green-600 dark:text-green-400 font-bold">$63 a $193 USD</td>
+        <td class="p-6 border-l border-zinc-200 dark:border-zinc-400 text-green-600 dark:text-green-400 font-bold">Reducción del costo de adquisición (CAC) y optimización de capital de trabajo en inventario.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p class="text-lg leading-relaxed mb-6"><strong>Retorno de Inversión (ROI):</strong> Al automatizar la atención en WhatsApp, un solo agente de IA puede procesar y calificar cientos de chats simultáneamente, reduciendo en un 60% la necesidad de contratar personal temporal en temporadas altas (como Navidad o Cyber Days). Además, la optimización predictiva de inventario reduce las pérdidas por mercancía obsoleta o de baja rotación en un 15% a 30% en los primeros seis meses.</p>
+
+<h2 id="faq-retail" class="text-3xl font-header font-bold mb-8">6. Preguntas Frecuentes (FAQ) sobre IA para Retail</h2>
+<div itemscope itemtype="https://schema.org/FAQPage" class="space-y-6 mb-12">
+  
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-zinc-50 dark:bg-zinc-900/40 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+    <h3 itemprop="name" class="text-xl font-bold font-header flex items-center gap-3">
+      <i class="fas fa-question-circle text-brand"></i> ¿El agente de IA puede integrarse con mi tienda física y e-commerce a la vez?
+    </h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="mt-4 text-gray-700 dark:text-zinc-300">
+      <p itemprop="text">Sí, por supuesto. A esto se le conoce como omnicanalidad real. El agente de IA puede configurarse para consultar bases de datos síncronas que unifican el inventario físico de tus locales y el stock digital de tu e-commerce. Así, si un cliente en WhatsApp pregunta por un producto, el agente puede indicarle si está disponible para envío a domicilio o en cuál de tus tiendas físicas puede pasar a retirarlo.</p>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-zinc-50 dark:bg-zinc-900/40 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+    <h3 itemprop="name" class="text-xl font-bold font-header flex items-center gap-3">
+      <i class="fas fa-question-circle text-brand"></i> ¿Cómo evitamos que el agente recomiende productos agotados?
+    </h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="mt-4 text-gray-700 dark:text-zinc-300">
+      <p itemprop="text">El agente de IA no adivina el inventario; realiza consultas automáticas en tiempo real a la base de datos de tu tienda (Shopify, WooCommerce, VTEX o ERP) a través de APIs estructuradas antes de formular una respuesta de venta. Si un producto tiene stock cero, el sistema filtra automáticamente esa opción del catálogo y le sugiere al cliente alternativas similares que sí están disponibles para entrega inmediata.</p>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-zinc-50 dark:bg-zinc-900/40 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+    <h3 itemprop="name" class="text-xl font-bold font-header flex items-center gap-3">
+      <i class="fas fa-question-circle text-brand"></i> ¿Necesito migrar mi plataforma de e-commerce actual para usar IA?
+    </h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="mt-4 text-gray-700 dark:text-zinc-300">
+      <p itemprop="text">No es necesario. Las herramientas modernas de inteligencia artificial y automatización conversacional se conectan mediante APIs a la gran mayoría de plataformas de e-commerce del mercado, incluyendo Shopify, WooCommerce, Magento, PrestaShop y VTEX. Esto te permite inyectar inteligencia a tus procesos de venta sin tener que pasar por costosos y estresantes procesos de migración de plataforma.</p>
+    </div>
+  </div>
+
+  <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="bg-zinc-50 dark:bg-zinc-900/40 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800">
+    <h3 itemprop="name" class="text-xl font-bold font-header flex items-center gap-3">
+      <i class="fas fa-question-circle text-brand"></i> ¿Cómo gestiona la IA las consultas sobre estados de envío?
+    </h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" class="mt-4 text-gray-700 dark:text-zinc-300">
+      <p itemprop="text">El cliente proporciona su número de orden o documento de identidad en el chat, el agente de IA se conecta a la API de tu software de logística o transportadora (como DHL, Servientrega o 99 Minutos) para extraer el estado exacto del paquete y su enlace de rastreo en tiempo real, y le responde de manera amigable en segundos, disminuyendo drásticamente las solicitudes de soporte repetitivas.</p>
+    </div>
+  </div>
+
+</div>
+
+<h2 class="text-3xl font-header font-bold mb-6">Lleva tu Retail al Siguiente Nivel con Inteligencia Artificial</h2>
+<p class="text-lg leading-relaxed mb-6">El futuro del retail y el comercio en América Latina en 2026 ya está aquí, y es completamente inteligente, ágil y personalizado. Los negocios que se limiten a vender de la forma tradicional verán cómo sus costos operativos aumentan y su conversión disminuye frente a competidores que han digitalizado y optimizado su atención al cliente.</p>
+<p class="text-lg leading-relaxed font-semibold mb-8">Si quieres automatizar tu canal de WhatsApp, implementar un motor de recomendaciones dinámicas o diseñar un flujo predictivo de inventario para tu negocio con el apoyo de consultores expertos en IA y sin comprometer tu operación, reserva una consultoría gratuita en nuestro calendario interactivo ahora mismo.</p>
+            </div>
+        </div>
+    </section>
+    
+
+        <!-- 6. Precios (Tarjetas Premium) -->
+        <section id="precios" class="py-24 bg-white dark:bg-zinc-950">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-16">
+                    <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios</h2>
+                    <p class="text-xl text-gray-2 dark:text-slate-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
+                    <!-- Pricing Card 1: Setup -->
+                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+                        <h3 class="font-header font-bold text-2xl mb-2">Configuración Completa</h3>
+                        <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Pago único por la creación del sistema</p>
+                        <div class="text-4xl font-bold mb-6 text-gray-1 dark:text-white">$497 <span class="text-lg font-normal text-gray-400">USD</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-slate-300">
+                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Desarrollo y entrenamiento del Agente IA</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Integración completa con WhatsApp y Web</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Ingesta de base de conocimiento (FAQ, servicios)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Pruebas y despliegue inicial (5-7 días)</li>
+                        </ul>
+                        <a href="https://wa.me/573151206985" target="_blank" class="block w-full text-center border border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-zinc-800 py-3 rounded-xl font-medium transition-colors">Solicitar Configuración</a>
+                    </div>
+                    
+                    <!-- Pricing Card 2: Mantenimiento (Destacada) -->
+                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Esencial</div>
+                        <h3 class="font-header font-bold text-2xl mb-2 text-white">Mantenimiento Mensual</h3>
+                        <p class="text-brand-100 text-sm mb-6">Suscripción para el funcionamiento de la IA</p>
+                        <div class="text-4xl font-bold mb-6 text-white">$97 <span class="text-lg font-normal text-brand-200">USD /mes</span></div>
+                        <ul class="space-y-4 mb-8 text-sm">
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Hosting del agente y consumo de IA</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Soporte técnico prioritario</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Ajustes y optimizaciones mensuales</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Actualizaciones de plataforma automáticas</li>
+                        </ul>
+                        <a href="https://wa.me/573151206985" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-3.5 rounded-xl overflow-hidden transition-all duration-500">
+                            <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                            <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                                Ver Detalles <i class="fas fa-arrow-right text-[12px]"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-20 bg-zinc-900 dark:bg-zinc-950 text-white">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
+                <h2 class="text-3xl md:text-4xl font-header font-bold mb-4">¿Listo para implementar IA en tu negocio?</h2>
+                <p class="text-zinc-400 text-lg mb-8">Agenda una demo gratuita de 30 minutos. Te mostramos en vivo cómo funciona para tu industria específica.</p>
+                <a href="https://wa.me/573151206985?text=Hola%2C+quiero+una+demo+gratuita+del+agente+IA" target="_blank" class="group relative inline-flex items-center justify-center border border-white px-10 py-5 overflow-hidden transition-all duration-500">
+                    <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                    <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">Solicitar demo gratuita <i class="fab fa-whatsapp text-[14px]"></i></span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-1 dark:bg-black text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="/" class="text-2xl font-header font-normal text-brand-light flex items-center gap-2 mb-4">
+                        <span class="font-header font-normal tracking-tighter text-3xl">Consultor IA</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-sm">Automatizando negocios en LATAM con tecnología de punta en Inteligencia Artificial y WhatsApp API.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Servicios</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="/blog/ia-para-negocios/" class="hover:text-brand-light transition-colors">Consultoría IA</a></li>
+                        <li><a href="/blog/ia-para-pymes/" class="hover:text-brand-light transition-colors">IA para PYMES</a></li>
+                        <li><a href="/blog/automatizacion-con-ia/" class="hover:text-brand-light transition-colors">Automatización</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="https://wa.me/573151206985" target="_blank" class="hover:text-brand-light transition-colors"><i class="fab fa-whatsapp mr-2"></i> +57 315 120 6985</a></li>
+                        <li><i class="fas fa-envelope mr-2"></i> hola@consultor-ia.com.co</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> LATAM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-slate-800">
+                <p class="text-gray-500 text-sm">&copy; 2026 Consultor IA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        var themeToggleBtn = document.getElementById('theme-toggle');
+        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (themeToggleDarkIcon && themeToggleLightIcon) {
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                themeToggleLightIcon.classList.remove('hidden');
+            } else {
+                themeToggleDarkIcon.classList.remove('hidden');
+            }
+        }
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', function() {
+                themeToggleDarkIcon.classList.toggle('hidden');
+                themeToggleLightIcon.classList.toggle('hidden');
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            });
+        }
+        // Mobile menu
+        var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var closeMobileBtn = document.getElementById('close-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() { mobileMenu.classList.remove('translate-x-full'); });
+        }
+        if (closeMobileBtn) {
+            closeMobileBtn.addEventListener('click', function() { mobileMenu.classList.add('translate-x-full'); });
+        }
+        // Mobile theme toggle
+        var themeMobileBtn = document.getElementById('theme-toggle-mobile');
+        var themeMobileDark = document.getElementById('theme-toggle-dark-icon-mobile');
+        var themeMobileLight = document.getElementById('theme-toggle-light-icon-mobile');
+        if (themeMobileDark && themeMobileLight) {
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                themeMobileLight.classList.remove('hidden');
+            } else {
+                themeMobileDark.classList.remove('hidden');
+            }
+        }
+        if (themeMobileBtn) {
+            themeMobileBtn.addEventListener('click', function() {
+                themeMobileDark.classList.toggle('hidden');
+                themeMobileLight.classList.toggle('hidden');
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            });
+        }
+    </script>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/573151206985?text=Hola%2C%20vengo%20del%20art%C3%ADculo%20del%20blog%3A%20IA%20para%20Retail%20y%20Comercio%3A%20Automatizaci%C3%B3n%20y%20Personalizaci%C3%B3n.%20Me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30 z-50 hover:scale-110 transition-transform hover:shadow-2xl group">
+        <i class="fab fa-whatsapp"></i>
+        <span class="absolute right-full mr-4 bg-white dark:bg-zinc-800 text-gray-800 dark:text-white text-sm font-normal px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">
+            ¡Escríbenos!
+        </span>
+    </a>
+
+    <!-- Script del Modal de WhatsApp (con cache buster) -->
+    <script src="/js/wa-modal.js?v=1.3" charset="utf-8" defer></script>
+</body>
+</html>
