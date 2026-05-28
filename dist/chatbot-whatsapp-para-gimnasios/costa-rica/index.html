@@ -113,30 +113,39 @@
         /* FIX OVERSCROLL */
         html, body { overscroll-behavior: none; }
 
+        
         /* Google Glow Hover Effect */
-        @keyframes google-shadow-light {
-            0% { box-shadow: 0 0 25px rgba(66, 133, 244, 0.15), 0 0 50px rgba(234, 67, 53, 0.1); }
-            33% { box-shadow: 0 0 25px rgba(251, 188, 5, 0.15), 0 0 50px rgba(52, 168, 83, 0.1); }
-            66% { box-shadow: 0 0 25px rgba(52, 168, 83, 0.15), 0 0 50px rgba(66, 133, 244, 0.1); }
-            100% { box-shadow: 0 0 25px rgba(66, 133, 244, 0.15), 0 0 50px rgba(234, 67, 53, 0.1); }
-        }
-        @keyframes google-shadow-dark {
-            0% { box-shadow: 0 0 30px rgba(66, 133, 244, 0.25), 0 0 60px rgba(234, 67, 53, 0.15); }
-            33% { box-shadow: 0 0 30px rgba(251, 188, 5, 0.25), 0 0 60px rgba(52, 168, 83, 0.15); }
-            66% { box-shadow: 0 0 30px rgba(52, 168, 83, 0.25), 0 0 60px rgba(66, 133, 244, 0.15); }
-            100% { box-shadow: 0 0 30px rgba(66, 133, 244, 0.25), 0 0 60px rgba(234, 67, 53, 0.15); }
-        }
         .hover-google-glow {
-            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s ease-out;
+        }
+        .hover-google-glow::before {
+            content: "";
+            position: absolute;
+            inset: -4px;
+            border-radius: inherit;
+            background: linear-gradient(90deg, rgba(66,133,244,0.5), rgba(234,67,53,0.5), rgba(251,188,5,0.5), rgba(52,168,83,0.5), rgba(66,133,244,0.5));
+            background-size: 200% 100%;
+            z-index: -1;
+            filter: blur(12px);
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+        .hover-google-glow:hover::before {
+            opacity: 1;
+            animation: move-gradient 3s linear infinite;
+        }
+        .dark .hover-google-glow::before {
+            background: linear-gradient(90deg, rgba(66,133,244,0.8), rgba(234,67,53,0.8), rgba(251,188,5,0.8), rgba(52,168,83,0.8), rgba(66,133,244,0.8));
+        }
+        @keyframes move-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: -200% 50%; }
         }
         .hover-google-glow:hover {
-            animation: google-shadow-light 4s infinite alternate;
             transform: translateY(-4px);
         }
-        .dark .hover-google-glow:hover {
-            animation: google-shadow-dark 4s infinite alternate;
-        }
-        
         /* Background Animated Blobs */
         @keyframes blob-move-1 {
             0% { transform: translate(0, 0) scale(1); }
@@ -174,7 +183,7 @@
             <nav class="hidden md:flex space-x-8 items-center">
                 <!-- Mega Menu Industrias -->
                 <div class="relative group z-50 py-2">
-                    <button class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light flex items-center gap-1 transition-colors">
+                    <button class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light flex items-center gap-1 transition-colors">
                         Industrias <i class="fas fa-chevron-down text-xs"></i>
                     </button>
                     <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
@@ -182,12 +191,12 @@
                     </div>
                 </div>
                 
-                <a href="/#como-funciona" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Cómo Funciona</a>
-                <a href="/#precios" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Precios</a>
-                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
+                <a href="/#como-funciona" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Precios</a>
+                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Blog</a>
                 
                 <!-- Dark Mode Toggle -->
-                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
+                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
                     <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                     <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
                 </button>
@@ -209,8 +218,8 @@
     <!-- 2. Breadcrumbs -->
     <div class="pt-24 pb-2 border-b border-gray-200/50 dark:border-zinc-800/50 relative z-10">
         <div class="container mx-auto px-4 py-3 text-sm text-gray-2 dark:text-slate-400">
-            <a href="/" class="hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Inicio</a> <span class="mx-2 opacity-50">&gt;</span> 
-            <a href="/chatbot-whatsapp-para-gimnasios/" class="hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Gimnasios</a> <span class="mx-2 opacity-50">&gt;</span> 
+            <a href="/" class="hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Inicio</a> <span class="mx-2 opacity-50">&gt;</span> 
+            <a href="/chatbot-whatsapp-para-gimnasios/" class="hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Gimnasios</a> <span class="mx-2 opacity-50">&gt;</span> 
             <span class="text-gray-1 dark:text-slate-200 font-normal">Costa Rica</span>
         </div>
     </div>
@@ -345,7 +354,7 @@
             <div class="flex justify-between items-center mb-12">
                 <span class="font-header font-extrabold text-2xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 <div class="flex items-center gap-4">
-                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-2xl p-2 transition-colors">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light focus:outline-none rounded-lg text-2xl p-2 transition-colors">
                         <i id="theme-toggle-dark-icon-mobile" class="fas fa-moon hidden"></i>
                         <i id="theme-toggle-light-icon-mobile" class="fas fa-sun hidden"></i>
                     </button>
