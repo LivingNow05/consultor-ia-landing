@@ -4,6 +4,8 @@ import urllib.parse
 import datetime
 import shutil
 from build_blog import build_blog_index
+from build import get_mega_menu
+import csv
 
 def publish_blog(json_path):
     with open(json_path, 'r', encoding='utf-8') as f:
@@ -60,27 +62,26 @@ def publish_blog(json_path):
     html = html.replace('{CONTENT_HTML}', content_wrapped)
     # Header y footer
     try:
-        with open('templates/blog.html', 'r', encoding='utf-8') as f:
-            blog_template = f.read()
-            header = blog_template.split('<header')[1].split('</header>')[0]
-            header = '<header' + header + '</header>'
-            
         with open('templates/home.html', 'r', encoding='utf-8') as f:
             home_template = f.read()
             footer = home_template.split('<footer')[1].split('</footer>')[0]
             footer = '<footer' + footer + '</footer>'
     except Exception as e:
-        print("Error extract header/footer", e)
-        header, footer = "", ""
+        print("Error extract footer", e)
+        footer = ""
             
-    # Extraer el header original de pillar.html (que ya está en html) y reemplazarlo completamente por el header de blog.html
+    # Generar mega_menu_html
+    data_programatic = []
     try:
-        original_header = html.split('<header')[1].split('</header>')[0]
-        original_header_full = '<header' + original_header + '</header>'
-        html = html.replace(original_header_full, header)
-    except:
-        pass
+        with open('programatic.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            data_programatic = list(reader)
+        mega_menu_html = get_mega_menu(data_programatic)
+    except Exception as e:
+        print("Error extract mega menu", e)
+        mega_menu_html = ""
         
+    html = html.replace('{MEGA_MENU}', mega_menu_html)
     html = html.replace('{FOOTER_HTML}', footer)
     
     # Reemplazar variables de WhatsApp en todo el documento (incluyendo header/footer)
