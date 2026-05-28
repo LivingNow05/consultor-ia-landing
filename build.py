@@ -535,12 +535,12 @@ def build_home_page(data):
     for ind, url in industry_first_url.items():
         icon = industry_icons.get(ind, 'fa-robot')
         industries_html += f"""
-        <a href="{url}" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm overflow-hidden hover:border-brand dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="{url}" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-brand dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
             <!-- Hover Glow -->
-            <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute inset-0 rounded-[inherit] bg-gradient-to-br from-[#4285F4]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
             <div class="relative z-10 w-16 h-16 rounded-2xl bg-brand/5 dark:bg-white/5 border border-brand/10 dark:border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand/10 dark:group-hover:bg-white/10 transition-all duration-500 shadow-inner">
-                <i class="fas {icon} text-2xl text-brand dark:text-brand-light dark:text-white group-hover:text-accent transition-colors"></i>
+                <i class="fas {icon} text-2xl text-brand dark:text-brand-light dark:text-white group-hover:text-[#4285F4] transition-colors"></i>
             </div>
 
             <div class="relative z-10 flex flex-col items-center">
@@ -1820,7 +1820,7 @@ def build():
         enlaces_paises = ""
         for p_slug, p_data in ind_data['paises'].items():
             p_name = p_data['name']
-            enlaces_paises += f'<a href="/{ind_slug}/{p_slug}/" class="group block p-6 rounded-3xl bg-white dark:bg-zinc-900/50 backdrop-blur-sm border border-gray-200 dark:border-zinc-800 hover:border-brand dark:hover:border-white/50 hover-google-glow transition-all duration-500 overflow-hidden relative"><div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="relative z-10 flex flex-col items-center text-center"><h3 class="text-xl font-bold mb-2 text-zinc-900 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">{p_name}</h3><span class="text-sm font-semibold text-accent flex items-center gap-1 uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Explorar Ciudades <i class="fas fa-arrow-right text-[10px]"></i></span></div></a>\n'
+            enlaces_paises += f'<a href="/{ind_slug}/{p_slug}/" class="group block p-6 rounded-3xl bg-white dark:bg-zinc-900/50 backdrop-blur-sm border border-gray-200 dark:border-zinc-800 hover:border-brand dark:hover:border-white/50 hover-google-glow transition-all duration-500 relative"><div class="absolute inset-0 rounded-[inherit] bg-gradient-to-br from-[#4285F4]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="relative z-10 flex flex-col items-center text-center"><h3 class="text-xl font-bold mb-2 text-zinc-900 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">{p_name}</h3><span class="text-sm font-semibold text-accent flex items-center gap-1 uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Explorar Ciudades <i class="fas fa-arrow-right text-[10px]"></i></span></div></a>\n'
         
         html = html.replace('{ENLACES_PAISES}', enlaces_paises)
         
