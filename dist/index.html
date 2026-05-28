@@ -123,9 +123,31 @@
         .typing-dot:nth-child(2) { animation-delay:.2s; }
         .typing-dot:nth-child(3) { animation-delay:.4s; }
         @keyframes typingBounce { 0%,80%,100% { transform:translateY(0); } 40% { transform:translateY(-5px); } }
+    
+        /* Background Animated Blobs */
+        @keyframes blob-move-1 {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(15vw, -10vh) scale(1.2) rotate(15deg); }
+            66% { transform: translate(-10vw, 15vh) scale(0.8) rotate(-15deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+        }
+        @keyframes blob-move-2 {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(-15vw, 15vh) scale(1.2) rotate(-15deg); }
+            66% { transform: translate(15vw, -10vh) scale(0.8) rotate(15deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+        }
+        .bg-blob-1 { animation: blob-move-1 12s infinite ease-in-out; }
+        .bg-blob-2 { animation: blob-move-2 15s infinite ease-in-out; }
     </style>
 </head>
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+
+<!-- Background Animated Blobs -->
+<div class="fixed top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none" style="z-index: -1;">
+    <div class="bg-blob-1 absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-br from-[#10b981]/20 to-[#06b6d4]/20 dark:from-[#10b981]/30 dark:to-[#06b6d4]/30 blur-[100px]"></div>
+    <div class="bg-blob-2 absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#8b5cf6]/20 to-[#ec4899]/20 dark:from-[#8b5cf6]/30 dark:to-[#ec4899]/30 blur-[120px]"></div>
+</div>
 
 <!-- HEADER -->
 <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
@@ -134,9 +156,9 @@
             <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
         </a>
         <nav class="hidden md:flex space-x-8 items-center">
-            <a href="#como-funciona" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Como Funciona</a>
-            <a href="#industrias" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Industrias</a>
-            <a href="/blog/" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
+            <a href="#como-funciona" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Como Funciona</a>
+            <a href="#industrias" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Industrias</a>
+            <a href="/blog/" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
             <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
                 <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                 <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
@@ -166,7 +188,7 @@
                     <span class="text-brand dark:text-brand-light">atendiendo 24/7</span><br>
                     sin pausas.
                 </h1>
-                <p class="text-xl text-gray-2 dark:text-slate-300 mb-10 leading-relaxed max-w-2xl">
+                <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
                     Implementamos <strong>Agentes de Inteligencia Artificial</strong> en WhatsApp que responden, agendan y venden por ti. Sin contratar mas personal. Sin perder un solo cliente.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -246,7 +268,7 @@
         <div class="text-center mb-16 max-w-3xl mx-auto">
             <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Proceso</span>
             <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">Activo en 7 dias</h2>
-            <p class="text-xl text-gray-2 dark:text-slate-400">Sin codigo, sin complicaciones. Nosotros hacemos todo el trabajo tecnico.</p>
+            <p class="text-xl text-zinc-600 dark:text-zinc-400">Sin codigo, sin complicaciones. Nosotros hacemos todo el trabajo tecnico.</p>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
             
@@ -281,7 +303,7 @@
         <div class="text-center mb-16 max-w-3xl mx-auto">
             <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Especializacion</span>
             <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">Soluciones por Industria</h2>
-            <p class="text-xl text-gray-2 dark:text-slate-400">Cada agente es entrenado con el lenguaje y procesos especificos de tu sector.</p>
+            <p class="text-xl text-zinc-600 dark:text-zinc-400">Cada agente es entrenado con el lenguaje y procesos especificos de tu sector.</p>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             
@@ -445,7 +467,7 @@
     <div class="container mx-auto px-4 max-w-4xl text-center">
         <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-4 block">Listo para empezar?</span>
         <h2 class="text-4xl md:text-6xl font-header font-bold mb-6">Nunca pierdas<br>un cliente mas</h2>
-        <p class="text-xl text-gray-2 dark:text-slate-400 mb-10 max-w-2xl mx-auto">Unete a los negocios de LATAM que ya atienden, agendan y venden en piloto automatico.</p>
+        <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">Unete a los negocios de LATAM que ya atienden, agendan y venden en piloto automatico.</p>
         <a href="https://wa.me/573151206985?text=Hola%2C+quiero+una+demo+del+agente+IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
             <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
             <span class="relative z-10 flex items-center gap-3 font-body text-sm font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75"><i class="fab fa-whatsapp text-lg"></i> Hablar con un Asesor</span>
@@ -463,7 +485,7 @@
                 <a href="/" class="flex items-center gap-2">
                     <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 </a>
-                <p class="text-gray-2 dark:text-slate-400 text-sm leading-relaxed">
+                <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
                     Transformamos la atención al cliente en LATAM con Agentes de Inteligencia Artificial que trabajan 24/7 en WhatsApp.
                 </p>
                 <div class="flex gap-4">
@@ -476,7 +498,7 @@
             <!-- Col 2: Industrias -->
             <div>
                 <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones</h4>
-                <ul class="space-y-3 text-sm text-gray-2 dark:text-slate-400">
+                <ul class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
                     <li><a href="/chatbot-whatsapp-para-academias-cursos/colombia/bogota/" class="hover:text-accent transition-colors">Academias y Cursos</a></li><li><a href="/chatbot-whatsapp-para-clinicas-dentales/colombia/bogota/" class="hover:text-accent transition-colors">Clínicas Dentales</a></li><li><a href="/chatbot-whatsapp-para-gimnasios/colombia/bogota/" class="hover:text-accent transition-colors">Gimnasios</a></li><li><a href="/chatbot-whatsapp-para-hoteles-y-hostales/colombia/bogota/" class="hover:text-accent transition-colors">Hoteles y Hostales</a></li><li><a href="/chatbot-whatsapp-para-inmobiliarias/colombia/bogota/" class="hover:text-accent transition-colors">Inmobiliarias</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/bogota/" class="hover:text-accent transition-colors">Restaurantes</a></li><li><a href="/chatbot-whatsapp-para-salones-de-belleza/colombia/bogota/" class="hover:text-accent transition-colors">Salones de Belleza</a></li><li><a href="/chatbot-whatsapp-para-spas-centros-esteticos/colombia/bogota/" class="hover:text-accent transition-colors">Spas y Centros de Estética</a></li><li><a href="/chatbot-whatsapp-para-talleres-automotrices/colombia/bogota/" class="hover:text-accent transition-colors">Talleres Automotrices</a></li><li><a href="/chatbot-whatsapp-para-veterinarias/colombia/bogota/" class="hover:text-accent transition-colors">Veterinarias</a></li>
                 </ul>
             </div>
@@ -484,7 +506,7 @@
             <!-- Col 3 & 4: Ciudades -->
             <div class="lg:col-span-2">
                 <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Presencia en LATAM</h4>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm text-gray-2 dark:text-slate-400">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm text-zinc-600 dark:text-zinc-400">
                     <div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Colombia</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/bogota/" class="hover:text-accent transition-colors">Bogotá</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/medellin/" class="hover:text-accent transition-colors">Medellín</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/cali/" class="hover:text-accent transition-colors">Cali</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/barranquilla/" class="hover:text-accent transition-colors">Barranquilla</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/cartagena/" class="hover:text-accent transition-colors">Cartagena</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/bucaramanga/" class="hover:text-accent transition-colors">Bucaramanga</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">México</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/ciudad-de-mexico/" class="hover:text-accent transition-colors">Ciudad de México</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/guadalajara/" class="hover:text-accent transition-colors">Guadalajara</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/monterrey/" class="hover:text-accent transition-colors">Monterrey</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/puebla/" class="hover:text-accent transition-colors">Puebla</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/queretaro/" class="hover:text-accent transition-colors">Querétaro</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/cancun/" class="hover:text-accent transition-colors">Cancún</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/merida/" class="hover:text-accent transition-colors">Mérida</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/tijuana/" class="hover:text-accent transition-colors">Tijuana</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Argentina</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/argentina/buenos-aires/" class="hover:text-accent transition-colors">Buenos Aires</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/argentina/cordoba-ar/" class="hover:text-accent transition-colors">Córdoba</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/argentina/rosario/" class="hover:text-accent transition-colors">Rosario</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/argentina/mendoza/" class="hover:text-accent transition-colors">Mendoza</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Chile</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/chile/santiago/" class="hover:text-accent transition-colors">Santiago</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/chile/valparaiso/" class="hover:text-accent transition-colors">Valparaíso</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Perú</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/peru/lima/" class="hover:text-accent transition-colors">Lima</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/peru/arequipa/" class="hover:text-accent transition-colors">Arequipa</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Ecuador</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/ecuador/quito/" class="hover:text-accent transition-colors">Quito</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/ecuador/guayaquil/" class="hover:text-accent transition-colors">Guayaquil</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Panamá</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/panama/ciudad-de-panama/" class="hover:text-accent transition-colors">Ciudad de Panamá</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Costa Rica</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/costa-rica/san-jose-cr/" class="hover:text-accent transition-colors">San José</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Uruguay</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/uruguay/montevideo/" class="hover:text-accent transition-colors">Montevideo</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Rep. Dominicana</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/republica-dominicana/santo-domingo/" class="hover:text-accent transition-colors">Santo Domingo</a></li></ul></div>
                 </div>
             </div>

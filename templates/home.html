@@ -110,7 +110,7 @@
         .hover-google-glow::before {
             content: "";
             position: absolute;
-            inset: -15px; /* Huge spread */
+            top: -15px; left: -15px; right: -15px; bottom: -15px; /* Safari compatibility */
             border-radius: 40%; /* Slightly rounded to smooth the rotation */
             background: conic-gradient(from 0deg, #10b981, #06b6d4, #8b5cf6, #10b981);
             z-index: -1;
@@ -172,7 +172,7 @@
             <nav class="hidden md:flex space-x-8 items-center">
                 <!-- Mega Menu Industrias -->
                 <div class="relative group z-50 py-2">
-                    <button class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light flex items-center gap-1 transition-colors">
+                    <button class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light flex items-center gap-1 transition-colors">
                         Industrias <i class="fas fa-chevron-down text-xs"></i>
                     </button>
                     <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
@@ -180,9 +180,9 @@
                     </div>
                 </div>
                 
-                <a href="/#como-funciona" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Cómo Funciona</a>
-                <a href="/#precios" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Precios</a>
-                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Blog</a>
+                <a href="/#como-funciona" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Precios</a>
+                <a href="/blog/" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Blog</a>
                 
                 <!-- Dark Mode Toggle -->
                 <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
@@ -218,7 +218,7 @@
                 <h1 class="text-5xl md:text-7xl font-header font-bold mb-6 text-gradient tracking-tight leading-tight">
                     Multiplica las Ventas y Tiempo de tu Negocio con IA
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-2 dark:text-slate-400 mb-10 max-w-3xl mx-auto">
+                <p class="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-3xl mx-auto">
                     Automatizamos tu atención al cliente, ventas y operaciones con Agentes de Inteligencia Artificial para empresas en toda Latinoamérica.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -233,7 +233,7 @@
             <div class="container mx-auto px-4 max-w-6xl">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-header font-bold text-gray-1 dark:text-white mb-4">¿En qué Industria te encuentras?</h2>
-                    <p class="text-gray-2 dark:text-slate-400">Descubre cómo la Inteligencia Artificial se adapta a tu modelo de negocio.</p>
+                    <p class="text-zinc-600 dark:text-zinc-400">Descubre cómo la Inteligencia Artificial se adapta a tu modelo de negocio.</p>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -243,21 +243,21 @@
                             <i class="fas fa-utensils"></i>
                         </div>
                         <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Restaurantes</h3>
-                        <p class="text-gray-2 dark:text-slate-400">Automatiza reservas, atención al cliente y toma de pedidos por WhatsApp.</p>
+                        <p class="text-zinc-600 dark:text-zinc-400">Automatiza reservas, atención al cliente y toma de pedidos por WhatsApp.</p>
                     </a>
                     <a href="/chatbot-whatsapp-para-inmobiliarias/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
                         <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                             <i class="fas fa-building"></i>
                         </div>
                         <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Inmobiliarias</h3>
-                        <p class="text-gray-2 dark:text-slate-400">Califica leads 24/7 y agenda visitas automáticamente con un Agente IA.</p>
+                        <p class="text-zinc-600 dark:text-zinc-400">Califica leads 24/7 y agenda visitas automáticamente con un Agente IA.</p>
                     </a>
                     <a href="/chatbot-whatsapp-para-salones-de-belleza/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
                         <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                             <i class="fas fa-spa"></i>
                         </div>
                         <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Salones de Belleza</h3>
-                        <p class="text-gray-2 dark:text-slate-400">Reduce el no-show y agenda citas en automático sin intervención humana.</p>
+                        <p class="text-zinc-600 dark:text-zinc-400">Reduce el no-show y agenda citas en automático sin intervención humana.</p>
                     </a>
                 </div>
             </div>
@@ -267,7 +267,7 @@
                 <div class="text-center mb-16">
                     <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
                     <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios</h2>
-                    <p class="text-xl text-gray-2 dark:text-slate-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">

@@ -81,7 +81,7 @@
         .hover-google-glow::before {
             content: "";
             position: absolute;
-            inset: -15px; /* Huge spread */
+            top: -15px; left: -15px; right: -15px; bottom: -15px; /* Safari compatibility */
             border-radius: 40%; /* Slightly rounded to smooth the rotation */
             background: conic-gradient(from 0deg, #10b981, #06b6d4, #8b5cf6, #10b981);
             z-index: -1;
@@ -137,7 +137,7 @@
                 <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
             </a>
             <nav class="hidden md:flex space-x-8 items-center">
-                <a href="/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Inicio</a>
+                <a href="/" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Inicio</a>
                 <a href="/blog/" class="font-normal text-brand dark:text-brand-light transition-colors">Blog</a>
                 <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
                     <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
@@ -154,7 +154,7 @@
         <section class="py-24 dark:bg-zinc-900/30 border-b border-gray-border dark:border-zinc-800">
             <div class="container mx-auto px-4 max-w-4xl text-center">
                 <h1 class="text-4xl md:text-6xl font-header font-bold mb-6 text-gradient">Blog de Inteligencia Artificial</h1>
-                <p class="text-xl text-gray-2 dark:text-slate-400 mb-10">Artículos, guías y casos de éxito sobre automatización en LATAM.</p>
+                <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10">Artículos, guías y casos de éxito sobre automatización en LATAM.</p>
             </div>
         </section>
 
@@ -169,7 +169,7 @@
                         <div class="p-8">
                             <span class="text-xs font-normal text-brand dark:text-brand-light uppercase tracking-wider mb-2 block">Negocios</span>
                             <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light dark:hover:text-brand dark:hover:text-brand-light-light transition-colors"><a href="/blog/ia-para-negocios/">Guía de IA para Negocios 2026</a></h2>
-                            <p class="text-gray-2 dark:text-slate-400 mb-4 text-sm">Descubre cómo implementar inteligencia artificial en tu empresa paso a paso.</p>
+                            <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-sm">Descubre cómo implementar inteligencia artificial en tu empresa paso a paso.</p>
                             <a href="/blog/ia-para-negocios/" class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Leer artículo <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
@@ -181,7 +181,7 @@
                         <div class="p-8">
                             <span class="text-xs font-normal text-brand dark:text-brand-light uppercase tracking-wider mb-2 block">Casos de Éxito</span>
                             <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light dark:hover:text-brand dark:hover:text-brand-light-light transition-colors"><a href="/blog/casos-exito-ia-pymes/">Casos Reales en PYMES LATAM</a></h2>
-                            <p class="text-gray-2 dark:text-slate-400 mb-4 text-sm">Empresas que multiplicaron sus ventas usando agentes de IA y WhatsApp.</p>
+                            <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-sm">Empresas que multiplicaron sus ventas usando agentes de IA y WhatsApp.</p>
                             <a href="/blog/casos-exito-ia-pymes/" class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Leer artículo <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
@@ -193,7 +193,7 @@
                         <div class="p-8">
                             <span class="text-xs font-normal text-brand dark:text-brand-light uppercase tracking-wider mb-2 block">Comparativa</span>
                             <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light dark:hover:text-brand dark:hover:text-brand-light-light transition-colors"><a href="/blog/agente-ia-vs-chatbot/">Agente IA vs Chatbot Tradicional</a></h2>
-                            <p class="text-gray-2 dark:text-slate-400 mb-4 text-sm">Por qué los chatbots de menú ya no funcionan y cómo un Agente IA marca la diferencia.</p>
+                            <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-sm">Por qué los chatbots de menú ya no funcionan y cómo un Agente IA marca la diferencia.</p>
                             <a href="/blog/agente-ia-vs-chatbot/" class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Leer artículo <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>

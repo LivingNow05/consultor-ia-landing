@@ -127,7 +127,7 @@
         .hover-google-glow::before {
             content: "";
             position: absolute;
-            inset: -15px; /* Huge spread */
+            top: -15px; left: -15px; right: -15px; bottom: -15px; /* Safari compatibility */
             border-radius: 40%; /* Slightly rounded to smooth the rotation */
             background: conic-gradient(from 0deg, #10b981, #06b6d4, #8b5cf6, #10b981);
             z-index: -1;
@@ -187,7 +187,7 @@
             <nav class="hidden md:flex space-x-8 items-center">
                 <!-- Mega Menu Industrias -->
                 <div class="relative group z-50 py-2">
-                    <button class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light flex items-center gap-1 transition-colors">
+                    <button class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light flex items-center gap-1 transition-colors">
                         Industrias <i class="fas fa-chevron-down text-xs"></i>
                     </button>
                     <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
@@ -195,9 +195,9 @@
                     </div>
                 </div>
                 
-                <a href="/#como-funciona" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Cómo Funciona</a>
-                <a href="/#precios" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Precios</a>
-                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Blog</a>
+                <a href="/#como-funciona" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Precios</a>
+                <a href="/blog/" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Blog</a>
                 
                 <!-- Dark Mode Toggle -->
                 <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
@@ -221,7 +221,7 @@
 
     <!-- 2. Breadcrumbs -->
     <div class="pt-24 pb-2 border-b border-gray-200/50 dark:border-zinc-800/50 relative z-10">
-        <div class="container mx-auto px-4 py-3 text-sm text-gray-2 dark:text-slate-400">
+        <div class="container mx-auto px-4 py-3 text-sm text-zinc-600 dark:text-zinc-400">
             <a href="/" class="hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Inicio</a> <span class="mx-2 opacity-50">&gt;</span> 
             <a href="/chatbot-whatsapp-para-veterinarias/" class="hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Veterinarias</a> <span class="mx-2 opacity-50">&gt;</span> 
             <span class="text-gray-1 dark:text-slate-200 font-normal">Costa Rica</span>
@@ -237,7 +237,7 @@
             <div class="container mx-auto px-4 max-w-4xl text-center relative z-10">
                 <span class="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">Soluciones Especializadas</span>
                 <h1 class="text-4xl md:text-6xl font-header font-bold mb-6">Inteligencia Artificial para <br><span class="text-brand dark:text-brand-light">Veterinarias en Costa Rica</span></h1>
-                <p class="text-xl text-gray-2 dark:text-slate-400 mb-10 max-w-2xl mx-auto">Selecciona tu ciudad para conocer las soluciones de IA disponibles y adaptadas al mercado local.</p>
+                <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">Selecciona tu ciudad para conocer las soluciones de IA disponibles y adaptadas al mercado local.</p>
             </div>
         </section>
 
@@ -258,7 +258,7 @@
                 <div class="text-center mb-16">
                     <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
                     <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios</h2>
-                    <p class="text-xl text-gray-2 dark:text-slate-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
@@ -309,7 +309,7 @@
                 <a href="/" class="flex items-center gap-2">
                     <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 </a>
-                <p class="text-gray-2 dark:text-slate-400 text-sm leading-relaxed">
+                <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
                     Transformamos la atención al cliente en LATAM con Agentes de Inteligencia Artificial que trabajan 24/7 en WhatsApp.
                 </p>
                 <div class="flex gap-4">
@@ -322,7 +322,7 @@
             <!-- Col 2: Industrias -->
             <div>
                 <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones</h4>
-                <ul class="space-y-3 text-sm text-gray-2 dark:text-slate-400">
+                <ul class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
                     <li><a href="/chatbot-whatsapp-para-academias-cursos/colombia/bogota/" class="hover:text-accent transition-colors">Academias y Cursos</a></li><li><a href="/chatbot-whatsapp-para-clinicas-dentales/colombia/bogota/" class="hover:text-accent transition-colors">Clínicas Dentales</a></li><li><a href="/chatbot-whatsapp-para-gimnasios/colombia/bogota/" class="hover:text-accent transition-colors">Gimnasios</a></li><li><a href="/chatbot-whatsapp-para-hoteles-y-hostales/colombia/bogota/" class="hover:text-accent transition-colors">Hoteles y Hostales</a></li><li><a href="/chatbot-whatsapp-para-inmobiliarias/colombia/bogota/" class="hover:text-accent transition-colors">Inmobiliarias</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/bogota/" class="hover:text-accent transition-colors">Restaurantes</a></li><li><a href="/chatbot-whatsapp-para-salones-de-belleza/colombia/bogota/" class="hover:text-accent transition-colors">Salones de Belleza</a></li><li><a href="/chatbot-whatsapp-para-spas-centros-esteticos/colombia/bogota/" class="hover:text-accent transition-colors">Spas y Centros de Estética</a></li><li><a href="/chatbot-whatsapp-para-talleres-automotrices/colombia/bogota/" class="hover:text-accent transition-colors">Talleres Automotrices</a></li><li><a href="/chatbot-whatsapp-para-veterinarias/colombia/bogota/" class="hover:text-accent transition-colors">Veterinarias</a></li>
                 </ul>
             </div>
@@ -330,7 +330,7 @@
             <!-- Col 3 & 4: Ciudades -->
             <div class="lg:col-span-2">
                 <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Presencia en LATAM</h4>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm text-gray-2 dark:text-slate-400">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm text-zinc-600 dark:text-zinc-400">
                     <div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Colombia</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/bogota/" class="hover:text-accent transition-colors">Bogotá</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/medellin/" class="hover:text-accent transition-colors">Medellín</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/cali/" class="hover:text-accent transition-colors">Cali</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/barranquilla/" class="hover:text-accent transition-colors">Barranquilla</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/cartagena/" class="hover:text-accent transition-colors">Cartagena</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/colombia/bucaramanga/" class="hover:text-accent transition-colors">Bucaramanga</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">México</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/ciudad-de-mexico/" class="hover:text-accent transition-colors">Ciudad de México</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/guadalajara/" class="hover:text-accent transition-colors">Guadalajara</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/monterrey/" class="hover:text-accent transition-colors">Monterrey</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/puebla/" class="hover:text-accent transition-colors">Puebla</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/queretaro/" class="hover:text-accent transition-colors">Querétaro</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/cancun/" class="hover:text-accent transition-colors">Cancún</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/merida/" class="hover:text-accent transition-colors">Mérida</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/mexico/tijuana/" class="hover:text-accent transition-colors">Tijuana</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Argentina</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/argentina/buenos-aires/" class="hover:text-accent transition-colors">Buenos Aires</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/argentina/cordoba-ar/" class="hover:text-accent transition-colors">Córdoba</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/argentina/rosario/" class="hover:text-accent transition-colors">Rosario</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/argentina/mendoza/" class="hover:text-accent transition-colors">Mendoza</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Chile</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/chile/santiago/" class="hover:text-accent transition-colors">Santiago</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/chile/valparaiso/" class="hover:text-accent transition-colors">Valparaíso</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Perú</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/peru/lima/" class="hover:text-accent transition-colors">Lima</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/peru/arequipa/" class="hover:text-accent transition-colors">Arequipa</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Ecuador</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/ecuador/quito/" class="hover:text-accent transition-colors">Quito</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/ecuador/guayaquil/" class="hover:text-accent transition-colors">Guayaquil</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Panamá</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/panama/ciudad-de-panama/" class="hover:text-accent transition-colors">Ciudad de Panamá</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Costa Rica</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/costa-rica/san-jose-cr/" class="hover:text-accent transition-colors">San José</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Uruguay</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/uruguay/montevideo/" class="hover:text-accent transition-colors">Montevideo</a></li></ul></div><div class="flex flex-col gap-2"><h4 class="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-widest mb-2">Rep. Dominicana</h4><ul class="space-y-2"><li><a href="/chatbot-whatsapp-para-restaurantes/republica-dominicana/santo-domingo/" class="hover:text-accent transition-colors">Santo Domingo</a></li></ul></div>
                 </div>
             </div>

@@ -26,7 +26,7 @@ def build_blog_index():
             <div class="p-8">
                 <span class="text-xs font-normal text-brand dark:text-brand-light uppercase tracking-wider mb-2 block">{blog.get('category', 'Negocios')}</span>
                 <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:group-hover:text-brand-light transition-colors"><a href="/blog/{blog['slug']}/">{blog['title']}</a></h2>
-                <p class="text-gray-2 dark:text-slate-400 mb-4 text-sm">{blog.get('description', '')}</p>
+                <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-sm">{blog.get('description', '')}</p>
                 <a href="/blog/{blog['slug']}/" class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Leer artículo <i class="fas fa-arrow-right"></i></a>
             </div>
         </article>

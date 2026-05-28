@@ -204,7 +204,7 @@ def build_roadmap_html(row):
             <div class="text-center mb-16">
                 <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Implementación Rápida</span>
                 <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Roadmap para {industria} en {ciudad}</h2>
-                <p class="text-xl text-gray-2 dark:text-slate-400">Lanzamos tu agente de IA en 4 pasos simples, sin que tengas que programar nada.</p>
+                <p class="text-xl text-zinc-600 dark:text-zinc-400">Lanzamos tu agente de IA en 4 pasos simples, sin que tengas que programar nada.</p>
             </div>
             
             <div class="relative">
@@ -465,7 +465,7 @@ def build_footer_html(data):
                 <a href="/" class="flex items-center gap-2">
                     <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 </a>
-                <p class="text-gray-2 dark:text-slate-400 text-sm leading-relaxed">
+                <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
                     Transformamos la atención al cliente en LATAM con Agentes de Inteligencia Artificial que trabajan 24/7 en WhatsApp.
                 </p>
                 <div class="flex gap-4">
@@ -478,7 +478,7 @@ def build_footer_html(data):
             <!-- Col 2: Industrias -->
             <div>
                 <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones</h4>
-                <ul class="space-y-3 text-sm text-gray-2 dark:text-slate-400">
+                <ul class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
                     {ind_links}
                 </ul>
             </div>
@@ -486,7 +486,7 @@ def build_footer_html(data):
             <!-- Col 3 & 4: Ciudades -->
             <div class="lg:col-span-2">
                 <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Presencia en LATAM</h4>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm text-gray-2 dark:text-slate-400">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm text-zinc-600 dark:text-zinc-400">
                     {geo_links}
                 </div>
             </div>
@@ -701,9 +701,31 @@ def build_home_page(data):
         .typing-dot:nth-child(2) {{ animation-delay:.2s; }}
         .typing-dot:nth-child(3) {{ animation-delay:.4s; }}
         @keyframes typingBounce {{ 0%,80%,100% {{ transform:translateY(0); }} 40% {{ transform:translateY(-5px); }} }}
+    
+        /* Background Animated Blobs */
+        @keyframes blob-move-1 {{
+            0% {{ transform: translate(0, 0) scale(1) rotate(0deg); }}
+            33% {{ transform: translate(15vw, -10vh) scale(1.2) rotate(15deg); }}
+            66% {{ transform: translate(-10vw, 15vh) scale(0.8) rotate(-15deg); }}
+            100% {{ transform: translate(0, 0) scale(1) rotate(0deg); }}
+        }}
+        @keyframes blob-move-2 {{
+            0% {{ transform: translate(0, 0) scale(1) rotate(0deg); }}
+            33% {{ transform: translate(-15vw, 15vh) scale(1.2) rotate(-15deg); }}
+            66% {{ transform: translate(15vw, -10vh) scale(0.8) rotate(15deg); }}
+            100% {{ transform: translate(0, 0) scale(1) rotate(0deg); }}
+        }}
+        .bg-blob-1 {{ animation: blob-move-1 12s infinite ease-in-out; }}
+        .bg-blob-2 {{ animation: blob-move-2 15s infinite ease-in-out; }}
     </style>
 </head>
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
+
+<!-- Background Animated Blobs -->
+<div class="fixed top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none" style="z-index: -1;">
+    <div class="bg-blob-1 absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-br from-[#10b981]/20 to-[#06b6d4]/20 dark:from-[#10b981]/30 dark:to-[#06b6d4]/30 blur-[100px]"></div>
+    <div class="bg-blob-2 absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#8b5cf6]/20 to-[#ec4899]/20 dark:from-[#8b5cf6]/30 dark:to-[#ec4899]/30 blur-[120px]"></div>
+</div>
 
 <!-- HEADER -->
 <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
@@ -712,9 +734,9 @@ def build_home_page(data):
             <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
         </a>
         <nav class="hidden md:flex space-x-8 items-center">
-            <a href="#como-funciona" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Como Funciona</a>
-            <a href="#industrias" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Industrias</a>
-            <a href="/blog/" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
+            <a href="#como-funciona" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Como Funciona</a>
+            <a href="#industrias" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Industrias</a>
+            <a href="/blog/" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
             <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
                 <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                 <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
@@ -744,7 +766,7 @@ def build_home_page(data):
                     <span class="text-brand dark:text-brand-light">atendiendo 24/7</span><br>
                     sin pausas.
                 </h1>
-                <p class="text-xl text-gray-2 dark:text-slate-300 mb-10 leading-relaxed max-w-2xl">
+                <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
                     Implementamos <strong>Agentes de Inteligencia Artificial</strong> en WhatsApp que responden, agendan y venden por ti. Sin contratar mas personal. Sin perder un solo cliente.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -808,7 +830,7 @@ def build_home_page(data):
         <div class="text-center mb-16 max-w-3xl mx-auto">
             <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Proceso</span>
             <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">Activo en 7 dias</h2>
-            <p class="text-xl text-gray-2 dark:text-slate-400">Sin codigo, sin complicaciones. Nosotros hacemos todo el trabajo tecnico.</p>
+            <p class="text-xl text-zinc-600 dark:text-zinc-400">Sin codigo, sin complicaciones. Nosotros hacemos todo el trabajo tecnico.</p>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
             {steps_html}
@@ -822,7 +844,7 @@ def build_home_page(data):
         <div class="text-center mb-16 max-w-3xl mx-auto">
             <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Especializacion</span>
             <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">Soluciones por Industria</h2>
-            <p class="text-xl text-gray-2 dark:text-slate-400">Cada agente es entrenado con el lenguaje y procesos especificos de tu sector.</p>
+            <p class="text-xl text-zinc-600 dark:text-zinc-400">Cada agente es entrenado con el lenguaje y procesos especificos de tu sector.</p>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {industries_html}
@@ -836,7 +858,7 @@ def build_home_page(data):
     <div class="container mx-auto px-4 max-w-4xl text-center">
         <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-4 block">Listo para empezar?</span>
         <h2 class="text-4xl md:text-6xl font-header font-bold mb-6">Nunca pierdas<br>un cliente mas</h2>
-        <p class="text-xl text-gray-2 dark:text-slate-400 mb-10 max-w-2xl mx-auto">Unete a los negocios de LATAM que ya atienden, agendan y venden en piloto automatico.</p>
+        <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">Unete a los negocios de LATAM que ya atienden, agendan y venden en piloto automatico.</p>
         <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C+quiero+una+demo+del+agente+IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
             <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
             <span class="relative z-10 flex items-center gap-3 font-body text-sm font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75"><i class="fab fa-whatsapp text-lg"></i> Hablar con un Asesor</span>

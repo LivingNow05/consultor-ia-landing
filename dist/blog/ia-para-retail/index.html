@@ -118,7 +118,7 @@
         .hover-google-glow::before {
             content: "";
             position: absolute;
-            inset: -15px; /* Huge spread */
+            top: -15px; left: -15px; right: -15px; bottom: -15px; /* Safari compatibility */
             border-radius: 40%; /* Slightly rounded to smooth the rotation */
             background: conic-gradient(from 0deg, #10b981, #06b6d4, #8b5cf6, #10b981);
             z-index: -1;
@@ -178,7 +178,7 @@
             <nav class="hidden md:flex space-x-8 items-center">
                 <!-- Mega Menu Industrias -->
                 <div class="relative group z-50 py-2">
-                    <button class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light flex items-center gap-1 transition-colors">
+                    <button class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light flex items-center gap-1 transition-colors">
                         Industrias <i class="fas fa-chevron-down text-xs"></i>
                     </button>
                     <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
@@ -186,9 +186,9 @@
                     </div>
                 </div>
                 
-                <a href="/#como-funciona" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Cómo Funciona</a>
-                <a href="/#precios" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Precios</a>
-                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
+                <a href="/#como-funciona" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Precios</a>
+                <a href="/blog/" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
                 
                 <!-- Dark Mode Toggle -->
                 <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
@@ -285,7 +285,7 @@
 <h2 id="revolucion-retail" class="text-3xl font-header font-bold mb-6">1. El Nuevo Paradigma: Inteligencia Artificial en el Retail LATAM (2026)</h2>
 <p class="text-lg leading-relaxed mb-6">El sector minorista o retail en América Latina está experimentando la transformación más profunda de su historia. En 2026, la competencia ya no se define únicamente por el tamaño del local físico o el presupuesto de pauta digital, sino por la capacidad de procesar datos en tiempo real para entender y predecir lo que el cliente desea. La adopción de la <strong>ia para retail</strong> ha dejado de ser un lujo de los gigantes del e-commerce como Amazon o Mercado Libre, convirtiéndose en una herramienta accesible para comercios medianos y marcas locales que buscan disparar sus ventas y fidelizar a sus compradores.</p>
 <p class="text-lg leading-relaxed mb-6">La combinación de la IA cognitiva, los sistemas de recomendación avanzados y la automatización conversacional a través de WhatsApp ha redefinido el viaje de compra (customer journey). Hoy en día, un cliente en Bogotá, Ciudad de México, Lima o Santiago espera una atención inmediata, recomendaciones de productos basadas en sus gustos reales y un proceso de compra sin fricciones. Implementar <strong>inteligencia artificial en retail</strong> permite a las empresas automatizar tareas complejas —desde la gestión predictiva de stocks hasta la atención personalizada de clientes— reduciendo costos operativos y multiplicando la tasa de conversión.</p>
-<blockquote class="border-l-4 border-brand pl-6 my-8 italic text-xl text-gray-2 dark:text-slate-300">"En el retail moderno, la personalización ya no es saludar al cliente por su nombre en un correo; es entender su contexto actual, predecir su próxima necesidad de consumo y presentarle la oferta exacta en el canal adecuado y en el momento preciso."</blockquote>
+<blockquote class="border-l-4 border-brand pl-6 my-8 italic text-xl text-zinc-600 dark:text-zinc-300">"En el retail moderno, la personalización ya no es saludar al cliente por su nombre en un correo; es entender su contexto actual, predecir su próxima necesidad de consumo y presentarle la oferta exacta en el canal adecuado y en el momento preciso."</blockquote>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
   <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
@@ -481,7 +481,7 @@
                 <div class="text-center mb-16">
                     <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
                     <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios</h2>
-                    <p class="text-xl text-gray-2 dark:text-slate-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">

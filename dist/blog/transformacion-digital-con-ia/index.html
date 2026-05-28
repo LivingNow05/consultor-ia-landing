@@ -118,7 +118,7 @@
         .hover-google-glow::before {
             content: "";
             position: absolute;
-            inset: -15px; /* Huge spread */
+            top: -15px; left: -15px; right: -15px; bottom: -15px; /* Safari compatibility */
             border-radius: 40%; /* Slightly rounded to smooth the rotation */
             background: conic-gradient(from 0deg, #10b981, #06b6d4, #8b5cf6, #10b981);
             z-index: -1;
@@ -178,7 +178,7 @@
             <nav class="hidden md:flex space-x-8 items-center">
                 <!-- Mega Menu Industrias -->
                 <div class="relative group z-50 py-2">
-                    <button class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light flex items-center gap-1 transition-colors">
+                    <button class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light flex items-center gap-1 transition-colors">
                         Industrias <i class="fas fa-chevron-down text-xs"></i>
                     </button>
                     <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
@@ -186,9 +186,9 @@
                     </div>
                 </div>
                 
-                <a href="/#como-funciona" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Cómo Funciona</a>
-                <a href="/#precios" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Precios</a>
-                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
+                <a href="/#como-funciona" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Precios</a>
+                <a href="/blog/" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
                 
                 <!-- Dark Mode Toggle -->
                 <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
@@ -285,7 +285,7 @@
 <h2 id="nuevo-paradigma" class="text-3xl font-header font-bold mb-6">1. El Nuevo Paradigma: Inteligencia Artificial y Transformación Digital en LATAM</h2>
 <p class="text-lg leading-relaxed mb-6">En 2026, la convergencia entre la <strong>inteligencia artificial y transformacion digital</strong> ha dejado de ser un concepto etéreo para consolidarse como la estrategia de negocio más rentable y urgente en América Latina. La digitalización tradicional —que consistía en migrar archivos físicos a la nube o usar software básico de gestión— ya no es suficiente para competir en un mercado globalizado y acelerado. Hoy en día, la verdadera transformación digital requiere dotar a los sistemas de capacidad cognitiva para automatizar procesos complejos, analizar datos estructurados y no estructurados, y tomar decisiones lógicas en tiempo real.</p>
 <p class="text-lg leading-relaxed mb-6">La integración profunda de la IA permite que las empresas de Colombia, México, Chile y toda la región pasen de flujos operativos pasivos a entornos proactivos y adaptativos. Utilizando modelos de lenguaje de gran escala (LLMs), bases vectoriales y agentes autónomos, las organizaciones no solo digitalizan sus canales, sino que automatizan de punta a punta la relación con sus clientes, sus finanzas y su cadena operativa de forma escalable.</p>
-<blockquote class="border-l-4 border-brand pl-6 my-8 italic text-xl text-gray-2 dark:text-slate-300">"La inteligencia artificial y transformación digital representan el salto cuántico más importante para las PYMES de LATAM en la última década, permitiéndoles competir al mismo nivel tecnológico que las grandes multinacionales con una fracción de su presupuesto."</blockquote>
+<blockquote class="border-l-4 border-brand pl-6 my-8 italic text-xl text-zinc-600 dark:text-zinc-300">"La inteligencia artificial y transformación digital representan el salto cuántico más importante para las PYMES de LATAM en la última década, permitiéndoles competir al mismo nivel tecnológico que las grandes multinacionales con una fracción de su presupuesto."</blockquote>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
   <div class="bg-white dark:bg-zinc-900 p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm">
@@ -448,7 +448,7 @@
                 <div class="text-center mb-16">
                     <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
                     <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios</h2>
-                    <p class="text-xl text-gray-2 dark:text-slate-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
