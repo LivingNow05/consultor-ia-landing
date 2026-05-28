@@ -71,12 +71,8 @@
         
         
         
-        /* Glow Hover Effect (Rotating Estela) */
-        @property --border-angle {
-            syntax: "<angle>";
-            initial-value: 0deg;
-            inherits: false;
-        }
+        
+        /* Glow Hover Effect (Bulletproof Transform Rotation) */
         .hover-google-glow {
             position: relative;
             z-index: 1;
@@ -85,23 +81,25 @@
         .hover-google-glow::before {
             content: "";
             position: absolute;
-            inset: -6px; /* Spreads out 6px outside the card */
-            border-radius: inherit;
-            background: conic-gradient(from var(--border-angle), #10b981, #06b6d4, #8b5cf6, #10b981);
+            inset: -15px; /* Huge spread */
+            border-radius: 40%; /* Slightly rounded to smooth the rotation */
+            background: conic-gradient(from 0deg, #10b981, #06b6d4, #8b5cf6, #10b981);
             z-index: -1;
-            filter: blur(16px);
+            filter: blur(20px);
             opacity: 0;
             transition: opacity 0.5s ease-out;
+            pointer-events: none;
         }
         .hover-google-glow:hover::before {
             opacity: 0.8;
-            animation: spin-glow 3s linear infinite;
+            animation: spin-safari 3s linear infinite;
         }
         .dark .hover-google-glow:hover::before {
             opacity: 1;
         }
-        @keyframes spin-glow {
-            to { --border-angle: 360deg; }
+        @keyframes spin-safari {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         .hover-google-glow:hover {
             transform: translateY(-4px);
