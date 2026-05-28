@@ -66,9 +66,57 @@
         
         /* FIX OVERSCROLL */
         html, body { overscroll-behavior: none; }
+
+        /* Google Glow Hover Effect */
+        @keyframes google-shadow-light {
+            0% { box-shadow: 0 0 25px rgba(66, 133, 244, 0.15), 0 0 50px rgba(234, 67, 53, 0.1); }
+            33% { box-shadow: 0 0 25px rgba(251, 188, 5, 0.15), 0 0 50px rgba(52, 168, 83, 0.1); }
+            66% { box-shadow: 0 0 25px rgba(52, 168, 83, 0.15), 0 0 50px rgba(66, 133, 244, 0.1); }
+            100% { box-shadow: 0 0 25px rgba(66, 133, 244, 0.15), 0 0 50px rgba(234, 67, 53, 0.1); }
+        }
+        @keyframes google-shadow-dark {
+            0% { box-shadow: 0 0 30px rgba(66, 133, 244, 0.25), 0 0 60px rgba(234, 67, 53, 0.15); }
+            33% { box-shadow: 0 0 30px rgba(251, 188, 5, 0.25), 0 0 60px rgba(52, 168, 83, 0.15); }
+            66% { box-shadow: 0 0 30px rgba(52, 168, 83, 0.25), 0 0 60px rgba(66, 133, 244, 0.15); }
+            100% { box-shadow: 0 0 30px rgba(66, 133, 244, 0.25), 0 0 60px rgba(234, 67, 53, 0.15); }
+        }
+        .hover-google-glow {
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+        }
+        .hover-google-glow:hover {
+            animation: google-shadow-light 4s infinite alternate;
+            transform: translateY(-4px);
+        }
+        .dark .hover-google-glow:hover {
+            animation: google-shadow-dark 4s infinite alternate;
+        }
+        
+        /* Background Animated Blobs */
+        @keyframes blob-move-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes blob-move-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-30px, 50px) scale(0.9); }
+            66% { transform: translate(20px, -20px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .bg-blob-1 { animation: blob-move-1 15s infinite ease-in-out; }
+        .bg-blob-2 { animation: blob-move-2 18s infinite ease-in-out; }
+
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-gray-1 dark:text-slate-200 transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- Background Animated Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index: -1;">
+        <div class="bg-blob-1 absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-br from-[#4285F4]/10 to-[#34A853]/10 dark:from-[#4285F4]/15 dark:to-[#34A853]/15 blur-[100px]"></div>
+        <div class="bg-blob-2 absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#EA4335]/10 to-[#FBBC05]/10 dark:from-[#EA4335]/15 dark:to-[#FBBC05]/15 blur-[120px]"></div>
+    </div>
+
 
     <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
         <div class="w-full max-w-7xl glass rounded-full border border-gray-200 dark:border-zinc-800/80 shadow-2xl pointer-events-auto flex justify-between items-center px-6 py-3">
@@ -76,9 +124,9 @@
                 <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
             </a>
             <nav class="hidden md:flex space-x-8 items-center">
-                <a href="/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand transition-colors">Inicio</a>
-                <a href="/blog/" class="font-normal text-brand transition-colors">Blog</a>
-                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
+                <a href="/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Inicio</a>
+                <a href="/blog/" class="font-normal text-brand dark:text-brand-light transition-colors">Blog</a>
+                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
                     <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                     <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
                 </button>
@@ -89,7 +137,7 @@
         </div>
     </header>
 
-    <main class="flex-grow">
+    <main class="flex-grow relative z-10">
         <section class="py-24 dark:bg-zinc-900/30 border-b border-gray-border dark:border-zinc-800">
             <div class="container mx-auto px-4 max-w-4xl text-center">
                 <h1 class="text-4xl md:text-6xl font-header font-bold mb-6 text-gradient">Blog de Inteligencia Artificial</h1>
@@ -101,37 +149,37 @@
             <div class="container mx-auto px-4 max-w-6xl">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Placeholder Blog Cards -->
-                    <article class="bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:shadow-[0_8px_30px_-12px_rgba(16,185,129,0.15)] transition-all duration-300 group">
+                    <article class="bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
                         <div class="h-48 bg-gray-200 dark:bg-zinc-800 relative overflow-hidden">
                             <div class="absolute inset-0 bg-brand/20 group-hover:bg-brand/10 transition-colors z-10"></div>
                         </div>
                         <div class="p-8">
                             <span class="text-xs font-normal text-brand dark:text-brand-light uppercase tracking-wider mb-2 block">Negocios</span>
-                            <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand transition-colors"><a href="/blog/ia-para-negocios/">Guía de IA para Negocios 2026</a></h2>
+                            <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light dark:hover:text-brand dark:hover:text-brand-light-light transition-colors"><a href="/blog/ia-para-negocios/">Guía de IA para Negocios 2026</a></h2>
                             <p class="text-gray-2 dark:text-slate-400 mb-4 text-sm">Descubre cómo implementar inteligencia artificial en tu empresa paso a paso.</p>
                             <a href="/blog/ia-para-negocios/" class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Leer artículo <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
                     
-                    <article class="bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:shadow-[0_8px_30px_-12px_rgba(16,185,129,0.15)] transition-all duration-300 group">
+                    <article class="bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
                         <div class="h-48 bg-gray-200 dark:bg-zinc-800 relative overflow-hidden">
                             <div class="absolute inset-0 bg-brand/20 group-hover:bg-brand/10 transition-colors z-10"></div>
                         </div>
                         <div class="p-8">
                             <span class="text-xs font-normal text-brand dark:text-brand-light uppercase tracking-wider mb-2 block">Casos de Éxito</span>
-                            <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand transition-colors"><a href="/blog/casos-exito-ia-pymes/">Casos Reales en PYMES LATAM</a></h2>
+                            <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light dark:hover:text-brand dark:hover:text-brand-light-light transition-colors"><a href="/blog/casos-exito-ia-pymes/">Casos Reales en PYMES LATAM</a></h2>
                             <p class="text-gray-2 dark:text-slate-400 mb-4 text-sm">Empresas que multiplicaron sus ventas usando agentes de IA y WhatsApp.</p>
                             <a href="/blog/casos-exito-ia-pymes/" class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Leer artículo <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
 
-                    <article class="bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:shadow-[0_8px_30px_-12px_rgba(16,185,129,0.15)] transition-all duration-300 group">
+                    <article class="bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
                         <div class="h-48 bg-gray-200 dark:bg-zinc-800 relative overflow-hidden">
                             <div class="absolute inset-0 bg-brand/20 group-hover:bg-brand/10 transition-colors z-10"></div>
                         </div>
                         <div class="p-8">
                             <span class="text-xs font-normal text-brand dark:text-brand-light uppercase tracking-wider mb-2 block">Comparativa</span>
-                            <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand transition-colors"><a href="/blog/agente-ia-vs-chatbot/">Agente IA vs Chatbot Tradicional</a></h2>
+                            <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light dark:hover:text-brand dark:hover:text-brand-light-light transition-colors"><a href="/blog/agente-ia-vs-chatbot/">Agente IA vs Chatbot Tradicional</a></h2>
                             <p class="text-gray-2 dark:text-slate-400 mb-4 text-sm">Por qué los chatbots de menú ya no funcionan y cómo un Agente IA marca la diferencia.</p>
                             <a href="/blog/agente-ia-vs-chatbot/" class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Leer artículo <i class="fas fa-arrow-right"></i></a>
                         </div>

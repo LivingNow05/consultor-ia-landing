@@ -89,9 +89,9 @@ def build_chat_simulation_html(row):
                     <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">No parecemos un bot de menú aburrido</h2>
                     <p class="text-xl text-gray-500 dark:text-slate-400 mb-8">Tus clientes odian presionar el "1" para ventas o el "2" para soporte. Nuestro agente interactúa de forma natural: <strong>entiende notas de voz, perdona faltas de ortografía y responde con empatía.</strong></p>
                     <ul class="space-y-4 text-left inline-block lg:block mx-auto text-gray-700 dark:text-slate-300 font-medium">
-                        <li class="flex items-center"><i class="fas fa-heart text-brand dark:text-white text-xl mr-3"></i> Tono conversacional y cálido</li>
-                        <li class="flex items-center"><i class="fas fa-microphone text-brand dark:text-white text-xl mr-3"></i> Transcribe y entiende audios</li>
-                        <li class="flex items-center"><i class="fas fa-spell-check text-brand dark:text-white text-xl mr-3"></i> Tolera jergas y errores al escribir</li>
+                        <li class="flex items-center"><i class="fas fa-heart text-brand dark:text-brand-light dark:text-white text-xl mr-3"></i> Tono conversacional y cálido</li>
+                        <li class="flex items-center"><i class="fas fa-microphone text-brand dark:text-brand-light dark:text-white text-xl mr-3"></i> Transcribe y entiende audios</li>
+                        <li class="flex items-center"><i class="fas fa-spell-check text-brand dark:text-brand-light dark:text-white text-xl mr-3"></i> Tolera jergas y errores al escribir</li>
                     </ul>
                 </div>
                 
@@ -215,19 +215,19 @@ def build_roadmap_html(row):
                     <!-- Paso 1 -->
                     <div class="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group">
                         <div class="md:w-5/12 text-left md:text-right pl-16 md:pl-0 md:pr-12">
-                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">1. Auditoría y Estrategia</h3>
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">1. Auditoría y Estrategia</h3>
                             <p class="text-gray-500 dark:text-slate-400">Analizamos el flujo de ventas de tu {industria} y definimos la personalidad y base de conocimiento del agente.</p>
                         </div>
-                        <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-white shadow-xl z-10">1</div>
+                        <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-brand-light dark:text-white shadow-xl z-10">1</div>
                         <div class="md:w-5/12 pl-0 md:pl-12 hidden md:block"></div>
                     </div>
                     
                     <!-- Paso 2 -->
                     <div class="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group">
                         <div class="md:w-5/12 pr-0 md:pr-12 hidden md:block"></div>
-                        <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-white shadow-xl z-10">2</div>
+                        <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-brand-light dark:text-white shadow-xl z-10">2</div>
                         <div class="md:w-5/12 pl-16 md:pl-12 text-left">
-                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">2. Entrenamiento IA</h3>
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">2. Entrenamiento IA</h3>
                             <p class="text-gray-500 dark:text-slate-400">Cargamos tus PDFs, FAQs e historial de WhatsApp para que la IA responda como tu mejor vendedor.</p>
                         </div>
                     </div>
@@ -235,10 +235,10 @@ def build_roadmap_html(row):
                     <!-- Paso 3 -->
                     <div class="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group">
                         <div class="md:w-5/12 text-left md:text-right pl-16 md:pl-0 md:pr-12">
-                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">3. Integración WhatsApp</h3>
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">3. Integración WhatsApp</h3>
                             <p class="text-gray-500 dark:text-slate-400">Conectamos el cerebro de IA con el número de WhatsApp oficial de tu negocio de forma segura.</p>
                         </div>
-                        <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-white shadow-xl z-10">3</div>
+                        <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-brand-light dark:text-white shadow-xl z-10">3</div>
                         <div class="md:w-5/12 pl-0 md:pl-12 hidden md:block"></div>
                     </div>
                     
@@ -247,7 +247,7 @@ def build_roadmap_html(row):
                         <div class="md:w-5/12 pr-0 md:pr-12 hidden md:block"></div>
                         <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-brand dark:bg-zinc-800 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-white shadow-xl z-10">4</div>
                         <div class="md:w-5/12 pl-16 md:pl-12 text-left">
-                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">4. Lanzamiento y Optimización</h3>
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">4. Lanzamiento y Optimización</h3>
                             <p class="text-gray-500 dark:text-slate-400">Encendemos el agente. Monitoreamos las primeras conversaciones y ajustamos sus respuestas en tiempo real.</p>
                         </div>
                     </div>
@@ -368,8 +368,8 @@ def build_calculadora_html(row):
                     <div class="h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-zinc-800 to-transparent w-full"></div>
                     
                     <div class="text-center bg-brand/5 dark:bg-white/5 rounded-2xl p-6 border border-brand/10 dark:border-white/10">
-                        <p class="text-xs text-brand dark:text-white font-bold mb-2 uppercase tracking-tighter">Ingresos Extra Estimados (Mes)</p>
-                        <div class="text-4xl font-header font-extrabold text-brand dark:text-white" id="res-revenue">{moneda} 4,500</div>
+                        <p class="text-xs text-brand dark:text-brand-light dark:text-white font-bold mb-2 uppercase tracking-tighter">Ingresos Extra Estimados (Mes)</p>
+                        <div class="text-4xl font-header font-extrabold text-brand dark:text-brand-light dark:text-white" id="res-revenue">{moneda} 4,500</div>
                         <p class="text-[10px] text-gray-400 dark:text-zinc-500 mt-4 leading-tight">*Basado en una tasa de cierre conservadora del 15%.</p>
                     </div>
                 </div>
@@ -535,12 +535,12 @@ def build_home_page(data):
     for ind, url in industry_first_url.items():
         icon = industry_icons.get(ind, 'fa-robot')
         industries_html += f"""
-        <a href="{url}" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm overflow-hidden hover:border-brand dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:hover:shadow-[0_8px_30px_rgba(255,255,255,0.05)] text-center">
+        <a href="{url}" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm overflow-hidden hover:border-brand dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
             <div class="relative z-10 w-16 h-16 rounded-2xl bg-brand/5 dark:bg-white/5 border border-brand/10 dark:border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand/10 dark:group-hover:bg-white/10 transition-all duration-500 shadow-inner">
-                <i class="fas {icon} text-2xl text-brand dark:text-white group-hover:text-accent transition-colors"></i>
+                <i class="fas {icon} text-2xl text-brand dark:text-brand-light dark:text-white group-hover:text-accent transition-colors"></i>
             </div>
 
             <div class="relative z-10 flex flex-col items-center">
@@ -559,7 +559,7 @@ def build_home_page(data):
     steps_html = ""
     for icon, title, desc in steps_data:
         steps_html += f"""
-        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300 group">
+        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300 group">
             <div class="w-14 h-14 bg-brand/10 dark:bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i class="fas {icon} text-2xl text-brand dark:text-brand-light"></i>
             </div>
@@ -712,10 +712,10 @@ def build_home_page(data):
             <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
         </a>
         <nav class="hidden md:flex space-x-8 items-center">
-            <a href="#como-funciona" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Como Funciona</a>
-            <a href="#industrias" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Industrias</a>
-            <a href="/blog/" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
-            <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
+            <a href="#como-funciona" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Como Funciona</a>
+            <a href="#industrias" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Industrias</a>
+            <a href="/blog/" class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
+            <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
                 <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                 <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
             </button>
@@ -853,7 +853,7 @@ def build_home_page(data):
         <div class="flex justify-between items-center mb-12">
             <span class="font-header font-extrabold text-2xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
             <div class="flex items-center gap-4">
-                <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand focus:outline-none rounded-lg text-2xl p-2 transition-colors">
+                <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-2xl p-2 transition-colors">
                     <i id="theme-toggle-dark-icon-mobile" class="fas fa-moon hidden"></i>
                     <i id="theme-toggle-light-icon-mobile" class="fas fa-sun hidden"></i>
                 </button>
@@ -864,10 +864,10 @@ def build_home_page(data):
         </div>
         
         <nav class="flex flex-col space-y-6 text-2xl font-header font-bold">
-            <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a>
-            <a href="#como-funciona" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
-            <a href="#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
-            <a href="/blog/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
+            <a href="/" class="hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Inicio</a>
+            <a href="#como-funciona" class="mobile-link hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Cómo Funciona</a>
+            <a href="#precios" class="mobile-link hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Precios</a>
+            <a href="/blog/" class="hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
         </nav>
 
         <div class="mt-auto pt-8 border-t border-zinc-200 dark:border-zinc-800">
@@ -1353,7 +1353,7 @@ def build_pillar_content(row):
     benefits_html = ''
     for icon, title, desc in benefits:
         benefits_html += f'''
-        <div class="bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+        <div class="bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300">
             <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-5">
                 <i class="fas {icon} text-2xl text-accent"></i>
             </div>
@@ -1494,7 +1494,7 @@ def get_mega_menu(data):
             html += f'<div class="bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border border-gray-200 dark:border-zinc-800 shadow-2xl rounded-xl p-2">'
             html += f'<ul class="space-y-0.5">'
             for ciudad, url in ciudades:
-                html += f'<li><a href="{url}" class="block py-1.5 px-3 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-brand dark:hover:text-brand-light hover:bg-brand/5 dark:hover:bg-brand/10 transition-all duration-200">{ciudad}</a></li>'
+                html += f'<li><a href="{url}" class="block py-1.5 px-3 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light hover:bg-brand/5 dark:hover:bg-brand/10 transition-all duration-200">{ciudad}</a></li>'
             html += f'</ul></div></div></li>'
             
         html += f'</ul></div></div></li>'
@@ -1518,7 +1518,7 @@ def build_servicios_cards(row):
     html = ""
     for card in cards:
         html += f'''
-        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300 group">
+        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300 group">
             <div class="w-14 h-14 bg-brand/10 dark:bg-brand/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i class="{card['icon']} text-2xl text-brand dark:text-brand-light"></i>
             </div>
@@ -1820,7 +1820,7 @@ def build():
         enlaces_paises = ""
         for p_slug, p_data in ind_data['paises'].items():
             p_name = p_data['name']
-            enlaces_paises += f'<a href="/{ind_slug}/{p_slug}/" class="group block p-6 rounded-3xl bg-white dark:bg-zinc-900/50 backdrop-blur-sm border border-gray-200 dark:border-zinc-800 hover:border-brand dark:hover:border-white/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden relative"><div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="relative z-10 flex flex-col items-center text-center"><h3 class="text-xl font-bold mb-2 text-zinc-900 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">{p_name}</h3><span class="text-sm font-semibold text-accent flex items-center gap-1 uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Explorar Ciudades <i class="fas fa-arrow-right text-[10px]"></i></span></div></a>\n'
+            enlaces_paises += f'<a href="/{ind_slug}/{p_slug}/" class="group block p-6 rounded-3xl bg-white dark:bg-zinc-900/50 backdrop-blur-sm border border-gray-200 dark:border-zinc-800 hover:border-brand dark:hover:border-white/50 hover-google-glow transition-all duration-500 overflow-hidden relative"><div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="relative z-10 flex flex-col items-center text-center"><h3 class="text-xl font-bold mb-2 text-zinc-900 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">{p_name}</h3><span class="text-sm font-semibold text-accent flex items-center gap-1 uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Explorar Ciudades <i class="fas fa-arrow-right text-[10px]"></i></span></div></a>\n'
         
         html = html.replace('{ENLACES_PAISES}', enlaces_paises)
         
@@ -1870,7 +1870,7 @@ def build():
             for c in p_data['ciudades']:
                 c_slug = c['slug']
                 c_name = c['name']
-                enlaces_ciudades += f'<a href="/{ind_slug}/{p_slug}/{c_slug}/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover:shadow-xl transition-all"><h3 class="text-xl font-bold mb-2">{c_name}</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>\n'
+                enlaces_ciudades += f'<a href="/{ind_slug}/{p_slug}/{c_slug}/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand hover-google-glow transition-all"><h3 class="text-xl font-bold mb-2">{c_name}</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>\n'
                 
             p_html = p_html.replace('{ENLACES_CIUDADES}', enlaces_ciudades)
             

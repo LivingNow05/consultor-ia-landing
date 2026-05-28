@@ -95,11 +95,59 @@
         
         /* FIX OVERSCROLL */
         html, body { overscroll-behavior: none; }
+
+        /* Google Glow Hover Effect */
+        @keyframes google-shadow-light {
+            0% { box-shadow: 0 0 25px rgba(66, 133, 244, 0.15), 0 0 50px rgba(234, 67, 53, 0.1); }
+            33% { box-shadow: 0 0 25px rgba(251, 188, 5, 0.15), 0 0 50px rgba(52, 168, 83, 0.1); }
+            66% { box-shadow: 0 0 25px rgba(52, 168, 83, 0.15), 0 0 50px rgba(66, 133, 244, 0.1); }
+            100% { box-shadow: 0 0 25px rgba(66, 133, 244, 0.15), 0 0 50px rgba(234, 67, 53, 0.1); }
+        }
+        @keyframes google-shadow-dark {
+            0% { box-shadow: 0 0 30px rgba(66, 133, 244, 0.25), 0 0 60px rgba(234, 67, 53, 0.15); }
+            33% { box-shadow: 0 0 30px rgba(251, 188, 5, 0.25), 0 0 60px rgba(52, 168, 83, 0.15); }
+            66% { box-shadow: 0 0 30px rgba(52, 168, 83, 0.25), 0 0 60px rgba(66, 133, 244, 0.15); }
+            100% { box-shadow: 0 0 30px rgba(66, 133, 244, 0.25), 0 0 60px rgba(234, 67, 53, 0.15); }
+        }
+        .hover-google-glow {
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+        }
+        .hover-google-glow:hover {
+            animation: google-shadow-light 4s infinite alternate;
+            transform: translateY(-4px);
+        }
+        .dark .hover-google-glow:hover {
+            animation: google-shadow-dark 4s infinite alternate;
+        }
+        
+        /* Background Animated Blobs */
+        @keyframes blob-move-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes blob-move-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-30px, 50px) scale(0.9); }
+            66% { transform: translate(20px, -20px) scale(1.1); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .bg-blob-1 { animation: blob-move-1 15s infinite ease-in-out; }
+        .bg-blob-2 { animation: blob-move-2 18s infinite ease-in-out; }
+
         
         @keyframes float { 0% { transform: translateY(0px) scale(1); } 50% { transform: translateY(30px) scale(1.1); } 100% { transform: translateY(0px) scale(1); } }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-gray-1 dark:text-slate-200 transition-colors duration-300 flex flex-col min-h-screen relative overflow-x-hidden">
+
+    <!-- Background Animated Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index: -1;">
+        <div class="bg-blob-1 absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-br from-[#4285F4]/10 to-[#34A853]/10 dark:from-[#4285F4]/15 dark:to-[#34A853]/15 blur-[100px]"></div>
+        <div class="bg-blob-2 absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#EA4335]/10 to-[#FBBC05]/10 dark:from-[#EA4335]/15 dark:to-[#FBBC05]/15 blur-[120px]"></div>
+    </div>
+
 
     <!-- 1. Header (Sticky & Glass) -->
     <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
@@ -111,7 +159,7 @@
             <nav class="hidden md:flex space-x-8 items-center">
                 <!-- Mega Menu Industrias -->
                 <div class="relative group z-50 py-2">
-                    <button class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light flex items-center gap-1 transition-colors">
+                    <button class="font-medium text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light flex items-center gap-1 transition-colors">
                         Industrias <i class="fas fa-chevron-down text-xs"></i>
                     </button>
                     <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
@@ -119,12 +167,12 @@
                     </div>
                 </div>
                 
-                <a href="/#como-funciona" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
-                <a href="/#precios" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
-                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
+                <a href="/#como-funciona" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Cómo Funciona</a>
+                <a href="/#precios" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Precios</a>
+                <a href="/blog/" class="font-normal text-gray-2 dark:text-slate-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Blog</a>
                 
                 <!-- Dark Mode Toggle -->
-                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
+                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
                     <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                     <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
                 </button>
@@ -177,22 +225,22 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Placeholder cards for industries -->
-                    <a href="/chatbot-whatsapp-para-restaurantes/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:shadow-[0_8px_30px_-12px_rgba(16,185,129,0.15)] hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <a href="/chatbot-whatsapp-para-restaurantes/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                             <i class="fas fa-utensils"></i>
                         </div>
                         <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Restaurantes</h3>
                         <p class="text-gray-2 dark:text-slate-400">Automatiza reservas, atención al cliente y toma de pedidos por WhatsApp.</p>
                     </a>
-                    <a href="/chatbot-whatsapp-para-inmobiliarias/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:shadow-[0_8px_30px_-12px_rgba(16,185,129,0.15)] hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <a href="/chatbot-whatsapp-para-inmobiliarias/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                             <i class="fas fa-building"></i>
                         </div>
                         <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Inmobiliarias</h3>
                         <p class="text-gray-2 dark:text-slate-400">Califica leads 24/7 y agenda visitas automáticamente con un Agente IA.</p>
                     </a>
-                    <a href="/chatbot-whatsapp-para-salones-de-belleza/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:shadow-[0_8px_30px_-12px_rgba(16,185,129,0.15)] hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
-                        <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <a href="/chatbot-whatsapp-para-salones-de-belleza/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
+                        <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                             <i class="fas fa-spa"></i>
                         </div>
                         <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Salones de Belleza</h3>
@@ -216,10 +264,10 @@
                         <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Pago único por la creación del sistema</p>
                         <div class="text-4xl font-bold mb-6 text-gray-1 dark:text-white">$497 <span class="text-lg font-normal text-gray-400">USD</span></div>
                         <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-slate-300">
-                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Desarrollo y entrenamiento del Agente IA</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Integración completa con WhatsApp y Web</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Ingesta de base de conocimiento (FAQ, servicios)</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand mt-1 mr-3"></i> Pruebas y despliegue inicial (5-7 días)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Desarrollo y entrenamiento del Agente IA</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Integración completa con WhatsApp y Web</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Ingesta de base de conocimiento (FAQ, servicios)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Pruebas y despliegue inicial (5-7 días)</li>
                         </ul>
                         <a href="https://wa.me/573151206985" target="_blank" class="block w-full text-center border border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-zinc-800 py-3 rounded-xl font-medium transition-colors">Solicitar Configuración</a>
                     </div>
@@ -261,15 +309,15 @@
                 <div>
                     <h4 class="text-lg font-bold mb-4">Servicios</h4>
                     <ul class="space-y-3 text-gray-400">
-                        <li><a href="/blog/ia-para-negocios/" class="hover:text-brand-light transition-colors">Consultoría IA</a></li>
-                        <li><a href="/blog/ia-para-pymes/" class="hover:text-brand-light transition-colors">IA para PYMES</a></li>
-                        <li><a href="/blog/automatizacion-con-ia/" class="hover:text-brand-light transition-colors">Automatización</a></li>
+                        <li><a href="/blog/ia-para-negocios/" class="hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Consultoría IA</a></li>
+                        <li><a href="/blog/ia-para-pymes/" class="hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">IA para PYMES</a></li>
+                        <li><a href="/blog/automatizacion-con-ia/" class="hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Automatización</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4">Contacto</h4>
                     <ul class="space-y-3 text-gray-400">
-                        <li><a href="https://wa.me/573151206985" target="_blank" class="hover:text-brand-light transition-colors"><i class="fab fa-whatsapp mr-2"></i> +57 315 120 6985</a></li>
+                        <li><a href="https://wa.me/573151206985" target="_blank" class="hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors"><i class="fab fa-whatsapp mr-2"></i> +57 315 120 6985</a></li>
                         <li><i class="fas fa-envelope mr-2"></i> hola@consultor-ia.com.co</li>
                         <li><i class="fas fa-map-marker-alt mr-2"></i> LATAM</li>
                     </ul>

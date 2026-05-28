@@ -18,14 +18,14 @@ def build_blog_index():
     cards_html = ""
     for blog in blogs:
         card = f"""
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl dark:hover:shadow-[0_8px_30px_-12px_rgba(16,185,129,0.15)] transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
             <div class="h-48 relative overflow-hidden">
                 <img src="{blog.get('image', '/images/og-home.webp')}" alt="{blog.get('title', '')}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
             </div>
             <div class="p-8">
                 <span class="text-xs font-normal text-brand dark:text-brand-light uppercase tracking-wider mb-2 block">{blog.get('category', 'Negocios')}</span>
-                <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand transition-colors"><a href="/blog/{blog['slug']}/">{blog['title']}</a></h2>
+                <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:group-hover:text-brand-light transition-colors"><a href="/blog/{blog['slug']}/">{blog['title']}</a></h2>
                 <p class="text-gray-2 dark:text-slate-400 mb-4 text-sm">{blog.get('description', '')}</p>
                 <a href="/blog/{blog['slug']}/" class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Leer artículo <i class="fas fa-arrow-right"></i></a>
             </div>
