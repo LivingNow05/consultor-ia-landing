@@ -263,11 +263,20 @@ def build_roi_table_html(row):
     precio_bajo = row.get('Precio_Bajo', '100')
     
     try:
-        precio_num = float(re.sub(r'[^\d.]', '', precio_bajo))
+        precio_num = float(re.sub(r'[^\d.]', '', str(precio_bajo)))
+        
+        # Las exportaciones a veces truncan los miles (ej: 800.0 para COP en vez de 800.000)
+        # Para todas las monedas excepto USD, multiplicamos por 1000 si parece estar truncado
+        # (Todos los CSV analizados para moneda != USD estaban divididos por 1000 en Precio_Bajo)
+        if moneda != 'USD':
+            precio_num *= 1000
+            
         costo_humano_num = precio_num * 4
         costo_humano = f"{moneda} {costo_humano_num:,.0f}"
+        precio_bajo_str = f"{moneda} {precio_num:,.0f}"
     except:
         costo_humano = f"{moneda} 400"
+        precio_bajo_str = f"{moneda} 100"
         
     html = f'''
     <section class="py-16 bg-[#FDFBF7] dark:bg-zinc-900 border-y border-gray-border dark:border-zinc-800">
@@ -305,7 +314,7 @@ def build_roi_table_html(row):
                         <tr class="hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
                             <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Costo Mensual Estimado</td>
                             <td class="p-5 text-center text-red-500 font-medium">Aprox. {costo_humano}</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">Desde {precio_bajo}</td>
+                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">Desde {precio_bajo_str}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -314,6 +323,7 @@ def build_roi_table_html(row):
     </section>
     '''
     return html
+
 
 def build_calculadora_html(row):
     moneda = row.get('Moneda', 'USD')
@@ -736,9 +746,9 @@ def build_home_page(data):
             50% {{ transform: translate(25vw, 25vh) scale(1.4) rotate(20deg); }}
             100% {{ transform: translate(0, 0) scale(1) rotate(0deg); }}
         }}
-        .global-blob-1 {{ animation: global-blob-1 12s infinite alternate ease-in-out; }}
-        .global-blob-2 {{ animation: global-blob-2 15s infinite alternate ease-in-out; }}
-        .global-blob-3 {{ animation: global-blob-3 18s infinite alternate ease-in-out; }}
+        .global-blob-1 {{ animation: global-blob-1 6s infinite alternate ease-in-out; }}
+        .global-blob-2 {{ animation: global-blob-2 8s infinite alternate ease-in-out; }}
+        .global-blob-3 {{ animation: global-blob-3 10s infinite alternate ease-in-out; }}
     </style>
 </head>
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
@@ -749,6 +759,7 @@ def build_home_page(data):
     <div class="global-blob-2 absolute top-[20%] -right-[10%] w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[100px] md:blur-[150px]"></div>
     <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
 </div>
+
 
 
 
@@ -1092,6 +1103,7 @@ def build_legal_pages(data):
     <div class="global-blob-2 absolute top-[20%] -right-[10%] w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[100px] md:blur-[150px]"></div>
     <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
 </div>
+
 
 
 

@@ -21,9 +21,9 @@ BLOBS_CSS = """
             50% { transform: translate(25vw, 25vh) scale(1.4) rotate(20deg); }
             100% { transform: translate(0, 0) scale(1) rotate(0deg); }
         }
-        .global-blob-1 { animation: global-blob-1 12s infinite alternate ease-in-out; }
-        .global-blob-2 { animation: global-blob-2 15s infinite alternate ease-in-out; }
-        .global-blob-3 { animation: global-blob-3 18s infinite alternate ease-in-out; }
+        .global-blob-1 { animation: global-blob-1 6s infinite alternate ease-in-out; }
+        .global-blob-2 { animation: global-blob-2 8s infinite alternate ease-in-out; }
+        .global-blob-3 { animation: global-blob-3 10s infinite alternate ease-in-out; }
 """
 
 BLOBS_HTML = """
