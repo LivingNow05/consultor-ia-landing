@@ -67,68 +67,39 @@
         /* FIX OVERSCROLL */
         html, body { overscroll-behavior: none; }
 
-        
-        
-        
-        
-        
-        /* Glow Hover Effect (Bulletproof Transform Rotation) */
-        .hover-google-glow {
-            position: relative;
-            z-index: 1;
-            transition: transform 0.4s ease-out;
+        /* Smooth Global Background Blobs */
+        @keyframes global-blob-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(10vw, -10vh) scale(1.1); }
+            66% { transform: translate(-10vw, 10vh) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
         }
-        .hover-google-glow::before {
-            content: "";
-            position: absolute;
-            top: -15px; left: -15px; right: -15px; bottom: -15px; /* Safari compatibility */
-            border-radius: 40%; /* Slightly rounded to smooth the rotation */
-            background: conic-gradient(from 0deg, #10b981, #06b6d4, #8b5cf6, #10b981);
-            z-index: -1;
-            filter: blur(20px);
-            opacity: 0;
-            transition: opacity 0.5s ease-out;
-            pointer-events: none;
+        @keyframes global-blob-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-10vw, 15vh) scale(1.15); }
+            66% { transform: translate(15vw, -10vh) scale(0.85); }
+            100% { transform: translate(0, 0) scale(1); }
         }
-        .hover-google-glow:hover::before {
-            opacity: 0.8;
-            animation: spin-safari 3s linear infinite;
+        @keyframes global-blob-3 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10vw, 10vh) scale(1.2); }
+            100% { transform: translate(0, 0) scale(1); }
         }
-        .dark .hover-google-glow:hover::before {
-            opacity: 1;
-        }
-        @keyframes spin-safari {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .hover-google-glow:hover {
-            transform: translateY(-4px);
-        }
-        /* Background Animated Blobs */
-        @keyframes blob-move-1 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(15vw, -10vh) scale(1.2) rotate(15deg); }
-            66% { transform: translate(-10vw, 15vh) scale(0.8) rotate(-15deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes blob-move-2 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(-15vw, 15vh) scale(1.2) rotate(-15deg); }
-            66% { transform: translate(15vw, -10vh) scale(0.8) rotate(15deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        .bg-blob-1 { animation: blob-move-1 12s infinite ease-in-out; }
-        .bg-blob-2 { animation: blob-move-2 15s infinite ease-in-out; }
-
+        .global-blob-1 { animation: global-blob-1 30s infinite alternate ease-in-out; }
+        .global-blob-2 { animation: global-blob-2 35s infinite alternate ease-in-out; }
+        .global-blob-3 { animation: global-blob-3 40s infinite alternate ease-in-out; }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-gray-1 dark:text-slate-200 transition-colors duration-300 flex flex-col min-h-screen">
 
-    <!-- Background Animated Blobs -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index: -1;">
-        <div class="bg-blob-1 absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-br from-[#10b981]/10 to-[#06b6d4]/10 dark:from-[#10b981]/15 dark:to-[#06b6d4]/15 blur-[100px]"></div>
-        <div class="bg-blob-2 absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[120px]"></div>
-    </div>
+<!-- Smooth Global Background Blobs -->
+<div class="fixed top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none" style="z-index: -1;">
+    <div class="global-blob-1 absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-gradient-to-br from-[#10b981]/10 to-[#06b6d4]/10 dark:from-[#10b981]/15 dark:to-[#06b6d4]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-2 absolute top-[20%] -right-[10%] w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
+</div>
+
+
 
 
     <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
@@ -162,7 +133,7 @@
             <div class="container mx-auto px-4 max-w-6xl">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group">
             <div class="h-48 relative overflow-hidden">
                 <img src="/images/blog/ia-para-salud/hero.webp" alt="IA para el Sector Salud: Cómo Automatizar Consultas y Agendar Citas vía WhatsApp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -175,7 +146,7 @@
             </div>
         </article>
         
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group">
             <div class="h-48 relative overflow-hidden">
                 <img src="/images/blog/ia-para-retail/hero.webp" alt="IA para Retail y Comercio: Automatización y Personalización" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -188,7 +159,7 @@
             </div>
         </article>
         
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group">
             <div class="h-48 relative overflow-hidden">
                 <img src="/images/blog/ia-para-pymes/hero.webp" alt="Inteligencia Artificial para PYMES: Guía Práctica" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -201,7 +172,7 @@
             </div>
         </article>
         
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group">
             <div class="h-48 relative overflow-hidden">
                 <img src="/images/blog/transformacion-digital-con-ia/hero.webp" alt="Transformación Digital con IA: Guía LATAM 2026" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -214,7 +185,7 @@
             </div>
         </article>
         
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group">
             <div class="h-48 relative overflow-hidden">
                 <img src="/images/blog/automatizacion-con-ia/hero.webp" alt="Automatización con Inteligencia Artificial para Empresas: Guía Completa 2026" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -227,7 +198,7 @@
             </div>
         </article>
         
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group">
             <div class="h-48 relative overflow-hidden">
                 <img src="/images/blog/ia-para-industria/hero.webp" alt="Inteligencia Artificial en la Industria: Aplicaciones 2026" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -240,7 +211,7 @@
             </div>
         </article>
         
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group">
             <div class="h-48 relative overflow-hidden">
                 <img src="/images/blog/ia-para-empresas/hero.webp" alt="Inteligencia Artificial para Empresas: Implementación Real" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -253,7 +224,7 @@
             </div>
         </article>
         
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group">
             <div class="h-48 relative overflow-hidden">
                 <img src="/images/blog/consultor-inteligencia-artificial/hero.webp" alt="Consultor en Inteligencia Artificial para Empresas: Cómo Escalar tu Negocio en LATAM" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -266,7 +237,7 @@
             </div>
         </article>
         
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group">
             <div class="h-48 relative overflow-hidden">
                 <img src="/images/blog/ia-para-negocios/hero.webp" alt="Inteligencia Artificial para Negocios en LATAM: Guía Completa 2026" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
