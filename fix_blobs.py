@@ -5,25 +5,25 @@ import os
 BLOBS_CSS = """
         /* Smooth Global Background Blobs */
         @keyframes global-blob-1 {
-            0% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(10vw, -10vh) scale(1.1); }
-            66% { transform: translate(-10vw, 10vh) scale(0.9); }
-            100% { transform: translate(0, 0) scale(1); }
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(20vw, -15vh) scale(1.2) rotate(10deg); }
+            66% { transform: translate(-15vw, 20vh) scale(0.8) rotate(-10deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
         }
         @keyframes global-blob-2 {
-            0% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-10vw, 15vh) scale(1.15); }
-            66% { transform: translate(15vw, -10vh) scale(0.85); }
-            100% { transform: translate(0, 0) scale(1); }
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(-20vw, 20vh) scale(1.3) rotate(-15deg); }
+            66% { transform: translate(20vw, -15vh) scale(0.7) rotate(15deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
         }
         @keyframes global-blob-3 {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(10vw, 10vh) scale(1.2); }
-            100% { transform: translate(0, 0) scale(1); }
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(25vw, 25vh) scale(1.4) rotate(20deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
         }
-        .global-blob-1 { animation: global-blob-1 30s infinite alternate ease-in-out; }
-        .global-blob-2 { animation: global-blob-2 35s infinite alternate ease-in-out; }
-        .global-blob-3 { animation: global-blob-3 40s infinite alternate ease-in-out; }
+        .global-blob-1 { animation: global-blob-1 12s infinite alternate ease-in-out; }
+        .global-blob-2 { animation: global-blob-2 15s infinite alternate ease-in-out; }
+        .global-blob-3 { animation: global-blob-3 18s infinite alternate ease-in-out; }
 """
 
 BLOBS_HTML = """
