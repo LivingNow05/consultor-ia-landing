@@ -214,15 +214,40 @@
     html, body {
         overscroll-behavior: none;
     }
+
+        /* Smooth Global Background Blobs */
+        @keyframes global-blob-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(10vw, -10vh) scale(1.1); }
+            66% { transform: translate(-10vw, 10vh) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes global-blob-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-10vw, 15vh) scale(1.15); }
+            66% { transform: translate(15vw, -10vh) scale(0.85); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes global-blob-3 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10vw, 10vh) scale(1.2); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .global-blob-1 { animation: global-blob-1 30s infinite alternate ease-in-out; }
+        .global-blob-2 { animation: global-blob-2 35s infinite alternate ease-in-out; }
+        .global-blob-3 { animation: global-blob-3 40s infinite alternate ease-in-out; }
     </style>
 </head>
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
 
-    <!-- Background Animated Blobs -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index: -1;">
-        <div class="bg-blob-1 absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-br from-[#10b981]/10 to-[#06b6d4]/10 dark:from-[#10b981]/15 dark:to-[#06b6d4]/15 blur-[100px]"></div>
-        <div class="bg-blob-2 absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[120px]"></div>
-    </div>
+<!-- Smooth Global Background Blobs -->
+<div class="fixed top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none" style="z-index: -1;">
+    <div class="global-blob-1 absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-gradient-to-br from-[#10b981]/10 to-[#06b6d4]/10 dark:from-[#10b981]/15 dark:to-[#06b6d4]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-2 absolute top-[20%] -right-[10%] w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
+</div>
+
+
 
 
     <!-- 1. Header (Sticky & Glass) -->
@@ -355,7 +380,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Hola, a q hora tienen libre mañana para balayage y corte?
+                                        Buenos días, a q hora tienen libre mañana para balayage y corte?
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -415,7 +440,7 @@
                 
                 <div class="grid md:grid-cols-2 gap-8">
                     
-        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300 group">
+        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 transition-all duration-300 group">
             <div class="w-14 h-14 bg-brand/10 dark:bg-brand/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i class="fas fa-calendar-alt text-2xl text-brand dark:text-brand-light"></i>
             </div>
@@ -423,7 +448,7 @@
             <p class="text-gray-500 dark:text-slate-400 text-sm leading-relaxed">Coordina citas complejas que requieren diferentes tiempos (ej. color + corte) cruzando disponibilidad de estilistas.</p>
         </div>
         
-        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300 group">
+        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 transition-all duration-300 group">
             <div class="w-14 h-14 bg-brand/10 dark:bg-brand/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i class="fas fa-images text-2xl text-brand dark:text-brand-light"></i>
             </div>
@@ -431,7 +456,7 @@
             <p class="text-gray-500 dark:text-slate-400 text-sm leading-relaxed">La IA analiza fotos de referencia que manda el cliente para dar un rango de precio aproximado y tiempo de sesión.</p>
         </div>
         
-        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300 group">
+        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 transition-all duration-300 group">
             <div class="w-14 h-14 bg-brand/10 dark:bg-brand/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i class="fas fa-stopwatch text-2xl text-brand dark:text-brand-light"></i>
             </div>
@@ -439,7 +464,7 @@
             <p class="text-gray-500 dark:text-slate-400 text-sm leading-relaxed">Si un cliente cancela, la IA notifica automáticamente a la lista de espera para rellenar ese horario.</p>
         </div>
         
-        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300 group">
+        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 transition-all duration-300 group">
             <div class="w-14 h-14 bg-brand/10 dark:bg-brand/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i class="fas fa-heart text-2xl text-brand dark:text-brand-light"></i>
             </div>
@@ -875,9 +900,28 @@
                     
                     .faq-item p { padding: 0 24px 24px; color: #434345; line-height: 1.6; }
                     .dark .faq-item p { color: #cbd5e1; }
-                
 
-
+        /* Smooth Global Background Blobs */
+        @keyframes global-blob-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(10vw, -10vh) scale(1.1); }
+            66% { transform: translate(-10vw, 10vh) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes global-blob-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-10vw, 15vh) scale(1.15); }
+            66% { transform: translate(15vw, -10vh) scale(0.85); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes global-blob-3 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10vw, 10vh) scale(1.2); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .global-blob-1 { animation: global-blob-1 30s infinite alternate ease-in-out; }
+        .global-blob-2 { animation: global-blob-2 35s infinite alternate ease-in-out; }
+        .global-blob-3 { animation: global-blob-3 40s infinite alternate ease-in-out; }
     </style>
             </div>
         </section>
@@ -894,9 +938,28 @@
                     .dark .card-ciudad { background: #1e293b; border-color: #334155; color: #e2e8f0; }
                     .card-ciudad:hover { border-color: #28D366; color: #28D366; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(40, 211, 102, 0.15); }
                     .dark .card-ciudad:hover { border-color: #4ade80; color: #4ade80; background: #0f172a; }
-                
 
-
+        /* Smooth Global Background Blobs */
+        @keyframes global-blob-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(10vw, -10vh) scale(1.1); }
+            66% { transform: translate(-10vw, 10vh) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes global-blob-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-10vw, 15vh) scale(1.15); }
+            66% { transform: translate(15vw, -10vh) scale(0.85); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes global-blob-3 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10vw, 10vh) scale(1.2); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .global-blob-1 { animation: global-blob-1 30s infinite alternate ease-in-out; }
+        .global-blob-2 { animation: global-blob-2 35s infinite alternate ease-in-out; }
+        .global-blob-3 { animation: global-blob-3 40s infinite alternate ease-in-out; }
     </style>
             </div>
         </section>

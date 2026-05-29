@@ -113,68 +113,39 @@
         /* FIX OVERSCROLL */
         html, body { overscroll-behavior: none; }
 
-        
-        
-        
-        
-        
-        /* Glow Hover Effect (Bulletproof Transform Rotation) */
-        .hover-google-glow {
-            position: relative;
-            z-index: 1;
-            transition: transform 0.4s ease-out;
+        /* Smooth Global Background Blobs */
+        @keyframes global-blob-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(10vw, -10vh) scale(1.1); }
+            66% { transform: translate(-10vw, 10vh) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
         }
-        .hover-google-glow::before {
-            content: "";
-            position: absolute;
-            top: -15px; left: -15px; right: -15px; bottom: -15px; /* Safari compatibility */
-            border-radius: 40%; /* Slightly rounded to smooth the rotation */
-            background: conic-gradient(from 0deg, #10b981, #06b6d4, #8b5cf6, #10b981);
-            z-index: -1;
-            filter: blur(20px);
-            opacity: 0;
-            transition: opacity 0.5s ease-out;
-            pointer-events: none;
+        @keyframes global-blob-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-10vw, 15vh) scale(1.15); }
+            66% { transform: translate(15vw, -10vh) scale(0.85); }
+            100% { transform: translate(0, 0) scale(1); }
         }
-        .hover-google-glow:hover::before {
-            opacity: 0.8;
-            animation: spin-safari 3s linear infinite;
+        @keyframes global-blob-3 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10vw, 10vh) scale(1.2); }
+            100% { transform: translate(0, 0) scale(1); }
         }
-        .dark .hover-google-glow:hover::before {
-            opacity: 1;
-        }
-        @keyframes spin-safari {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .hover-google-glow:hover {
-            transform: translateY(-4px);
-        }
-        /* Background Animated Blobs */
-        @keyframes blob-move-1 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(15vw, -10vh) scale(1.2) rotate(15deg); }
-            66% { transform: translate(-10vw, 15vh) scale(0.8) rotate(-15deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes blob-move-2 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(-15vw, 15vh) scale(1.2) rotate(-15deg); }
-            66% { transform: translate(15vw, -10vh) scale(0.8) rotate(15deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        .bg-blob-1 { animation: blob-move-1 12s infinite ease-in-out; }
-        .bg-blob-2 { animation: blob-move-2 15s infinite ease-in-out; }
-
+        .global-blob-1 { animation: global-blob-1 30s infinite alternate ease-in-out; }
+        .global-blob-2 { animation: global-blob-2 35s infinite alternate ease-in-out; }
+        .global-blob-3 { animation: global-blob-3 40s infinite alternate ease-in-out; }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-gray-1 dark:text-slate-200 transition-colors duration-300 flex flex-col min-h-screen">
 
-    <!-- Background Animated Blobs -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index: -1;">
-        <div class="bg-blob-1 absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-br from-[#10b981]/10 to-[#06b6d4]/10 dark:from-[#10b981]/15 dark:to-[#06b6d4]/15 blur-[100px]"></div>
-        <div class="bg-blob-2 absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[120px]"></div>
-    </div>
+<!-- Smooth Global Background Blobs -->
+<div class="fixed top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none" style="z-index: -1;">
+    <div class="global-blob-1 absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-gradient-to-br from-[#10b981]/10 to-[#06b6d4]/10 dark:from-[#10b981]/15 dark:to-[#06b6d4]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-2 absolute top-[20%] -right-[10%] w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
+</div>
+
+
 
 
     <!-- HEADER -->
@@ -246,14 +217,14 @@
             <div class="container mx-auto px-4 max-w-5xl">
                 <h2 class="text-3xl font-header font-bold mb-10 text-center">Disponibilidad por Ciudad</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <a href="/chatbot-whatsapp-para-gimnasios/mexico/ciudad-de-mexico/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white hover-google-glow transition-all"><h3 class="text-xl font-bold mb-2">Ciudad de México</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
-<a href="/chatbot-whatsapp-para-gimnasios/mexico/guadalajara/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white hover-google-glow transition-all"><h3 class="text-xl font-bold mb-2">Guadalajara</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
-<a href="/chatbot-whatsapp-para-gimnasios/mexico/monterrey/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white hover-google-glow transition-all"><h3 class="text-xl font-bold mb-2">Monterrey</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
-<a href="/chatbot-whatsapp-para-gimnasios/mexico/puebla/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white hover-google-glow transition-all"><h3 class="text-xl font-bold mb-2">Puebla</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
-<a href="/chatbot-whatsapp-para-gimnasios/mexico/queretaro/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white hover-google-glow transition-all"><h3 class="text-xl font-bold mb-2">Querétaro</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
-<a href="/chatbot-whatsapp-para-gimnasios/mexico/cancun/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white hover-google-glow transition-all"><h3 class="text-xl font-bold mb-2">Cancún</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
-<a href="/chatbot-whatsapp-para-gimnasios/mexico/merida/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white hover-google-glow transition-all"><h3 class="text-xl font-bold mb-2">Mérida</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
-<a href="/chatbot-whatsapp-para-gimnasios/mexico/tijuana/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white hover-google-glow transition-all"><h3 class="text-xl font-bold mb-2">Tijuana</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
+                    <a href="/chatbot-whatsapp-para-gimnasios/mexico/ciudad-de-mexico/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white transition-all"><h3 class="text-xl font-bold mb-2">Ciudad de México</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
+<a href="/chatbot-whatsapp-para-gimnasios/mexico/guadalajara/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white transition-all"><h3 class="text-xl font-bold mb-2">Guadalajara</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
+<a href="/chatbot-whatsapp-para-gimnasios/mexico/monterrey/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white transition-all"><h3 class="text-xl font-bold mb-2">Monterrey</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
+<a href="/chatbot-whatsapp-para-gimnasios/mexico/puebla/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white transition-all"><h3 class="text-xl font-bold mb-2">Puebla</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
+<a href="/chatbot-whatsapp-para-gimnasios/mexico/queretaro/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white transition-all"><h3 class="text-xl font-bold mb-2">Querétaro</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
+<a href="/chatbot-whatsapp-para-gimnasios/mexico/cancun/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white transition-all"><h3 class="text-xl font-bold mb-2">Cancún</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
+<a href="/chatbot-whatsapp-para-gimnasios/mexico/merida/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white transition-all"><h3 class="text-xl font-bold mb-2">Mérida</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
+<a href="/chatbot-whatsapp-para-gimnasios/mexico/tijuana/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white transition-all"><h3 class="text-xl font-bold mb-2">Tijuana</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>
 
                 </div>
             </div>

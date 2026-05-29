@@ -535,7 +535,7 @@ def build_home_page(data):
     for ind, url in industry_first_url.items():
         icon = industry_icons.get(ind, 'fa-robot')
         industries_html += f"""
-        <a href="{url}" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="{url}" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -559,7 +559,7 @@ def build_home_page(data):
     steps_html = ""
     for icon, title, desc in steps_data:
         steps_html += f"""
-        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300 group">
+        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 transition-all duration-300 group">
             <div class="w-14 h-14 bg-brand/10 dark:bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i class="fas {icon} text-2xl text-brand dark:text-brand-light"></i>
             </div>
@@ -717,15 +717,40 @@ def build_home_page(data):
         }}
         .bg-blob-1 {{ animation: blob-move-1 12s infinite ease-in-out; }}
         .bg-blob-2 {{ animation: blob-move-2 15s infinite ease-in-out; }}
+
+        /* Smooth Global Background Blobs */
+        @keyframes global-blob-1 {{
+            0% {{ transform: translate(0, 0) scale(1); }}
+            33% {{ transform: translate(10vw, -10vh) scale(1.1); }}
+            66% {{ transform: translate(-10vw, 10vh) scale(0.9); }}
+            100% {{ transform: translate(0, 0) scale(1); }}
+        }}
+        @keyframes global-blob-2 {{
+            0% {{ transform: translate(0, 0) scale(1); }}
+            33% {{ transform: translate(-10vw, 15vh) scale(1.15); }}
+            66% {{ transform: translate(15vw, -10vh) scale(0.85); }}
+            100% {{ transform: translate(0, 0) scale(1); }}
+        }}
+        @keyframes global-blob-3 {{
+            0% {{ transform: translate(0, 0) scale(1); }}
+            50% {{ transform: translate(10vw, 10vh) scale(1.2); }}
+            100% {{ transform: translate(0, 0) scale(1); }}
+        }}
+        .global-blob-1 {{ animation: global-blob-1 30s infinite alternate ease-in-out; }}
+        .global-blob-2 {{ animation: global-blob-2 35s infinite alternate ease-in-out; }}
+        .global-blob-3 {{ animation: global-blob-3 40s infinite alternate ease-in-out; }}
     </style>
 </head>
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
 
-<!-- Background Animated Blobs -->
+<!-- Smooth Global Background Blobs -->
 <div class="fixed top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none" style="z-index: -1;">
-    <div class="bg-blob-1 absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-br from-[#10b981]/20 to-[#06b6d4]/20 dark:from-[#10b981]/30 dark:to-[#06b6d4]/30 blur-[100px]"></div>
-    <div class="bg-blob-2 absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#8b5cf6]/20 to-[#ec4899]/20 dark:from-[#8b5cf6]/30 dark:to-[#ec4899]/30 blur-[120px]"></div>
+    <div class="global-blob-1 absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-gradient-to-br from-[#10b981]/10 to-[#06b6d4]/10 dark:from-[#10b981]/15 dark:to-[#06b6d4]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-2 absolute top-[20%] -right-[10%] w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
 </div>
+
+
 
 <!-- HEADER -->
 <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
@@ -1059,6 +1084,15 @@ def build_legal_pages(data):
     </script>
 </head>
 <body class="bg-white dark:bg-zinc-950 text-zinc-800 dark:text-zinc-200 font-body">
+
+<!-- Smooth Global Background Blobs -->
+<div class="fixed top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none" style="z-index: -1;">
+    <div class="global-blob-1 absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-gradient-to-br from-[#10b981]/10 to-[#06b6d4]/10 dark:from-[#10b981]/15 dark:to-[#06b6d4]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-2 absolute top-[20%] -right-[10%] w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
+</div>
+
+
     <header class="border-b border-gray-border dark:border-zinc-800 py-4 px-6">
         <div class="max-w-4xl mx-auto flex items-center justify-between">
             <a href="/" class="font-header font-extrabold tracking-tighter text-2xl text-zinc-900 dark:text-white">
@@ -1375,7 +1409,7 @@ def build_pillar_content(row):
     benefits_html = ''
     for icon, title, desc in benefits:
         benefits_html += f'''
-        <div class="bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300">
+        <div class="bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 transition-all duration-300">
             <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-5">
                 <i class="fas {icon} text-2xl text-accent"></i>
             </div>
@@ -1540,7 +1574,7 @@ def build_servicios_cards(row):
     html = ""
     for card in cards:
         html += f'''
-        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300 group">
+        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 transition-all duration-300 group">
             <div class="w-14 h-14 bg-brand/10 dark:bg-brand/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i class="{card['icon']} text-2xl text-brand dark:text-brand-light"></i>
             </div>
@@ -1842,7 +1876,7 @@ def build():
         enlaces_paises = ""
         for p_slug, p_data in ind_data['paises'].items():
             p_name = p_data['name']
-            enlaces_paises += f'<a href="/{ind_slug}/{p_slug}/" class="group block p-6 rounded-3xl bg-white dark:bg-zinc-900/50 backdrop-blur-sm border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 hover-google-glow transition-all duration-500 relative"><div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="relative z-10 flex flex-col items-center text-center"><h3 class="text-xl font-bold mb-2 text-zinc-900 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">{p_name}</h3><span class="text-sm font-semibold text-accent flex items-center gap-1 uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Explorar Ciudades <i class="fas fa-arrow-right text-[10px]"></i></span></div></a>\n'
+            enlaces_paises += f'<a href="/{ind_slug}/{p_slug}/" class="group block p-6 rounded-3xl bg-white dark:bg-zinc-900/50 backdrop-blur-sm border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 relative"><div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="relative z-10 flex flex-col items-center text-center"><h3 class="text-xl font-bold mb-2 text-zinc-900 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">{p_name}</h3><span class="text-sm font-semibold text-accent flex items-center gap-1 uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Explorar Ciudades <i class="fas fa-arrow-right text-[10px]"></i></span></div></a>\n'
         
         html = html.replace('{ENLACES_PAISES}', enlaces_paises)
         
@@ -1892,7 +1926,7 @@ def build():
             for c in p_data['ciudades']:
                 c_slug = c['slug']
                 c_name = c['name']
-                enlaces_ciudades += f'<a href="/{ind_slug}/{p_slug}/{c_slug}/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white hover-google-glow transition-all"><h3 class="text-xl font-bold mb-2">{c_name}</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>\n'
+                enlaces_ciudades += f'<a href="/{ind_slug}/{p_slug}/{c_slug}/" class="block p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white transition-all"><h3 class="text-xl font-bold mb-2">{c_name}</h3><span class="text-sm text-accent">Ver detalles &rarr;</span></a>\n'
                 
             p_html = p_html.replace('{ENLACES_CIUDADES}', enlaces_ciudades)
             

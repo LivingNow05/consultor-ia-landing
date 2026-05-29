@@ -18,7 +18,7 @@ def build_blog_index():
     cards_html = ""
     for blog in blogs:
         card = f"""
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group">
             <div class="h-48 relative overflow-hidden">
                 <img src="{blog.get('image', '/images/og-home.webp')}" alt="{blog.get('title', '')}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>

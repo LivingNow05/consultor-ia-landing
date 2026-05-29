@@ -139,15 +139,40 @@
         }
         .bg-blob-1 { animation: blob-move-1 12s infinite ease-in-out; }
         .bg-blob-2 { animation: blob-move-2 15s infinite ease-in-out; }
+
+        /* Smooth Global Background Blobs */
+        @keyframes global-blob-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(10vw, -10vh) scale(1.1); }
+            66% { transform: translate(-10vw, 10vh) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes global-blob-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-10vw, 15vh) scale(1.15); }
+            66% { transform: translate(15vw, -10vh) scale(0.85); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes global-blob-3 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10vw, 10vh) scale(1.2); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .global-blob-1 { animation: global-blob-1 30s infinite alternate ease-in-out; }
+        .global-blob-2 { animation: global-blob-2 35s infinite alternate ease-in-out; }
+        .global-blob-3 { animation: global-blob-3 40s infinite alternate ease-in-out; }
     </style>
 </head>
 <body class="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-300">
 
-<!-- Background Animated Blobs -->
+<!-- Smooth Global Background Blobs -->
 <div class="fixed top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none" style="z-index: -1;">
-    <div class="bg-blob-1 absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-br from-[#10b981]/20 to-[#06b6d4]/20 dark:from-[#10b981]/30 dark:to-[#06b6d4]/30 blur-[100px]"></div>
-    <div class="bg-blob-2 absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#8b5cf6]/20 to-[#ec4899]/20 dark:from-[#8b5cf6]/30 dark:to-[#ec4899]/30 blur-[120px]"></div>
+    <div class="global-blob-1 absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-gradient-to-br from-[#10b981]/10 to-[#06b6d4]/10 dark:from-[#10b981]/15 dark:to-[#06b6d4]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-2 absolute top-[20%] -right-[10%] w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
 </div>
+
+
 
 <!-- HEADER -->
 <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
@@ -272,21 +297,21 @@
         </div>
         <div class="grid md:grid-cols-3 gap-8">
             
-        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300 group">
+        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 transition-all duration-300 group">
             <div class="w-14 h-14 bg-brand/10 dark:bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i class="fas fa-search text-2xl text-brand dark:text-brand-light"></i>
             </div>
             <h3 class="font-header font-bold text-xl mb-3">1. Diagnóstico</h3>
             <p class="text-gray-500 dark:text-slate-400 text-sm leading-relaxed">Analizamos tu negocio, flujos de atención y dónde estás perdiendo clientes.</p>
         </div>
-        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300 group">
+        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 transition-all duration-300 group">
             <div class="w-14 h-14 bg-brand/10 dark:bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i class="fas fa-brain text-2xl text-brand dark:text-brand-light"></i>
             </div>
             <h3 class="font-header font-bold text-xl mb-3">2. Entrenamiento IA</h3>
             <p class="text-gray-500 dark:text-slate-400 text-sm leading-relaxed">Cargamos tu información para que la IA responda como tu mejor vendedor.</p>
         </div>
-        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover-google-glow transition-all duration-300 group">
+        <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 transition-all duration-300 group">
             <div class="w-14 h-14 bg-brand/10 dark:bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i class="fas fa-rocket text-2xl text-brand dark:text-brand-light"></i>
             </div>
@@ -307,7 +332,7 @@
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             
-        <a href="/chatbot-whatsapp-para-restaurantes/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="/chatbot-whatsapp-para-restaurantes/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -322,7 +347,7 @@
                 </div>
             </div>
         </a>
-        <a href="/chatbot-whatsapp-para-salones-de-belleza/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="/chatbot-whatsapp-para-salones-de-belleza/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -337,7 +362,7 @@
                 </div>
             </div>
         </a>
-        <a href="/chatbot-whatsapp-para-clinicas-dentales/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="/chatbot-whatsapp-para-clinicas-dentales/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -352,7 +377,7 @@
                 </div>
             </div>
         </a>
-        <a href="/chatbot-whatsapp-para-hoteles-y-hostales/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="/chatbot-whatsapp-para-hoteles-y-hostales/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -367,7 +392,7 @@
                 </div>
             </div>
         </a>
-        <a href="/chatbot-whatsapp-para-inmobiliarias/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="/chatbot-whatsapp-para-inmobiliarias/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -382,7 +407,7 @@
                 </div>
             </div>
         </a>
-        <a href="/chatbot-whatsapp-para-gimnasios/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="/chatbot-whatsapp-para-gimnasios/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -397,7 +422,7 @@
                 </div>
             </div>
         </a>
-        <a href="/chatbot-whatsapp-para-veterinarias/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="/chatbot-whatsapp-para-veterinarias/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -412,7 +437,7 @@
                 </div>
             </div>
         </a>
-        <a href="/chatbot-whatsapp-para-talleres-automotrices/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="/chatbot-whatsapp-para-talleres-automotrices/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -427,7 +452,7 @@
                 </div>
             </div>
         </a>
-        <a href="/chatbot-whatsapp-para-spas-centros-esteticos/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="/chatbot-whatsapp-para-spas-centros-esteticos/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -442,7 +467,7 @@
                 </div>
             </div>
         </a>
-        <a href="/chatbot-whatsapp-para-academias-cursos/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 hover-google-glow text-center">
+        <a href="/chatbot-whatsapp-para-academias-cursos/colombia/bogota/" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
             <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 

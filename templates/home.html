@@ -96,70 +96,43 @@
         /* FIX OVERSCROLL */
         html, body { overscroll-behavior: none; }
 
-        
-        
-        
-        
-        
-        /* Glow Hover Effect (Bulletproof Transform Rotation) */
-        .hover-google-glow {
-            position: relative;
-            z-index: 1;
-            transition: transform 0.4s ease-out;
-        }
-        .hover-google-glow::before {
-            content: "";
-            position: absolute;
-            top: -15px; left: -15px; right: -15px; bottom: -15px; /* Safari compatibility */
-            border-radius: 40%; /* Slightly rounded to smooth the rotation */
-            background: conic-gradient(from 0deg, #10b981, #06b6d4, #8b5cf6, #10b981);
-            z-index: -1;
-            filter: blur(20px);
-            opacity: 0;
-            transition: opacity 0.5s ease-out;
-            pointer-events: none;
-        }
-        .hover-google-glow:hover::before {
-            opacity: 0.8;
-            animation: spin-safari 3s linear infinite;
-        }
-        .dark .hover-google-glow:hover::before {
-            opacity: 1;
-        }
-        @keyframes spin-safari {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .hover-google-glow:hover {
-            transform: translateY(-4px);
-        }
-        /* Background Animated Blobs */
-        @keyframes blob-move-1 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(15vw, -10vh) scale(1.2) rotate(15deg); }
-            66% { transform: translate(-10vw, 15vh) scale(0.8) rotate(-15deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes blob-move-2 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(-15vw, 15vh) scale(1.2) rotate(-15deg); }
-            66% { transform: translate(15vw, -10vh) scale(0.8) rotate(15deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        .bg-blob-1 { animation: blob-move-1 12s infinite ease-in-out; }
-        .bg-blob-2 { animation: blob-move-2 15s infinite ease-in-out; }
 
         
         @keyframes float { 0% { transform: translateY(0px) scale(1); } 50% { transform: translateY(30px) scale(1.1); } 100% { transform: translateY(0px) scale(1); } }
+
+        /* Smooth Global Background Blobs */
+        @keyframes global-blob-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(10vw, -10vh) scale(1.1); }
+            66% { transform: translate(-10vw, 10vh) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes global-blob-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-10vw, 15vh) scale(1.15); }
+            66% { transform: translate(15vw, -10vh) scale(0.85); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes global-blob-3 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10vw, 10vh) scale(1.2); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+        .global-blob-1 { animation: global-blob-1 30s infinite alternate ease-in-out; }
+        .global-blob-2 { animation: global-blob-2 35s infinite alternate ease-in-out; }
+        .global-blob-3 { animation: global-blob-3 40s infinite alternate ease-in-out; }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-gray-1 dark:text-slate-200 transition-colors duration-300 flex flex-col min-h-screen relative overflow-x-hidden">
 
-    <!-- Background Animated Blobs -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none" style="z-index: -1;">
-        <div class="bg-blob-1 absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-gradient-to-br from-[#10b981]/10 to-[#06b6d4]/10 dark:from-[#10b981]/15 dark:to-[#06b6d4]/15 blur-[100px]"></div>
-        <div class="bg-blob-2 absolute top-[40%] -right-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[120px]"></div>
-    </div>
+<!-- Smooth Global Background Blobs -->
+<div class="fixed top-0 left-0 right-0 bottom-0 overflow-hidden pointer-events-none" style="z-index: -1;">
+    <div class="global-blob-1 absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-gradient-to-br from-[#10b981]/10 to-[#06b6d4]/10 dark:from-[#10b981]/15 dark:to-[#06b6d4]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-2 absolute top-[20%] -right-[10%] w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] rounded-full bg-gradient-to-br from-[#8b5cf6]/10 to-[#ec4899]/10 dark:from-[#8b5cf6]/15 dark:to-[#ec4899]/15 blur-[100px] md:blur-[150px]"></div>
+    <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
+</div>
+
+
 
 
     <!-- 1. Header (Sticky & Glass) -->
@@ -238,21 +211,21 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Placeholder cards for industries -->
-                    <a href="/chatbot-whatsapp-para-restaurantes/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="/chatbot-whatsapp-para-restaurantes/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
                         <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                             <i class="fas fa-utensils"></i>
                         </div>
                         <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Restaurantes</h3>
                         <p class="text-zinc-600 dark:text-zinc-400">Automatiza reservas, atención al cliente y toma de pedidos por WhatsApp.</p>
                     </a>
-                    <a href="/chatbot-whatsapp-para-inmobiliarias/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="/chatbot-whatsapp-para-inmobiliarias/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
                         <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                             <i class="fas fa-building"></i>
                         </div>
                         <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Inmobiliarias</h3>
                         <p class="text-zinc-600 dark:text-zinc-400">Califica leads 24/7 y agenda visitas automáticamente con un Agente IA.</p>
                     </a>
-                    <a href="/chatbot-whatsapp-para-salones-de-belleza/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover-google-glow hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
+                    <a href="/chatbot-whatsapp-para-salones-de-belleza/" class="group bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:border-brand dark:hover:border-brand-light transition-all duration-300 transform hover:-translate-y-1">
                         <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
                             <i class="fas fa-spa"></i>
                         </div>
