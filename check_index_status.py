@@ -202,5 +202,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Audita el estado de indexación en GSC")
     parser.add_argument("--limit", type=int, default=None, help="Limita el número de URLs a auditar")
     parser.add_argument("--only-errors", action="store_true", help="Solo muestra URLs no indexadas o con errores")
+    parser.add_argument("--file", type=str, default="all_urls.txt", help="Archivo con la lista de URLs a auditar")
     args = parser.parse_args()
+    
+    # Update global variable
+    URL_LIST_FILE = args.file
+    
     run(limit=args.limit, only_errors=args.only_errors)
