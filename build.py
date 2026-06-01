@@ -1510,7 +1510,7 @@ def setup_dist():
     else:
         # Delete everything inside DIST_DIR except .git and blog
         for filename in os.listdir(DIST_DIR):
-            if filename not in ['.git', 'Dosckerfile', 'Dockerfile', 'blog']:
+            if filename not in ['.git', 'Dosckerfile', 'Dockerfile', 'blog', '_redirects']:
                 file_path = os.path.join(DIST_DIR, filename)
                 if os.path.isfile(file_path) or os.path.islink(file_path):
                     os.unlink(file_path)
