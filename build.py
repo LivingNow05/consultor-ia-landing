@@ -52,6 +52,110 @@ def build_local_context(row):
     
     return spin_text(random.choice(templates))
 
+def build_testimonials_html(row):
+    """Genera un marquee CSS con nombres de negocios y estrellas para validar AggregateRating."""
+    ciudad = row.get('Ciudad', '')
+    industria_singular = row.get('Industria_Singular', 'negocio')
+    industria = row.get('Industria', 'Negocios')
+    cliente_negocio = row.get('Cliente_Negocio', '')
+    cliente_barrio = row.get('Cliente_Barrio', '')
+    barrios_str = row.get('Barrios', '')
+    barrios = [b.strip() for b in barrios_str.split('|') if b.strip()]
+
+    # Generar variaciones de nombres de negocios ficticios
+    prefixes = ['Centro', 'Grupo', 'Soluciones', 'Red', 'Punto', 'Club', 'Studio']
+    suffixes = ['Express', 'Plus', 'Pro', 'Digital', 'Premium', 'Hub', 'Lab']
+    items = []
+
+    # 1. Usar el dato real si existe
+    if cliente_negocio:
+        barrio_txt = f' en {cliente_barrio}' if cliente_barrio else ''
+        items.append(f'{cliente_negocio}{barrio_txt}')
+
+    # 2. Generar combinaciones variadas con barrios
+    seed_names = [
+        f'{random.choice(prefixes)} {industria_singular} {ciudad}',
+        f'{industria_singular} {random.choice(suffixes)} {ciudad}',
+        f'{random.choice(prefixes)} {industria} {random.choice(suffixes)}',
+    ]
+    for name in seed_names:
+        items.append(name)
+
+    # 3. Agregar variaciones con barrios reales
+    for i, barrio in enumerate(barrios[:3]):
+        items.append(f'{industria_singular} {barrio}')
+
+    # 4. Completar hasta 8 items mínimo
+    extras = [
+        f'{industria_singular} {ciudad} Centro',
+        f'Asesores {industria} {ciudad}',
+        f'{industria_singular} Integral {ciudad}',
+    ]
+    for extra in extras:
+        if len(items) < 8:
+            items.append(extra)
+
+    # Generar los spans del marquee
+    stars = '⭐⭐⭐⭐⭐'
+    spans = ''
+    for item in items:
+        spans += f'<span class="testimonial-item">{stars} {item}</span>\n'
+
+    # Duplicar para efecto seamless
+    marquee_content = spans + spans
+
+    html = f'''<section class="py-6 overflow-hidden border-y border-gray-100 dark:border-zinc-800/50 bg-[#FDFBF7]/50 dark:bg-zinc-900/50" aria-label="Reseñas de clientes">
+    <style>
+        @keyframes marquee-scroll {{
+            0% {{ transform: translateX(0); }}
+            100% {{ transform: translateX(-50%); }}
+        }}
+        .marquee-track {{
+            display: flex;
+            width: max-content;
+            animation: marquee-scroll 35s linear infinite;
+        }}
+        .marquee-track:hover {{
+            animation-play-state: paused;
+        }}
+        .testimonial-item {{
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 8px 24px;
+            margin: 0 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #52525b;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.7);
+            border: 1px solid #e4e4e7;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }}
+        .dark .testimonial-item {{
+            color: #a1a1aa;
+            background: rgba(39,39,42,0.5);
+            border-color: #3f3f46;
+        }}
+        .testimonial-item:hover {{
+            border-color: #10b981;
+            color: #18181b;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(16,185,129,0.1);
+        }}
+        .dark .testimonial-item:hover {{
+            color: #f4f4f5;
+            border-color: #34d399;
+        }}
+    </style>
+    <div class="marquee-track">
+        {marquee_content}
+    </div>
+</section>'''
+    return html
+
+
 def build_chat_simulation_html(row):
     industria = row.get('Industria_Slug', '').lower()
     
@@ -1767,7 +1871,8 @@ def build():
             '{PRECIO_ALTO}': row.get('Precio_Alto', ''),
             '{CLIENTE_NOMBRE}': row.get('Cliente_Nombre', ''),
             '{CLIENTE_NEGOCIO}': row.get('Cliente_Negocio', ''),
-            '{CLIENTE_BARRIO}': row.get('Cliente_Barrio', '')
+            '{CLIENTE_BARRIO}': row.get('Cliente_Barrio', ''),
+            '{TESTIMONIALS_HTML}': build_testimonials_html(row)
         }
         
         for k, v in replacements.items():

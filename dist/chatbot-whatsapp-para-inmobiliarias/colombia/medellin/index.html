@@ -324,7 +324,7 @@
                         </h1>
                         
                         <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                            Filtra prospectos y coordina visitas en automático. Tu IA captura propiedades, cruza requisitos en tiempo real y agenda a los interesados ideales en Medellín. Acelera tus cierres inmobiliarios y multiplica tu presupuesto.
+                            Filtra prospectos y coordina visitas en automático. Tu IA captura propiedades, cruza requisitos en tiempo real y agenda a los interesados ideales en Medellín. Acelera tus cierres inmobiliarios y multiplica tu plata.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Quiubo, el dpto de 2 ambientes de la calle Mitre sigue disponible? aceptan mascotas?
+                                        Qué más, el dpto de 2 ambientes de la calle Mitre sigue disponible? aceptan mascotas?
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -411,6 +411,73 @@
                 </div>
             </div>
         </section>
+
+        <!-- Testimonials Marquee (Scroll Infinito de Reseñas) -->
+        <section class="py-6 overflow-hidden border-y border-gray-100 dark:border-zinc-800/50 bg-[#FDFBF7]/50 dark:bg-zinc-900/50" aria-label="Reseñas de clientes">
+    <style>
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee-scroll 35s linear infinite;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        .testimonial-item {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 8px 24px;
+            margin: 0 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #52525b;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.7);
+            border: 1px solid #e4e4e7;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+        .dark .testimonial-item {
+            color: #a1a1aa;
+            background: rgba(39,39,42,0.5);
+            border-color: #3f3f46;
+        }
+        .testimonial-item:hover {
+            border-color: #10b981;
+            color: #18181b;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(16,185,129,0.1);
+        }
+        .dark .testimonial-item:hover {
+            color: #f4f4f5;
+            border-color: #34d399;
+        }
+    </style>
+    <div class="marquee-track">
+        <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria de lujo en La Strada</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones inmobiliaria Medellín</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Express Medellín</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio Inmobiliarias Lab</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria El Poblado</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Laureles</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Envigado</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Medellín Centro</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria de lujo en La Strada</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones inmobiliaria Medellín</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Express Medellín</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio Inmobiliarias Lab</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria El Poblado</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Laureles</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Envigado</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Medellín Centro</span>
+
+    </div>
+</section>
 
         <!-- Contenido Editorial EEAT (SEO) -->
         <section class="py-16 bg-white dark:bg-zinc-950 border-y border-gray-border dark:border-zinc-800">
