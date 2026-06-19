@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Quiubo, el dpto de 2 ambientes de la calle Mitre sigue disponible? aceptan mascotas?
+                                        Qué más, el dpto de 2 ambientes de la calle Mitre sigue disponible? aceptan mascotas?
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -461,16 +461,16 @@
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ agencia de arriendos en La Castellana</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ Studio inmobiliaria Armenia</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Lab Armenia</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Red Inmobiliarias Lab</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Express Armenia</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Punto Inmobiliarias Express</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria La Castellana</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria El Granada</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Fundadores</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Armenia Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ agencia de arriendos en La Castellana</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ Studio inmobiliaria Armenia</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Lab Armenia</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Red Inmobiliarias Lab</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Express Armenia</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Punto Inmobiliarias Express</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria La Castellana</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria El Granada</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Fundadores</span>
@@ -771,6 +771,41 @@
             .dark #time-slots-container::-webkit-scrollbar-thumb {
                 background: #3f3f46;
             }
+            /* Estilo Premium de Botones de Respuesta Rápida */
+            .quick-reply-btn {
+                background-color: #ffffff;
+                color: #075E54;
+                border: 1px solid rgba(7, 94, 84, 0.15);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .quick-reply-btn:hover {
+                background-color: rgba(7, 94, 84, 0.04);
+                border-color: #075E54;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 10px rgba(7, 94, 84, 0.12);
+            }
+            .quick-reply-btn:active {
+                transform: scale(0.95);
+            }
+            
+            /* Modo Oscuro Premium */
+            .dark .quick-reply-btn {
+                background-color: rgba(0, 168, 132, 0.08);
+                color: #00e676;
+                border-color: rgba(0, 230, 118, 0.2);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+            .dark .quick-reply-btn:hover {
+                background-color: rgba(0, 230, 118, 0.18);
+                border-color: #00e676;
+                color: #ffffff;
+                box-shadow: 0 0 14px rgba(0, 230, 118, 0.4);
+                transform: translateY(-1px);
+            }
+            .dark .quick-reply-btn:active {
+                transform: scale(0.95);
+            }
             /* Clases responsivas personalizadas para evitar conflictos de especificidad de Tailwind */
             @media (max-width: 1023px) {
                 .hidden-mobile {
@@ -908,10 +943,10 @@
                         
                         <!-- Botones de Respuesta Rápida (Quick Replies) -->
                         <div id="chat-quick-replies" class="px-4 py-2.5 bg-[#f0f2f5]/90 dark:bg-[#1f2c34]/90 flex flex-wrap gap-2 justify-center border-t border-gray-200/20 dark:border-zinc-800/30 relative z-20 transition-all duration-300">
-                            <button id="btn-quick-reply-1" class="bg-white dark:bg-[#2a3942] hover:bg-zinc-50 dark:hover:bg-[#3b4a54] text-[#00a884] dark:text-[#00a884] border border-gray-200 dark:border-zinc-800/80 text-xs font-bold px-3.5 py-2 rounded-full shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer flex items-center gap-1.5">
+                            <button id="btn-quick-reply-1" class="quick-reply-btn text-xs font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5">
                                 👋 Decir "Hola"
                             </button>
-                            <button id="btn-quick-reply-2" class="bg-white dark:bg-[#2a3942] hover:bg-zinc-50 dark:hover:bg-[#3b4a54] text-[#00a884] dark:text-[#00a884] border border-gray-200 dark:border-zinc-800/80 text-xs font-bold px-3.5 py-2 rounded-full shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer flex items-center gap-1.5">
+                            <button id="btn-quick-reply-2" class="quick-reply-btn text-xs font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5">
                                 📅 Agendar Cita
                             </button>
                         </div>
