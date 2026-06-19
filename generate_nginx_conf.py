@@ -21,7 +21,8 @@ for new_slug in slugs:
         conf += f"    rewrite ^/{base}$ /{new_slug}/ permanent;\n"
 conf += """
     location /api/chat {
-        proxy_pass https://openrouter.ai/api/v1/chat/completions;
+        rewrite ^/api/chat(.*)$ /api/v1/chat/completions break;
+        proxy_pass https://openrouter.ai;
         proxy_ssl_server_name on;
         proxy_set_header Host openrouter.ai;
         proxy_set_header Content-Type "application/json";
@@ -30,15 +31,6 @@ conf += """
         proxy_set_header Authorization "$op_k1$op_k2";
         proxy_set_header HTTP-Referer "https://consultor-ia.com.co";
         proxy_set_header X-Title "Consultor IA Landing Demo";
-        
-        # CORS headers
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'Content-Type, Authorization';
-        
-        if ($request_method = 'OPTIONS') {
-            return 204;
-        }
     }
 
     location / {
