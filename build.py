@@ -256,9 +256,9 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-stretch">
                 <!-- Columna Izquierda: Chat de WhatsApp Mockup -->
-                <div class="lg:col-span-5 w-full flex flex-col h-[550px] lg:h-[600px] lg:max-h-[600px] lg:min-h-[600px]">
+                <div class="lg:col-span-5 w-full flex flex-col h-[280px] lg:h-[600px] lg:max-h-[600px] lg:min-h-[600px]">
                     <div class="flex-1 bg-[#efeae2] dark:bg-[#0b141a] rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-2xl overflow-hidden flex flex-col relative h-full max-h-full">
                         <!-- WhatsApp Chat Header -->
                         <div class="bg-[#075E54] dark:bg-[#202c33] px-4 py-3 flex items-center justify-between shrink-0 relative z-10 shadow-md">
