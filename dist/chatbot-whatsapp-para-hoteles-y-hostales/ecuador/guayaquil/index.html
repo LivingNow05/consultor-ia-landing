@@ -460,17 +460,17 @@
     </style>
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel spa en Samborondón</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro hotel Guayaquil</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Pro Guayaquil</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio Hoteles y Hostales Express</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio hotel Guayaquil</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Express Guayaquil</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Hoteles y Hostales Digital</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Samborondón</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Urdesa</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Ceibos</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Guayaquil Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel spa en Samborondón</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro hotel Guayaquil</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Pro Guayaquil</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio Hoteles y Hostales Express</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio hotel Guayaquil</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Express Guayaquil</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Hoteles y Hostales Digital</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Samborondón</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Urdesa</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Ceibos</span>
@@ -947,12 +947,16 @@
                         <div id="demo-chat-body" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 relative z-10">
                             <!-- Background Pattern overlay -->
                             <div class="absolute inset-0 opacity-[0.12] dark:opacity-[0.03] bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center pointer-events-none z-0"></div>
-                            
-                            <!-- AI Welcome Message -->
-                            <div class="relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] text-zinc-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tl-none shadow-sm text-sm leading-snug border border-gray-100 dark:border-zinc-800/80">
-                                ¡Hola! Bienvenido a hotel spa en Guayaquil. Soy su Asistente Virtual Inteligente. ¿Le gustaría agendar una cita o visita, o prefiere conocer nuestros servicios?
-                                <span class="text-[9px] text-zinc-400 block text-right mt-1">11:34 AM</span>
-                            </div>
+                        </div>
+                        
+                        <!-- Botones de Respuesta Rápida (Quick Replies) -->
+                        <div id="chat-quick-replies" class="px-4 py-2.5 bg-[#f0f2f5]/90 dark:bg-[#1f2c34]/90 flex flex-wrap gap-2 justify-center border-t border-gray-200/20 dark:border-zinc-800/30 relative z-20 transition-all duration-300">
+                            <button id="btn-quick-reply-1" class="bg-white dark:bg-[#2a3942] hover:bg-zinc-50 dark:hover:bg-[#3b4a54] text-[#00a884] dark:text-[#00a884] border border-gray-200 dark:border-zinc-800/80 text-xs font-bold px-3.5 py-2 rounded-full shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer flex items-center gap-1.5">
+                                👋 Decir "Hola"
+                            </button>
+                            <button id="btn-quick-reply-2" class="bg-white dark:bg-[#2a3942] hover:bg-zinc-50 dark:hover:bg-[#3b4a54] text-[#00a884] dark:text-[#00a884] border border-gray-200 dark:border-zinc-800/80 text-xs font-bold px-3.5 py-2 rounded-full shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer flex items-center gap-1.5">
+                                📅 Agendar Cita
+                            </button>
                         </div>
                         
                         <!-- Chat Input Box -->
@@ -1359,6 +1363,11 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Usa esta información para responder si te p
                     const messageText = chatInput.value.trim();
                     if (!messageText) return;
                     
+                    const quickRepliesContainer = document.getElementById("chat-quick-replies");
+                    if (quickRepliesContainer) {
+                        quickRepliesContainer.style.display = "none";
+                    }
+                    
                     appendMessage('user', messageText);
                     chatInput.value = "";
                     
@@ -1541,6 +1550,26 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Usa esta información para responder si te p
                     }
                 }
                 
+                // Respuestas rápidas (Quick Replies)
+                const quickRepliesContainer = document.getElementById("chat-quick-replies");
+                const btnQuickReply1 = document.getElementById("btn-quick-reply-1");
+                const btnQuickReply2 = document.getElementById("btn-quick-reply-2");
+                
+                function handleQuickReply(text) {
+                    if (quickRepliesContainer) {
+                        quickRepliesContainer.style.display = "none";
+                    }
+                    chatInput.value = text;
+                    sendMessage();
+                }
+                
+                if (btnQuickReply1) {
+                    btnQuickReply1.addEventListener("click", () => handleQuickReply("Hola"));
+                }
+                if (btnQuickReply2) {
+                    btnQuickReply2.addEventListener("click", () => handleQuickReply("Me gustaría agendar una cita"));
+                }
+
                 // Vincular eventos del chat
                 chatSendBtn.addEventListener("click", sendMessage);
                 chatInput.addEventListener("keypress", function(e) {
