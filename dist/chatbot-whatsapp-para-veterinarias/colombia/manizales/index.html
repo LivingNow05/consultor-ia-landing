@@ -324,7 +324,7 @@
                         </h1>
                         
                         <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                            Tu guardia 24/7 no puede perder llamadas. Nuestra IA en Manizales prioriza urgencias veterinarias, agenda baños, vacunas y da seguimiento post-operatorio. Cuida a tus pacientes de 4 patas eficientemente. ¡bacanísimo!
+                            Tu guardia 24/7 no puede perder llamadas. Nuestra IA en Manizales prioriza urgencias veterinarias, agenda baños, vacunas y da seguimiento post-operatorio. Cuida a tus pacientes de 4 patas eficientemente. ¡chévere!
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Quiubo, mi perrito está respirando raro, tienen guardia a esta hora?
+                                        Qué más, mi perrito está respirando raro, tienen guardia a esta hora?
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -460,17 +460,17 @@
     </style>
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica veterinaria general en Chipre</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Club veterinaria Manizales</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Premium Manizales</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones Veterinarias Digital</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio veterinaria Manizales</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Digital Manizales</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio Veterinarias Pro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Palermo</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Chipre</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria La Enea</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Manizales Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica veterinaria general en Chipre</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Club veterinaria Manizales</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Premium Manizales</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones Veterinarias Digital</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio veterinaria Manizales</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Digital Manizales</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio Veterinarias Pro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Palermo</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Chipre</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria La Enea</span>
@@ -1201,7 +1201,7 @@
                         if (isPast) {
                             dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
                         } else {
-                            dayCell.className += " text-zinc-800 dark:text-zinc-200 cursor-pointer";
+                            dayCell.className += " cursor-pointer";
                             
                             // Comprobar si hay citas confirmadas en este día en la base de datos
                             const daySlots = availabilityDb[dateStr] || {};
@@ -1224,6 +1224,8 @@
                                 dayCell.appendChild(badgeContainer);
                             } else if (selectedDateStr === dateStr) {
                                 dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
+                            } else {
+                                dayCell.className += " text-zinc-800 dark:text-zinc-200";
                             }
                             
                             dayCell.addEventListener("click", () => {

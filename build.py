@@ -552,7 +552,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         if (isPast) {
                             dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
                         } else {
-                            dayCell.className += " text-zinc-800 dark:text-zinc-200 cursor-pointer";
+                            dayCell.className += " cursor-pointer";
                             
                             // Comprobar si hay citas confirmadas en este día en la base de datos
                             const daySlots = availabilityDb[dateStr] || {};
@@ -575,6 +575,8 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                                 dayCell.appendChild(badgeContainer);
                             } else if (selectedDateStr === dateStr) {
                                 dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
+                            } else {
+                                dayCell.className += " text-zinc-800 dark:text-zinc-200";
                             }
                             
                             dayCell.addEventListener("click", () => {

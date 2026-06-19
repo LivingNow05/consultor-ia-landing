@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Wena, mi perrito está respirando raro, tienen guardia a esta hora?
+                                        Qué tal, mi perrito está respirando raro, tienen guardia a esta hora?
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -460,17 +460,17 @@
     </style>
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ centro veterinario 24h en Cerro Alegre</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio veterinaria Valparaíso</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Plus Valparaíso</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Club Veterinarias Premium</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo veterinaria Valparaíso</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Lab Valparaíso</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio Veterinarias Lab</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Cerro Alegre</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Cerro Concepción</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Plan</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Valparaíso Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ centro veterinario 24h en Cerro Alegre</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio veterinaria Valparaíso</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Plus Valparaíso</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Club Veterinarias Premium</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo veterinaria Valparaíso</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Lab Valparaíso</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio Veterinarias Lab</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Cerro Alegre</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Cerro Concepción</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ veterinaria Plan</span>
@@ -1208,7 +1208,7 @@
                         if (isPast) {
                             dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
                         } else {
-                            dayCell.className += " text-zinc-800 dark:text-zinc-200 cursor-pointer";
+                            dayCell.className += " cursor-pointer";
                             
                             // Comprobar si hay citas confirmadas en este día en la base de datos
                             const daySlots = availabilityDb[dateStr] || {};
@@ -1231,6 +1231,8 @@
                                 dayCell.appendChild(badgeContainer);
                             } else if (selectedDateStr === dateStr) {
                                 dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
+                            } else {
+                                dayCell.className += " text-zinc-800 dark:text-zinc-200";
                             }
                             
                             dayCell.addEventListener("click", () => {

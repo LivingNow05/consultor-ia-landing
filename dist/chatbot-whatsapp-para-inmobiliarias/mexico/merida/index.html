@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Qué rollo, el dpto de 2 ambientes de la calle Mitre sigue disponible? aceptan mascotas?
+                                        Buen día, el dpto de 2 ambientes de la calle Mitre sigue disponible? aceptan mascotas?
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -460,7 +460,7 @@
     </style>
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ agencia de arriendos en Altabrisa</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro inmobiliaria Mérida</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Red inmobiliaria Mérida</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Digital Mérida</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Inmobiliarias Premium</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Montejo</span>
@@ -468,7 +468,7 @@
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Mérida Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ agencia de arriendos en Altabrisa</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro inmobiliaria Mérida</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Red inmobiliaria Mérida</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Digital Mérida</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Inmobiliarias Premium</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Montejo</span>
@@ -1208,7 +1208,7 @@
                         if (isPast) {
                             dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
                         } else {
-                            dayCell.className += " text-zinc-800 dark:text-zinc-200 cursor-pointer";
+                            dayCell.className += " cursor-pointer";
                             
                             // Comprobar si hay citas confirmadas en este día en la base de datos
                             const daySlots = availabilityDb[dateStr] || {};
@@ -1231,6 +1231,8 @@
                                 dayCell.appendChild(badgeContainer);
                             } else if (selectedDateStr === dateStr) {
                                 dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
+                            } else {
+                                dayCell.className += " text-zinc-800 dark:text-zinc-200";
                             }
                             
                             dayCell.addEventListener("click", () => {

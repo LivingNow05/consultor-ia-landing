@@ -460,17 +460,17 @@
     </style>
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ centro de estética dental en Centro Histórico</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones clínica dental Puebla</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Hub Puebla</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Clínicas Dentales Premium</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio clínica dental Puebla</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Express Puebla</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo Clínicas Dentales Plus</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Angelópolis</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental La Paz</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Centro Histórico</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Puebla Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ centro de estética dental en Centro Histórico</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones clínica dental Puebla</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Hub Puebla</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Clínicas Dentales Premium</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio clínica dental Puebla</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Express Puebla</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo Clínicas Dentales Plus</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Angelópolis</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental La Paz</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Centro Histórico</span>
@@ -1208,7 +1208,7 @@
                         if (isPast) {
                             dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
                         } else {
-                            dayCell.className += " text-zinc-800 dark:text-zinc-200 cursor-pointer";
+                            dayCell.className += " cursor-pointer";
                             
                             // Comprobar si hay citas confirmadas en este día en la base de datos
                             const daySlots = availabilityDb[dateStr] || {};
@@ -1231,6 +1231,8 @@
                                 dayCell.appendChild(badgeContainer);
                             } else if (selectedDateStr === dateStr) {
                                 dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
+                            } else {
+                                dayCell.className += " text-zinc-800 dark:text-zinc-200";
                             }
                             
                             dayCell.addEventListener("click", () => {

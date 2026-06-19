@@ -324,7 +324,7 @@
                         </h1>
                         
                         <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                            Llena la agenda de tu salón en Arequipa mientras trabajas. Tu agente IA responde tarifas, toma citas 24/7 y envía recordatorios para que tus sillones nunca estén vacíos. Factura más plata, organizando menos.
+                            Llena la agenda de tu salón en Arequipa mientras trabajas. Tu agente IA responde tarifas, toma citas 24/7 y envía recordatorios para que tus sillones nunca estén vacíos. Factura más presupuesto, organizando menos.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -461,16 +461,16 @@
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ barbería premium en Cerro Colorado</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo salón de belleza Arequipa</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ salón de belleza Express Arequipa</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones Salones de Belleza Pro</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ salón de belleza Hub Arequipa</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Salones de Belleza Plus</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ salón de belleza Cayma</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ salón de belleza Yanahuara</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ salón de belleza Cerro Colorado</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ salón de belleza Arequipa Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ barbería premium en Cerro Colorado</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo salón de belleza Arequipa</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ salón de belleza Express Arequipa</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones Salones de Belleza Pro</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ salón de belleza Hub Arequipa</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Salones de Belleza Plus</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ salón de belleza Cayma</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ salón de belleza Yanahuara</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ salón de belleza Cerro Colorado</span>
@@ -1208,7 +1208,7 @@
                         if (isPast) {
                             dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
                         } else {
-                            dayCell.className += " text-zinc-800 dark:text-zinc-200 cursor-pointer";
+                            dayCell.className += " cursor-pointer";
                             
                             // Comprobar si hay citas confirmadas en este día en la base de datos
                             const daySlots = availabilityDb[dateStr] || {};
@@ -1231,6 +1231,8 @@
                                 dayCell.appendChild(badgeContainer);
                             } else if (selectedDateStr === dateStr) {
                                 dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
+                            } else {
+                                dayCell.className += " text-zinc-800 dark:text-zinc-200";
                             }
                             
                             dayCell.addEventListener("click", () => {

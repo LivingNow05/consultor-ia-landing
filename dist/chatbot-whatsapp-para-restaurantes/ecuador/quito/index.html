@@ -324,7 +324,7 @@
                         </h1>
                         
                         <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                            Deja de perder reservas por no responder a tiempo. Tu asistente IA en Quito gestiona mesas 24/7, responde dudas del menú al instante y evita los molestos no-shows. Recupera tu tiempo y llena tu negocio sin estrés. ¡Por supuesto!
+                            Deja de perder reservas por no responder a tiempo. Tu asistente IA en Quito gestiona mesas 24/7, responde dudas del menú al instante y evita los molestos no-shows. Recupera tu tiempo y llena tu negocio sin estrés. ¡Claro!
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Buenos días, tienen mesa para 4 hoy tipo 9? vamos con un perrito 🐶
+                                        Hola, tienen mesa para 4 hoy tipo 9? vamos con un perrito 🐶
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -461,16 +461,16 @@
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ brunch café en La Carolina</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ Punto restaurante Quito</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Lab Quito</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones Restaurantes Pro</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Plus Quito</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Club Restaurantes Premium</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante La Floresta</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante González Suárez</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Cumbayá</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Quito Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ brunch café en La Carolina</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ Punto restaurante Quito</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Lab Quito</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones Restaurantes Pro</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Plus Quito</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Club Restaurantes Premium</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante La Floresta</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante González Suárez</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Cumbayá</span>
@@ -1208,7 +1208,7 @@
                         if (isPast) {
                             dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
                         } else {
-                            dayCell.className += " text-zinc-800 dark:text-zinc-200 cursor-pointer";
+                            dayCell.className += " cursor-pointer";
                             
                             // Comprobar si hay citas confirmadas en este día en la base de datos
                             const daySlots = availabilityDb[dateStr] || {};
@@ -1231,6 +1231,8 @@
                                 dayCell.appendChild(badgeContainer);
                             } else if (selectedDateStr === dateStr) {
                                 dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
+                            } else {
+                                dayCell.className += " text-zinc-800 dark:text-zinc-200";
                             }
                             
                             dayCell.addEventListener("click", () => {

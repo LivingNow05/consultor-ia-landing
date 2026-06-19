@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Che, hola, q cuesta el pase libre y hay q pagar inscripcion?
+                                        Buenas, q cuesta el pase libre y hay q pagar inscripcion?
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -460,17 +460,17 @@
     </style>
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio 24 horas en Nueva Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Punto gimnasio Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Plus Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Gimnasios Hub</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio gimnasio Córdoba</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Lab Córdoba</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Punto Gimnasios Lab</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Nueva Córdoba</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Cerro de las Rosas</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Güemes</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Córdoba Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio 24 horas en Nueva Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Punto gimnasio Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Plus Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Gimnasios Hub</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio gimnasio Córdoba</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Lab Córdoba</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Punto Gimnasios Lab</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Nueva Córdoba</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Cerro de las Rosas</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Güemes</span>
@@ -1208,7 +1208,7 @@
                         if (isPast) {
                             dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
                         } else {
-                            dayCell.className += " text-zinc-800 dark:text-zinc-200 cursor-pointer";
+                            dayCell.className += " cursor-pointer";
                             
                             // Comprobar si hay citas confirmadas en este día en la base de datos
                             const daySlots = availabilityDb[dateStr] || {};
@@ -1231,6 +1231,8 @@
                                 dayCell.appendChild(badgeContainer);
                             } else if (selectedDateStr === dateStr) {
                                 dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
+                            } else {
+                                dayCell.className += " text-zinc-800 dark:text-zinc-200";
                             }
                             
                             dayCell.addEventListener("click", () => {

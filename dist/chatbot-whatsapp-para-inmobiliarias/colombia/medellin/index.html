@@ -324,7 +324,7 @@
                         </h1>
                         
                         <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                            Filtra prospectos y coordina visitas en automático. Tu IA captura propiedades, cruza requisitos en tiempo real y agenda a los interesados ideales en Medellín. Acelera tus cierres inmobiliarios y multiplica tu plata.
+                            Filtra prospectos y coordina visitas en automático. Tu IA captura propiedades, cruza requisitos en tiempo real y agenda a los interesados ideales en Medellín. Acelera tus cierres inmobiliarios y multiplica tu presupuesto.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Qué más, el dpto de 2 ambientes de la calle Mitre sigue disponible? aceptan mascotas?
+                                        Quiubo, el dpto de 2 ambientes de la calle Mitre sigue disponible? aceptan mascotas?
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -460,17 +460,17 @@
     </style>
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria de lujo en La Strada</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo inmobiliaria Medellín</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Hub Medellín</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Punto Inmobiliarias Premium</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Club inmobiliaria Medellín</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Plus Medellín</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Red Inmobiliarias Plus</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria El Poblado</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Laureles</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Envigado</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Medellín Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria de lujo en La Strada</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo inmobiliaria Medellín</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Hub Medellín</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Punto Inmobiliarias Premium</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Club inmobiliaria Medellín</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Plus Medellín</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Red Inmobiliarias Plus</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria El Poblado</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Laureles</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ inmobiliaria Envigado</span>
@@ -1208,7 +1208,7 @@
                         if (isPast) {
                             dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
                         } else {
-                            dayCell.className += " text-zinc-800 dark:text-zinc-200 cursor-pointer";
+                            dayCell.className += " cursor-pointer";
                             
                             // Comprobar si hay citas confirmadas en este día en la base de datos
                             const daySlots = availabilityDb[dateStr] || {};
@@ -1231,6 +1231,8 @@
                                 dayCell.appendChild(badgeContainer);
                             } else if (selectedDateStr === dateStr) {
                                 dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
+                            } else {
+                                dayCell.className += " text-zinc-800 dark:text-zinc-200";
                             }
                             
                             dayCell.addEventListener("click", () => {
