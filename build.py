@@ -153,30 +153,524 @@ def build_testimonials_html(row):
         {marquee_content}
     </div>
 </section>'''
+
+
+def build_demo_interactiva_html(row):
+    """Genera el HTML y JavaScript de la demo interactiva del chat de WhatsApp y el calendario."""
+    import datetime
+    import json
+    
+    ciudad = row.get('Ciudad', '')
+    industria = row.get('Industria', 'Negocios')
+    industria_singular = row.get('Industria_Singular', 'negocio')
+    cliente_negocio = row.get('Cliente_Negocio', 'Consultor IA')
+    pais = row.get('País', 'Colombia')
+    demonimo = row.get('Demónimo', 'habitantes')
+    barrios = row.get('Barrios', '')
+    dolor = row.get('Dolor_Principal', 'perder ventas')
+    solucion = row.get('Solución_Clave', 'automatizar las respuestas')
+    
+    today_str = datetime.date.today().strftime('%Y-%m-%d')
+    today_formatted = datetime.date.today().strftime('%d de %B de %Y')
+    
+    # Prompt inicial del bot
+    bot_initial_msg = f"¡Hola! Bienvenido a {cliente_negocio} en {ciudad}. Soy su Asistente Virtual Inteligente. ¿Le gustaría agendar una cita o visita, o prefiere conocer nuestros servicios?"
+    
+    # System Prompt para el modelo de OpenRouter
+    system_prompt = f"""Eres el Agente de Inteligencia Artificial oficial de '{cliente_negocio}' en la ciudad de '{ciudad}', '{pais}'.
+Tu industria es '{industria_singular}'.
+Tu objetivo principal es convencer al usuario de agendar una cita o visita de negocios.
+Debes sonar sumamente profesional, servicial y empático (tono Tech-Luxury).
+Conoce muy bien tu entorno local de '{ciudad}'. Usa de forma natural y sutil expresiones típicas de la región y menciona barrios locales como: '{barrios}' cuando hables de cobertura o ubicación.
+Responde de forma muy concisa (máximo 1 o 2 oraciones, no te extiendas en párrafos largos). Este es un chat de WhatsApp de ritmo rápido.
+
+Instrucción de agendamiento:
+- Hoy es día {today_str}. Asume que el año actual es 2026.
+- Si el usuario muestra interés en agendar, coordina con él un día (puedes sugerir días de la semana a partir de mañana) y una hora (entre 8:00 y 18:00, en bloques de hora en punto o media hora, ej: 10:00, 15:30).
+- Cuando el usuario esté de acuerdo con un día y una hora específicos, debes confirmar la cita.
+- AL FINAL de tu mensaje de confirmación, y ÚNICAMENTE en ese mensaje, debes agregar EXACTAMENTE esta cadena estructurada para que el calendario del frontend la registre:
+[CONFIRMAR_CITA: YYYY-MM-DD HH:MM]
+Sustituyendo YYYY-MM-DD por la fecha exacta calculada (ej: 2026-06-25) y HH:MM por la hora (ej: 10:30).
+Ejemplo de mensaje final: "Excelente, su cita ha quedado confirmada para el jueves 25 a las 10:30 AM. ¡Lo esperamos! [CONFIRMAR_CITA: 2026-06-25 10:30]"
+No uses markdown ni negritas en la marca especial. Escríbela tal cual.
+"""
+
+    html = '''
+    <section id="demo-interactiva" class="py-24 bg-gradient-to-b from-[#FDFBF7]/40 to-white dark:from-zinc-950 dark:to-zinc-900 border-t border-gray-200/50 dark:border-zinc-800/80 relative overflow-hidden">
+        <!-- Blobs decorativos -->
+        <div class="absolute -top-[10%] -left-[10%] w-[30vw] h-[30vw] rounded-full bg-accent/5 dark:bg-accent/10 blur-[100px] pointer-events-none"></div>
+        <div class="absolute -bottom-[10%] -right-[10%] w-[30vw] h-[30vw] rounded-full bg-success/5 dark:bg-success/10 blur-[100px] pointer-events-none"></div>
+        
+        <div class="container mx-auto px-4 max-w-6xl relative z-10">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <span class="inline-flex items-center gap-1.5 bg-[#2563eb]/10 dark:bg-[#2563eb]/20 text-accent dark:text-[#53bdeb] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
+                    <i class="fas fa-play-circle"></i> Demo Interactiva en Vivo
+                </span>
+                <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Pruébalo tú mismo: Interactúa con el Agente de __INDUSTRIA_SINGULAR__</h2>
+                <p class="text-xl text-zinc-600 dark:text-zinc-400">
+                    Interactúa con nuestro chatbot inteligente en el chat de WhatsApp (izquierda). Observa cómo se sincroniza y agenda de forma autónoma en el calendario del negocio (derecha).
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Columna Izquierda: Chat de WhatsApp Mockup -->
+                <div class="lg:col-span-5 w-full flex flex-col">
+                    <div class="flex-1 bg-[#efeae2] dark:bg-[#0b141a] rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-2xl overflow-hidden flex flex-col relative min-h-[550px] lg:h-[600px]">
+                        <!-- WhatsApp Chat Header -->
+                        <div class="bg-[#075E54] dark:bg-[#202c33] px-4 py-3 flex items-center justify-between shrink-0 relative z-10 shadow-md">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden relative">
+                                    <i class="fas fa-robot text-[#075E54] dark:text-[#8696a0] text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium text-sm leading-tight">Agente IA - __CLIENTE_NEGOCIO__</h4>
+                                    <p id="chat-status" class="text-white/80 text-xs mt-0.5">en línea</p>
+                                </div>
+                            </div>
+                            <div class="text-white/80 flex gap-4 text-sm">
+                                <i class="fas fa-video cursor-pointer hover:text-white transition-colors"></i>
+                                <i class="fas fa-phone cursor-pointer hover:text-white transition-colors"></i>
+                                <i class="fas fa-ellipsis-v cursor-pointer hover:text-white transition-colors"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Chat Body -->
+                        <div id="demo-chat-body" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 relative" style="height: calc(100% - 110px);">
+                            <!-- Background Pattern overlay -->
+                            <div class="absolute inset-0 opacity-[0.12] dark:opacity-[0.03] bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center pointer-events-none z-0"></div>
+                            
+                            <!-- AI Welcome Message -->
+                            <div class="relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] text-zinc-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tl-none shadow-sm text-sm leading-snug border border-gray-100 dark:border-zinc-800/80">
+                                __BOT_INITIAL_MSG__
+                                <span class="text-[9px] text-zinc-400 block text-right mt-1">11:34 AM</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Chat Input Box -->
+                        <div class="p-3 bg-[#f0f2f5] dark:bg-[#1f2c34] flex items-center gap-3 border-t border-gray-200/50 dark:border-zinc-800/80 shrink-0 relative z-10">
+                            <button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 text-lg">
+                                <i class="far fa-laugh"></i>
+                            </button>
+                            <button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 text-lg">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            <input type="text" id="demo-chat-input" placeholder="Escribe un mensaje..." class="flex-1 bg-white dark:bg-[#2a3942] text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 px-4 py-2.5 rounded-xl border-none focus:outline-none focus:ring-1 focus:ring-[#075E54] text-sm" />
+                            <button id="demo-chat-send-btn" class="w-10 h-10 rounded-full bg-[#00a884] dark:bg-[#00a884] text-white flex items-center justify-center hover:bg-[#008f72] transition-colors shadow-md">
+                                <i class="fas fa-paper-plane text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna Derecha: Calendario y Disponibilidad -->
+                <div class="lg:col-span-7 w-full flex flex-col">
+                    <div class="flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-6 shadow-2xl flex flex-col min-h-[550px] lg:h-[600px] relative">
+                        <!-- Alerta de Confirmación de Cita -->
+                        <div id="booking-success-alert" class="absolute inset-x-6 top-6 z-50 bg-[#e6fffa] dark:bg-[#004d40]/40 border border-[#b2f5ea] dark:border-[#00796b] text-[#134e4a] dark:text-[#b2f5ea] p-4 rounded-2xl flex items-center gap-3 shadow-lg transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-500">
+                            <div class="w-10 h-10 rounded-full bg-[#319795] text-white flex items-center justify-center shrink-0">
+                                <i class="fas fa-check-circle text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-sm">¡Cita Reservada con Éxito!</h5>
+                                <p class="text-xs opacity-90" id="booking-alert-text">El Agente ha confirmado tu reservación en la agenda.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-4 mb-4 gap-4">
+                            <div>
+                                <h3 class="text-xl font-header font-bold text-zinc-900 dark:text-white">Agenda de __CLIENTE_NEGOCIO__</h3>
+                                <p class="text-xs text-zinc-500 dark:text-zinc-400">Demostración interactiva en tiempo real</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-[#3182ce] inline-block"></span>
+                                <span class="text-xs font-semibold text-zinc-600 dark:text-zinc-300">Disponible</span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-zinc-200 dark:bg-zinc-800 inline-block ml-3"></span>
+                                <span class="text-xs font-semibold text-zinc-600 dark:text-zinc-300">Ocupado</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Calendario Header (Mes y Navegación) -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span id="calendar-month-year" class="font-bold text-base text-zinc-800 dark:text-zinc-200">Junio 2026</span>
+                            <div class="flex gap-2">
+                                <button id="calendar-prev-btn" class="w-8 h-8 rounded-full border border-gray-200 dark:border-zinc-800 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors text-zinc-600 dark:text-zinc-300">
+                                    <i class="fas fa-chevron-left text-xs"></i>
+                                </button>
+                                <button id="calendar-next-btn" class="w-8 h-8 rounded-full border border-gray-200 dark:border-zinc-800 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors text-zinc-600 dark:text-zinc-300">
+                                    <i class="fas fa-chevron-right text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Calendario Días de la Semana -->
+                        <div class="grid grid-cols-7 gap-2 text-center text-xs font-bold text-zinc-400 dark:text-zinc-500 mb-2">
+                            <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+                        </div>
+                        
+                        <!-- Calendario Celdas (Días del Mes) -->
+                        <div id="calendar-days-grid" class="grid grid-cols-7 gap-2 text-center text-sm font-semibold mb-6 flex-1 items-center">
+                            <!-- Inyectado dinámicamente -->
+                        </div>
+                        
+                        <!-- Panel de Horas del Día Seleccionado -->
+                        <div class="border-t border-gray-100 dark:border-zinc-800/80 pt-4 shrink-0">
+                            <h4 id="selected-day-label" class="font-bold text-sm text-zinc-800 dark:text-zinc-200 mb-3">Disponibilidad para hoy:</h4>
+                            <div id="time-slots-container" class="grid grid-cols-4 gap-2.5">
+                                <!-- Inyectado dinámicamente -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tags de keywords SEO ocultos pero semánticos -->
+            <div class="mt-8 text-center text-xs text-zinc-400/0 select-none pointer-events-none">
+                agente de inteligencia artificial para agendamiento de citas en __CIUDAD__, automatización de reservas por whatsapp __INDUSTRIA_SINGULAR__ __CIUDAD__, chatbot inteligente para __INDUSTRIA_SINGULAR__ en __CIUDAD__, agenda virtual inteligente de __CLIENTE_NEGOCIO__.
+            </div>
+        </div>
+        
+        <!-- Script de lógica de la demo -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // --- Variables Conversacionales ---
+                const systemPrompt = __SYSTEM_PROMPT_JSON__;
+                let chatHistory = [
+                    {"role": "system", "content": systemPrompt}
+                ];
+                
+                const chatInput = document.getElementById("demo-chat-input");
+                const chatSendBtn = document.getElementById("demo-chat-send-btn");
+                const chatBody = document.getElementById("demo-chat-body");
+                const chatStatus = document.getElementById("chat-status");
+                
+                // --- Calendario e Inicialización ---
+                const dateBase = new Date(); // Año 2026, mes base
+                let currentYear = 2026;
+                let currentMonth = dateBase.getMonth(); // Mes actual del sistema
+                const todayDay = dateBase.getDate();
+                const actualMonth = dateBase.getMonth();
+                const actualYear = dateBase.getFullYear();
+ 
+                const calendarMonthYear = document.getElementById("calendar-month-year");
+                const calendarDaysGrid = document.getElementById("calendar-days-grid");
+                const calendarPrevBtn = document.getElementById("calendar-prev-btn");
+                const calendarNextBtn = document.getElementById("calendar-next-btn");
+                const selectedDayLabel = document.getElementById("selected-day-label");
+                const timeSlotsContainer = document.getElementById("time-slots-container");
+                
+                const bookingSuccessAlert = document.getElementById("booking-success-alert");
+                const bookingAlertText = document.getElementById("booking-alert-text");
+                
+                // Datos de disponibilidad en memoria
+                // Estructura: 'YYYY-MM-DD': { 'HH:MM': { status: 'available'|'occupied'|'booked' } }
+                const availabilityDb = {};
+                let selectedDateStr = null;
+                let confirmedBooking = null; // Guardará { date: 'YYYY-MM-DD', time: 'HH:MM' }
+                
+                const monthNames = [
+                    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                ];
+                
+                // Inicializar base de datos de disponibilidad para los próximos 60 días
+                function initAvailabilityDb() {
+                    const tempDate = new Date();
+                    for (let d = 0; d < 60; d++) {
+                        const dateStr = formatDateKey(tempDate);
+                        availabilityDb[dateStr] = {};
+                        
+                        // Slots de 8:00 AM a 5:30 PM (bloques de 1 hora o 30 min)
+                        const hours = ["08:00", "09:00", "10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00"];
+                        hours.forEach(h => {
+                            // 60% ocupado de forma aleatoria
+                            const isOccupied = Math.random() < 0.6;
+                            availabilityDb[dateStr][h] = isOccupied ? 'occupied' : 'available';
+                        });
+                        
+                        tempDate.setDate(tempDate.getDate() + 1);
+                    }
+                }
+                
+                function formatDateKey(date) {
+                    const y = date.getFullYear() === actualYear ? 2026 : date.getFullYear(); // Forzar 2026 para el prompt
+                    const m = String(date.getMonth() + 1).padStart(2, '0');
+                    const d = String(date.getDate()).padStart(2, '0');
+                    return `${y}-${m}-${d}`;
+                }
+ 
+                function formatHumanDate(dateStr) {
+                    const parts = dateStr.split('-');
+                    const date = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+                    return date.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
+                }
+                
+                // Renderizar el Calendario
+                function renderCalendar(year, month) {
+                    calendarMonthYear.textContent = `${monthNames[month]} ${year}`;
+                    calendarDaysGrid.innerHTML = "";
+                    
+                    // Primer día del mes
+                    const firstDayIdx = new Date(year, month, 1).getDay();
+                    // Total de días del mes
+                    const totalDays = new Date(year, month + 1, 0).getDate();
+                    
+                    // Rellenar celdas vacías del principio
+                    const offset = new Date(year, month, 1).getDay();
+                    
+                    for (let i = 0; i < offset; i++) {
+                        const emptyCell = document.createElement("span");
+                        emptyCell.className = "text-transparent pointer-events-none";
+                        emptyCell.textContent = "";
+                        calendarDaysGrid.appendChild(emptyCell);
+                    }
+                    
+                    for (let day = 1; day <= totalDays; day++) {
+                        const cellDate = new Date(year, month, day);
+                        const dateStr = formatDateKey(cellDate);
+                        
+                        const dayCell = document.createElement("button");
+                        dayCell.className = "w-9 h-9 mx-auto rounded-full flex items-center justify-center text-xs font-semibold hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all focus:outline-none relative";
+                        dayCell.textContent = day;
+                        
+                        // Validar si es del pasado (en base al día real actual del sistema)
+                        const compareDate = new Date(actualYear, actualMonth, todayDay);
+                        const cellCompare = new Date(year, month, day);
+                        const isPast = cellCompare < compareDate;
+                        
+                        if (isPast) {
+                            dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
+                        } else {
+                            dayCell.className += " text-zinc-800 dark:text-zinc-200";
+                            
+                            // Comprobar si hay citas confirmadas en este día
+                            if (confirmedBooking && confirmedBooking.date === dateStr) {
+                                dayCell.className += " bg-emerald-500 text-white hover:bg-emerald-600 ring-2 ring-emerald-300 dark:ring-emerald-800 animate-pulse";
+                                const badge = document.createElement("span");
+                                badge.className = "absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border border-white";
+                                dayCell.appendChild(badge);
+                            } else if (selectedDateStr === dateStr) {
+                                dayCell.className += " bg-blue-600 text-white hover:bg-blue-700";
+                            }
+                            
+                            dayCell.addEventListener("click", () => {
+                                selectedDateStr = dateStr;
+                                selectDate(dateStr, cellDate);
+                                renderCalendar(year, month);
+                            });
+                        }
+                        
+                        calendarDaysGrid.appendChild(dayCell);
+                    }
+                }
+                
+                function selectDate(dateStr, dateObj) {
+                    selectedDayLabel.textContent = "Disponibilidad para el " + formatHumanDate(dateStr) + ":";
+                    timeSlotsContainer.innerHTML = "";
+                    
+                    const slots = availabilityDb[dateStr] || {};
+                    const sortedHours = Object.keys(slots).sort();
+                    
+                    if (sortedHours.length === 0) {
+                        timeSlotsContainer.innerHTML = '<span class="text-xs text-zinc-400 col-span-4 py-2">No hay horarios definidos para esta fecha.</span>';
+                        return;
+                    }
+                    
+                    sortedHours.forEach(h => {
+                        const status = slots[h];
+                        const slotBtn = document.createElement("button");
+                        slotBtn.className = "py-2 text-xs font-bold rounded-xl border transition-all focus:outline-none ";
+                        slotBtn.textContent = h;
+                        
+                        if (confirmedBooking && confirmedBooking.date === dateStr && confirmedBooking.time === h) {
+                            slotBtn.className += " bg-emerald-500 border-emerald-500 text-white pointer-events-none animate-pulse";
+                            slotBtn.innerHTML = '<i class="fas fa-check"></i> ' + h;
+                        } else if (status === 'occupied') {
+                            slotBtn.className += " bg-zinc-50 dark:bg-zinc-900 border-zinc-100 dark:border-zinc-800 text-zinc-300 dark:text-zinc-700 pointer-events-none";
+                        } else {
+                            slotBtn.className += " bg-blue-50 dark:bg-[#1e3a8a]/20 border-blue-200 dark:border-[#1e3a8a]/40 text-blue-600 dark:text-[#53bdeb] hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600";
+                            slotBtn.addEventListener("click", () => {
+                                // Rellenar input del chat automáticamente al hacer clic en un horario libre
+                                chatInput.value = "Hola, me gustaría agendar una cita para el " + formatHumanDate(dateStr) + " a las " + h;
+                                chatInput.focus();
+                            });
+                        }
+                        
+                        timeSlotsContainer.appendChild(slotBtn);
+                    });
+                }
+                
+                // Controladores de botones del Calendario
+                calendarPrevBtn.addEventListener("click", () => {
+                    if (currentMonth === actualMonth && currentYear === 2026) return; // No ir al pasado
+                    currentMonth--;
+                    if (currentMonth < 0) {
+                        currentMonth = 11;
+                        currentYear--;
+                    }
+                    renderCalendar(currentYear, currentMonth);
+                });
+                
+                calendarNextBtn.addEventListener("click", () => {
+                    currentMonth++;
+                    if (currentMonth > 11) {
+                        currentMonth = 0;
+                        currentYear++;
+                    }
+                    renderCalendar(currentYear, currentMonth);
+                });
+                
+                // --- Lógica del Chat ---
+                function appendMessage(sender, text, timestamp) {
+                    const msgDiv = document.createElement("div");
+                    const time = timestamp || new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+                    
+                    if (sender === 'user') {
+                        msgDiv.className = "relative z-10 max-w-[85%] self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tr-none shadow-sm text-sm leading-snug";
+                        msgDiv.innerHTML = text + `<span class="text-[9px] text-zinc-400 block text-right mt-1">${time} <i class="fas fa-check-double text-blue-400 ml-1"></i></span>`;
+                    } else {
+                        msgDiv.className = "relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] text-zinc-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tl-none shadow-sm text-sm leading-snug border border-gray-100 dark:border-zinc-800/80";
+                        msgDiv.innerHTML = text + `<span class="text-[9px] text-zinc-400 block text-right mt-1">${time}</span>`;
+                    }
+                    
+                    chatBody.appendChild(msgDiv);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }
+                
+                async function sendMessage() {
+                    const messageText = chatInput.value.trim();
+                    if (!messageText) return;
+                    
+                    appendMessage('user', messageText);
+                    chatInput.value = "";
+                    
+                    // Mostrar "Escribiendo..."
+                    chatStatus.textContent = "escribiendo...";
+                    chatStatus.className = "text-emerald-400 font-semibold animate-pulse text-xs mt-0.5";
+                    
+                    // Guardar en el historial
+                    chatHistory.push({"role": "user", "content": messageText});
+                    
+                    try {
+                        const response = await fetch("/api/chat", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                model: "meta-llama/llama-3-8b-instruct:free",
+                                messages: chatHistory,
+                                temperature: 0.7
+                            })
+                        });
+                        
+                        if (!response.ok) {
+                            throw new Error("Respuesta de API incorrecta");
+                        }
+                        
+                        const data = await response.json();
+                        let botResponse = data.choices[0].message.content;
+                        
+                        // Parsear la respuesta para buscar confirmación de cita
+                        // Formato esperado: [CONFIRMAR_CITA: YYYY-MM-DD HH:MM]
+                        const match = botResponse.match(/\\[CONFIRMAR_CITA:\\s*(\\d{4}-\\d{2}-\\d{2})\\s+(\\d{2}:\\d{2})\\\]/i);
+                        
+                        if (match) {
+                            const dateKey = match[1];
+                            const timeKey = match[2];
+                            
+                            // Guardar reserva
+                            confirmedBooking = { date: dateKey, time: timeKey };
+                            if (!availabilityDb[dateKey]) {
+                                availabilityDb[dateKey] = {};
+                            }
+                            availabilityDb[dateKey][timeKey] = 'booked';
+                            
+                            // Remover la firma estructurada de la respuesta del bot para que no la vea el usuario
+                            botResponse = botResponse.replace(/\\[CONFIRMAR_CITA:.*?\\]/gi, "").trim();
+                            
+                            // Mostrar alerta premium de reserva
+                            bookingAlertText.textContent = "El Agente agendó tu cita para el " + formatHumanDate(dateKey) + " a las " + timeKey + ".";
+                            bookingSuccessAlert.classList.remove("opacity-0", "pointer-events-none", "-translate-y-4");
+                            bookingSuccessAlert.classList.add("opacity-100", "translate-y-0");
+                            
+                            // Actualizar calendario visualmente
+                            renderCalendar(currentYear, currentMonth);
+                            if (selectedDateStr === dateKey) {
+                                const dummyDate = new Date(dateKey + "T00:00:00");
+                                selectDate(dateKey, dummyDate);
+                            }
+                            
+                            // Ocultar alerta a los 7 segundos
+                            setTimeout(() => {
+                                bookingSuccessAlert.classList.add("opacity-0", "pointer-events-none", "-translate-y-4");
+                                bookingSuccessAlert.classList.remove("opacity-100", "translate-y-0");
+                            }, 7000);
+                        }
+                        
+                        // Mostrar respuesta del bot
+                        appendMessage('bot', botResponse);
+                        chatHistory.push({"role": "assistant", "content": botResponse});
+                        
+                    } catch (error) {
+                        console.error("Error:", error);
+                        appendMessage('bot', "Lo siento, tuve un problema al procesar su solicitud. ¿Podría intentarlo de nuevo?");
+                    } finally {
+                        chatStatus.textContent = "en línea";
+                        chatStatus.className = "text-white/80 text-xs mt-0.5";
+                    }
+                }
+                
+                // Vincular eventos del chat
+                chatSendBtn.addEventListener("click", sendMessage);
+                chatInput.addEventListener("keypress", function(e) {
+                    if (e.key === "Enter") {
+                        sendMessage();
+                    }
+                });
+                
+                // --- Inicialización Ejecutable ---
+                initAvailabilityDb();
+                selectedDateStr = formatDateKey(dateBase);
+                selectDate(selectedDateStr, dateBase);
+                renderCalendar(currentYear, currentMonth);
+            });
+        </script>
+    </section>
+    '''
+    
+    # Reemplazos dinámicos explícitos
+    html = html.replace('__CIUDAD__', ciudad)
+    html = html.replace('__INDUSTRIA__', industria)
+    html = html.replace('__INDUSTRIA_SINGULAR__', industria_singular)
+    html = html.replace('__CLIENTE_NEGOCIO__', cliente_negocio)
+    html = html.replace('__BOT_INITIAL_MSG__', bot_initial_msg)
+    html = html.replace('__SYSTEM_PROMPT_JSON__', json.dumps(system_prompt))
+    
     return html
 
 
 def build_chat_simulation_html(row):
-    industria = row.get('Industria_Slug', '').lower()
+    industria_slug = row.get('Industria_Slug', '').lower()
+    industria = row.get('Industria', 'tu negocio')
     
     # Textos por defecto
     user_msg = "hola q tal una pregutna, cm funciona su servicio?"
-    bot_msg = "Hola, un gusto saludarte. Nuestro servicio es súper sencillo de usar. Cuéntame un poquito sobre tu negocio y te explico cómo te podemos ayudar."
+    bot_msg = f"Hola, un gusto saludarte. Nuestro servicio es súper sencillo de usar. Cuéntame un poquito sobre tu negocio y te explico cómo te podemos ayudar."
     
     # Personalización simple basada en industria
-    if 'odontolog' in industria or 'dental' in industria or 'salud' in industria:
+    if 'odontolog' in industria_slug or 'dental' in industria_slug or 'salud' in industria_slug:
         user_msg = "hola, a q hr tienen cita para mañan? nesesito algo urgente xq me duele mucho la muela"
         bot_msg = "Hola, lamento mucho que te duela la muela. Mañana empezamos a atender a las 8 am. Si te parece bien, te puedo hacer un espacio a esa hora para que te vea el doctor de urgencia. ¿Me dices tu nombre para anotarte?"
-    elif 'gimnasio' in industria or 'crossfit' in industria or 'fitness' in industria:
+    elif 'gimnasio' in industria_slug or 'crossfit' in industria_slug or 'fitness' in industria_slug:
         user_msg = "ola q precio tiene el mes? y a q hora abren en la mañna"
         bot_msg = "Hola, ¿cómo estás? El mes completo está en promoción. Abrimos desde las 5 am para que vengas a entrenar temprano. ¿Te gustaría que te mande los detalles de los planes o prefieres venir a conocer el lugar primero?"
-    elif 'inmobiliaria' in industria or 'bienes-raices' in industria or 'bienes raices' in industria:
+    elif 'inmobiliaria' in industria_slug or 'bienes-raices' in industria_slug or 'bienes raices' in industria_slug:
         user_msg = "hola tngo un depto para alquilar en el centro, usd se encargan d tdo?"
         bot_msg = "Hola, sí claro. Nosotros nos encargamos de todo el proceso para que no te preocupes por nada. Tomamos las fotos, hacemos los contratos y filtramos a los inquilinos. ¿Te parece si me cuentas un poco más del apartamento?"
-    elif 'restaurante' in industria or 'comida' in industria:
+    elif 'restaurante' in industria_slug or 'comida' in industria_slug:
         user_msg = "holas a q hora cierran? kiero hacer un pedido para 5 personas"
         bot_msg = "Hola, cerramos a las 11 pm, así que estás a muy buen tiempo. Te puedo tomar el pedido para las 5 personas por aquí mismo. ¿Te comparto nuestro menú para que lo revises?"
-    elif 'belleza' in industria or 'spa' in industria or 'peluqueria' in industria:
+    elif 'belleza' in industria_slug or 'spa' in industria_slug or 'peluqueria' in industria_slug:
         user_msg = "hola tenen cita para uñas hoy? esq me urge para un evento en la noxe"
         bot_msg = "Hola, entiendo que te urge. Déjame revisar la agenda... Sí, tengo un espacio libre a las 4 pm con nuestra mejor especialista. ¿Te lo reservo de una vez para que quedes lista para tu evento?"
 
@@ -217,7 +711,7 @@ def build_chat_simulation_html(row):
                         <!-- Chat Body -->
                         <div class="h-80 overflow-y-auto p-4 flex flex-col gap-4 relative" id="demo-chat-container">
                             <!-- Background Pattern -->
-                            <div class="absolute inset-0 opacity-[0.15] dark:opacity-[0.03] bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center pointer-events-none z-0"></div>
+                            <div class="absolute inset-0 opacity-[0.15] dark:opacity-[0.03] bg-[url(\'https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg\')] bg-cover bg-center pointer-events-none z-0"></div>
                             
                             <!-- Static Messages -->
                             <div class="relative z-10 max-w-[85%] self-end bg-[#dcf8c6] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tr-none shadow-sm text-[15px] leading-snug">
@@ -235,9 +729,9 @@ def build_chat_simulation_html(row):
                         <div class="bg-[#f0f2f5] dark:bg-[#202c33] px-4 py-3 flex items-center gap-3 relative z-10 border-t border-gray-200 dark:border-zinc-800">
                             <i class="far fa-smile text-gray-500 dark:text-[#8696a0] text-xl"></i>
                             <div class="flex-1 bg-white dark:bg-[#2a3942] rounded-full px-4 py-2 flex items-center shadow-sm">
-                                <input type="text" placeholder="Escribe un mensaje aquí..." class="w-full bg-transparent border-none focus:outline-none text-gray-700 dark:text-[#e9edef] text-[15px]" onkeypress="if(event.key === 'Enter') window.sendDemoChat(this)">
+                                <input type="text" placeholder="Escribe un mensaje aquí..." class="w-full bg-transparent border-none focus:outline-none text-gray-700 dark:text-[#e9edef] text-[15px]" onkeypress="if(event.key === \'Enter\') window.sendDemoChat(this)">
                             </div>
-                            <button onclick="window.sendDemoChat(this.previousElementSibling.querySelector('input'))" class="w-10 h-10 rounded-full bg-[#00a884] flex items-center justify-center text-white hover:bg-[#008f6f] transition-colors shadow-sm">
+                            <button onclick="window.sendDemoChat(this.previousElementSibling.querySelector(\'input\'))" class="w-10 h-10 rounded-full bg-[#00a884] flex items-center justify-center text-white hover:bg-[#008f6f] transition-colors shadow-sm">
                                 <i class="fas fa-paper-plane text-sm ml-0.5"></i>
                             </button>
                         </div>
@@ -252,44 +746,44 @@ def build_chat_simulation_html(row):
                 if(!msg) return;
                 
                 // Find the closest chat container
-                const container = inputEl.closest('.group').querySelector('#demo-chat-container');
+                const container = inputEl.closest(\'.group\').querySelector(\'#demo-chat-container\');
                 
                 // User Message
-                const userDiv = document.createElement('div');
-                userDiv.className = 'relative z-10 max-w-[85%] self-end bg-[#dcf8c6] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tr-none shadow-sm text-[15px] leading-snug animate-fade-in-up demo-user-msg';
-                userDiv.innerHTML = msg + '<span class="text-[10px] text-gray-500 dark:text-gray-400 float-right mt-2 ml-3">Ahora <i class="fas fa-check text-gray-400 demo-ticks"></i></span>';
+                const userDiv = document.createElement(\'div\');
+                userDiv.className = \'relative z-10 max-w-[85%] self-end bg-[#dcf8c6] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tr-none shadow-sm text-[15px] leading-snug animate-fade-in-up demo-user-msg\';
+                userDiv.innerHTML = msg + \'<span class="text-[10px] text-gray-500 dark:text-gray-400 float-right mt-2 ml-3">Ahora <i class="fas fa-check text-gray-400 demo-ticks"></i></span>\';
                 container.appendChild(userDiv);
                 
-                inputEl.value = '';
+                inputEl.value = \'\';
                 container.scrollTop = container.scrollHeight;
                 
                 // Typing Indicator
-                const typingDiv = document.createElement('div');
-                typingDiv.className = 'relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] text-gray-800 dark:text-[#e9edef] px-4 py-4 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 dark:border-zinc-800 mt-2 flex items-center gap-1.5';
-                typingDiv.innerHTML = '<span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></span><span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>';
+                const typingDiv = document.createElement(\'div\');
+                typingDiv.className = \'relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] text-gray-800 dark:text-[#e9edef] px-4 py-4 rounded-2xl rounded-tl-none shadow-sm border border-gray-100 dark:border-zinc-800 mt-2 flex items-center gap-1.5\';
+                typingDiv.innerHTML = \'<span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></span><span class="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>\';
                 container.appendChild(typingDiv);
                 container.scrollTop = container.scrollHeight;
                 
                 setTimeout(() => {{
                     container.removeChild(typingDiv);
                     
-                    const botDiv = document.createElement('div');
-                    botDiv.className = 'relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] text-gray-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tl-none shadow-sm text-[15px] leading-snug border border-gray-100 dark:border-zinc-800 mt-2 animate-fade-in-up';
+                    const botDiv = document.createElement(\'div\');
+                    botDiv.className = \'relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] text-gray-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tl-none shadow-sm text-[15px] leading-snug border border-gray-100 dark:border-zinc-800 mt-2 animate-fade-in-up\';
                     
-                    let response = "¡Hola! Como soy un demo para tu {industria}, mis respuestas aquí son limitadas. ¡Pero haz clic en 'Hablar con asesor' arriba para chatear con mi versión real en WhatsApp!";
+                    let response = "¡Hola! Como soy un demo para tu {industria}, mis respuestas aquí son limitadas. ¡Pero haz clic en \'Hablar con asesor\' arriba para chatear con mi versión real en WhatsApp!";
                     if(msg.toLowerCase().includes("precio") || msg.toLowerCase().includes("cuanto") || msg.toLowerCase().includes("costo") || msg.toLowerCase().includes("planes")) {{
-                        response = "Nuestros planes se adaptan a negocios de {industria}. Si revisas la sección 'Precios' verás las opciones. ¿Agendamos una demo?";
+                        response = "Nuestros planes se adaptan a negocios de {industria}. Si revisas la sección \'Precios\' verás las opciones. ¿Agendamos una demo?";
                     }} else if(msg.toLowerCase().includes("gracias") || msg.toLowerCase().includes("ok") || msg.toLowerCase().includes("excelente")) {{
                         response = "¡Con gusto! Imagina a este agente atendiendo a todos los clientes de tu {industria} 24/7. ¡Pruébame en vivo!";
                     }}
                     
-                    botDiv.innerHTML = response + '<span class="text-[10px] text-gray-400 float-right mt-2 ml-3">Ahora</span>';
+                    botDiv.innerHTML = response + \'<span class="text-[10px] text-gray-400 float-right mt-2 ml-3">Ahora</span>\';
                     container.appendChild(botDiv);
                     container.scrollTop = container.scrollHeight;
                     
                     // Update user ticks
-                    const ticks = userDiv.querySelector('.demo-ticks');
-                    if(ticks) ticks.className = 'fas fa-check-double text-blue-500 demo-ticks';
+                    const ticks = userDiv.querySelector(\'.demo-ticks\');
+                    if(ticks) ticks.className = \'fas fa-check-double text-blue-500 demo-ticks\';
                     
                 }}, 1500);
             }};
@@ -1872,7 +2366,8 @@ def build():
             '{CLIENTE_NOMBRE}': row.get('Cliente_Nombre', ''),
             '{CLIENTE_NEGOCIO}': row.get('Cliente_Negocio', ''),
             '{CLIENTE_BARRIO}': row.get('Cliente_Barrio', ''),
-            '{TESTIMONIALS_HTML}': build_testimonials_html(row)
+            '{TESTIMONIALS_HTML}': build_testimonials_html(row),
+            '{DEMO_INTERACTIVA_HTML}': build_demo_interactiva_html(row)
         }
         
         for k, v in replacements.items():
