@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Habla causa, q cuesta el pase libre y hay q pagar inscripcion?
+                                        Qué tal, q cuesta el pase libre y hay q pagar inscripcion?
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -460,17 +460,17 @@
     </style>
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio 24 horas en Cerro Colorado</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones gimnasio Arequipa</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Digital Arequipa</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo Gimnasios Lab</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio gimnasio Arequipa</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Premium Arequipa</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio Gimnasios Digital</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Cayma</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Yanahuara</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Cerro Colorado</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Arequipa Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio 24 horas en Cerro Colorado</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Soluciones gimnasio Arequipa</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Digital Arequipa</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo Gimnasios Lab</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio gimnasio Arequipa</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Premium Arequipa</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio Gimnasios Digital</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Cayma</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Yanahuara</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ gimnasio Cerro Colorado</span>
@@ -895,6 +895,15 @@
             .dark #time-slots-container::-webkit-scrollbar-thumb {
                 background: #3f3f46;
             }
+            /* Clases responsivas personalizadas para evitar conflictos de especificidad de Tailwind */
+            @media (max-width: 1023px) {
+                .hidden-mobile {
+                    display: none !important;
+                }
+                .visible-mobile-flex {
+                    display: flex !important;
+                }
+            }
         </style>
 
         <!-- Blobs decorativos -->
@@ -1030,9 +1039,9 @@
                         </div>
                         
                         <!-- Sección Derecha: Estado de la Reserva y Animación -->
-                        <div id="calendar-right-col" class="hidden lg:flex w-full lg:w-56 border-t lg:border-t-0 lg:border-l border-gray-100 dark:border-zinc-800/80 pt-4 lg:pt-0 lg:pl-4 flex-col shrink-0 lg:h-full">
+                        <div id="calendar-right-col" class="hidden-mobile lg:flex w-full lg:w-56 border-t lg:border-t-0 lg:border-l border-gray-100 dark:border-zinc-800/80 pt-4 lg:pt-0 lg:pl-4 flex-col shrink-0 lg:h-full">
                             <h4 class="font-bold text-xs text-zinc-800 dark:text-zinc-200 mb-2 shrink-0">Estado de Reserva</h4>
-                            <div id="booking-status-card" class="flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-zinc-50/50 dark:bg-zinc-950/30 border border-dashed border-zinc-200 dark:border-zinc-800/80 transition-all duration-500 overflow-hidden relative">
+                            <div id="booking-status-card" class="w-full h-auto min-h-[160px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-zinc-50/50 dark:bg-zinc-950/30 border border-dashed border-zinc-200 dark:border-zinc-800/80 transition-all duration-500 overflow-hidden relative">
                                 <!-- Estado Inicial (Vacío) -->
                                 <div id="booking-status-empty" class="flex flex-col items-center py-4">
                                     <div class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-500 dark:text-blue-400 flex items-center justify-center mb-2 animate-pulse">
@@ -1481,16 +1490,15 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Usa esta información para responder si te p
                                         successState.classList.remove("hidden");
                                         successState.classList.add("flex");
                                         
-                                        statusCard.className = "flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-gradient-to-br from-emerald-50/40 to-teal-50/30 dark:from-emerald-950/10 dark:to-teal-950/5 border border-emerald-100 dark:border-emerald-900/30 shadow-inner transition-all duration-500 overflow-hidden relative";
+                                        statusCard.className = "w-full h-auto min-h-[220px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-gradient-to-br from-emerald-50/40 to-teal-50/30 dark:from-emerald-950/10 dark:to-teal-950/5 border border-emerald-100 dark:border-emerald-900/30 shadow-inner transition-all duration-500 overflow-hidden relative";
                                         
                                         // Ocultar calendario y mostrar ticket en versión móvil para maximizar espacio
                                         const leftCol = document.getElementById("calendar-left-col");
                                         const rightCol = document.getElementById("calendar-right-col");
                                         if (leftCol && rightCol) {
-                                            leftCol.classList.remove("flex");
-                                            leftCol.classList.add("hidden", "lg:flex");
-                                            rightCol.classList.remove("hidden");
-                                            rightCol.classList.add("flex");
+                                            leftCol.classList.add("hidden-mobile");
+                                            rightCol.classList.remove("hidden-mobile");
+                                            rightCol.classList.add("visible-mobile-flex");
                                         }
                                         
                                         setTimeout(() => {
