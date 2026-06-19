@@ -171,8 +171,19 @@ def build_demo_interactiva_html(row):
     dolor = row.get('Dolor_Principal', 'perder ventas')
     solucion = row.get('Solución_Clave', 'automatizar las respuestas')
     
-    today_str = datetime.date.today().strftime('%Y-%m-%d')
-    today_formatted = datetime.date.today().strftime('%d de %B de %Y')
+    dias_semana = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+    today_obj = datetime.date.today()
+    day_of_week = dias_semana[today_obj.weekday()]
+    today_str = today_obj.strftime('%Y-%m-%d')
+    today_formatted = today_obj.strftime('%d de %B de %Y')
+    
+    # Generar tabla de correspondencia de días de la semana y fechas para los próximos 8 días
+    ref_dias = []
+    temp_ref = today_obj
+    for i in range(8):
+        ref_dias.append(f"  * {dias_semana[temp_ref.weekday()]} es {temp_ref.strftime('%Y-%m-%d')}")
+        temp_ref += datetime.timedelta(days=1)
+    proximos_dias_str = "\n".join(ref_dias)
     
     # Prompt inicial del bot
     bot_initial_msg = f"¡Hola! Bienvenido a {cliente_negocio} en {ciudad}. Soy su Asistente Virtual Inteligente. ¿Le gustaría agendar una cita o visita, o prefiere conocer nuestros servicios?"
@@ -186,7 +197,9 @@ Conoce muy bien tu entorno local de '{ciudad}'. Usa de forma natural y sutil exp
 Responde de forma muy concisa (máximo 1 o 2 oraciones, no te extiendas en párrafos largos). Este es un chat de WhatsApp de ritmo rápido.
 
 Instrucción de agendamiento:
-- Hoy es día {today_str}. Asume que el año actual es 2026.
+- Hoy es {day_of_week}, día {today_str}. Asume que el año actual es 2026.
+- Tabla de referencia para saber qué fecha YYYY-MM-DD corresponde a cada día de la semana (¡USA ESTA LISTA OBLIGATORIAMENTE PARA TUS CÁLCULOS!):
+{proximos_dias_str}
 - Si el usuario muestra interés en agendar, coordina con él un día y una hora específicos (entre 8:00 y 18:00).
 - IMPORTANTE: Una vez acordada la fecha y la hora, antes de confirmar la cita, DEBES pedirle obligatoriamente su nombre y correo electrónico (ej: "Para registrar la cita en la agenda del negocio, por favor confírmeme su nombre completo y su dirección de correo electrónico").
 - Solo después de que el usuario te proporcione su nombre y correo electrónico (no importa el orden o formato), debes dar el mensaje final de confirmación de la cita.
@@ -659,14 +672,16 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                                 "X-Title": "Consultor IA Landing Demo"
                             },
                             body: JSON.stringify({
-                                model: "liquid/lfm-2.5-1.2b-instruct:free",
+                                model: "meta-llama/llama-3.1-8b-instruct",
                                 messages: chatHistory,
                                 temperature: 0.7
                             })
                         });
                         
                         if (!response.ok) {
-                            throw new Error("Respuesta de API incorrecta");
+                            const errText = await response.text();
+                            console.error("OpenRouter Error Detail:", response.status, errText);
+                            throw new Error("Respuesta de API incorrecta: " + response.status);
                         }
                         
                         const data = await response.json();
@@ -714,50 +729,59 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                                         clientName = "Usuario Demo";
                                     }
                                     
-                                    // Guardar reserva en la base de datos local
-                                    confirmedBooking = { date: dateKey, time: timeKey, name: clientName, email: clientEmail };
-                                    if (!availabilityDb[dateKey]) {
-                                        availabilityDb[dateKey] = {};
-                                    }
-                                    availabilityDb[dateKey][timeKey] = 'booked';
+                                    // Validar que el email sea provisto por el usuario y sea válido
+                                    const isEmailValid = clientEmail && clientEmail.includes("@") && !clientEmail.toUpperCase().includes("EMAIL") && !clientEmail.includes("example.com") && clientEmail.includes(".");
                                     
-                                    // Remover la firma estructurada de la respuesta del bot para que no la vea el usuario
-                                    botResponse = botResponse.substring(0, confirmIdx).trim() + " " + botResponse.substring(endIdx + 1).trim();
-                                    botResponse = botResponse.trim();
-                                    
-                                    // Mostrar alerta premium superior de reserva
-                                    bookingAlertText.textContent = "El Agente agendó tu cita para el " + formatHumanDate(dateKey) + " a las " + timeKey + ".";
-                                    bookingSuccessAlert.classList.remove("opacity-0", "pointer-events-none", "-translate-y-4");
-                                    bookingSuccessAlert.classList.add("opacity-100", "translate-y-0");
-                                    
-                                    // Actualizar los datos del Ticket lateral derecho
-                                    document.getElementById("ticket-name").textContent = clientName;
-                                    document.getElementById("ticket-email").textContent = clientEmail;
-                                    document.getElementById("ticket-date").textContent = formatHumanDate(dateKey);
-                                    document.getElementById("ticket-time").textContent = timeKey;
-                                    
-                                    // Activar visualización del ticket y checkmark animado en el panel derecho
-                                    const emptyState = document.getElementById("booking-status-empty");
-                                    const successState = document.getElementById("booking-status-success");
-                                    const checkmark = document.getElementById("success-checkmark");
-                                    const statusCard = document.getElementById("booking-status-card");
-                                    
-                                    emptyState.classList.add("hidden");
-                                    successState.classList.remove("hidden");
-                                    successState.classList.add("flex");
-                                    
-                                    statusCard.className = "flex-1 flex flex-col items-center justify-center text-center p-3 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/80 shadow-inner transition-all duration-500 overflow-hidden";
-                                    
-                                    setTimeout(() => {
-                                        checkmark.classList.remove("scale-0");
-                                        checkmark.classList.add("scale-100");
-                                    }, 100);
-                                    
-                                    // Actualizar calendario visualmente
-                                    renderCalendar(currentYear, currentMonth);
-                                    if (selectedDateStr === dateKey) {
-                                        const dummyDate = new Date(dateKey + "T00:00:00");
-                                        selectDate(dateKey, dummyDate);
+                                    if (isEmailValid) {
+                                        // Guardar reserva en la base de datos local
+                                        confirmedBooking = { date: dateKey, time: timeKey, name: clientName, email: clientEmail };
+                                        if (!availabilityDb[dateKey]) {
+                                            availabilityDb[dateKey] = {};
+                                        }
+                                        availabilityDb[dateKey][timeKey] = 'booked';
+                                        
+                                        // Remover la firma estructurada de la respuesta del bot para que no la vea el usuario
+                                        botResponse = botResponse.substring(0, confirmIdx).trim() + " " + botResponse.substring(endIdx + 1).trim();
+                                        botResponse = botResponse.trim();
+                                        
+                                        // Mostrar alerta premium superior de reserva
+                                        bookingAlertText.textContent = "El Agente agendó tu cita para el " + formatHumanDate(dateKey) + " a las " + timeKey + ".";
+                                        bookingSuccessAlert.classList.remove("opacity-0", "pointer-events-none", "-translate-y-4");
+                                        bookingSuccessAlert.classList.add("opacity-100", "translate-y-0");
+                                        
+                                        // Actualizar los datos del Ticket lateral derecho
+                                        document.getElementById("ticket-name").textContent = clientName;
+                                        document.getElementById("ticket-email").textContent = clientEmail;
+                                        document.getElementById("ticket-date").textContent = formatHumanDate(dateKey);
+                                        document.getElementById("ticket-time").textContent = timeKey;
+                                        
+                                        // Activar visualización del ticket y checkmark animado en el panel derecho
+                                        const emptyState = document.getElementById("booking-status-empty");
+                                        const successState = document.getElementById("booking-status-success");
+                                        const checkmark = document.getElementById("success-checkmark");
+                                        const statusCard = document.getElementById("booking-status-card");
+                                        
+                                        emptyState.classList.add("hidden");
+                                        successState.classList.remove("hidden");
+                                        successState.classList.add("flex");
+                                        
+                                        statusCard.className = "flex-1 flex flex-col items-center justify-center text-center p-3 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/80 shadow-inner transition-all duration-500 overflow-hidden";
+                                        
+                                        setTimeout(() => {
+                                            checkmark.classList.remove("scale-0");
+                                            checkmark.classList.add("scale-100");
+                                        }, 100);
+                                        
+                                        // Actualizar calendario visualmente
+                                        renderCalendar(currentYear, currentMonth);
+                                        if (selectedDateStr === dateKey) {
+                                            const dummyDate = new Date(dateKey + "T00:00:00");
+                                            selectDate(dateKey, dummyDate);
+                                        }
+                                    } else {
+                                        // Si el email no es válido, remover el tag para que no se vea feo pero NO confirmar la cita
+                                        botResponse = botResponse.substring(0, confirmIdx).trim() + " " + botResponse.substring(endIdx + 1).trim();
+                                        botResponse = botResponse.trim();
                                     }
                                     
                                     // Ocultar alerta superior a los 7 segundos
