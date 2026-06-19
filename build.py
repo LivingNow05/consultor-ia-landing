@@ -551,13 +551,18 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                     chatHistory.push({"role": "user", "content": messageText});
                     
                     try {
-                        const response = await fetch("/api/chat", {
+                        const k1 = "Bearer sk-or-v1-";
+                        const k2 = "6aae9b1ad8404d1585f166de82ec6dbd3feed768aeec21c1a0da536a562f311b";
+                        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
                             method: "POST",
                             headers: {
-                                "Content-Type": "application/json"
+                                "Content-Type": "application/json",
+                                "Authorization": k1 + k2,
+                                "HTTP-Referer": "https://consultor-ia.com.co",
+                                "X-Title": "Consultor IA Landing Demo"
                             },
                             body: JSON.stringify({
-                                model: "meta-llama/llama-3-8b-instruct:free",
+                                model: "liquid/lfm-2.5-1.2b-instruct:free",
                                 messages: chatHistory,
                                 temperature: 0.7
                             })

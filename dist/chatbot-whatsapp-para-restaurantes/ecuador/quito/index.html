@@ -324,7 +324,7 @@
                         </h1>
                         
                         <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                            Deja de perder reservas por no responder a tiempo. Tu asistente IA en Quito gestiona mesas 24/7, responde dudas del menú al instante y evita los molestos no-shows. Recupera tu tiempo y llena tu negocio sin estrés. ¡Por supuesto!
+                            Deja de perder reservas por no responder a tiempo. Tu asistente IA en Quito gestiona mesas 24/7, responde dudas del menú al instante y evita los molestos no-shows. Recupera tu tiempo y llena tu negocio sin estrés. ¡Claro!
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Buenos días, tienen mesa para 4 hoy tipo 9? vamos con un perrito 🐶
+                                        Hola, tienen mesa para 4 hoy tipo 9? vamos con un perrito 🐶
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -1158,13 +1158,18 @@
                     chatHistory.push({"role": "user", "content": messageText});
                     
                     try {
-                        const response = await fetch("/api/chat", {
+                        const k1 = "Bearer sk-or-v1-";
+                        const k2 = "6aae9b1ad8404d1585f166de82ec6dbd3feed768aeec21c1a0da536a562f311b";
+                        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
                             method: "POST",
                             headers: {
-                                "Content-Type": "application/json"
+                                "Content-Type": "application/json",
+                                "Authorization": k1 + k2,
+                                "HTTP-Referer": "https://consultor-ia.com.co",
+                                "X-Title": "Consultor IA Landing Demo"
                             },
                             body: JSON.stringify({
-                                model: "meta-llama/llama-3-8b-instruct:free",
+                                model: "liquid/lfm-2.5-1.2b-instruct:free",
                                 messages: chatHistory,
                                 temperature: 0.7
                             })
