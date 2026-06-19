@@ -324,7 +324,7 @@
                         </h1>
                         
                         <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                            Deja de perder pacientes en Córdoba por demoras al responder. Implementamos IA que filtra urgencias, coordina turnos con tus especialistas y envía recordatorios 24/7. Digitaliza tu clínica y aumenta tu plata.
+                            Deja de perder pacientes en Córdoba por demoras al responder. Implementamos IA que filtra urgencias, coordina turnos con tus especialistas y envía recordatorios 24/7. Digitaliza tu clínica y aumenta tu guita.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -460,17 +460,17 @@
     </style>
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ centro de estética dental en Nueva Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Club clínica dental Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Express Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo Clínicas Dentales Plus</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio clínica dental Córdoba</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Pro Córdoba</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Red Clínicas Dentales Digital</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Nueva Córdoba</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Cerro de las Rosas</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Güemes</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Córdoba Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ centro de estética dental en Nueva Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Club clínica dental Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Express Córdoba</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo Clínicas Dentales Plus</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio clínica dental Córdoba</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Pro Córdoba</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Red Clínicas Dentales Digital</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Nueva Córdoba</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Cerro de las Rosas</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ clínica dental Güemes</span>
@@ -868,6 +868,35 @@
         <!-- Demo Interactiva de Agente Conversacional y Calendario -->
         
     <section id="demo-interactiva" class="py-24 bg-gradient-to-b from-[#FDFBF7]/40 to-white dark:from-zinc-950 dark:to-zinc-900 border-t border-gray-200/50 dark:border-zinc-800/80 relative overflow-hidden">
+        <!-- Estilos CSS personalizados para la Demo Premium -->
+        <style>
+            @keyframes demo-shimmer {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(100%); }
+            }
+            .animate-shimmer {
+                animation: demo-shimmer 2.5s infinite linear;
+            }
+            /* Suavizar la navegación del calendario */
+            #calendar-prev-btn, #calendar-next-btn {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            /* Scrollbar premium minimalista para las horas */
+            #time-slots-container::-webkit-scrollbar {
+                width: 4px;
+            }
+            #time-slots-container::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            #time-slots-container::-webkit-scrollbar-thumb {
+                background: #e4e4e7;
+                border-radius: 9999px;
+            }
+            .dark #time-slots-container::-webkit-scrollbar-thumb {
+                background: #3f3f46;
+            }
+        </style>
+
         <!-- Blobs decorativos -->
         <div class="absolute -top-[10%] -left-[10%] w-[30vw] h-[30vw] rounded-full bg-accent/5 dark:bg-accent/10 blur-[100px] pointer-events-none"></div>
         <div class="absolute -bottom-[10%] -right-[10%] w-[30vw] h-[30vw] rounded-full bg-success/5 dark:bg-success/10 blur-[100px] pointer-events-none"></div>
@@ -885,7 +914,7 @@
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                 <!-- Columna Izquierda: Chat de WhatsApp Mockup -->
-                <div class="lg:col-span-5 w-full flex flex-col h-[600px] max-h-[600px] min-h-[600px]">
+                <div class="lg:col-span-5 w-full flex flex-col h-[550px] lg:h-[600px] lg:max-h-[600px] lg:min-h-[600px]">
                     <div class="flex-1 bg-[#efeae2] dark:bg-[#0b141a] rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-2xl overflow-hidden flex flex-col relative h-full max-h-full">
                         <!-- WhatsApp Chat Header -->
                         <div class="bg-[#075E54] dark:bg-[#202c33] px-4 py-3 flex items-center justify-between shrink-0 relative z-10 shadow-md">
@@ -934,8 +963,8 @@
                 </div>
                 
                 <!-- Columna Derecha: Calendario y Disponibilidad -->
-                <div class="lg:col-span-7 w-full flex flex-col h-[600px] max-h-[600px] min-h-[600px]">
-                    <div class="flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-6 shadow-2xl flex flex-col lg:flex-row gap-6 h-full max-h-full relative overflow-hidden">
+                <div class="lg:col-span-7 w-full flex flex-col h-auto min-h-[550px] lg:h-[600px] lg:min-h-[600px] lg:max-h-[600px]">
+                    <div class="flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col lg:flex-row gap-6 h-full lg:max-h-full relative overflow-hidden">
                         <!-- Alerta de Confirmación de Cita -->
                         <div id="booking-success-alert" class="absolute inset-x-6 top-6 z-50 bg-[#e6fffa] dark:bg-[#004d40]/40 border border-[#b2f5ea] dark:border-[#00796b] text-[#134e4a] dark:text-[#b2f5ea] p-4 rounded-2xl flex items-center gap-3 shadow-lg transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-500">
                             <div class="w-10 h-10 rounded-full bg-[#319795] text-white flex items-center justify-center shrink-0">
@@ -950,35 +979,39 @@
                         <!-- Sección Izquierda: Calendario y Horas -->
                         <div class="flex-1 flex flex-col min-w-0 h-full justify-between">
                             <div>
-                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-3 mb-3 gap-2">
+                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-4 mb-4 gap-2">
                                     <div>
-                                        <h3 class="text-lg font-header font-bold text-zinc-900 dark:text-white leading-tight">Agenda de centro de estética dental</h3>
+                                        <h3 class="text-base font-header font-bold text-zinc-900 dark:text-white leading-tight">Agenda de centro de estética dental</h3>
                                         <p class="text-[10px] text-zinc-500 dark:text-zinc-400">Demostración en tiempo real</p>
                                     </div>
-                                    <div class="flex items-center gap-2 shrink-0">
-                                        <span class="w-2 h-2 rounded-full bg-[#3182ce] inline-block"></span>
-                                        <span class="text-[10px] font-semibold text-zinc-600 dark:text-zinc-300">Libre</span>
-                                        <span class="w-2 h-2 rounded-full bg-zinc-200 dark:bg-zinc-800 inline-block ml-2"></span>
-                                        <span class="text-[10px] font-semibold text-zinc-600 dark:text-zinc-300">Ocupado</span>
+                                    <div class="flex items-center gap-3 shrink-0">
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 inline-block shadow-sm shadow-blue-500/20"></span>
+                                            <span class="text-[9px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Seleccionado</span>
+                                        </div>
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 inline-block shadow-sm shadow-emerald-500/10"></span>
+                                            <span class="text-[9px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Reservado</span>
+                                        </div>
                                     </div>
                                 </div>
                                 
                                 <!-- Calendario Header (Mes y Navegación) -->
-                                <div class="flex items-center justify-between mb-2">
-                                    <span id="calendar-month-year" class="font-bold text-sm text-zinc-800 dark:text-zinc-200">Junio 2026</span>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span id="calendar-month-year" class="font-bold text-sm text-zinc-800 dark:text-zinc-200 tracking-tight">Junio 2026</span>
                                     <div class="flex gap-1.5">
-                                        <button id="calendar-prev-btn" class="w-7 h-7 rounded-full border border-gray-200 dark:border-zinc-800 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors text-zinc-600 dark:text-zinc-300">
-                                            <i class="fas fa-chevron-left text-[10px]"></i>
+                                        <button id="calendar-prev-btn" class="w-7 h-7 rounded-full border border-gray-200/60 dark:border-zinc-800/80 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800/80 hover:border-blue-500 dark:hover:border-blue-400 transition-all text-zinc-500 dark:text-zinc-400 active:scale-90 focus:outline-none">
+                                            <i class="fas fa-chevron-left text-[8px]"></i>
                                         </button>
-                                        <button id="calendar-next-btn" class="w-7 h-7 rounded-full border border-gray-200 dark:border-zinc-800 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors text-zinc-600 dark:text-zinc-300">
-                                            <i class="fas fa-chevron-right text-[10px]"></i>
+                                        <button id="calendar-next-btn" class="w-7 h-7 rounded-full border border-gray-200/60 dark:border-zinc-800/80 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800/80 hover:border-blue-500 dark:hover:border-blue-400 transition-all text-zinc-500 dark:text-zinc-400 active:scale-90 focus:outline-none">
+                                            <i class="fas fa-chevron-right text-[8px]"></i>
                                         </button>
                                     </div>
                                 </div>
                                 
                                 <!-- Calendario Días de la Semana -->
-                                <div class="grid grid-cols-7 gap-1 text-center text-[10px] font-bold text-zinc-400 dark:text-zinc-500 mb-1">
-                                    <span>Dom</span><span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+                                <div class="grid grid-cols-7 gap-1 text-center text-[10px] font-bold text-zinc-400 dark:text-zinc-500 mb-2.5 tracking-wider uppercase select-none">
+                                    <span>DOM</span><span>LUN</span><span>MAR</span><span>MIÉ</span><span>JUE</span><span>VIE</span><span>SÁB</span>
                                 </div>
                                 
                                 <!-- Calendario Celdas (Días del Mes) -->
@@ -988,18 +1021,18 @@
                             </div>
                             
                             <!-- Panel de Horas del Día Seleccionado -->
-                            <div class="border-t border-gray-100 dark:border-zinc-800/80 pt-3 shrink-0">
-                                <h4 id="selected-day-label" class="font-bold text-xs text-zinc-800 dark:text-zinc-200 mb-2">Disponibilidad:</h4>
-                                <div id="time-slots-container" class="grid grid-cols-4 gap-1.5 max-h-[110px] overflow-y-auto pr-1">
+                            <div class="border-t border-gray-100 dark:border-zinc-800/80 pt-4 shrink-0">
+                                <h4 id="selected-day-label" class="font-bold text-xs text-zinc-800 dark:text-zinc-200 mb-2.5">Disponibilidad:</h4>
+                                <div id="time-slots-container" class="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-[110px] overflow-y-auto pr-1">
                                     <!-- Inyectado dinámicamente -->
                                 </div>
                             </div>
                         </div>
-
+                        
                         <!-- Sección Derecha: Estado de la Reserva y Animación -->
                         <div class="w-full lg:w-56 border-t lg:border-t-0 lg:border-l border-gray-100 dark:border-zinc-800/80 pt-4 lg:pt-0 lg:pl-4 flex flex-col shrink-0 h-full">
                             <h4 class="font-bold text-xs text-zinc-800 dark:text-zinc-200 mb-2 shrink-0">Estado de Reserva</h4>
-                            <div id="booking-status-card" class="flex-1 flex flex-col items-center justify-center text-center p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-dashed border-zinc-200 dark:border-zinc-800 transition-all duration-500 overflow-hidden">
+                            <div id="booking-status-card" class="flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-zinc-50/50 dark:bg-zinc-950/30 border border-dashed border-zinc-200 dark:border-zinc-800/80 transition-all duration-500 overflow-hidden relative">
                                 <!-- Estado Inicial (Vacío) -->
                                 <div id="booking-status-empty" class="flex flex-col items-center py-4">
                                     <div class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-500 dark:text-blue-400 flex items-center justify-center mb-2 animate-pulse">
@@ -1011,33 +1044,43 @@
                                 <!-- Estado Confirmado (Oculto al inicio) -->
                                 <div id="booking-status-success" class="hidden w-full flex-col items-center">
                                     <!-- Checkmark animado -->
-                                    <div class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center mb-2 shadow-lg shadow-emerald-500/20 transform scale-0 transition-transform duration-500 ease-out" id="success-checkmark">
-                                        <i class="fas fa-check text-xl"></i>
+                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-white flex items-center justify-center mb-3 shadow-lg shadow-emerald-500/20 transform scale-0 transition-all duration-500 ease-out ring-8 ring-emerald-500/10 dark:ring-emerald-400/10 relative" id="success-checkmark">
+                                        <div class="absolute inset-0 rounded-full ring-8 ring-emerald-500/10 animate-pulse"></div>
+                                        <i class="fas fa-check text-lg"></i>
                                     </div>
-                                    <span class="inline-flex items-center gap-1 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider mb-2 border border-emerald-200 dark:border-emerald-800/30 animate-pulse">
+                                    <span class="inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3.5 border border-emerald-400/20 shadow-sm relative overflow-hidden">
+                                        <span class="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer" style="animation: demo-shimmer 2.5s infinite linear;"></span>
                                         <i class="fas fa-lock text-[8px]"></i> Lugar Bloqueado
                                     </span>
                                     
                                     <!-- Detalles del ticket -->
-                                    <div class="w-full bg-white dark:bg-zinc-900 border border-gray-100 dark:border-zinc-850 rounded-xl p-2.5 text-left text-[10px] space-y-1.5 shadow-sm">
-                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/50 pb-1">
-                                            <span class="text-zinc-400">Cliente:</span>
-                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[100px]" id="ticket-name">-</span>
+                                    <div class="w-full bg-white dark:bg-zinc-900 border border-gray-150 dark:border-zinc-800/80 rounded-2xl p-4 text-left text-[11px] space-y-2.5 shadow-md relative overflow-hidden">
+                                        <!-- Cutouts left & right -->
+                                        <div class="absolute top-[48%] -left-1.5 w-3 h-3 bg-gradient-to-br from-[#f4fbf9] to-[#edfcf8] dark:from-[#061e19] dark:to-[#041511] rounded-full border-r border-emerald-100 dark:border-emerald-900/30"></div>
+                                        <div class="absolute top-[48%] -right-1.5 w-3 h-3 bg-gradient-to-br from-[#f4fbf9] to-[#edfcf8] dark:from-[#061e19] dark:to-[#041511] rounded-full border-l border-emerald-100 dark:border-emerald-900/30"></div>
+                                        
+                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1.5">
+                                            <span class="text-zinc-400 font-medium">Cliente:</span>
+                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[110px]" id="ticket-name">-</span>
                                         </div>
-                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/50 pb-1">
-                                            <span class="text-zinc-400">Email:</span>
-                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[100px]" id="ticket-email">-</span>
+                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1.5">
+                                            <span class="text-zinc-400 font-medium">Email:</span>
+                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[110px]" id="ticket-email">-</span>
                                         </div>
-                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/50 pb-1">
-                                            <span class="text-zinc-400">Fecha:</span>
+                                        
+                                        <!-- Dashed separator aligned with cutouts -->
+                                        <div class="border-t border-dashed border-gray-250 dark:border-zinc-700/50 my-2"></div>
+                                        
+                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1.5">
+                                            <span class="text-zinc-400 font-medium">Fecha:</span>
                                             <span class="font-bold text-zinc-800 dark:text-zinc-200" id="ticket-date">-</span>
                                         </div>
                                         <div class="flex justify-between">
-                                            <span class="text-zinc-400">Hora:</span>
-                                            <span class="font-bold text-emerald-500" id="ticket-time">-</span>
+                                            <span class="text-zinc-400 font-medium">Hora:</span>
+                                            <span class="font-bold text-emerald-500 dark:text-emerald-400 text-xs" id="ticket-time">-</span>
                                         </div>
                                     </div>
-                                    <p class="text-[8px] text-zinc-400 dark:text-zinc-500 mt-2 text-center">¡Cita agendada de forma autónoma!</p>
+                                    <p class="text-[9px] text-zinc-400 dark:text-zinc-500 mt-2 text-center">¡Cita agendada de forma autónoma!</p>
                                 </div>
                             </div>
                         </div>
@@ -1154,7 +1197,7 @@
                         const dateStr = formatDateKey(cellDate);
                         
                         const dayCell = document.createElement("button");
-                        dayCell.className = "w-9 h-9 mx-auto rounded-full flex items-center justify-center text-xs font-semibold hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all focus:outline-none relative";
+                        dayCell.className = "w-9 h-9 mx-auto rounded-full flex items-center justify-center text-xs font-semibold hover:bg-gray-100 dark:hover:bg-zinc-800 hover:scale-105 hover:shadow-sm transition-all focus:outline-none relative";
                         dayCell.textContent = day;
                         
                         // Validar si es del pasado (en base al día real actual del sistema)
@@ -1165,19 +1208,29 @@
                         if (isPast) {
                             dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
                         } else {
-                            dayCell.className += " text-zinc-800 dark:text-zinc-200";
+                            dayCell.className += " text-zinc-800 dark:text-zinc-200 cursor-pointer";
                             
                             // Comprobar si hay citas confirmadas en este día en la base de datos
                             const daySlots = availabilityDb[dateStr] || {};
                             const hasBookedSlot = Object.values(daySlots).includes('booked');
                             
                             if (hasBookedSlot) {
-                                dayCell.className += " bg-emerald-500 text-white hover:bg-emerald-600 ring-2 ring-emerald-300 dark:ring-emerald-800";
-                                const badge = document.createElement("span");
-                                badge.className = "absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border border-white";
-                                dayCell.appendChild(badge);
+                                dayCell.className += " bg-gradient-to-br from-emerald-400 to-teal-600 text-white shadow-md shadow-emerald-500/20";
+                                
+                                const badgeContainer = document.createElement("span");
+                                badgeContainer.className = "absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5";
+                                
+                                const pingDot = document.createElement("span");
+                                pingDot.className = "animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75";
+                                
+                                const solidDot = document.createElement("span");
+                                solidDot.className = "relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 border border-white dark:border-zinc-900";
+                                
+                                badgeContainer.appendChild(pingDot);
+                                badgeContainer.appendChild(solidDot);
+                                dayCell.appendChild(badgeContainer);
                             } else if (selectedDateStr === dateStr) {
-                                dayCell.className += " bg-blue-600 text-white hover:bg-blue-700";
+                                dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
                             }
                             
                             dayCell.addEventListener("click", () => {
@@ -1206,16 +1259,17 @@
                     sortedHours.forEach(h => {
                         const status = slots[h];
                         const slotBtn = document.createElement("button");
-                        slotBtn.className = "py-2 text-xs font-bold rounded-xl border transition-all focus:outline-none ";
-                        slotBtn.textContent = h;
+                        slotBtn.className = "py-2 text-xs font-bold rounded-xl border transition-all focus:outline-none flex items-center justify-center gap-1.5 ";
                         
                         if (status === 'booked') {
-                            slotBtn.className += " bg-emerald-500 border-emerald-500 text-white pointer-events-none";
-                            slotBtn.innerHTML = '<i class="fas fa-check-circle"></i> ' + h;
+                            slotBtn.className += " bg-gradient-to-r from-emerald-500 to-teal-600 border-transparent text-white shadow-md shadow-emerald-500/10 pointer-events-none";
+                            slotBtn.innerHTML = '<i class="fas fa-check text-[9px]"></i> ' + h;
                         } else if (status === 'occupied') {
-                            slotBtn.className += " bg-zinc-50 dark:bg-zinc-900 border-zinc-100 dark:border-zinc-800 text-zinc-300 dark:text-zinc-700 pointer-events-none";
+                            slotBtn.className += " bg-zinc-50 dark:bg-zinc-900/50 border-zinc-100 dark:border-zinc-800/80 text-zinc-300 dark:text-zinc-650 pointer-events-none";
+                            slotBtn.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></span>' + h;
                         } else {
-                            slotBtn.className += " bg-blue-50 dark:bg-[#1e3a8a]/20 border-blue-200 dark:border-[#1e3a8a]/40 text-blue-600 dark:text-[#53bdeb] hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600";
+                            slotBtn.className += " bg-zinc-50/50 dark:bg-zinc-900/30 border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/30 dark:hover:bg-blue-950/10 cursor-pointer";
+                            slotBtn.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>' + h;
                             slotBtn.addEventListener("click", () => {
                                 // Rellenar input del chat automáticamente al hacer clic en un horario libre
                                 chatInput.value = "Hola, me gustaría agendar una cita para el " + formatHumanDate(dateStr) + " a las " + h;
@@ -1425,7 +1479,7 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Usa esta información para responder si te p
                                         successState.classList.remove("hidden");
                                         successState.classList.add("flex");
                                         
-                                        statusCard.className = "flex-1 flex flex-col items-center justify-center text-center p-3 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/80 shadow-inner transition-all duration-500 overflow-hidden";
+                                        statusCard.className = "flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-gradient-to-br from-emerald-50/40 to-teal-50/30 dark:from-emerald-950/10 dark:to-teal-950/5 border border-emerald-100 dark:border-emerald-900/30 shadow-inner transition-all duration-500 overflow-hidden relative";
                                         
                                         setTimeout(() => {
                                             checkmark.classList.remove("scale-0");
