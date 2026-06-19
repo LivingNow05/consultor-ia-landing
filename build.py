@@ -2468,7 +2468,44 @@ def build_servicios_cards(row):
         '''
     return html
 
-def build_faqs(row):
+def get_autocomplete_suggestions(query, cache):
+    import urllib.request
+    import urllib.parse
+    import json
+    import time
+    
+    if not query:
+        return []
+        
+    query_clean = query.strip().lower()
+    if cache is not None and query_clean in cache:
+        return cache[query_clean]
+        
+    url = f"https://suggestqueries.google.com/complete/search?client=chrome&q={urllib.parse.quote(query_clean)}"
+    
+    # Delay de cortesía de 0.2s para evitar cualquier tipo de baneo de IP
+    time.sleep(0.2)
+    
+    try:
+        req = urllib.request.Request(
+            url, 
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
+        )
+        with urllib.request.urlopen(req, timeout=5) as response:
+            if response.status == 200:
+                content = response.read().decode('utf-8', errors='ignore')
+                data = json.loads(content)
+                suggestions = data[1] if len(data) > 1 else []
+                if cache is not None:
+                    cache[query_clean] = suggestions
+                print(f"API Autocomplete: '{query_clean}' -> Extraídas {len(suggestions)} sugerencias")
+                return suggestions
+    except Exception as e:
+        print(f"Error al consultar autocomplete para '{query_clean}': {e}")
+        
+    return []
+
+def build_faqs(row, cache=None):
     ind = row.get('Industria', '')
     faqs = INDUSTRY_DATA.get(ind, {}).get('faqs', [])
     
@@ -2480,6 +2517,29 @@ def build_faqs(row):
         (row.get('FAQ_General_3_P'), row.get('FAQ_General_3_R'))
     ])
     
+    # Método B: Enriquecimiento dinámico mediante autocompletado de Google
+    if cache is not None:
+        ind_singular = row.get('Industria_Singular', '').lower()
+        ciudad = row.get('Ciudad', '')
+        if ind_singular and ciudad:
+            query = f"chatbot whatsapp {ind_singular} {ciudad}"
+            suggestions = get_autocomplete_suggestions(query, cache)
+            
+            # Filtrar sugerencias válidas
+            valid_suggestions = []
+            for sug in suggestions:
+                sug_clean = sug.strip().lower()
+                if sug_clean != query.lower() and len(sug_clean) > 3:
+                    if sug_clean not in valid_suggestions:
+                        valid_suggestions.append(sug_clean)
+            
+            # Inyectar hasta 2 preguntas y respuestas dinámicas con keywords locales sugeridas
+            for sug in valid_suggestions[:2]:
+                sug_title = sug.title()
+                q_sug = f"¿Ofrecen soluciones personalizadas sobre '{sug_title}'?"
+                a_sug = f"Sí. En {ciudad} ayudamos a los negocios de {row.get('Industria_Singular', 'la industria')} a resolver búsquedas específicas sobre '{sug_title}'. Nuestros agentes de Inteligencia Artificial para WhatsApp automatizan la comunicación, gestionan bases de datos en tiempo real y optimizan la conversión local. Contáctanos para conocer más detalles."
+                questions.append((q_sug, a_sug))
+                
     html = ""
     schema_entities = []
     
@@ -2538,6 +2598,17 @@ def format_h1(h1):
 def build():
     setup_dist()
     
+    # Cargar caché de autocompletado
+    CACHE_FILE = "data/autocomplete_cache.json"
+    autocomplete_cache = {}
+    if os.path.exists(CACHE_FILE):
+        try:
+            with open(CACHE_FILE, "r", encoding="utf-8") as f:
+                autocomplete_cache = json.load(f)
+            print(f"Caché de Autocomplete cargada: {len(autocomplete_cache)} registros.")
+        except Exception as e:
+            print(f"Error al cargar caché de autocompletado: {e}")
+            
     with open(os.path.join(SRC_DIR, "template.html"), "r", encoding="utf-8") as f:
         template_html = f.read()
         
@@ -2558,7 +2629,7 @@ def build():
         
         # Pre-process complex fields
         servicios_html = build_servicios_cards(row)
-        faqs_html, schema_faq = build_faqs(row)
+        faqs_html, schema_faq = build_faqs(row, autocomplete_cache)
         hermanas_html = build_ciudades_hermanas(row, data)
         wa_mensaje = row.get('WA_Mensaje_Precargado', '')
         wa_encoded = quote(wa_mensaje)
@@ -2855,6 +2926,15 @@ def build():
             if os.path.isfile(s) and not item.endswith('.png_source'):
                 shutil.copy2(s, d)
                 print(f"Copied asset: {item}")
+
+    # Guardar caché de autocompletado al final del build
+    os.makedirs(os.path.dirname(CACHE_FILE), exist_ok=True)
+    try:
+        with open(CACHE_FILE, "w", encoding="utf-8") as f:
+            json.dump(autocomplete_cache, f, ensure_ascii=False, indent=2)
+        print(f"Caché de Autocomplete guardada: {len(autocomplete_cache)} registros.")
+    except Exception as e:
+        print(f"Error al guardar caché de autocompletado: {e}")
 
     print(f"Build complete! Generated {len(urls)} localized pages + homepage.")
 
