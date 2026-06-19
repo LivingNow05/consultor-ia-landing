@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Hola, necesito saber si tienen habitación doble del 15 al 18 y el precio porfa.
+                                        Buenos días, necesito saber si tienen habitación doble del 15 al 18 y el precio porfa.
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -460,17 +460,17 @@
     </style>
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel business en Sabana</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Punto hotel San José</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Hub San José</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Hoteles y Hostales Digital</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio hotel San José</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Express San José</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Club Hoteles y Hostales Express</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Escazú</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Santa Ana</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Sabana</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel San José Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel business en Sabana</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Punto hotel San José</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Hub San José</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Hoteles y Hostales Digital</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio hotel San José</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Express San José</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Club Hoteles y Hostales Express</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Escazú</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Santa Ana</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ hotel Sabana</span>
@@ -1055,7 +1055,10 @@
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 // --- Variables Conversacionales ---
-                const systemPrompt = "Eres el Agente de Inteligencia Artificial oficial de 'hotel business' en la ciudad de 'San Jos\u00e9', 'Costa Rica'.\nTu industria es 'hotel'.\nTu objetivo principal es convencer al usuario de agendar una cita o visita de negocios.\nDebes sonar sumamente profesional, servicial y emp\u00e1tico (tono Tech-Luxury).\nConoce muy bien tu entorno local de 'San Jos\u00e9'. Usa de forma natural y sutil expresiones t\u00edpicas de la regi\u00f3n y menciona barrios locales como: 'Escaz\u00fa|Santa Ana|Sabana|Rohrmoser' cuando hables de cobertura o ubicaci\u00f3n.\nResponde de forma muy concisa (m\u00e1ximo 1 o 2 oraciones, no te extiendas en p\u00e1rrafos largos). Este es un chat de WhatsApp de ritmo r\u00e1pido.\n\nInstrucci\u00f3n de agendamiento:\n- Hoy es d\u00eda 2026-06-19. Asume que el a\u00f1o actual es 2026.\n- Si el usuario muestra inter\u00e9s en agendar, coordina con \u00e9l un d\u00eda y una hora espec\u00edficos (entre 8:00 y 18:00).\n- IMPORTANTE: Una vez acordada la fecha y la hora, antes de confirmar la cita, DEBES pedirle obligatoriamente su nombre y correo electr\u00f3nico (ej: \"Para registrar la cita en la agenda del negocio, por favor conf\u00edrmeme su nombre completo y su direcci\u00f3n de correo electr\u00f3nico\").\n- Solo despu\u00e9s de que el usuario te proporcione su nombre y correo electr\u00f3nico (no importa el orden o formato), debes dar el mensaje final de confirmaci\u00f3n de la cita.\n- AL FINAL de tu mensaje de confirmaci\u00f3n, y \u00daNICAMENTE en ese mensaje, debes agregar EXACTAMENTE esta marca especial para que el sistema registre la cita en el calendario:\n[CONFIRMAR_CITA: YYYY-MM-DD HH:MM | NOMBRE | EMAIL]\nSustituyendo YYYY-MM-DD por la fecha exacta calculada (ej: 2026-06-25), HH:MM por la hora (ej: 10:30), NOMBRE por el nombre completo facilitado por el usuario y EMAIL por su correo electr\u00f3nico.\nEjemplo de mensaje final: \"\u00a1Perfecto, Juan! Tu cita ha quedado agendada para el viernes 19 de junio a las 14:00. Hemos enviado la confirmaci\u00f3n a juan@gmail.com. [CONFIRMAR_CITA: 2026-06-19 14:00 | Juan P\u00e9rez | juan@gmail.com]\"\nNo uses markdown ni negritas en la marca especial. Escr\u00edbela tal cual.\n";
+                const systemPromptB64 = "RXJlcyBlbCBBZ2VudGUgZGUgSW50ZWxpZ2VuY2lhIEFydGlmaWNpYWwgb2ZpY2lhbCBkZSAnaG90ZWwgYnVzaW5lc3MnIGVuIGxhIGNpdWRhZCBkZSAnU2FuIEpvc8OpJywgJ0Nvc3RhIFJpY2EnLgpUdSBpbmR1c3RyaWEgZXMgJ2hvdGVsJy4KVHUgb2JqZXRpdm8gcHJpbmNpcGFsIGVzIGNvbnZlbmNlciBhbCB1c3VhcmlvIGRlIGFnZW5kYXIgdW5hIGNpdGEgbyB2aXNpdGEgZGUgbmVnb2Npb3MuCkRlYmVzIHNvbmFyIHN1bWFtZW50ZSBwcm9mZXNpb25hbCwgc2VydmljaWFsIHkgZW1ww6F0aWNvICh0b25vIFRlY2gtTHV4dXJ5KS4KQ29ub2NlIG11eSBiaWVuIHR1IGVudG9ybm8gbG9jYWwgZGUgJ1NhbiBKb3PDqScuIFVzYSBkZSBmb3JtYSBuYXR1cmFsIHkgc3V0aWwgZXhwcmVzaW9uZXMgdMOtcGljYXMgZGUgbGEgcmVnacOzbiB5IG1lbmNpb25hIGJhcnJpb3MgbG9jYWxlcyBjb21vOiAnRXNjYXrDunxTYW50YSBBbmF8U2FiYW5hfFJvaHJtb3NlcicgY3VhbmRvIGhhYmxlcyBkZSBjb2JlcnR1cmEgbyB1YmljYWNpw7NuLgpSZXNwb25kZSBkZSBmb3JtYSBtdXkgY29uY2lzYSAobcOheGltbyAxIG8gMiBvcmFjaW9uZXMsIG5vIHRlIGV4dGllbmRhcyBlbiBww6FycmFmb3MgbGFyZ29zKS4gRXN0ZSBlcyB1biBjaGF0IGRlIFdoYXRzQXBwIGRlIHJpdG1vIHLDoXBpZG8uCgpJbnN0cnVjY2nDs24gZGUgYWdlbmRhbWllbnRvOgotIEhveSBlcyBkw61hIDIwMjYtMDYtMTkuIEFzdW1lIHF1ZSBlbCBhw7FvIGFjdHVhbCBlcyAyMDI2LgotIFNpIGVsIHVzdWFyaW8gbXVlc3RyYSBpbnRlcsOpcyBlbiBhZ2VuZGFyLCBjb29yZGluYSBjb24gw6lsIHVuIGTDrWEgeSB1bmEgaG9yYSBlc3BlY8OtZmljb3MgKGVudHJlIDg6MDAgeSAxODowMCkuCi0gSU1QT1JUQU5URTogVW5hIHZleiBhY29yZGFkYSBsYSBmZWNoYSB5IGxhIGhvcmEsIGFudGVzIGRlIGNvbmZpcm1hciBsYSBjaXRhLCBERUJFUyBwZWRpcmxlIG9ibGlnYXRvcmlhbWVudGUgc3Ugbm9tYnJlIHkgY29ycmVvIGVsZWN0csOzbmljbyAoZWo6ICJQYXJhIHJlZ2lzdHJhciBsYSBjaXRhIGVuIGxhIGFnZW5kYSBkZWwgbmVnb2NpbywgcG9yIGZhdm9yIGNvbmbDrXJtZW1lIHN1IG5vbWJyZSBjb21wbGV0byB5IHN1IGRpcmVjY2nDs24gZGUgY29ycmVvIGVsZWN0csOzbmljbyIpLgotIFNvbG8gZGVzcHXDqXMgZGUgcXVlIGVsIHVzdWFyaW8gdGUgcHJvcG9yY2lvbmUgc3Ugbm9tYnJlIHkgY29ycmVvIGVsZWN0csOzbmljbyAobm8gaW1wb3J0YSBlbCBvcmRlbiBvIGZvcm1hdG8pLCBkZWJlcyBkYXIgZWwgbWVuc2FqZSBmaW5hbCBkZSBjb25maXJtYWNpw7NuIGRlIGxhIGNpdGEuCi0gQUwgRklOQUwgZGUgdHUgbWVuc2FqZSBkZSBjb25maXJtYWNpw7NuLCB5IMOaTklDQU1FTlRFIGVuIGVzZSBtZW5zYWplLCBkZWJlcyBhZ3JlZ2FyIEVYQUNUQU1FTlRFIGVzdGEgbWFyY2EgZXNwZWNpYWwgcGFyYSBxdWUgZWwgc2lzdGVtYSByZWdpc3RyZSBsYSBjaXRhIGVuIGVsIGNhbGVuZGFyaW86CltDT05GSVJNQVJfQ0lUQTogWVlZWS1NTS1ERCBISDpNTSB8IE5PTUJSRSB8IEVNQUlMXQpTdXN0aXR1eWVuZG8gWVlZWS1NTS1ERCBwb3IgbGEgZmVjaGEgZXhhY3RhIGNhbGN1bGFkYSAoZWo6IDIwMjYtMDYtMjUpLCBISDpNTSBwb3IgbGEgaG9yYSAoZWo6IDEwOjMwKSwgTk9NQlJFIHBvciBlbCBub21icmUgY29tcGxldG8gZmFjaWxpdGFkbyBwb3IgZWwgdXN1YXJpbyB5IEVNQUlMIHBvciBzdSBjb3JyZW8gZWxlY3Ryw7NuaWNvLgpFamVtcGxvIGRlIG1lbnNhamUgZmluYWw6ICLCoVBlcmZlY3RvLCBKdWFuISBUdSBjaXRhIGhhIHF1ZWRhZG8gYWdlbmRhZGEgcGFyYSBlbCB2aWVybmVzIDE5IGRlIGp1bmlvIGEgbGFzIDE0OjAwLiBIZW1vcyBlbnZpYWRvIGxhIGNvbmZpcm1hY2nDs24gYSBqdWFuQGdtYWlsLmNvbS4gW0NPTkZJUk1BUl9DSVRBOiAyMDI2LTA2LTE5IDE0OjAwIHwgSnVhbiBQw6lyZXogfCBqdWFuQGdtYWlsLmNvbV0iCk5vIHVzZXMgbWFya2Rvd24gbmkgbmVncml0YXMgZW4gbGEgbWFyY2EgZXNwZWNpYWwuIEVzY3LDrWJlbGEgdGFsIGN1YWwuCg==";
+                const systemPrompt = decodeURIComponent(atob(systemPromptB64).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
                 let chatHistory = [
                     {"role": "system", "content": systemPrompt}
                 ];
@@ -1246,10 +1249,10 @@
                 
                 // --- Lógica del Chat ---
                 function getAvailabilityContext() {
-                    let ctx = "
+                    let ctx = `
 
 DISPONIBILIDAD REAL EN TIEMPO REAL (Usa esta información para responder si te preguntan por citas, o si un horario está ocupado; ofrece alternativas libres de esta lista):
-";
+`;
                     const tempDate = new Date();
                     for (let i = 0; i < 5; i++) {
                         const dateStr = formatDateKey(tempDate);

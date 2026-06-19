@@ -386,7 +386,10 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 // --- Variables Conversacionales ---
-                const systemPrompt = __SYSTEM_PROMPT_JSON__;
+                const systemPromptB64 = "__SYSTEM_PROMPT_B64__";
+                const systemPrompt = decodeURIComponent(atob(systemPromptB64).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
                 let chatHistory = [
                     {"role": "system", "content": systemPrompt}
                 ];
@@ -577,7 +580,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 
                 // --- Lógica del Chat ---
                 function getAvailabilityContext() {
-                    let ctx = "\n\nDISPONIBILIDAD REAL EN TIEMPO REAL (Usa esta información para responder si te preguntan por citas, o si un horario está ocupado; ofrece alternativas libres de esta lista):\n";
+                    let ctx = `\n\nDISPONIBILIDAD REAL EN TIEMPO REAL (Usa esta información para responder si te preguntan por citas, o si un horario está ocupado; ofrece alternativas libres de esta lista):\n`;
                     const tempDate = new Date();
                     for (let i = 0; i < 5; i++) {
                         const dateStr = formatDateKey(tempDate);
@@ -804,7 +807,9 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
     html = html.replace('__INDUSTRIA_SINGULAR__', industria_singular)
     html = html.replace('__CLIENTE_NEGOCIO__', cliente_negocio)
     html = html.replace('__BOT_INITIAL_MSG__', bot_initial_msg)
-    html = html.replace('__SYSTEM_PROMPT_JSON__', json.dumps(system_prompt))
+    import base64
+    system_prompt_b64 = base64.b64encode(system_prompt.encode('utf-8')).decode('utf-8')
+    html = html.replace('__SYSTEM_PROMPT_B64__', system_prompt_b64)
     
     return html
 

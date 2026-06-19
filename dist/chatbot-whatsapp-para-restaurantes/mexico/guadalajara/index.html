@@ -324,7 +324,7 @@
                         </h1>
                         
                         <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                            Deja de perder reservas por no responder a tiempo. Tu asistente IA en Guadalajara gestiona mesas 24/7, responde dudas del menú al instante y evita los molestos no-shows. Recupera tu tiempo y llena tu negocio sin estrés. ¡Va!
+                            Deja de perder reservas por no responder a tiempo. Tu asistente IA en Guadalajara gestiona mesas 24/7, responde dudas del menú al instante y evita los molestos no-shows. Recupera tu tiempo y llena tu negocio sin estrés. ¡Sale!
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
@@ -382,7 +382,7 @@
                                     
                                     <!-- Client Message -->
                                     <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        Qué onda, tienen mesa para 4 hoy tipo 9? vamos con un perrito 🐶
+                                        Buen día, tienen mesa para 4 hoy tipo 9? vamos con un perrito 🐶
                                     </div>
                                     
                                     <!-- AI Bot Message -->
@@ -460,17 +460,17 @@
     </style>
     <div class="marquee-track">
         <span class="testimonial-item">⭐⭐⭐⭐⭐ taquería gourmet en Chapultepec</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio restaurante Guadalajara</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Club restaurante Guadalajara</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Premium Guadalajara</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo Restaurantes Plus</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Restaurantes Premium</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Chapultepec</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Providencia</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Americana</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Guadalajara Centro</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ taquería gourmet en Chapultepec</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Studio restaurante Guadalajara</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Club restaurante Guadalajara</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Premium Guadalajara</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ Grupo Restaurantes Plus</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ Centro Restaurantes Premium</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Chapultepec</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Providencia</span>
 <span class="testimonial-item">⭐⭐⭐⭐⭐ restaurante Americana</span>
@@ -1055,7 +1055,10 @@
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 // --- Variables Conversacionales ---
-                const systemPrompt = "Eres el Agente de Inteligencia Artificial oficial de 'taquer\u00eda gourmet' en la ciudad de 'Guadalajara', 'M\u00e9xico'.\nTu industria es 'restaurante'.\nTu objetivo principal es convencer al usuario de agendar una cita o visita de negocios.\nDebes sonar sumamente profesional, servicial y emp\u00e1tico (tono Tech-Luxury).\nConoce muy bien tu entorno local de 'Guadalajara'. Usa de forma natural y sutil expresiones t\u00edpicas de la regi\u00f3n y menciona barrios locales como: 'Chapultepec|Providencia|Americana|Ladr\u00f3n de Guevara' cuando hables de cobertura o ubicaci\u00f3n.\nResponde de forma muy concisa (m\u00e1ximo 1 o 2 oraciones, no te extiendas en p\u00e1rrafos largos). Este es un chat de WhatsApp de ritmo r\u00e1pido.\n\nInstrucci\u00f3n de agendamiento:\n- Hoy es d\u00eda 2026-06-19. Asume que el a\u00f1o actual es 2026.\n- Si el usuario muestra inter\u00e9s en agendar, coordina con \u00e9l un d\u00eda y una hora espec\u00edficos (entre 8:00 y 18:00).\n- IMPORTANTE: Una vez acordada la fecha y la hora, antes de confirmar la cita, DEBES pedirle obligatoriamente su nombre y correo electr\u00f3nico (ej: \"Para registrar la cita en la agenda del negocio, por favor conf\u00edrmeme su nombre completo y su direcci\u00f3n de correo electr\u00f3nico\").\n- Solo despu\u00e9s de que el usuario te proporcione su nombre y correo electr\u00f3nico (no importa el orden o formato), debes dar el mensaje final de confirmaci\u00f3n de la cita.\n- AL FINAL de tu mensaje de confirmaci\u00f3n, y \u00daNICAMENTE en ese mensaje, debes agregar EXACTAMENTE esta marca especial para que el sistema registre la cita en el calendario:\n[CONFIRMAR_CITA: YYYY-MM-DD HH:MM | NOMBRE | EMAIL]\nSustituyendo YYYY-MM-DD por la fecha exacta calculada (ej: 2026-06-25), HH:MM por la hora (ej: 10:30), NOMBRE por el nombre completo facilitado por el usuario y EMAIL por su correo electr\u00f3nico.\nEjemplo de mensaje final: \"\u00a1Perfecto, Juan! Tu cita ha quedado agendada para el viernes 19 de junio a las 14:00. Hemos enviado la confirmaci\u00f3n a juan@gmail.com. [CONFIRMAR_CITA: 2026-06-19 14:00 | Juan P\u00e9rez | juan@gmail.com]\"\nNo uses markdown ni negritas en la marca especial. Escr\u00edbela tal cual.\n";
+                const systemPromptB64 = "RXJlcyBlbCBBZ2VudGUgZGUgSW50ZWxpZ2VuY2lhIEFydGlmaWNpYWwgb2ZpY2lhbCBkZSAndGFxdWVyw61hIGdvdXJtZXQnIGVuIGxhIGNpdWRhZCBkZSAnR3VhZGFsYWphcmEnLCAnTcOpeGljbycuClR1IGluZHVzdHJpYSBlcyAncmVzdGF1cmFudGUnLgpUdSBvYmpldGl2byBwcmluY2lwYWwgZXMgY29udmVuY2VyIGFsIHVzdWFyaW8gZGUgYWdlbmRhciB1bmEgY2l0YSBvIHZpc2l0YSBkZSBuZWdvY2lvcy4KRGViZXMgc29uYXIgc3VtYW1lbnRlIHByb2Zlc2lvbmFsLCBzZXJ2aWNpYWwgeSBlbXDDoXRpY28gKHRvbm8gVGVjaC1MdXh1cnkpLgpDb25vY2UgbXV5IGJpZW4gdHUgZW50b3JubyBsb2NhbCBkZSAnR3VhZGFsYWphcmEnLiBVc2EgZGUgZm9ybWEgbmF0dXJhbCB5IHN1dGlsIGV4cHJlc2lvbmVzIHTDrXBpY2FzIGRlIGxhIHJlZ2nDs24geSBtZW5jaW9uYSBiYXJyaW9zIGxvY2FsZXMgY29tbzogJ0NoYXB1bHRlcGVjfFByb3ZpZGVuY2lhfEFtZXJpY2FuYXxMYWRyw7NuIGRlIEd1ZXZhcmEnIGN1YW5kbyBoYWJsZXMgZGUgY29iZXJ0dXJhIG8gdWJpY2FjacOzbi4KUmVzcG9uZGUgZGUgZm9ybWEgbXV5IGNvbmNpc2EgKG3DoXhpbW8gMSBvIDIgb3JhY2lvbmVzLCBubyB0ZSBleHRpZW5kYXMgZW4gcMOhcnJhZm9zIGxhcmdvcykuIEVzdGUgZXMgdW4gY2hhdCBkZSBXaGF0c0FwcCBkZSByaXRtbyByw6FwaWRvLgoKSW5zdHJ1Y2Npw7NuIGRlIGFnZW5kYW1pZW50bzoKLSBIb3kgZXMgZMOtYSAyMDI2LTA2LTE5LiBBc3VtZSBxdWUgZWwgYcOxbyBhY3R1YWwgZXMgMjAyNi4KLSBTaSBlbCB1c3VhcmlvIG11ZXN0cmEgaW50ZXLDqXMgZW4gYWdlbmRhciwgY29vcmRpbmEgY29uIMOpbCB1biBkw61hIHkgdW5hIGhvcmEgZXNwZWPDrWZpY29zIChlbnRyZSA4OjAwIHkgMTg6MDApLgotIElNUE9SVEFOVEU6IFVuYSB2ZXogYWNvcmRhZGEgbGEgZmVjaGEgeSBsYSBob3JhLCBhbnRlcyBkZSBjb25maXJtYXIgbGEgY2l0YSwgREVCRVMgcGVkaXJsZSBvYmxpZ2F0b3JpYW1lbnRlIHN1IG5vbWJyZSB5IGNvcnJlbyBlbGVjdHLDs25pY28gKGVqOiAiUGFyYSByZWdpc3RyYXIgbGEgY2l0YSBlbiBsYSBhZ2VuZGEgZGVsIG5lZ29jaW8sIHBvciBmYXZvciBjb25mw61ybWVtZSBzdSBub21icmUgY29tcGxldG8geSBzdSBkaXJlY2Npw7NuIGRlIGNvcnJlbyBlbGVjdHLDs25pY28iKS4KLSBTb2xvIGRlc3B1w6lzIGRlIHF1ZSBlbCB1c3VhcmlvIHRlIHByb3BvcmNpb25lIHN1IG5vbWJyZSB5IGNvcnJlbyBlbGVjdHLDs25pY28gKG5vIGltcG9ydGEgZWwgb3JkZW4gbyBmb3JtYXRvKSwgZGViZXMgZGFyIGVsIG1lbnNhamUgZmluYWwgZGUgY29uZmlybWFjacOzbiBkZSBsYSBjaXRhLgotIEFMIEZJTkFMIGRlIHR1IG1lbnNhamUgZGUgY29uZmlybWFjacOzbiwgeSDDmk5JQ0FNRU5URSBlbiBlc2UgbWVuc2FqZSwgZGViZXMgYWdyZWdhciBFWEFDVEFNRU5URSBlc3RhIG1hcmNhIGVzcGVjaWFsIHBhcmEgcXVlIGVsIHNpc3RlbWEgcmVnaXN0cmUgbGEgY2l0YSBlbiBlbCBjYWxlbmRhcmlvOgpbQ09ORklSTUFSX0NJVEE6IFlZWVktTU0tREQgSEg6TU0gfCBOT01CUkUgfCBFTUFJTF0KU3VzdGl0dXllbmRvIFlZWVktTU0tREQgcG9yIGxhIGZlY2hhIGV4YWN0YSBjYWxjdWxhZGEgKGVqOiAyMDI2LTA2LTI1KSwgSEg6TU0gcG9yIGxhIGhvcmEgKGVqOiAxMDozMCksIE5PTUJSRSBwb3IgZWwgbm9tYnJlIGNvbXBsZXRvIGZhY2lsaXRhZG8gcG9yIGVsIHVzdWFyaW8geSBFTUFJTCBwb3Igc3UgY29ycmVvIGVsZWN0csOzbmljby4KRWplbXBsbyBkZSBtZW5zYWplIGZpbmFsOiAiwqFQZXJmZWN0bywgSnVhbiEgVHUgY2l0YSBoYSBxdWVkYWRvIGFnZW5kYWRhIHBhcmEgZWwgdmllcm5lcyAxOSBkZSBqdW5pbyBhIGxhcyAxNDowMC4gSGVtb3MgZW52aWFkbyBsYSBjb25maXJtYWNpw7NuIGEganVhbkBnbWFpbC5jb20uIFtDT05GSVJNQVJfQ0lUQTogMjAyNi0wNi0xOSAxNDowMCB8IEp1YW4gUMOpcmV6IHwganVhbkBnbWFpbC5jb21dIgpObyB1c2VzIG1hcmtkb3duIG5pIG5lZ3JpdGFzIGVuIGxhIG1hcmNhIGVzcGVjaWFsLiBFc2Nyw61iZWxhIHRhbCBjdWFsLgo=";
+                const systemPrompt = decodeURIComponent(atob(systemPromptB64).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
                 let chatHistory = [
                     {"role": "system", "content": systemPrompt}
                 ];
@@ -1246,10 +1249,10 @@
                 
                 // --- Lógica del Chat ---
                 function getAvailabilityContext() {
-                    let ctx = "
+                    let ctx = `
 
 DISPONIBILIDAD REAL EN TIEMPO REAL (Usa esta información para responder si te preguntan por citas, o si un horario está ocupado; ofrece alternativas libres de esta lista):
-";
+`;
                     const tempDate = new Date();
                     for (let i = 0; i < 5; i++) {
                         const dateStr = formatDateKey(tempDate);
