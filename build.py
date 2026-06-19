@@ -321,7 +321,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         </div>
 
                         <!-- Sección Izquierda: Calendario y Horas -->
-                        <div class="flex-1 flex flex-col min-w-0 h-full justify-between">
+                        <div id="calendar-left-col" class="flex-1 flex flex-col min-w-0 h-full justify-between">
                             <div>
                                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-4 mb-4 gap-2">
                                     <div>
@@ -374,7 +374,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         </div>
                         
                         <!-- Sección Derecha: Estado de la Reserva y Animación -->
-                        <div class="w-full lg:w-56 border-t lg:border-t-0 lg:border-l border-gray-100 dark:border-zinc-800/80 pt-4 lg:pt-0 lg:pl-4 flex flex-col shrink-0 h-full">
+                        <div id="calendar-right-col" class="hidden lg:flex w-full lg:w-56 border-t lg:border-t-0 lg:border-l border-gray-100 dark:border-zinc-800/80 pt-4 lg:pt-0 lg:pl-4 flex-col shrink-0 lg:h-full">
                             <h4 class="font-bold text-xs text-zinc-800 dark:text-zinc-200 mb-2 shrink-0">Estado de Reserva</h4>
                             <div id="booking-status-card" class="flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-zinc-50/50 dark:bg-zinc-950/30 border border-dashed border-zinc-200 dark:border-zinc-800/80 transition-all duration-500 overflow-hidden relative">
                                 <!-- Estado Inicial (Vacío) -->
@@ -541,7 +541,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         const dateStr = formatDateKey(cellDate);
                         
                         const dayCell = document.createElement("button");
-                        dayCell.className = "w-9 h-9 mx-auto rounded-full flex items-center justify-center text-xs font-semibold hover:bg-gray-100 dark:hover:bg-zinc-800 hover:scale-105 hover:shadow-sm transition-all focus:outline-none relative";
+                        dayCell.className = "w-8 h-8 lg:w-9 lg:h-9 mx-auto rounded-full flex items-center justify-center text-xs font-semibold hover:bg-gray-100 dark:hover:bg-zinc-800 hover:scale-105 hover:shadow-sm transition-all focus:outline-none relative";
                         dayCell.textContent = day;
                         
                         // Validar si es del pasado (en base al día real actual del sistema)
@@ -822,6 +822,16 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                                         successState.classList.add("flex");
                                         
                                         statusCard.className = "flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-gradient-to-br from-emerald-50/40 to-teal-50/30 dark:from-emerald-950/10 dark:to-teal-950/5 border border-emerald-100 dark:border-emerald-900/30 shadow-inner transition-all duration-500 overflow-hidden relative";
+                                        
+                                        // Ocultar calendario y mostrar ticket en versión móvil para maximizar espacio
+                                        const leftCol = document.getElementById("calendar-left-col");
+                                        const rightCol = document.getElementById("calendar-right-col");
+                                        if (leftCol && rightCol) {
+                                            leftCol.classList.remove("flex");
+                                            leftCol.classList.add("hidden", "lg:flex");
+                                            rightCol.classList.remove("hidden");
+                                            rightCol.classList.add("flex");
+                                        }
                                         
                                         setTimeout(() => {
                                             checkmark.classList.remove("scale-0");
