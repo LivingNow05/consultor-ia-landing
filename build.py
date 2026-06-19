@@ -247,8 +247,75 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 .visible-mobile-flex {
                     display: flex !important;
                 }
+                /* Ajustes de tamaño del calendario para móviles */
+                .calendar-container {
+                    padding: 14px !important;
+                    gap: 12px !important;
+                }
+                #calendar-days-grid {
+                    gap: 4px !important;
+                }
+                #calendar-days-grid button {
+                    width: 32px !important;
+                    height: 32px !important;
+                    font-size: 11px !important;
+                }
+                #calendar-left-col h3 {
+                    font-size: 14px !important;
+                }
+                #calendar-left-col p {
+                    font-size: 9px !important;
+                }
+                /* Compactación del Chat en móvil */
+                #demo-chat-body {
+                    padding: 10px !important;
+                }
+                #demo-chat-body > div {
+                    font-size: 13px !important;
+                    padding: 8px 12px !important;
+                    margin-bottom: 2px !important;
+                }
+                .lg\:col-span-5 .shrink-0 {
+                    padding: 8px 12px !important;
+                }
+                .lg\:col-span-5 h4 {
+                    font-size: 13px !important;
+                }
+                .lg\:col-span-5 p {
+                    font-size: 10px !important;
+                }
+                #chat-quick-replies {
+                    padding: 6px 12px !important;
+                }
+                #chat-quick-replies button {
+                    font-size: 10px !important;
+                    padding: 5px 10px !important;
+                }
+            }
+            /* Carrusel horizontal de slots de hora en móvil */
+            @media (max-width: 639px) {
+                #time-slots-container {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    flex-wrap: nowrap !important;
+                    overflow-x: auto !important;
+                    padding-bottom: 8px !important;
+                    gap: 8px !important;
+                    scrollbar-width: none !important;
+                    -ms-overflow-style: none !important;
+                }
+                #time-slots-container::-webkit-scrollbar {
+                    display: none !important;
+                }
+                #time-slots-container button {
+                    flex-shrink: 0 !important;
+                    min-width: 72px !important;
+                    padding: 6px 12px !important;
+                    font-size: 11px !important;
+                }
             }
         </style>
+
 
         <!-- Blobs decorativos -->
         <div class="absolute -top-[10%] -left-[10%] w-[30vw] h-[30vw] rounded-full bg-accent/5 dark:bg-accent/10 blur-[100px] pointer-events-none"></div>
@@ -267,7 +334,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-stretch">
                 <!-- Columna Izquierda: Chat de WhatsApp Mockup -->
-                <div class="lg:col-span-5 w-full flex flex-col h-[280px] lg:h-[600px] lg:max-h-[600px] lg:min-h-[600px]">
+                <div class="lg:col-span-5 w-full flex flex-col h-[360px] lg:h-[600px] lg:max-h-[600px] lg:min-h-[600px]">
                     <div class="flex-1 bg-[#efeae2] dark:bg-[#0b141a] rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-2xl overflow-hidden flex flex-col relative h-full max-h-full">
                         <!-- WhatsApp Chat Header -->
                         <div class="bg-[#075E54] dark:bg-[#202c33] px-4 py-3 flex items-center justify-between shrink-0 relative z-10 shadow-md">
@@ -320,10 +387,10 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 </div>
                 
                 <!-- Columna Derecha: Calendario y Disponibilidad -->
-                <div class="lg:col-span-7 w-full flex flex-col h-auto min-h-[550px] lg:h-[600px] lg:min-h-[600px] lg:max-h-[600px]">
-                    <div class="flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col lg:flex-row gap-6 h-full lg:max-h-full relative overflow-hidden">
+                <div class="lg:col-span-7 w-full flex flex-col h-auto min-h-[380px] lg:h-[600px] lg:min-h-[600px] lg:max-h-[600px]">
+                    <div class="calendar-container flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col lg:flex-row gap-6 h-full lg:max-h-full relative overflow-hidden">
                         <!-- Alerta de Confirmación de Cita -->
-                        <div id="booking-success-alert" class="absolute inset-x-6 top-6 z-50 bg-[#e6fffa] dark:bg-[#004d40]/40 border border-[#b2f5ea] dark:border-[#00796b] text-[#134e4a] dark:text-[#b2f5ea] p-4 rounded-2xl flex items-center gap-3 shadow-lg transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-500">
+                        <div id="booking-success-alert" class="absolute inset-x-4 top-4 z-50 bg-[#e6fffa]/95 dark:bg-[#004d40]/75 backdrop-blur-md border border-[#b2f5ea] dark:border-[#00796b]/60 text-[#134e4a] dark:text-[#b2f5ea] p-3 sm:p-4 rounded-2xl flex items-center gap-3 shadow-xl transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-500">
                             <div class="w-10 h-10 rounded-full bg-[#319795] text-white flex items-center justify-center shrink-0">
                                 <i class="fas fa-check-circle text-lg"></i>
                             </div>
@@ -411,10 +478,10 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                                     </span>
                                     
                                     <!-- Detalles del ticket -->
-                                    <div class="w-full bg-white dark:bg-zinc-900 border border-gray-150 dark:border-zinc-800/80 rounded-2xl p-4 text-left text-[11px] space-y-2.5 shadow-md relative overflow-hidden">
+                                    <div class="w-full bg-white dark:bg-zinc-800 border border-gray-150 dark:border-zinc-700/60 rounded-2xl p-4 text-left text-[11px] space-y-2.5 shadow-md relative overflow-hidden">
                                         <!-- Cutouts left & right -->
-                                        <div class="absolute top-[48%] -left-1.5 w-3 h-3 bg-gradient-to-br from-[#f4fbf9] to-[#edfcf8] dark:from-[#061e19] dark:to-[#041511] rounded-full border-r border-emerald-100 dark:border-emerald-900/30"></div>
-                                        <div class="absolute top-[48%] -right-1.5 w-3 h-3 bg-gradient-to-br from-[#f4fbf9] to-[#edfcf8] dark:from-[#061e19] dark:to-[#041511] rounded-full border-l border-emerald-100 dark:border-emerald-900/30"></div>
+                                        <div class="absolute top-[48%] -left-1.5 w-3 h-3 bg-gradient-to-br from-[#f4fbf9] to-[#edfcf8] dark:from-[#0b1b17] dark:to-[#091a16] rounded-full border-r border-emerald-100 dark:border-emerald-800/35"></div>
+                                        <div class="absolute top-[48%] -right-1.5 w-3 h-3 bg-gradient-to-br from-[#f4fbf9] to-[#edfcf8] dark:from-[#0b1b17] dark:to-[#091a16] rounded-full border-l border-emerald-100 dark:border-emerald-800/35"></div>
                                         
                                         <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1.5">
                                             <span class="text-zinc-400 font-medium">Cliente:</span>
@@ -624,7 +691,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                             slotBtn.className += " bg-gradient-to-r from-emerald-500 to-teal-600 border-transparent text-white shadow-md shadow-emerald-500/10 pointer-events-none";
                             slotBtn.innerHTML = '<i class="fas fa-check text-[9px]"></i> ' + h;
                         } else if (status === 'occupied') {
-                            slotBtn.className += " bg-zinc-50 dark:bg-zinc-900/50 border-zinc-100 dark:border-zinc-800/80 text-zinc-300 dark:text-zinc-650 pointer-events-none";
+                            slotBtn.className += " bg-zinc-50 dark:bg-zinc-900/50 border-zinc-100 dark:border-zinc-800/80 text-zinc-300 dark:text-zinc-600 pointer-events-none";
                             slotBtn.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></span>' + h;
                         } else {
                             slotBtn.className += " bg-zinc-50/50 dark:bg-zinc-900/30 border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/30 dark:hover:bg-blue-950/10 cursor-pointer";
@@ -839,7 +906,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                                         successState.classList.remove("hidden");
                                         successState.classList.add("flex");
                                         
-                                        statusCard.className = "w-full h-auto min-h-[220px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-gradient-to-br from-emerald-50/40 to-teal-50/30 dark:from-emerald-950/10 dark:to-teal-950/5 border border-emerald-100 dark:border-emerald-900/30 shadow-inner transition-all duration-500 overflow-hidden relative";
+                                        statusCard.className = "w-full h-auto min-h-[200px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-gradient-to-br from-emerald-50/40 to-teal-50/30 dark:from-emerald-950/35 dark:to-teal-950/20 border border-emerald-100 dark:border-emerald-800/40 shadow-inner transition-all duration-500 overflow-hidden relative";
                                         
                                         // Ocultar calendario y mostrar ticket en versión móvil para maximizar espacio
                                         const leftCol = document.getElementById("calendar-left-col");
@@ -1105,7 +1172,7 @@ def build_roadmap_html(row):
                     <!-- Paso 1 -->
                     <div class="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group">
                         <div class="md:w-5/12 text-left md:text-right pl-16 md:pl-0 md:pr-12">
-                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">1. Auditoría y Estrategia</h3>
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">1. Auditoría y Estrategia</h3>
                             <p class="text-gray-500 dark:text-slate-400">Analizamos el flujo de ventas de tu {industria} y definimos la personalidad y base de conocimiento del agente.</p>
                         </div>
                         <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-brand-light dark:text-white shadow-xl z-10">1</div>
@@ -1117,7 +1184,7 @@ def build_roadmap_html(row):
                         <div class="md:w-5/12 pr-0 md:pr-12 hidden md:block"></div>
                         <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-brand-light dark:text-white shadow-xl z-10">2</div>
                         <div class="md:w-5/12 pl-16 md:pl-12 text-left">
-                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">2. Entrenamiento IA</h3>
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">2. Entrenamiento IA</h3>
                             <p class="text-gray-500 dark:text-slate-400">Cargamos tus PDFs, FAQs e historial de WhatsApp para que la IA responda como tu mejor vendedor.</p>
                         </div>
                     </div>
@@ -1125,7 +1192,7 @@ def build_roadmap_html(row):
                     <!-- Paso 3 -->
                     <div class="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group">
                         <div class="md:w-5/12 text-left md:text-right pl-16 md:pl-0 md:pr-12">
-                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">3. Integración WhatsApp</h3>
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">3. Integración WhatsApp</h3>
                             <p class="text-gray-500 dark:text-slate-400">Conectamos el cerebro de IA con el número de WhatsApp oficial de tu negocio de forma segura.</p>
                         </div>
                         <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-brand-light dark:text-white shadow-xl z-10">3</div>
@@ -1137,7 +1204,7 @@ def build_roadmap_html(row):
                         <div class="md:w-5/12 pr-0 md:pr-12 hidden md:block"></div>
                         <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-brand dark:bg-zinc-800 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-white shadow-xl z-10">4</div>
                         <div class="md:w-5/12 pl-16 md:pl-12 text-left">
-                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">4. Lanzamiento y Optimización</h3>
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">4. Lanzamiento y Optimización</h3>
                             <p class="text-gray-500 dark:text-slate-400">Encendemos el agente. Monitoreamos las primeras conversaciones y ajustamos sus respuestas en tiempo real.</p>
                         </div>
                     </div>
@@ -1661,9 +1728,9 @@ def build_home_page(data):
             <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
         </a>
         <nav class="hidden md:flex space-x-8 items-center">
-            <a href="#como-funciona" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Como Funciona</a>
-            <a href="#industrias" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Industrias</a>
-            <a href="/blog/" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
+            <a href="#como-funciona" class="font-medium text-zinc-600 dark:text-zinc-600 hover:text-brand dark:hover:text-brand-light transition-colors">Como Funciona</a>
+            <a href="#industrias" class="font-medium text-zinc-600 dark:text-zinc-600 hover:text-brand dark:hover:text-brand-light transition-colors">Industrias</a>
+            <a href="/blog/" class="font-medium text-zinc-600 dark:text-zinc-600 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
             <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
                 <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                 <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
@@ -1816,10 +1883,10 @@ def build_home_page(data):
         </div>
         
         <nav class="flex flex-col space-y-6 text-2xl font-header font-bold">
-            <a href="/" class="hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Inicio</a>
-            <a href="#como-funciona" class="mobile-link hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Cómo Funciona</a>
-            <a href="#precios" class="mobile-link hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Precios</a>
-            <a href="/blog/" class="hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light transition-colors">Blog</a>
+            <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a>
+            <a href="#como-funciona" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
+            <a href="#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+            <a href="/blog/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
         </nav>
 
         <div class="mt-auto pt-8 border-t border-zinc-200 dark:border-zinc-800">
@@ -2459,7 +2526,7 @@ def get_mega_menu(data):
             html += f'<div class="bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border border-gray-200 dark:border-zinc-800 shadow-2xl rounded-xl p-2">'
             html += f'<ul class="space-y-0.5">'
             for ciudad, url in ciudades:
-                html += f'<li><a href="{url}" class="block py-1.5 px-3 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light hover:bg-brand/5 dark:hover:bg-brand/10 transition-all duration-200">{ciudad}</a></li>'
+                html += f'<li><a href="{url}" class="block py-1.5 px-3 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-brand dark:hover:text-brand-light hover:bg-brand/5 dark:hover:bg-brand/10 transition-all duration-200">{ciudad}</a></li>'
             html += f'</ul></div></div></li>'
             
         html += f'</ul></div></div></li>'
@@ -2787,7 +2854,7 @@ def build():
         enlaces_paises = ""
         for p_slug, p_data in ind_data['paises'].items():
             p_name = p_data['name']
-            enlaces_paises += f'<a href="/{ind_slug}/{p_slug}/" class="group block p-6 rounded-3xl bg-white dark:bg-zinc-900/50 backdrop-blur-sm border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 relative"><div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="relative z-10 flex flex-col items-center text-center"><h3 class="text-xl font-bold mb-2 text-zinc-900 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light dark:group-hover:text-brand dark:group-hover:text-brand-light dark:hover:text-brand-light-light transition-colors">{p_name}</h3><span class="text-sm font-semibold text-accent flex items-center gap-1 uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Explorar Ciudades <i class="fas fa-arrow-right text-[10px]"></i></span></div></a>\n'
+            enlaces_paises += f'<a href="/{ind_slug}/{p_slug}/" class="group block p-6 rounded-3xl bg-white dark:bg-zinc-900/50 backdrop-blur-sm border border-gray-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 relative"><div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div><div class="relative z-10 flex flex-col items-center text-center"><h3 class="text-xl font-bold mb-2 text-zinc-900 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">{p_name}</h3><span class="text-sm font-semibold text-accent flex items-center gap-1 uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">Explorar Ciudades <i class="fas fa-arrow-right text-[10px]"></i></span></div></a>\n'
         
         html = html.replace('{ENLACES_PAISES}', enlaces_paises)
         
