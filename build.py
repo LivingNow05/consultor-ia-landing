@@ -153,6 +153,7 @@ def build_testimonials_html(row):
         {marquee_content}
     </div>
 </section>'''
+    return html
 
 
 def build_demo_interactiva_html(row):
@@ -215,8 +216,8 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
             
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                 <!-- Columna Izquierda: Chat de WhatsApp Mockup -->
-                <div class="lg:col-span-5 w-full flex flex-col">
-                    <div class="flex-1 bg-[#efeae2] dark:bg-[#0b141a] rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-2xl overflow-hidden flex flex-col relative h-[600px]">
+                <div class="lg:col-span-5 w-full flex flex-col h-[600px] max-h-[600px] min-h-[600px]">
+                    <div class="flex-1 bg-[#efeae2] dark:bg-[#0b141a] rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-2xl overflow-hidden flex flex-col relative h-full max-h-full">
                         <!-- WhatsApp Chat Header -->
                         <div class="bg-[#075E54] dark:bg-[#202c33] px-4 py-3 flex items-center justify-between shrink-0 relative z-10 shadow-md">
                             <div class="flex items-center gap-3">
@@ -236,7 +237,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         </div>
                         
                         <!-- Chat Body -->
-                        <div id="demo-chat-body" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 relative" style="height: calc(100% - 110px);">
+                        <div id="demo-chat-body" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 relative z-10">
                             <!-- Background Pattern overlay -->
                             <div class="absolute inset-0 opacity-[0.12] dark:opacity-[0.03] bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center pointer-events-none z-0"></div>
                             
@@ -264,8 +265,8 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 </div>
                 
                 <!-- Columna Derecha: Calendario y Disponibilidad -->
-                <div class="lg:col-span-7 w-full flex flex-col">
-                    <div class="flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-6 shadow-2xl flex flex-col lg:flex-row gap-6 h-[600px] relative overflow-hidden">
+                <div class="lg:col-span-7 w-full flex flex-col h-[600px] max-h-[600px] min-h-[600px]">
+                    <div class="flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-6 shadow-2xl flex flex-col lg:flex-row gap-6 h-full max-h-full relative overflow-hidden">
                         <!-- Alerta de Confirmación de Cita -->
                         <div id="booking-success-alert" class="absolute inset-x-6 top-6 z-50 bg-[#e6fffa] dark:bg-[#004d40]/40 border border-[#b2f5ea] dark:border-[#00796b] text-[#134e4a] dark:text-[#b2f5ea] p-4 rounded-2xl flex items-center gap-3 shadow-lg transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-500">
                             <div class="w-10 h-10 rounded-full bg-[#319795] text-white flex items-center justify-center shrink-0">
@@ -575,6 +576,28 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 });
                 
                 // --- Lógica del Chat ---
+                function getAvailabilityContext() {
+                    let ctx = "\n\nDISPONIBILIDAD REAL EN TIEMPO REAL (Usa esta información para responder si te preguntan por citas, o si un horario está ocupado; ofrece alternativas libres de esta lista):\n";
+                    const tempDate = new Date();
+                    for (let i = 0; i < 5; i++) {
+                        const dateStr = formatDateKey(tempDate);
+                        const slots = availabilityDb[dateStr] || {};
+                        const freeSlots = [];
+                        const busySlots = [];
+                        Object.keys(slots).forEach(h => {
+                            if (slots[h] === 'available') {
+                                freeSlots.push(h);
+                            } else {
+                                busySlots.push(h);
+                            }
+                        });
+                        const dateHuman = formatHumanDate(dateStr);
+                        ctx += `- ${dateHuman} (${dateStr}): Libres: [${freeSlots.join(", ")}]. Ocupados: [${busySlots.join(", ")}].\n`;
+                        tempDate.setDate(tempDate.getDate() + 1);
+                    }
+                    return ctx;
+                }
+
                 function appendMessage(sender, text, timestamp) {
                     const msgDiv = document.createElement("div");
                     const time = timestamp || new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
@@ -604,6 +627,9 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                     
                     // Guardar en el historial
                     chatHistory.push({"role": "user", "content": messageText});
+                    
+                    // Actualizar el primer mensaje de system con la disponibilidad real actual
+                    chatHistory[0].content = systemPrompt + getAvailabilityContext();
                     
                     // Crear e insertar burbuja de "escribiendo..." en el cuerpo del chat
                     const typingDiv = document.createElement("div");
@@ -652,66 +678,92 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         // Remover la burbuja de escribiendo
                         typingDiv.remove();
                         
-                        // Parsear la respuesta para buscar confirmación de cita con nombre y email opcionales
-                        // Formato: [CONFIRMAR_CITA: YYYY-MM-DD HH:MM | NOMBRE | EMAIL]
-                        const match = botResponse.match(/\[CONFIRMAR_CITA:\s*(\d{4}-\d{2}-\d{2})\s+(\d{2}:\d{2})(?:\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*)?\]/i);
-                        
-                        if (match) {
-                            const dateKey = match[1];
-                            const timeKey = match[2];
-                            const clientName = match[3] ? match[3].trim() : "Usuario Demo";
-                            const clientEmail = match[4] ? match[4].trim() : "demo@consultor-ia.com.co";
-                            
-                            // Guardar reserva en la base de datos local
-                            confirmedBooking = { date: dateKey, time: timeKey, name: clientName, email: clientEmail };
-                            if (!availabilityDb[dateKey]) {
-                                availabilityDb[dateKey] = {};
+                        // Parsear de forma ultra robusta y tolerante el tag de confirmación
+                        const confirmIdx = botResponse.indexOf("[CONFIRMAR_CITA:");
+                        if (confirmIdx !== -1) {
+                            const endIdx = botResponse.indexOf("]", confirmIdx);
+                            if (endIdx !== -1) {
+                                const fullTag = botResponse.substring(confirmIdx, endIdx + 1);
+                                const tagContent = botResponse.substring(confirmIdx + 16, endIdx).trim();
+                                const parts = tagContent.split("|").map(p => p.trim());
+                                
+                                // Extraer fecha y hora de la primera parte
+                                const dateTimePart = parts[0];
+                                const dateMatch = dateTimePart.match(/(\d{4}-\d{2}-\d{2})/);
+                                const timeMatch = dateTimePart.match(/(\d{2}:\d{2})/);
+                                
+                                if (dateMatch && timeMatch) {
+                                    const dateKey = dateMatch[1];
+                                    const timeKey = timeMatch[1];
+                                    
+                                    // Nombre es la segunda parte o fallback
+                                    let clientName = "Usuario Demo";
+                                    if (parts.length > 1 && parts[1]) {
+                                        clientName = parts[1];
+                                    }
+                                    
+                                    // Email es la tercera parte o fallback
+                                    let clientEmail = "demo@consultor-ia.com.co";
+                                    if (parts.length > 2 && parts[2]) {
+                                        clientEmail = parts[2];
+                                    } else if (parts.length > 1 && parts[1].includes("@")) {
+                                        clientEmail = parts[1];
+                                        clientName = "Usuario Demo";
+                                    }
+                                    
+                                    // Guardar reserva en la base de datos local
+                                    confirmedBooking = { date: dateKey, time: timeKey, name: clientName, email: clientEmail };
+                                    if (!availabilityDb[dateKey]) {
+                                        availabilityDb[dateKey] = {};
+                                    }
+                                    availabilityDb[dateKey][timeKey] = 'booked';
+                                    
+                                    // Remover la firma estructurada de la respuesta del bot para que no la vea el usuario
+                                    botResponse = botResponse.substring(0, confirmIdx).trim() + " " + botResponse.substring(endIdx + 1).trim();
+                                    botResponse = botResponse.trim();
+                                    
+                                    // Mostrar alerta premium superior de reserva
+                                    bookingAlertText.textContent = "El Agente agendó tu cita para el " + formatHumanDate(dateKey) + " a las " + timeKey + ".";
+                                    bookingSuccessAlert.classList.remove("opacity-0", "pointer-events-none", "-translate-y-4");
+                                    bookingSuccessAlert.classList.add("opacity-100", "translate-y-0");
+                                    
+                                    // Actualizar los datos del Ticket lateral derecho
+                                    document.getElementById("ticket-name").textContent = clientName;
+                                    document.getElementById("ticket-email").textContent = clientEmail;
+                                    document.getElementById("ticket-date").textContent = formatHumanDate(dateKey);
+                                    document.getElementById("ticket-time").textContent = timeKey;
+                                    
+                                    // Activar visualización del ticket y checkmark animado en el panel derecho
+                                    const emptyState = document.getElementById("booking-status-empty");
+                                    const successState = document.getElementById("booking-status-success");
+                                    const checkmark = document.getElementById("success-checkmark");
+                                    const statusCard = document.getElementById("booking-status-card");
+                                    
+                                    emptyState.classList.add("hidden");
+                                    successState.classList.remove("hidden");
+                                    successState.classList.add("flex");
+                                    
+                                    statusCard.className = "flex-1 flex flex-col items-center justify-center text-center p-3 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/80 shadow-inner transition-all duration-500 overflow-hidden";
+                                    
+                                    setTimeout(() => {
+                                        checkmark.classList.remove("scale-0");
+                                        checkmark.classList.add("scale-100");
+                                    }, 100);
+                                    
+                                    // Actualizar calendario visualmente
+                                    renderCalendar(currentYear, currentMonth);
+                                    if (selectedDateStr === dateKey) {
+                                        const dummyDate = new Date(dateKey + "T00:00:00");
+                                        selectDate(dateKey, dummyDate);
+                                    }
+                                    
+                                    // Ocultar alerta superior a los 7 segundos
+                                    setTimeout(() => {
+                                        bookingSuccessAlert.classList.add("opacity-0", "pointer-events-none", "-translate-y-4");
+                                        bookingSuccessAlert.classList.remove("opacity-100", "translate-y-0");
+                                    }, 7000);
+                                }
                             }
-                            availabilityDb[dateKey][timeKey] = 'booked';
-                            
-                            // Remover la firma estructurada de la respuesta del bot para que no la vea el usuario
-                            botResponse = botResponse.replace(/\[CONFIRMAR_CITA:.*?\]/gi, "").trim();
-                            
-                            // Mostrar alerta premium superior de reserva
-                            bookingAlertText.textContent = "El Agente agendó tu cita para el " + formatHumanDate(dateKey) + " a las " + timeKey + ".";
-                            bookingSuccessAlert.classList.remove("opacity-0", "pointer-events-none", "-translate-y-4");
-                            bookingSuccessAlert.classList.add("opacity-100", "translate-y-0");
-                            
-                            // Actualizar los datos del Ticket lateral derecho
-                            document.getElementById("ticket-name").textContent = clientName;
-                            document.getElementById("ticket-email").textContent = clientEmail;
-                            document.getElementById("ticket-date").textContent = formatHumanDate(dateKey);
-                            document.getElementById("ticket-time").textContent = timeKey;
-                            
-                            // Activar visualización del ticket y checkmark animado en el panel derecho
-                            const emptyState = document.getElementById("booking-status-empty");
-                            const successState = document.getElementById("booking-status-success");
-                            const checkmark = document.getElementById("success-checkmark");
-                            const statusCard = document.getElementById("booking-status-card");
-                            
-                            emptyState.classList.add("hidden");
-                            successState.classList.remove("hidden");
-                            successState.classList.add("flex");
-                            
-                            statusCard.className = "flex-1 flex flex-col items-center justify-center text-center p-3 rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800/80 shadow-inner transition-all duration-500 overflow-hidden";
-                            
-                            setTimeout(() => {
-                                checkmark.classList.remove("scale-0");
-                                checkmark.classList.add("scale-100");
-                            }, 100);
-                            
-                            // Actualizar calendario visualmente
-                            renderCalendar(currentYear, currentMonth);
-                            if (selectedDateStr === dateKey) {
-                                const dummyDate = new Date(dateKey + "T00:00:00");
-                                selectDate(dateKey, dummyDate);
-                            }
-                            
-                            // Ocultar alerta superior a los 7 segundos
-                            setTimeout(() => {
-                                bookingSuccessAlert.classList.add("opacity-0", "pointer-events-none", "-translate-y-4");
-                                bookingSuccessAlert.classList.remove("opacity-100", "translate-y-0");
-                            }, 7000);
                         }
                         
                         // Mostrar respuesta del bot
@@ -720,7 +772,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         
                     } catch (error) {
                         console.error("Error:", error);
-                        typingDiv.remove();
+                        if (typingDiv) typingDiv.remove();
                         appendMessage('bot', "Lo siento, tuve un problema al procesar su solicitud. ¿Podría intentarlo de nuevo?");
                     } finally {
                         chatStatus.textContent = "en línea";
@@ -1558,6 +1610,9 @@ def build_home_page(data):
     </div>
 </section>
 
+<!-- Testimonials Marquee (Scroll Infinito de Reseñas) -->
+{{TESTIMONIALS_HTML}}
+
 <!-- STATS -->
 <section class="py-12 border-y border-gray-border dark:border-zinc-800 bg-[#FDFBF7] dark:bg-zinc-900">
     <div class="container mx-auto px-4 max-w-5xl">
@@ -1703,6 +1758,8 @@ def build_home_page(data):
 </html>"""
 
     html = html.replace('{WA_NUMERO}', WA_NUMERO)
+    testimonials_html = build_testimonials_html({'Ciudad': 'Colombia', 'Industria_Singular': 'negocio', 'Industria': 'Negocios', 'Cliente_Negocio': '', 'Cliente_Barrio': '', 'Barrios': 'Bogotá | Medellín | Cali | Barranquilla | Bucaramanga | Cartagena'})
+    html = html.replace('{TESTIMONIALS_HTML}', testimonials_html)
 
     output_path = os.path.join(DIST_DIR, "index.html")
     with open(output_path, "w", encoding="utf-8") as f:
@@ -2743,7 +2800,8 @@ def build_agencia_pages(data, footer_html, mega_menu_html, urls):
             '{PRECIO_BAJO}': row.get('Precio_Bajo', '800.000'),
             '{PRECIO_MEDIO}': row.get('Precio_Medio', '1.800.000'),
             '{PRECIO_ALTO}': row.get('Precio_Alto', '3.500.000'),
-            '{MONEDA}': row.get('Moneda', 'COP')
+            '{MONEDA}': row.get('Moneda', 'COP'),
+            '{TESTIMONIALS_HTML}': build_testimonials_html(row)
         }
         
         for k, v in replacements.items():
