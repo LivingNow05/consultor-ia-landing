@@ -2578,7 +2578,205 @@ def build_ciudades_hermanas(row, data):
     for r in data:
         if r['Estado'] == 'PUBLICAR' and r['Ciudad'] in hermanas_names and r['Industria'] == row['Industria']:
             html += f'<a href="{r["URL_Final"]}" class="card-ciudad">{r["Ciudad"]}</a>'
-        return html
+    return html
+
+# Cache for published blogs
+_published_blogs = None
+# Cache for reading times of unique blog slugs
+_reading_time_cache = {}
+
+def get_published_blogs():
+    global _published_blogs
+    if _published_blogs is None:
+        blogs_file = 'data/published_blogs.json'
+        if os.path.exists(blogs_file):
+            try:
+                with open(blogs_file, 'r', encoding='utf-8') as f:
+                    _published_blogs = json.load(f)
+            except Exception as e:
+                print("Error loading published_blogs.json:", e)
+                _published_blogs = []
+        else:
+            _published_blogs = []
+    return _published_blogs
+
+def calculate_reading_time(slug):
+    global _reading_time_cache
+    if slug in _reading_time_cache:
+        return _reading_time_cache[slug]
+        
+    filepath = f"dist/blog/{slug}/index.html"
+    if os.path.exists(filepath):
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
+            # Remove HTML tags to count words
+            text = re.sub(r'<[^>]+>', '', content)
+            words = len(text.split())
+            minutes = max(1, round(words / 200))
+            _reading_time_cache[slug] = minutes
+            return minutes
+        except Exception as e:
+            print(f"Error calculating reading time for {slug}: {e}")
+            
+    _reading_time_cache[slug] = 5  # Fallback
+    return 5
+
+INDUSTRY_BLOG_MAPPING = {
+    'Restaurantes': 'ia-para-restaurantes',
+    'Salones de Belleza': 'ia-para-salones-de-belleza',
+    'Spas y Centros de Estética': 'ia-para-salones-de-belleza',
+    'Clínicas Dentales': 'ia-para-salud',
+    'Veterinarias': 'ia-para-salud',
+    'Hoteles y Hostales': 'ia-para-hoteles',
+    'Inmobiliarias': 'chatbot-whatsapp-para-inmobiliarias'
+}
+
+GENERAL_BLOG_SLUGS = [
+    'precios-agente-ia-latam',
+    'como-implementar-agente-ia',
+    'casos-exito-ia-pymes',
+    'agente-ia-vs-chatbot',
+    'chatbot-whatsapp',
+    'ia-para-negocios',
+    'ia-para-empresas',
+    'ia-para-pymes'
+]
+
+BLOG_CATEGORY_TAGS = {
+    'ia-para-restaurantes': 'Restaurantes',
+    'ia-para-salones-de-belleza': 'Estética',
+    'ia-para-salud': 'Salud',
+    'ia-para-hoteles': 'Hotelería',
+    'chatbot-whatsapp-para-inmobiliarias': 'Inmobiliaria',
+    'ia-para-retail': 'Retail',
+    'precios-agente-ia-latam': 'Precios',
+    'como-implementar-agente-ia': 'Implementación',
+    'agente-ia-vs-chatbot': 'Tecnología',
+    'casos-exito-ia-pymes': 'Casos de Éxito',
+    'chatbot-whatsapp': 'Automatización'
+}
+
+def build_blog_recomendaciones_html(row):
+    blogs = get_published_blogs()
+    if not blogs:
+        return ""
+        
+    industry = row.get('Industria', '')
+    target_slug = INDUSTRY_BLOG_MAPPING.get(industry)
+    
+    selected_blogs = []
+    
+    # 1. Add specific industry blog if available
+    if target_slug:
+        specific_blog = next((b for b in blogs if b.get('slug') == target_slug), None)
+        if specific_blog:
+            selected_blogs.append(specific_blog)
+            
+    # 2. Complete with preferred general articles
+    for slug in GENERAL_BLOG_SLUGS:
+        if len(selected_blogs) >= 3:
+            break
+        blog_item = next((b for b in blogs if b.get('slug') == slug), None)
+        if blog_item and blog_item not in selected_blogs:
+            selected_blogs.append(blog_item)
+            
+    # 3. Security fallback: if less than 3, add the most recent ones not already selected
+    for b in blogs:
+        if len(selected_blogs) >= 3:
+            break
+        if b not in selected_blogs:
+            selected_blogs.append(b)
+            
+    # Build HTML output for cards
+    cards_html = ""
+    for blog in selected_blogs:
+        slug = blog.get('slug', '')
+        title = blog.get('title', '')
+        desc = blog.get('description', '')
+        image = blog.get('image', '/images/og-home.webp')
+        category = blog.get('category', 'Negocios')
+        
+        # Localize category tag if mapped
+        tag_text = BLOG_CATEGORY_TAGS.get(slug, category)
+        minutes = calculate_reading_time(slug)
+        
+        card = f"""
+                <article class="blog-card-rec bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 overflow-hidden shadow-sm flex flex-col h-full">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="{image}" alt="{title}" class="blog-card-img w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-brand/90 dark:bg-brand-light/90 text-white dark:text-zinc-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10">
+                            {tag_text}
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-medium text-zinc-400 dark:text-zinc-500 uppercase tracking-widest flex items-center gap-1.5 mb-2">
+                                <i class="far fa-clock text-xs"></i> Lectura: {minutes} min
+                            </span>
+                            <h3 class="text-lg font-header font-bold text-zinc-950 dark:text-white mb-3 hover:text-brand dark:hover:text-brand-light transition-colors line-clamp-2">
+                                <a href="/blog/{slug}/">{title}</a>
+                            </h3>
+                            <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-3 mb-4">
+                                {desc}
+                            </p>
+                        </div>
+                        <a href="/blog/{slug}/" class="text-brand dark:text-brand-light font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:gap-3 transition-all">
+                            Leer artículo <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>"""
+        cards_html += card
+
+    # Wrap in the main section block
+    section_html = f"""
+        <!-- 9. Recomendaciones de Blog para Retención -->
+        <section class="py-24 border-t border-gray-border dark:border-zinc-800 bg-[#FAF9FF] dark:bg-zinc-950/30">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-4 text-zinc-900 dark:text-white tracking-tight">
+                        Aprende a Escalar y Automatizar tu Negocio con Inteligencia Artificial
+                    </h2>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+                        Artículos y guías exclusivas para potenciar tu sector utilizando tecnología de vanguardia.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+{cards_html}
+                </div>
+                
+                <div class="text-center">
+                    <a href="/blog/" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-8 py-4 overflow-hidden transition-all duration-500 rounded-xl">
+                        <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                        <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.25em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                            Ver todos los artículos <i class="fas fa-arrow-right text-[12px]"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            
+            <style>
+                .blog-card-rec {{
+                    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+                }}
+                .blog-card-rec:hover {{
+                    transform: translateY(-6px);
+                    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+                }}
+                .dark .blog-card-rec:hover {{
+                    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+                }}
+                .blog-card-img {{
+                    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+                }}
+                .blog-card-rec:hover .blog-card-img {{
+                    transform: scale(1.06);
+                }}
+            </style>
+        </section>
+    """
+    return section_html
 
 def build_dynamic_eeat_html(row):
     html_content = row.get('Contenido_EEAT', '')
@@ -2813,6 +3011,7 @@ def build():
             '{FAQS_HTML}': faqs_html,
             '{SCHEMA_FAQ}': schema_faq,
             '{CIUDADES_HERMANAS_HTML}': hermanas_html,
+            '{BLOG_RECOMENDACIONES_HTML}': build_blog_recomendaciones_html(row),
             '{WA_NUMERO}': WA_NUMERO,
             '{WA_MENSAJE_ENCODED}': wa_encoded,
             '{BARRIO_PRINCIPAL}': barrio_principal,

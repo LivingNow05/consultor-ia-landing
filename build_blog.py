@@ -1,6 +1,35 @@
 import json
 import os
 import shutil
+import re
+
+BLOG_CATEGORY_TAGS = {
+    'ia-para-restaurantes': 'Restaurantes',
+    'ia-para-salones-de-belleza': 'Estética',
+    'ia-para-salud': 'Salud',
+    'ia-para-hoteles': 'Hotelería',
+    'chatbot-whatsapp-para-inmobiliarias': 'Inmobiliaria',
+    'ia-para-retail': 'Retail',
+    'precios-agente-ia-latam': 'Precios',
+    'como-implementar-agente-ia': 'Implementación',
+    'agente-ia-vs-chatbot': 'Tecnología',
+    'casos-exito-ia-pymes': 'Casos de Éxito',
+    'chatbot-whatsapp': 'Automatización'
+}
+
+def calculate_reading_time(slug):
+    filepath = f"dist/blog/{slug}/index.html"
+    if os.path.exists(filepath):
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
+            text = re.sub(r'<[^>]+>', '', content)
+            words = len(text.split())
+            minutes = max(1, round(words / 200))
+            return minutes
+        except Exception as e:
+            print(f"Error calculating reading time for {slug}: {e}")
+    return 5
 
 def build_blog_index():
     # Cargar blogs publicados
@@ -17,17 +46,27 @@ def build_blog_index():
     # Construir tarjetas HTML
     cards_html = ""
     for blog in blogs:
+        slug = blog.get('slug', '')
+        tag_text = BLOG_CATEGORY_TAGS.get(slug, blog.get('category', 'Negocios'))
+        minutes = calculate_reading_time(slug)
         card = f"""
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group">
+        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group flex flex-col justify-between overflow-hidden">
             <div class="h-48 relative overflow-hidden">
                 <img src="{blog.get('image', '/images/og-home.webp')}" alt="{blog.get('title', '')}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
+                <div class="absolute top-4 left-4 bg-brand/90 dark:bg-brand-light/90 text-white dark:text-zinc-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-20">
+                    {tag_text}
+                </div>
             </div>
-            <div class="p-8">
-                <span class="text-xs font-normal text-brand dark:text-brand-light uppercase tracking-wider mb-2 block">{blog.get('category', 'Negocios')}</span>
-                <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:group-hover:text-brand-light transition-colors"><a href="/blog/{blog['slug']}/">{blog['title']}</a></h2>
-                <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-sm">{blog.get('description', '')}</p>
-                <a href="/blog/{blog['slug']}/" class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Leer artículo <i class="fas fa-arrow-right"></i></a>
+            <div class="p-8 flex-1 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-normal text-zinc-400 dark:text-zinc-500 uppercase tracking-widest flex items-center gap-1.5 mb-3">
+                        <i class="far fa-clock text-xs"></i> Lectura: {minutes} min
+                    </span>
+                    <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:hover:text-brand-light transition-colors"><a href="/blog/{slug}/">{blog['title']}</a></h2>
+                    <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-sm line-clamp-3">{blog.get('description', '')}</p>
+                </div>
+                <a href="/blog/{slug}/" class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">Leer artículo <i class="fas fa-arrow-right"></i></a>
             </div>
         </article>
         """
