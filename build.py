@@ -2578,7 +2578,143 @@ def build_ciudades_hermanas(row, data):
     for r in data:
         if r['Estado'] == 'PUBLICAR' and r['Ciudad'] in hermanas_names and r['Industria'] == row['Industria']:
             html += f'<a href="{r["URL_Final"]}" class="card-ciudad">{r["Ciudad"]}</a>'
-    return html
+        return html
+
+def build_dynamic_eeat_html(row):
+    html_content = row.get('Contenido_EEAT', '')
+    if not html_content:
+        return ""
+    
+    # Extraer H2
+    h2_match = re.search(r'<h2[^>]*>(.*?)</h2>', html_content, re.DOTALL | re.IGNORECASE)
+    h2_text = h2_match.group(1).strip() if h2_match else ""
+    
+    # Extraer H3
+    h3_match = re.search(r'<h3[^>]*>(.*?)</h3>', html_content, re.DOTALL | re.IGNORECASE)
+    h3_text = h3_match.group(1).strip() if h3_match else ""
+    
+    # Extraer párrafos
+    paragraphs = re.findall(r'<p[^>]*>(.*?)</p>', html_content, re.DOTALL | re.IGNORECASE)
+    paragraphs = [p.strip() for p in paragraphs]
+    
+    if not h2_text or not paragraphs:
+        return html_content
+        
+    p_extra_html = ""
+    
+    # Segmentación inteligente de párrafos
+    if len(paragraphs) == 3:
+        p1_lead = paragraphs[0]
+        p2_lead = paragraphs[1]
+        p3_lead = paragraphs[2]
+    elif len(paragraphs) >= 4:
+        p1_lead = paragraphs[0]
+        p2_lead = paragraphs[1]
+        p3_lead = paragraphs[-1]
+        
+        # El párrafo extra es el intermedio (normalmente el de Consultor IA, índice 2)
+        p_extra = paragraphs[2]
+        p_extra_html = f"""
+        <div class="mt-16 pt-8 border-t border-zinc-100 dark:border-zinc-800/80 max-w-4xl mx-auto text-center">
+            <p class="text-base md:text-[17px] font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                {p_extra}
+            </p>
+        </div>
+        """
+    else:
+        p1_lead = paragraphs[0]
+        p2_lead = ""
+        p3_lead = paragraphs[-1] if len(paragraphs) > 1 else ""
+
+    wa_bubble_html = ""
+    # Buscar texto entre comillas dobles y asteriscos, o simplemente entre asteriscos
+    wa_match = re.search(r'"\*(.*?)\*"|\*(.*?)\*', p3_lead)
+    if wa_match:
+        wa_text = wa_match.group(1) or wa_match.group(2)
+        if wa_text:
+            wa_bubble_html = f"""
+            <div class="mt-6 p-4 bg-[#E2F8CB] dark:bg-[#0b5c49] rounded-2xl rounded-tr-none border border-[#b2dca2]/40 dark:border-[#008f72]/20 shadow-md max-w-[95%] ml-auto relative">
+                <p class="text-xs text-zinc-800 dark:text-zinc-100 font-sans leading-normal">
+                    {wa_text}
+                </p>
+                <span class="absolute top-0 right-[-8px] w-0 h-0 border-t-[8px] border-t-[#E2F8CB] dark:border-t-[#0b5c49] border-r-[8px] border-r-transparent"></span>
+                <div class="text-[9px] text-zinc-500 dark:text-zinc-300 text-right mt-1">
+                    <i class="fas fa-check-double text-sky-500 mr-0.5"></i> Entregado
+                </div>
+            </div>
+            """
+    
+    # Formatear párrafos de las columnas (usando estilos grises/neutros elegantes, no el negro fuerte)
+    p1_html = f'<p class="text-base md:text-[17px] font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">{p1_lead}</p>'
+    p2_html = f'<p class="text-base md:text-[17px] font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">{p2_lead}</p>'
+    p3_html = f'<p class="text-base md:text-[17px] font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">{p3_lead}</p>'
+    
+    new_html = f"""
+    <section class="py-24 bg-white dark:bg-zinc-950 border-t border-gray-100 dark:border-zinc-900 relative overflow-hidden">
+        <div class="absolute top-1/2 left-0 w-72 h-72 bg-[#E8DAC1]/10 dark:bg-brand/5 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="container mx-auto px-4 max-w-6xl relative z-10">
+            <!-- Título Principal -->
+            <div class="text-center mb-20 max-w-3xl mx-auto">
+                <span class="text-brand dark:text-brand-light font-body text-xs font-bold uppercase tracking-widest mb-3 block">Flujo de Trabajo y Contexto</span>
+                <h2 class="text-3xl md:text-5xl font-header font-bold text-zinc-900 dark:text-white leading-tight">
+                    {h2_text}
+                </h2>
+            </div>
+            
+            <!-- Contenedor del Flujo Horizontal -->
+            <div class="relative">
+                <!-- Línea de conexión horizontal con degradado (solo en desktop) -->
+                <div class="absolute top-4 left-4 right-4 h-[2px] bg-gradient-to-r from-zinc-200 via-brand/30 to-zinc-200 dark:from-zinc-800 dark:via-brand-light/30 dark:to-zinc-800 hidden lg:block -z-10"></div>
+                
+                <div class="grid lg:grid-cols-3 gap-12 lg:gap-16 items-stretch">
+                    <!-- Paso 1: La Oportunidad -->
+                    <div class="flex flex-col items-start relative group">
+                        <div class="w-8 h-8 rounded-full border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-400 dark:text-zinc-600 font-bold text-xs flex items-center justify-center mb-6 transition-colors group-hover:border-brand dark:group-hover:border-brand-light group-hover:text-brand dark:group-hover:text-brand-light">
+                            01
+                        </div>
+                        <h3 class="text-lg font-header font-bold text-zinc-900 dark:text-white mb-3">Contexto de la Industria</h3>
+                        <div class="prose dark:prose-invert max-w-none">
+                            {p1_html}
+                        </div>
+                    </div>
+                    
+                    <!-- Paso 2: El Desafío -->
+                    <div class="flex flex-col items-start relative group">
+                        <div class="w-8 h-8 rounded-full border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-400 dark:text-zinc-600 font-bold text-xs flex items-center justify-center mb-6 transition-colors group-hover:border-red-400 group-hover:text-red-400">
+                            02
+                        </div>
+                        <h3 class="text-lg font-header font-bold text-zinc-900 dark:text-white mb-3">El Dolor de Gestión</h3>
+                        <div class="prose dark:prose-invert max-w-none">
+                            {p2_html}
+                        </div>
+                    </div>
+                    
+                    <!-- Paso 3: La Solución con IA -->
+                    <div class="flex flex-col items-start relative group">
+                        <div class="w-8 h-8 rounded-full bg-brand dark:bg-brand-light text-white dark:text-zinc-950 font-bold text-xs flex items-center justify-center mb-6 shadow-md shadow-brand/10">
+                            03
+                        </div>
+                        <h3 class="text-lg font-header font-bold text-zinc-900 dark:text-white mb-3">Solución con IA</h3>
+                        <div class="w-full">
+                            <h4 class="text-sm font-semibold text-brand dark:text-brand-light mb-3">{h3_text}</h4>
+                            <div class="prose dark:prose-invert max-w-none">
+                                {p3_html}
+                            </div>
+                            {wa_bubble_html}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {p_extra_html}
+        </div>
+    </section>
+    """
+    return new_html
+
+
+
 
 
 def format_h1(h1):
@@ -2688,7 +2824,7 @@ def build():
             '{CODIGO_PAIS}': row.get('País_Slug', '')[:2], # approx
             '{CIUDAD}': row.get('Ciudad', ''),
             '{CIUDAD_SLUG}': row.get('Ciudad_Slug', ''),
-            '{CONTENIDO_EEAT}': row.get('Contenido_EEAT', ''),
+            '{CONTENIDO_EEAT}': build_dynamic_eeat_html(row),
             '{DEMONIMO}': row.get('Demónimo', ''),
             '{MONEDA}': row.get('Moneda', ''),
             '{AEROPUERTO}': row.get('Aeropuerto', ''),
