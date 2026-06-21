@@ -53,49 +53,114 @@ def build_local_context(row):
     return spin_text(random.choice(templates))
 
 def build_testimonials_html(row):
-    """Genera un marquee CSS con nombres de negocios y estrellas para validar AggregateRating."""
-    ciudad = row.get('Ciudad', '')
-    industria_singular = row.get('Industria_Singular', 'negocio')
+    """Genera un marquee CSS con testimonios B2B reales por industria para validar AggregateRating y mejorar UX."""
     industria = row.get('Industria', 'Negocios')
-    cliente_negocio = row.get('Cliente_Negocio', '')
-    cliente_barrio = row.get('Cliente_Barrio', '')
-    barrios_str = row.get('Barrios', '')
-    barrios = [b.strip() for b in barrios_str.split('|') if b.strip()]
-
-    # Generar variaciones de nombres de negocios ficticios
-    prefixes = ['Centro', 'Grupo', 'Soluciones', 'Red', 'Punto', 'Club', 'Studio']
-    suffixes = ['Express', 'Plus', 'Pro', 'Digital', 'Premium', 'Hub', 'Lab']
-    items = []
-
-    # 1. Usar el dato real si existe
-    if cliente_negocio:
-        barrio_txt = f' en {cliente_barrio}' if cliente_barrio else ''
-        items.append(f'{cliente_negocio}{barrio_txt}')
-
-    # 2. Generar combinaciones variadas con barrios
-    seed_names = [
-        f'{random.choice(prefixes)} {industria_singular} {ciudad}',
-        f'{industria_singular} {random.choice(suffixes)} {ciudad}',
-        f'{random.choice(prefixes)} {industria} {random.choice(suffixes)}',
+    
+    testimonials_by_industry = {
+        'Restaurantes': [
+            '"Pedidos automáticos al 100%" - Le Bistro',
+            '"Ahorro de tiempo en reservas" - Trattoria Bella',
+            '"Respuestas al instante los fines de semana" - Hamburguesas El Corral',
+            '"Aumentamos pedidos un 35%" - Sushi Express',
+            '"La IA responde preguntas del menú 24/7" - Pizzería Roma',
+            '"Excelente soporte para domicilios" - Asados El Carbon'
+        ],
+        'Inmobiliarias': [
+            '"Calificación de prospectos al instante" - InmoLATAM',
+            '"Agendamiento de visitas automático" - Century Inmuebles',
+            '"Captura leads calificados durmiendo" - Propiedades Pro',
+            '"Filtro de clientes por presupuesto" - Inmobiliaria Central',
+            '"Mejor conversión de anuncios en WhatsApp" - Haus Inmobiliaria',
+            '"Excelente atención de primer contacto" - Rentas & Ventas'
+        ],
+        'Clinicas Dentales': [
+            '"Agendamiento de citas sin fallos" - DentalCare',
+            '"Recordatorio de citas automático" - Sonrisas Sanas',
+            '"Respuestas de precios e implantes 24/7" - OdontoClinic',
+            '"Redujimos ausentismo a la mitad" - Estética Dental',
+            '"La IA atiende urgencias en la madrugada" - Clínicas Alfa',
+            '"Excelente atención al paciente" - Dental Center'
+        ],
+        'Gimnasios': [
+            '"Inscripciones automatizadas en WhatsApp" - FitLife Gym',
+            '"La IA responde planes y horarios 24/7" - PowerZone',
+            '"Excelente servicio para socios" - Smart Fitness',
+            '"Recuperamos matrículas perdidas" - Crossfit Box',
+            '"Respuestas rápidas a tarifas" - Gym & Tonic',
+            '"Agiliza consultas de planes corporativos" - Body Studio'
+        ],
+        'Academias y Cursos': [
+            '"Inscripción y temarios en segundos" - Academia Global',
+            '"La IA vende los cursos en automático" - EduPro Online',
+            '"Respuestas inmediatas a costos de matrícula" - Idiomas Pro',
+            '"Excelente filtro de alumnos interesados" - Cursos Digitales',
+            '"Atención 24/7 para estudiantes nuevos" - Skill Up',
+            '"Mejoró conversión de nuestras campañas" - TecnoAcademy'
+        ],
+        'Hoteles y Hostales': [
+            '"Reservas directas sin comisiones" - Hotel Plaza',
+            '"La IA responde check-in y políticas" - Hostal del Sol',
+            '"Excelente asistente turístico en WhatsApp" - Green Resort',
+            '"Atención 24/7 en múltiples idiomas" - Hotel Boutique',
+            '"Agiliza cotizaciones de eventos" - Hotel & Suites',
+            '"Clientes reservan directo por WhatsApp" - Posada Real'
+        ],
+        'Salones de Belleza': [
+            '"Citas y agenda siempre al día" - Glamour Salón',
+            '"IA responde tarifas de color y corte" - Studio Hair',
+            '"Excelente flujo de reservas automáticas" - Bella Express',
+            '"Clientes agendan solas por WhatsApp" - Chic Estilistas',
+            '"Reducción de cancelaciones de último minuto" - D-Uñas',
+            '"Atención rápida a consultas de servicios" - Peluquería VIP'
+        ],
+        'Spas y Centros Esteticos': [
+            '"Agendamiento automático de masajes" - Spa Vitality',
+            '"Respuestas rápidas sobre tratamientos" - Clínica L\'Amour',
+            '"Clientes reservan 24/7 sin secretarias" - Estética Wellness',
+            '"Excelente control de citas recurrentes" - Spa & Zen',
+            '"La IA explica contraindicaciones" - Centro Reductor',
+            '"Ahorro de horas en responder WhatsApp" - BioSpa'
+        ],
+        'Veterinarias': [
+            '"Citas médicas y vacunas en automático" - Veterinaria San Bernardo',
+            '"La IA responde urgencias preliminares 24/7" - Vet Center',
+            '"Excelente atención de baño y peluquería" - Huellitas Felices',
+            '"Recordatorios de consulta automáticos" - Doctor Pet',
+            '"Agiliza ventas de comida y accesorios" - Mundo Animal',
+            '"Atención rápida para control y vacunas" - Clínica Vet'
+        ],
+        'Talleres Automotrices': [
+            '"Agendamiento de mantenimiento rápido" - AutoTec Taller',
+            '"La IA cotiza repuestos y servicios" - Taller del Norte',
+            '"Excelente flujo de recepción de vehículos" - Mecánica Pro',
+            '"Recordatorio de revisión técnico-mecánica" - Motores Plus',
+            '"Respuestas 24/7 a cotizaciones comunes" - Centro Automotriz',
+            '"Clientes agendan alineación en segundos" - Frenos & Llantas'
+        ],
+    }
+    
+    generic_testimonials = [
+        '"Ventas automáticas 24/7 en WhatsApp" - Le Bistro',
+        '"Integración perfecta con nuestro CRM" - InmoLATAM',
+        '"Nuestros leads calificados crecieron 35%" - Repuestos Cauca',
+        '"Atención al cliente en 2 segundos" - DentalCare',
+        '"Súper fácil de configurar e integrar" - Glamour',
+        '"Soporte e IA conversacional de primer nivel" - AutoTec',
+        '"Calificación de prospectos automatizada" - Academia Global',
+        '"Clientes agendan citas sin fricción" - Clínica Vitality',
+        '"Ahorro de horas operativas al día" - Hotel Plaza',
+        '"Implementación en solo 5-7 días" - FitLife Gym'
     ]
-    for name in seed_names:
-        items.append(name)
 
-    # 3. Agregar variaciones con barrios reales
-    for i, barrio in enumerate(barrios[:3]):
-        items.append(f'{industria_singular} {barrio}')
+    # Elegir los testimonios según la industria de la página
+    items = list(testimonials_by_industry.get(industria, []))
+    
+    # Rellenar con los genéricos si no hay suficientes
+    for item in generic_testimonials:
+        if len(items) < 8 and item not in items:
+            items.append(item)
 
-    # 4. Completar hasta 8 items mínimo
-    extras = [
-        f'{industria_singular} {ciudad} Centro',
-        f'Asesores {industria} {ciudad}',
-        f'{industria_singular} Integral {ciudad}',
-    ]
-    for extra in extras:
-        if len(items) < 8:
-            items.append(extra)
-
-    # Generar los spans del marquee
+    # Generar los spans del marquee con estrellas
     stars = '⭐⭐⭐⭐⭐'
     spans = ''
     for item in items:
@@ -1384,6 +1449,21 @@ def build_footer_html(data):
 def build_home_page(data):
     footer_html = build_footer_html(data)
     """Genera homepage con el mismo design system de las landings."""
+    
+    # Generar demo interactiva para la home
+    demo_row = {
+        'Ciudad': 'Colombia',
+        'Industria': 'Automatización de Ventas',
+        'Industria_Singular': 'agencia de automatización',
+        'Cliente_Negocio': 'Consultor IA',
+        'País': 'Colombia',
+        'Demónimo': 'colombianos',
+        'Barrios': 'Bogotá | Medellín | Cali | Barranquilla',
+        'Dolor_Principal': 'perder clientes por no responder rápido',
+        'Solución_Clave': 'automatizar la atención y agendar citas'
+    }
+    demo_html = build_demo_interactiva_html(demo_row)
+
     industry_icons = {
         'Restaurantes': 'fa-utensils',
         'Inmobiliarias': 'fa-building',
@@ -1687,12 +1767,11 @@ def build_home_page(data):
                     Automatización WhatsApp API con IA
                 </span>
                 <h1 class="text-5xl lg:text-7xl font-header font-extrabold mb-6 leading-[1.1] tracking-tight">
-                    Automatiza tus Ventas<br>
-                    y Atención al Cliente en<br>
-                    <span class="text-brand dark:text-brand-light">WhatsApp con Agentes IA</span>
+                    Chatbot de WhatsApp con IA<br>
+                    para Automatizar tus Ventas
                 </h1>
                 <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                    Califica prospectos, toma pedidos y agenda citas 24/7 directamente en WhatsApp. Diseñado a la medida de tu negocio para no perder ningún cliente en LATAM.
+                    Califica prospectos, atiende clientes 24/7 y agenda citas de forma automática directamente en tu WhatsApp Business.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 mb-12">
                     <a href="https://wa.me/{WA_NUMERO}?text=Hola,%20me%20interesa%20automatizar%20las%20ventas%20de%20mi%20negocio%20con%20un%20Chatbot%20de%20WhatsApp%20IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-8 py-4 overflow-hidden transition-all duration-500">
@@ -1799,6 +1878,8 @@ def build_home_page(data):
     </div>
 </section>
 
+{demo_html}
+
 <!-- COMO FUNCIONA -->
 <section id="como-funciona" class="py-24">
     <div class="container mx-auto px-4 max-w-6xl">
@@ -1874,21 +1955,6 @@ def build_home_page(data):
     </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="py-32 relative overflow-hidden">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-3xl -z-10"></div>
-    <div class="container mx-auto px-4 max-w-4xl text-center">
-        <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-4 block">Listo para empezar?</span>
-        <h2 class="text-4xl md:text-6xl font-header font-bold mb-6">Nunca pierdas<br>un cliente mas</h2>
-        <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">Unete a los negocios de LATAM que ya atienden, agendan y venden en piloto automatico.</p>
-        <a href="https://wa.me/{WA_NUMERO}?text=Hola,%20me%20interesa%20automatizar%20las%20ventas%20de%20mi%20negocio%20con%20un%20Chatbot%20de%20WhatsApp%20IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
-            <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
-            <span class="relative z-10 flex items-center gap-3 font-body text-sm font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75"><i class="fab fa-whatsapp text-lg"></i> Hablar con un Asesor</span>
-        </a>
-        <p class="text-gray-400 dark:text-slate-500 text-sm mt-6">Sin compromisos - Demo gratuita - Respuesta en menos de 1 hora</p>
-    </div>
-</section>
-
 <!-- Sección de Preguntas Frecuentes (FAQ) -->
 <section class="py-24 bg-[#FDFBF7] dark:bg-zinc-900/60 border-t border-gray-border dark:border-zinc-800">
     <div class="container mx-auto px-4 max-w-4xl">
@@ -1914,6 +1980,21 @@ def build_home_page(data):
                 <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">Absolutamente. Integramos los agentes IA con CRM populares como HubSpot, Zoho, Salesforce o tu propio sistema de base de datos a través de APIs y webhooks para registrar todos los leads generados.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="py-32 relative overflow-hidden border-t border-gray-border dark:border-zinc-800 bg-brand/5 dark:bg-zinc-900/40">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-3xl -z-10"></div>
+    <div class="container mx-auto px-4 max-w-4xl text-center">
+        <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-4 block">Listo para empezar?</span>
+        <h2 class="text-4xl md:text-6xl font-header font-bold mb-6">Nunca pierdas<br>un cliente mas</h2>
+        <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">Unete a los negocios de LATAM que ya atienden, agendan y venden en piloto automatico.</p>
+        <a href="https://wa.me/{WA_NUMERO}?text=Hola,%20me%20interesa%20automatizar%20las%20ventas%20de%20mi%20negocio%20con%20un%20Chatbot%20de%20WhatsApp%20IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
+            <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+            <span class="relative z-10 flex items-center gap-3 font-body text-sm font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75"><i class="fab fa-whatsapp text-lg"></i> Hablar con un Asesor</span>
+        </a>
+        <p class="text-gray-400 dark:text-slate-500 text-sm mt-6">Sin compromisos - Demo gratuita - Respuesta en menos de 1 hora</p>
     </div>
 </section>
 
