@@ -201,6 +201,7 @@ Instrucción de agendamiento:
 - Tabla de referencia para saber qué fecha YYYY-MM-DD corresponde a cada día de la semana (¡USA ESTA LISTA OBLIGATORIAMENTE PARA TUS CÁLCULOS!):
 {proximos_dias_str}
 - Si el usuario muestra interés en agendar, coordina con él un día y una hora específicos (entre 8:00 y 18:00).
+- IMPORTANTE: Para saber si un horario está libre u ocupado, debes consultar obligatoriamente la sección "DISPONIBILIDAD REAL EN TIEMPO REAL" de abajo. Primero determina la fecha YYYY-MM-DD correspondiente usando la tabla de referencia (ej. para "lunes" corresponde 2026-06-22), luego busca esa fecha en la lista. Si la hora solicitada por el usuario APARECE en la lista de ese día, significa que SÍ está libre y disponible. Debes aceptarla y pedir sus datos de registro. Si la hora solicitada NO aparece en la lista de ese día, significa que está ocupada y debes proponerle alternativas que SÍ estén en la lista de libres de ese día o de otros días.
 - IMPORTANTE: Una vez acordada la fecha y la hora, antes de confirmar la cita, DEBES pedirle obligatoriamente su nombre y correo electrónico (ej: "Para registrar la cita en la agenda del negocio, por favor confírmeme su nombre completo y su dirección de correo electrónico").
 - Solo después de que el usuario te proporcione su nombre y correo electrónico (no importa el orden o formato), debes dar el mensaje final de confirmación de la cita.
 - AL FINAL de tu mensaje de confirmación, y ÚNICAMENTE en ese mensaje, debes agregar EXACTAMENTE esta marca especial para que el sistema registre la cita en el calendario:
@@ -778,22 +779,19 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 
                 // --- Lógica del Chat ---
                 function getAvailabilityContext() {
-                    let ctx = `\n\nDISPONIBILIDAD REAL EN TIEMPO REAL (Usa esta información para responder si te preguntan por citas, o si un horario está ocupado; ofrece alternativas libres de esta lista):\n`;
+                    let ctx = `\n\nDISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):\n`;
                     const tempDate = new Date();
                     for (let i = 0; i < 5; i++) {
                         const dateStr = formatDateKey(tempDate);
                         const slots = availabilityDb[dateStr] || {};
                         const freeSlots = [];
-                        const busySlots = [];
                         Object.keys(slots).forEach(h => {
                             if (slots[h] === 'available') {
                                 freeSlots.push(h);
-                            } else {
-                                busySlots.push(h);
                             }
                         });
                         const dateHuman = formatHumanDate(dateStr);
-                        ctx += `- ${dateHuman} (${dateStr}): Libres: [${freeSlots.join(", ")}]. Ocupados: [${busySlots.join(", ")}].\n`;
+                        ctx += `- ${dateHuman} (${dateStr}): Horarios libres: ${freeSlots.length > 0 ? freeSlots.join(", ") : 'Ninguno'}\n`;
                         tempDate.setDate(tempDate.getDate() + 1);
                     }
                     return ctx;
@@ -862,7 +860,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                                 "X-Title": "Consultor IA Landing Demo"
                             },
                             body: JSON.stringify({
-                                model: "meta-llama/llama-3.1-8b-instruct",
+                                model: "google/gemini-2.5-flash",
                                 messages: chatHistory,
                                 temperature: 0.7
                             })
