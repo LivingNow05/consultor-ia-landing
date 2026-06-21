@@ -2702,7 +2702,7 @@ def build_blog_recomendaciones_html(row):
         minutes = calculate_reading_time(slug)
         
         card = f"""
-                <article class="blog-card-rec bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 overflow-hidden shadow-sm flex flex-col h-full">
+                <a href="/blog/{slug}/" class="blog-card-rec bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 overflow-hidden shadow-sm flex flex-col h-full">
                     <div class="h-48 relative overflow-hidden">
                         <img src="{image}" alt="{title}" class="blog-card-img w-full h-full object-cover">
                         <div class="absolute top-4 left-4 bg-brand/90 dark:bg-brand-light/90 text-white dark:text-zinc-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10">
@@ -2715,17 +2715,17 @@ def build_blog_recomendaciones_html(row):
                                 <i class="far fa-clock text-xs"></i> Lectura: {minutes} min
                             </span>
                             <h3 class="text-lg font-header font-bold text-zinc-950 dark:text-white mb-3 hover:text-brand dark:hover:text-brand-light transition-colors line-clamp-2">
-                                <a href="/blog/{slug}/">{title}</a>
+                                {title}
                             </h3>
                             <p class="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-3 mb-4">
                                 {desc}
                             </p>
                         </div>
-                        <a href="/blog/{slug}/" class="text-brand dark:text-brand-light font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:gap-3 transition-all">
+                        <div class="text-brand dark:text-brand-light font-bold text-xs uppercase tracking-wider flex items-center gap-2 hover:gap-3 transition-all">
                             Leer artículo <i class="fas fa-arrow-right"></i>
-                        </a>
+                        </div>
                     </div>
-                </article>"""
+                </a>"""
         cards_html += card
 
     # Wrap in the main section block
@@ -2759,6 +2759,10 @@ def build_blog_recomendaciones_html(row):
             <style>
                 .blog-card-rec {{
                     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+                    text-decoration: none !important;
+                }}
+                .blog-card-rec, .blog-card-rec:hover, .blog-card-rec:visited, .blog-card-rec:active {{
+                    color: inherit !important;
                 }}
                 .blog-card-rec:hover {{
                     transform: translateY(-6px);

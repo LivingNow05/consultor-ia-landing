@@ -50,7 +50,7 @@ def build_blog_index():
         tag_text = BLOG_CATEGORY_TAGS.get(slug, blog.get('category', 'Negocios'))
         minutes = calculate_reading_time(slug)
         card = f"""
-        <article class="bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group flex flex-col justify-between overflow-hidden">
+        <a href="/blog/{slug}/" class="blog-card-link bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm transition-all duration-300 group flex flex-col justify-between overflow-hidden">
             <div class="h-48 relative overflow-hidden">
                 <img src="{blog.get('image', '/images/og-home.webp')}" alt="{blog.get('title', '')}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 <div class="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -63,12 +63,12 @@ def build_blog_index():
                     <span class="text-xs font-normal text-zinc-400 dark:text-zinc-500 uppercase tracking-widest flex items-center gap-1.5 mb-3">
                         <i class="far fa-clock text-xs"></i> Lectura: {minutes} min
                     </span>
-                    <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:hover:text-brand-light transition-colors"><a href="/blog/{slug}/">{blog['title']}</a></h2>
+                    <h2 class="text-xl font-header font-bold mb-3 group-hover:text-brand dark:group-hover:text-brand-light transition-colors">{blog['title']}</h2>
                     <p class="text-zinc-600 dark:text-zinc-400 mb-4 text-sm line-clamp-3">{blog.get('description', '')}</p>
                 </div>
-                <a href="/blog/{slug}/" class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">Leer artículo <i class="fas fa-arrow-right"></i></a>
+                <div class="text-brand dark:text-brand-light font-normal text-sm flex items-center gap-2 group-hover:gap-3 transition-all mt-auto font-semibold">Leer artículo <i class="fas fa-arrow-right"></i></div>
             </div>
-        </article>
+        </a>
         """
         cards_html += card
         
