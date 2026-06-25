@@ -15,7 +15,8 @@ BLOG_CATEGORY_TAGS = {
     'agente-ia-vs-chatbot': 'Tecnología',
     'casos-exito-ia-pymes': 'Casos de Éxito',
     'chatbot-whatsapp': 'Automatización',
-    'chatbot-whatsapp-para-empresas': 'Corporativo'
+    'chatbot-whatsapp-para-empresas': 'Corporativo',
+    'click-to-whatsapp-ads-ia': 'Publicidad'
 }
 
 def calculate_reading_time(slug):
