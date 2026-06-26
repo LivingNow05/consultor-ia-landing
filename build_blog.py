@@ -16,7 +16,8 @@ BLOG_CATEGORY_TAGS = {
     'casos-exito-ia-pymes': 'Casos de Éxito',
     'chatbot-whatsapp': 'Automatización',
     'chatbot-whatsapp-para-empresas': 'Corporativo',
-    'click-to-whatsapp-ads-ia': 'Publicidad'
+    'click-to-whatsapp-ads-ia': 'Publicidad',
+    'nuevas-reglas-meta-chatbot-whatsapp-2026': 'Normativa'
 }
 
 def calculate_reading_time(slug):
