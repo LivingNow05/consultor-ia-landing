@@ -18,7 +18,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-para-empresas': 'Corporativo',
     'click-to-whatsapp-ads-ia': 'Publicidad',
     'nuevas-reglas-meta-chatbot-whatsapp-2026': 'Normativa',
-    'whatsapp-corporativo-ia-ventas': 'Ventas'
+    'whatsapp-corporativo-ia-ventas': 'Ventas',
+    'chatbot-whatsapp-notas-de-voz': 'Notas de Voz'
 }
 
 def calculate_reading_time(slug):

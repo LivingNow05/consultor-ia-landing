@@ -137,7 +137,16 @@ def build_testimonials_html(row):
             '"Respuestas 24/7 a cotizaciones comunes" - Centro Automotriz',
             '"Clientes agendan alineación en segundos" - Frenos & Llantas'
         ],
+        'Desarrollo de Apps y Software': [
+            '"App de domicilios que duplicó nuestras ventas" - Pizzería Gourmet',
+            '"ERP a la medida que ordenó nuestro inventario" - Distribuidora del Norte',
+            '"El sistema de reservas automatizó el 90% de las citas" - Centro de Estética',
+            '"Excelente desarrollo de software ágil e integraciones" - Logística Express',
+            '"Nuestra app móvil iOS/Android quedó impecable" - Club Deportivo',
+            '"Un sistema de administración intuitivo y robusto" - Comercializadora Sur'
+        ],
     }
+
     
     generic_testimonials = [
         '"Ventas automáticas 24/7 en WhatsApp" - Le Bistro',
@@ -1352,6 +1361,373 @@ def build_calculadora_html(row):
     </section>
     '''
     return html
+
+
+def build_calculadora_app_html(row):
+    moneda = row.get('Moneda', 'USD')
+    wa_numero = WA_NUMERO
+    
+    html = '''
+    <section class="py-20 bg-gradient-to-b from-white to-[#FDFBF7]/40 dark:from-zinc-950 dark:to-zinc-900/50 relative overflow-hidden border-t border-gray-150/40 dark:border-zinc-800/60">
+        <!-- Blobs decorativos de fondo -->
+        <div class="absolute -top-[10%] -left-[10%] w-[40vw] h-[40vw] rounded-full bg-blue-500/5 dark:bg-blue-500/10 blur-[120px] pointer-events-none"></div>
+        <div class="absolute -bottom-[10%] -right-[10%] w-[40vw] h-[40vw] rounded-full bg-emerald-500/5 dark:bg-emerald-500/10 blur-[120px] pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 max-w-5xl relative z-10">
+            <div class="text-center mb-12">
+                <span class="inline-flex items-center gap-1.5 bg-[#2563eb]/10 dark:bg-[#2563eb]/20 text-blue-600 dark:text-[#53bdeb] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
+                    <i class="fas fa-calculator"></i> Simulador de Costo y ROI
+                </span>
+                <h2 class="text-3xl md:text-5xl font-header font-bold mb-4 text-zinc-900 dark:text-white">Simulador de Costo y ROI de App con IA</h2>
+                <p class="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Selecciona las especificaciones de tu proyecto para estimar el costo de desarrollo y proyectar el retorno financiero en tu negocio.</p>
+            </div>
+
+            <div class="bg-white/70 dark:bg-zinc-900/50 backdrop-blur-md border border-gray-200 dark:border-zinc-850 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col lg:flex-row gap-8 lg:gap-12 transition-all">
+                <!-- Panel de Controles (Izquierda) -->
+                <div class="w-full lg:w-7/12 flex flex-col gap-8">
+                    <!-- Paso 1: Plataforma -->
+                    <div>
+                        <h4 class="text-xs font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-4">1. Plataforma Objetivo</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <button type="button" data-platform="web" class="platform-btn group text-left p-4 rounded-2xl border border-gray-200 dark:border-zinc-850 bg-white/50 dark:bg-zinc-900/30 hover:border-blue-500 dark:hover:border-blue-400 transition-all focus:outline-none select-none cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-laptop-code text-lg"></i>
+                                </div>
+                                <span class="block font-bold text-sm text-zinc-800 dark:text-zinc-200">Web App / PWA</span>
+                                <span class="block text-[11px] text-zinc-400 mt-1">Ideal para navegadores y validación ágil.</span>
+                            </button>
+                            <button type="button" data-platform="mobile" class="platform-btn group text-left p-4 rounded-2xl border border-gray-200 dark:border-zinc-850 bg-white/50 dark:bg-zinc-900/30 hover:border-blue-500 dark:hover:border-blue-400 transition-all focus:outline-none select-none cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-mobile-alt text-lg"></i>
+                                </div>
+                                <span class="block font-bold text-sm text-zinc-800 dark:text-zinc-200">App Móvil</span>
+                                <span class="block text-[11px] text-zinc-400 mt-1">iOS + Android. Experiencia nativa en tiendas.</span>
+                            </button>
+                            <button type="button" data-platform="multi" class="platform-btn group text-left p-4 rounded-2xl border border-gray-200 dark:border-zinc-850 bg-white/50 dark:bg-zinc-900/30 hover:border-blue-500 dark:hover:border-blue-400 transition-all focus:outline-none select-none cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-shapes text-lg"></i>
+                                </div>
+                                <span class="block font-bold text-sm text-zinc-800 dark:text-zinc-200">Multiplataforma</span>
+                                <span class="block text-[11px] text-zinc-400 mt-1">Sincronizado: Web, iOS y Android en paralelo.</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2: Integraciones -->
+                    <div>
+                        <h4 class="text-xs font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-4">2. Nivel de Integración & IA</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <button type="button" data-integration="base" class="integration-btn group text-left p-4 rounded-2xl border border-gray-200 dark:border-zinc-850 bg-white/50 dark:bg-zinc-900/30 hover:border-blue-500 dark:hover:border-blue-400 transition-all focus:outline-none select-none cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl bg-zinc-500/10 text-zinc-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-database text-lg"></i>
+                                </div>
+                                <span class="block font-bold text-sm text-zinc-800 dark:text-zinc-200">Base</span>
+                                <span class="block text-[11px] text-zinc-400 mt-1">Base de datos y sistema de usuarios estándar.</span>
+                            </button>
+                            <button type="button" data-integration="ia" class="integration-btn group text-left p-4 rounded-2xl border border-gray-200 dark:border-zinc-850 bg-white/50 dark:bg-zinc-900/30 hover:border-blue-500 dark:hover:border-blue-400 transition-all focus:outline-none select-none cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-brain text-lg"></i>
+                                </div>
+                                <span class="block font-bold text-sm text-zinc-800 dark:text-zinc-200">IA-Native</span>
+                                <span class="block text-[11px] text-zinc-400 mt-1">Modelos LLM (Gemini), procesamiento de voz/visión.</span>
+                            </button>
+                            <button type="button" data-integration="enterprise" class="integration-btn group text-left p-4 rounded-2xl border border-gray-200 dark:border-zinc-850 bg-white/50 dark:bg-zinc-900/30 hover:border-blue-500 dark:hover:border-blue-400 transition-all focus:outline-none select-none cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-network-wired text-lg"></i>
+                                </div>
+                                <span class="block font-bold text-sm text-zinc-800 dark:text-zinc-200">ERP & Avanzado</span>
+                                <span class="block text-[11px] text-zinc-400 mt-1">Sincronización CRM/ERP, pagos complejos y analíticas.</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sliders y Opciones de Negocio -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-sm font-bold text-zinc-700 dark:text-zinc-300">Usuarios Proyectados</label>
+                                <span id="app-users-val" class="text-sm font-extrabold text-blue-600 dark:text-[#53bdeb]">10,000 / mes</span>
+                            </div>
+                            <input type="range" id="app-users" min="1000" max="100000" step="1000" value="10000" class="w-full h-2 bg-zinc-200 dark:bg-zinc-850 rounded-lg appearance-none cursor-pointer accent-blue-600 dark:accent-blue-400">
+                            <span class="text-[10px] text-zinc-400 block mt-2 font-medium uppercase tracking-wider">Activos mensuales proyectados</span>
+                        </div>
+
+                        <div>
+                            <label class="text-sm font-bold text-zinc-700 dark:text-zinc-300 block mb-3">Sector del Proyecto</label>
+                            <div class="relative">
+                                <select id="app-industry" class="w-full bg-white dark:bg-zinc-900 border border-gray-250 dark:border-zinc-800 text-zinc-800 dark:text-zinc-200 px-4 py-3 rounded-2xl focus:outline-none focus:ring-1 focus:ring-blue-500 text-sm appearance-none cursor-pointer select-none">
+                                    <option value="retail">Retail / E-commerce (1.1x ROI)</option>
+                                    <option value="salud">Salud / Clínicas (1.2x ROI)</option>
+                                    <option value="inmobiliaria" selected>Bienes Raíces / Inmobiliaria (1.2x ROI)</option>
+                                    <option value="educacion">Educación / Academias (1.05x ROI)</option>
+                                    <option value="servicios">Servicios / Restaurantes (1.0x ROI)</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none text-zinc-400">
+                                    <i class="fas fa-chevron-down text-xs"></i>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-zinc-400 block mt-2 font-medium uppercase tracking-wider">Impacto en retorno e integraciones</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel de Resultados (Derecha) -->
+                <div class="w-full lg:w-5/12 bg-zinc-50/50 dark:bg-zinc-950/40 border border-gray-150 dark:border-zinc-800/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-inner relative overflow-hidden min-h-[350px]">
+                    
+                    <!-- Pantalla 1: Resultados del Cálculo (Activa por defecto) -->
+                    <div id="app-results-screen" class="flex flex-col gap-6 transition-all duration-300">
+                        <div class="text-center pb-4 border-b border-gray-200/50 dark:border-zinc-800/40">
+                            <span class="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block mb-1">Costo Estimado del Proyecto</span>
+                            <div class="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white" id="app-cost-val">$0</div>
+                            <span class="text-[10px] text-zinc-400 block mt-1">Pago único de desarrollo e integración inicial</span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white/60 dark:bg-zinc-900/30 p-4 rounded-2xl border border-gray-150 dark:border-zinc-850/50 text-center">
+                                <span class="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block mb-1">Retorno Anual Est.</span>
+                                <div class="text-base sm:text-lg font-extrabold text-emerald-500 dark:text-emerald-400" id="app-revenue-val">$0</div>
+                                <span class="text-[9px] text-zinc-400 block mt-0.5">Ahorros + ventas / año</span>
+                            </div>
+                            <div class="bg-white/60 dark:bg-zinc-900/30 p-4 rounded-2xl border border-gray-150 dark:border-zinc-850/50 text-center">
+                                <span class="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block mb-1">ROI Proyectado</span>
+                                <div class="text-base sm:text-lg font-extrabold text-blue-500 dark:text-blue-400" id="app-roi-val">0%</div>
+                                <span class="text-[9px] text-zinc-400 block mt-0.5">Tasa de rentabilidad</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white/80 dark:bg-zinc-900/60 p-4 rounded-2xl border border-gray-150 dark:border-zinc-850/50 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
+                                <i class="fas fa-history text-lg"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block">Tiempo Estimado</span>
+                                <span class="text-sm font-extrabold text-zinc-850 dark:text-zinc-200" id="app-time-val">4 - 6 semanas</span>
+                            </div>
+                        </div>
+
+                        <button type="button" id="app-qualify-btn" class="w-full py-4 rounded-2xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 font-bold hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl select-none cursor-pointer">
+                            <span>Ver Recomendación y Siguiente Paso</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+
+                    <!-- Pantalla 2: Recomendación y CTA Calificado (Oculta al inicio) -->
+                    <div id="app-cta-screen" class="hidden flex-col gap-6 transition-all duration-300">
+                        <div class="flex items-center gap-2">
+                            <button type="button" id="app-back-btn" class="text-zinc-400 hover:text-zinc-800 dark:hover:text-white transition-colors text-sm flex items-center gap-1 focus:outline-none select-none cursor-pointer">
+                                <i class="fas fa-arrow-left text-xs"></i>
+                                <span>Volver a simular</span>
+                            </button>
+                        </div>
+
+                        <div class="text-center p-5 rounded-2xl bg-blue-500/5 dark:bg-blue-400/5 border border-blue-500/15 dark:border-blue-400/10">
+                            <div class="w-12 h-12 rounded-full bg-blue-500/10 dark:bg-blue-400/10 text-blue-500 dark:text-[#53bdeb] flex items-center justify-center mx-auto mb-3">
+                                <i id="cta-icon" class="fas fa-clipboard-check text-xl"></i>
+                            </div>
+                            <span class="text-[10px] font-bold text-blue-600 dark:text-[#53bdeb] uppercase tracking-widest block mb-1">Diagnóstico Automático</span>
+                            <h5 class="text-lg font-bold text-zinc-900 dark:text-white" id="cta-title">Recomendación</h5>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed" id="cta-description">Diagnóstico detallado.</p>
+                        </div>
+
+                        <!-- CTA Calificado Alto Costo: Agendar Consultoría IA-Native -->
+                        <div id="cta-high-cost" class="hidden flex-col gap-3">
+                            <button data-cal-link="localexpert/consultorialocalexpert" data-cal-namespace="consultorialocalexpert" data-cal-config='{"layout":"month_view"}' class="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-center font-bold transition-all shadow-md flex items-center justify-center gap-2 select-none cursor-pointer">
+                                <i class="far fa-calendar-alt"></i>
+                                <span>Agendar Consultoría de Desarrollo IA-Native</span>
+                            </button>
+                            <p class="text-[9.5px] text-zinc-400 text-center leading-normal">Sesión de 30 min para estructurar requerimientos, servidores e integraciones de IA.</p>
+                        </div>
+
+                        <!-- CTA Calificado Bajo Costo: Comenzar con WhatsApp / No-Code -->
+                        <div id="cta-low-cost" class="hidden flex-col gap-3">
+                            <a href="" id="whatsapp-cta-link" target="_blank" class="w-full py-4 rounded-2xl bg-[#00a884] hover:bg-[#008f72] text-white text-center font-bold transition-all shadow-md flex items-center justify-center gap-2 select-none">
+                                <i class="fab fa-whatsapp text-lg"></i>
+                                <span>Comenzar con Chatbot / No-Code</span>
+                            </a>
+                            <p class="text-[9.5px] text-zinc-400 text-center leading-normal">Ideal para validar tu idea de negocio en menos de 7 días sin altos costos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const moneda = "__MONEDA__";
+                const conversionRates = {
+                    'COP': 4000,
+                    'MXN': 18,
+                    'ARS': 1000,
+                    'USD': 1
+                };
+                const rate = conversionRates[moneda] || 1;
+
+                const platformBtns = document.querySelectorAll(".platform-btn");
+                const integrationBtns = document.querySelectorAll(".integration-btn");
+                const usersInput = document.getElementById("app-users");
+                const usersVal = document.getElementById("app-users-val");
+                const industrySelect = document.getElementById("app-industry");
+
+                const costVal = document.getElementById("app-cost-val");
+                const revenueVal = document.getElementById("app-revenue-val");
+                const roiVal = document.getElementById("app-roi-val");
+                const timeVal = document.getElementById("app-time-val");
+
+                const resultsScreen = document.getElementById("app-results-screen");
+                const ctaScreen = document.getElementById("app-cta-screen");
+                const qualifyBtn = document.getElementById("app-qualify-btn");
+                const backBtn = document.getElementById("app-back-btn");
+
+                const ctaIcon = document.getElementById("cta-icon");
+                const ctaTitle = document.getElementById("cta-title");
+                const ctaDescription = document.getElementById("cta-description");
+                const ctaHighCost = document.getElementById("cta-high-cost");
+                const ctaLowCost = document.getElementById("cta-low-cost");
+                const whatsappCtaLink = document.getElementById("whatsapp-cta-link");
+
+                let activePlatform = "web";
+                let activeIntegration = "ia";
+
+                platformBtns.forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        platformBtns.forEach(b => b.classList.remove("border-blue-500", "dark:border-blue-400", "bg-blue-500/5", "dark:bg-blue-500/5"));
+                        btn.classList.add("border-blue-500", "dark:border-blue-400", "bg-blue-500/5", "dark:bg-blue-500/5");
+                        activePlatform = btn.getAttribute("data-platform");
+                        calculateProject();
+                    });
+                });
+
+                integrationBtns.forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        integrationBtns.forEach(b => b.classList.remove("border-blue-500", "dark:border-blue-400", "bg-blue-500/5", "dark:bg-blue-500/5"));
+                        btn.classList.add("border-blue-500", "dark:border-blue-400", "bg-blue-500/5", "dark:bg-blue-500/5");
+                        activeIntegration = btn.getAttribute("data-integration");
+                        calculateProject();
+                    });
+                });
+
+                usersInput.addEventListener("input", () => {
+                    const u = parseInt(usersInput.value);
+                    usersVal.textContent = u.toLocaleString() + " / mes";
+                    calculateProject();
+                });
+
+                industrySelect.addEventListener("change", calculateProject);
+
+                let totalCostUsd = 0;
+                let calculatedCost = 0;
+                let calculatedRevenue = 0;
+                let calculatedRoi = 0;
+
+                function calculateProject() {
+                    let platformCost = 2500;
+                    let deliveryWeeks = "4 - 5";
+                    if (activePlatform === "mobile") {
+                        platformCost = 6000;
+                        deliveryWeeks = "6 - 8";
+                    } else if (activePlatform === "multi") {
+                        platformCost = 9500;
+                        deliveryWeeks = "8 - 12";
+                    }
+
+                    let integrationCost = 3500;
+                    if (activeIntegration === "base") {
+                        integrationCost = 1000;
+                    } else if (activeIntegration === "enterprise") {
+                        integrationCost = 6000;
+                    }
+
+                    const users = parseInt(usersInput.value);
+                    let scaleCost = 0;
+                    if (users > 5000) {
+                        scaleCost = (users - 5000) * 0.05;
+                    }
+
+                    let industryFactor = 1.0;
+                    let roiMultiplier = 1.0;
+                    const ind = industrySelect.value;
+                    if (ind === "retail") {
+                        industryFactor = 1.1;
+                        roiMultiplier = 1.1;
+                    } else if (ind === "salud") {
+                        industryFactor = 1.2;
+                        roiMultiplier = 1.2;
+                    } else if (ind === "inmobiliaria") {
+                        industryFactor = 1.2;
+                        roiMultiplier = 1.2;
+                    } else if (ind === "educacion") {
+                        industryFactor = 1.05;
+                        roiMultiplier = 1.05;
+                    } else if (ind === "servicios") {
+                        industryFactor = 1.0;
+                        roiMultiplier = 1.0;
+                    }
+
+                    totalCostUsd = Math.round((platformCost + integrationCost + scaleCost) * industryFactor);
+                    calculatedCost = Math.round(totalCostUsd * rate);
+
+                    const avgTicketUsd = 30;
+                    const monthlySavings = (users * 0.12 * 4.5);
+                    const monthlySales = (users * 0.015 * avgTicketUsd * roiMultiplier);
+                    const totalMonthlyReturnUsd = monthlySavings + monthlySales;
+                    const totalAnnualReturnUsd = Math.round(totalMonthlyReturnUsd * 12);
+                    
+                    calculatedRevenue = Math.round(totalAnnualReturnUsd * rate);
+                    calculatedRoi = Math.round((totalAnnualReturnUsd / totalCostUsd) * 100);
+
+                    costVal.textContent = moneda === "USD" ? "$" + calculatedCost.toLocaleString() : moneda + " " + calculatedCost.toLocaleString();
+                    revenueVal.textContent = moneda === "USD" ? "$" + calculatedRevenue.toLocaleString() : moneda + " " + calculatedRevenue.toLocaleString();
+                    roiVal.textContent = calculatedRoi + "%";
+                    timeVal.textContent = deliveryWeeks + " semanas";
+                }
+
+                qualifyBtn.addEventListener("click", () => {
+                    resultsScreen.classList.add("hidden");
+                    ctaScreen.classList.remove("hidden");
+
+                    const umbralUsd = 5000;
+                    const currentInd = industrySelect.options[industrySelect.selectedIndex].text.split(" (")[0];
+
+                    if (totalCostUsd < umbralUsd) {
+                        ctaIcon.className = "fab fa-whatsapp text-xl text-emerald-500";
+                        ctaTitle.textContent = "MVP No-Code o Chatbot de WhatsApp";
+                        ctaDescription.textContent = `Para un proyecto de ${currentInd} con este nivel de complejidad, te recomendamos iniciar con un Chatbot de WhatsApp Inteligente o un MVP No-Code. Permite validar tu idea en pocos días sin incurrir en costos altos de infraestructura.`;
+                        
+                        ctaHighCost.classList.add("hidden");
+                        ctaLowCost.classList.remove("hidden");
+
+                        const waMsg = encodeURIComponent(`Hola, usé la calculadora de Apps y mi proyecto de ${currentInd} calificó para un MVP No-Code / Chatbot. Quisiera conocer más sobre las opciones.`);
+                        whatsappCtaLink.href = `https://wa.me/__WA_NUMERO__?text=${waMsg}`;
+                    } else {
+                        ctaIcon.className = "fas fa-shield-alt text-xl text-blue-500";
+                        ctaTitle.textContent = "Desarrollo IA-Native a Medida";
+                        ctaDescription.textContent = `Tu proyecto de ${currentInd} califica para un Desarrollo de Aplicación IA-Native a Medida. Debido a la escala de usuarios y la complejidad de las integraciones, se requiere una arquitectura robusta y una sesión estratégica con ingenieros.`;
+                        
+                        ctaLowCost.classList.add("hidden");
+                        ctaHighCost.classList.remove("hidden");
+                    }
+                });
+
+                backBtn.addEventListener("click", () => {
+                    ctaScreen.classList.add("hidden");
+                    resultsScreen.classList.remove("hidden");
+                });
+
+                document.querySelector('[data-platform="web"]').click();
+                document.querySelector('[data-integration="ia"]').click();
+            });
+        </script>
+
+        <!-- Cal element-click embed code begins -->
+        <script type="text/javascript">
+          (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://demo.localexpertapp.com/embed/embed.js", "init");
+          Cal("init", "consultorialocalexpert", {origin:"https://demo.localexpertapp.com"});
+          Cal.ns.consultorialocalexpert("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#0F1B34"},"dark":{"cal-brand":"#3568d7"}},"hideEventTypeDetails":false,"layout":"month_view"});
+        </script>
+        <!-- Cal element-click embed code ends -->
+    </section>
+    '''
+    return html.replace('__MONEDA__', moneda).replace('__WA_NUMERO__', wa_numero)
 
 
 def build_footer_html(data):
@@ -3180,8 +3556,90 @@ def build():
     with open(CSV_FILE, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         data = list(reader)
-        footer_html = build_footer_html(data)
         
+    # Generar de forma dinámica la vertical de desarrollo de apps y software
+    app_vertical_data = []
+    seen_cities = set()
+    for row in data:
+        if row.get('Estado') != 'PUBLICAR':
+            continue
+        city_key = (row.get('Ciudad_Slug'), row.get('País_Slug'))
+        if city_key not in seen_cities:
+            seen_cities.add(city_key)
+            
+            ciudad = row.get('Ciudad')
+            pais = row.get('País')
+            demonimo = row.get('Demónimo')
+            barrios = row.get('Barrios', '')
+            barrios_list = [b.strip() for b in barrios.split('|') if b.strip()]
+            barrio1 = barrios_list[0] if len(barrios_list) > 0 else 'el centro'
+            barrio2 = barrios_list[1] if len(barrios_list) > 1 else 'el norte'
+            
+            app_row = row.copy()
+            app_row['Industria'] = 'Desarrollo de Apps y Software'
+            app_row['Industria_Slug'] = 'desarrollo-apps-software'
+            app_row['Industria_Singular'] = 'desarrollo de aplicaciones'
+            app_row['URL_Final'] = f"/desarrollo-apps-software/{row.get('País_Slug')}/{row.get('Ciudad_Slug')}/"
+            
+            app_row['H1'] = f"Desarrollo de Aplicaciones Móviles y Web en {ciudad}"
+            app_row['Title_SEO'] = f"Desarrollo de Aplicaciones Móviles y Web en {ciudad} 2026 | Consultor IA"
+            app_row['Meta_Description'] = f"Desarrollo de aplicaciones web y móviles a medida en {ciudad}. Integramos bases de datos, pasarelas de pago y funciones avanzadas de Inteligencia Artificial."
+            app_row['Keyword_Principal'] = f"desarrollo de apps {ciudad}"
+            app_row['Keyword_Secundaria'] = f"desarrollo de aplicaciones {ciudad}"
+            app_row['Keyword_Terciaria'] = f"crear aplicacion móvil {ciudad}"
+            
+            app_row['Dolor_Principal'] = "procesos operativos lentos, falta de una aplicación propia para vender y depender de tareas manuales repetitivas que limitan el negocio"
+            app_row['Solución_Clave'] = "desarrollar una aplicación móvil o plataforma web a medida que automatice tus ventas, reservas y administración en tiempo real"
+            
+            if row.get('Moneda') == 'COP':
+                app_row['Precio_Bajo'] = '8.000.000'
+                app_row['Precio_Medio'] = '18.000.000'
+                app_row['Precio_Alto'] = '35.000.000'
+            elif row.get('Moneda') == 'MXN':
+                app_row['Precio_Bajo'] = '35.000'
+                app_row['Precio_Medio'] = '80.000'
+                app_row['Precio_Alto'] = '150.000'
+            elif row.get('Moneda') == 'ARS':
+                app_row['Precio_Bajo'] = '2.000.000'
+                app_row['Precio_Medio'] = '5.000.000'
+                app_row['Precio_Alto'] = '10.000.000'
+            else:
+                app_row['Precio_Bajo'] = '2,000'
+                app_row['Precio_Medio'] = '5,000'
+                app_row['Precio_Alto'] = '10,000'
+                
+            app_row['Cliente_Nombre'] = row.get('Cliente_Nombre', 'Socio de Software')
+            app_row['Cliente_Negocio'] = 'plataforma móvil/web'
+            
+            app_row['FAQ_Industria_1_P'] = "¿Qué tipo de aplicaciones móviles y web desarrollan?"
+            app_row['FAQ_Industria_1_R'] = f"Desarrollamos aplicaciones web progresivas (PWA) y móviles híbridas (iOS y Android) adaptadas para negocios en {ciudad}. Integramos bases de datos, sistemas de usuarios, pasarelas de pago y APIs avanzadas de Inteligencia Artificial."
+            
+            app_row['FAQ_Industria_2_P'] = "¿Cuánto tiempo tarda el desarrollo de una app a medida?"
+            app_row['FAQ_Industria_2_R'] = f"El desarrollo de un MVP funcional o solución no-code puede tomar de 3 a 5 semanas. Para desarrollos híbridos a medida con integraciones complejas (como CRM, ERP o IA avanzada), el tiempo de entrega oscila entre 8 y 12 semanas."
+            
+            app_row['FAQ_Industria_3_P'] = "¿Es posible integrar la aplicación con mis sistemas actuales?"
+            app_row['FAQ_Industria_3_R'] = f"Sí. Desarrollamos integraciones vía API con sistemas de facturación electrónica local, CRM, pasarelas de pago, proveedores logísticos y ERPs tradicionales para garantizar que tus datos fluyan en tiempo real."
+            
+            app_row['WA_Mensaje_Precargado'] = f"Hola, me interesa agendar una consultoría para el desarrollo de una aplicación móvil o web en {ciudad}."
+            
+            app_row['Contenido_Editorial'] = f"""
+            <p class="text-lg leading-relaxed mb-6 text-gray-2 dark:text-slate-300">
+                El mercado en {ciudad} vive una carrera de digitalización sin precedentes. Desde {barrio1} hasta {barrio2}, los dueños de negocios ya están implementando aplicaciones móviles y web para responder a la demanda de los {demonimo}, quienes prefieren resolver compras y citas al instante desde sus teléfonos móviles.
+            </p>
+            """
+            
+            app_row['Contenido_EEAT'] = f"""
+            <h2>Automatización y Crecimiento en {ciudad}</h2>
+            <h3>Desarrollo de Aplicaciones e Integración de IA a Medida</h3>
+            <p>El panorama comercial de {ciudad} exige soluciones ágiles y eficientes. Desde los concurridos corredores comerciales de {barrio1} hasta las zonas de alto crecimiento como {barrio2}, depender exclusivamente del factor humano para atender ventas o procesar reservas limita tu rentabilidad diaria.</p>
+            <p>El desafío consiste en modernizar tus canales digitales sin crear complejidad técnica en tu operación. Una aplicación propia te independiza de las costosas comisiones de plataformas de terceros, te permite poseer la base de datos de tus clientes y automatizar las notificaciones de entrega.</p>
+            <p>Nuestra solución de desarrollo de software inyecta Inteligencia Artificial para optimizar tus flujos internos, procesar consultas de inventario, validar pedidos y guiar a tus usuarios en una experiencia fluida e intuitiva. "*Hola, me interesa agendar una consultoría para el desarrollo de una aplicación con IA en {ciudad}.*"</p>
+            """
+            
+            app_vertical_data.append(app_row)
+            
+    data.extend(app_vertical_data)
+    footer_html = build_footer_html(data)
     mega_menu_html = get_mega_menu(data)
     urls = []
     
@@ -3203,7 +3661,10 @@ def build():
         # New Dynamic SEO fields
         roadmap_html = build_roadmap_html(row)
         roi_table_html = build_roi_table_html(row)
-        calculadora_roi_html = build_calculadora_html(row)
+        if row.get('Industria') == 'Desarrollo de Apps y Software':
+            calculadora_roi_html = build_calculadora_app_html(row)
+        else:
+            calculadora_roi_html = build_calculadora_html(row)
         local_context = build_local_context(row)
         
         # Spin intro paragraphs

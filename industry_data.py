@@ -178,5 +178,24 @@ INDUSTRY_DATA = {
             {'q': '¿La IA puede atender a diferentes países con precios distintos?', 'a': 'Totalmente. La IA detecta el código de país del usuario (+54, +57, +34) y entrega la información con la moneda local y horarios correspondientes.'},
             {'q': '¿Cómo gestiona dudas muy técnicas sobre un curso avanzado?', 'a': 'Si la pregunta excede el conocimiento del prospecto (ej. dudas sobre un módulo específico de Python), escala el chat a un coordinador académico.'}
         ]
+    },
+    'Desarrollo de Apps y Software': {
+        'intro': 'Lleva tu negocio al siguiente nivel en {ciudad} con software diseñado a tu medida. Creamos la app para vender comida con entregas eficientes, el programa para administrar tu negocio sin complicaciones, o el sistema de reservas y citas que tus clientes amarán. Automatiza tus procesos y escala tu facturación de forma {cool}.',
+        'chat': {
+            'user': '{greeting_user}, {you_verb_have} una idea para una app de venta de comida tipo Uber Eats en mi ciudad? cuánto cuesta?',
+            'bot': '{greeting_bot} ¡Claro! Diseñamos aplicaciones de delivery personalizadas con pasarela de pago local y mapa de repartidores. ¿Qué tipo de comida vendes para asesorarte mejor?'
+        },
+        'cards': [
+            {'icon': 'fas fa-utensils', 'title': 'App para Vender Comida', 'desc': 'Desarrollamos tu propia plataforma de domicilios sin comisiones abusivas. Menú interactivo, mapa y pasarela de pago.'},
+            {'icon': 'fas fa-calculator', 'title': 'Programa para Administrar', 'desc': 'Un sistema ERP a la medida para controlar inventarios, compras, caja y facturación de tu negocio en tiempo real.'},
+            {'icon': 'fas fa-calendar-alt', 'title': 'Sistema de Reservas', 'desc': 'Plataforma de citas y agendamiento online. Tus clientes reservan y pagan su turno automáticamente las 24 horas.'},
+            {'icon': 'fas fa-laptop-code', 'title': 'Software a la Medida', 'desc': 'Traducimos tus necesidades operativas en código robusto y de alto rendimiento. Apps móviles iOS/Android y plataformas web.'}
+        ],
+        'faqs': [
+            {'q': '¿Cómo se inicia un proyecto de desarrollo de software a la medida?', 'a': 'Comenzamos con una sesión de diagnóstico gratuito para entender tus procesos y definir los requerimientos. Luego estructuramos el alcance, diseñamos las pantallas preliminares y procedemos con el desarrollo ágil por fases.'},
+            {'q': '¿Cuáles son las ventajas de tener una app propia para vender comida frente a plataformas de terceros?', 'a': 'La principal ventaja es que eliminas las comisiones del 20% al 30% por cada pedido. Además, eres dueño de la base de datos de tus clientes, lo que te permite hacer marketing directo por WhatsApp y fidelizarlos sin intermediarios.'},
+            {'q': '¿El programa de administración de negocio puede integrarse con otros sistemas existentes?', 'a': 'Sí, desarrollamos integraciones vía API con sistemas de facturación electrónica local, pasarelas de pago, CRM, proveedores logísticos y ERPs tradicionales para que tu información fluya en tiempo real.'}
+        ]
     }
 }
+
