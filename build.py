@@ -1135,6 +1135,67 @@ def build_roadmap_html(row):
     ciudad = row.get('Ciudad', '')
     industria = row.get('Industria', 'tu negocio')
     
+    if industria == 'Desarrollo de Apps y Software':
+        html = f'''
+    <section id="como-funciona" class="py-24 bg-[#FDFBF7] dark:bg-zinc-900">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-16">
+                <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Proceso de Desarrollo</span>
+                <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Roadmap de tu Proyecto en {ciudad}</h2>
+                <p class="text-xl text-zinc-600 dark:text-zinc-400">Llevamos tu idea al mercado en 4 fases estructuradas bajo metodología ágil.</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Línea conectora -->
+                <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-accent/30 dark:bg-accent/20 -translate-x-1/2"></div>
+                
+                <div class="space-y-12">
+                    <!-- Paso 1 -->
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group">
+                        <div class="md:w-5/12 text-left md:text-right pl-16 md:pl-0 md:pr-12">
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">1. Diagnóstico y Requerimientos</h3>
+                            <p class="text-gray-500 dark:text-slate-400">Estructuramos las especificaciones funcionales, casos de uso y la arquitectura inicial de tu software.</p>
+                        </div>
+                        <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-brand-light dark:text-white shadow-xl z-10">1</div>
+                        <div class="md:w-5/12 pl-0 md:pl-12 hidden md:block"></div>
+                    </div>
+                    
+                    <!-- Paso 2 -->
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group">
+                        <div class="md:w-5/12 pr-0 md:pr-12 hidden md:block"></div>
+                        <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-brand-light dark:text-white shadow-xl z-10">2</div>
+                        <div class="md:w-5/12 pl-16 md:pl-12 text-left">
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">2. Diseño UI/UX y Prototipado</h3>
+                            <p class="text-gray-500 dark:text-slate-400">Diseñamos las interfaces visuales (Wireframes) y creamos un prototipo interactivo para validar la experiencia de usuario.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Paso 3 -->
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group">
+                        <div class="md:w-5/12 text-left md:text-right pl-16 md:pl-0 md:pr-12">
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">3. Desarrollo e Integración de IA</h3>
+                            <p class="text-gray-500 dark:text-slate-400">Programamos la lógica frontend/backend, la base de datos y conectamos APIs de Inteligencia Artificial (Gemini).</p>
+                        </div>
+                        <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-[#FDFBF7] dark:bg-zinc-900 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-brand dark:text-brand-light dark:text-white shadow-xl z-10">3</div>
+                        <div class="md:w-5/12 pl-0 md:pl-12 hidden md:block"></div>
+                    </div>
+                    
+                    <!-- Paso 4 -->
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group">
+                        <div class="md:w-5/12 pr-0 md:pr-12 hidden md:block"></div>
+                        <div class="absolute top-0 left-0 md:left-1/2 md:-translate-y-1/2 -translate-x-0 md:-translate-x-1/2 w-12 h-12 rounded-full bg-brand dark:bg-zinc-800 border-4 border-brand dark:border-white/20 flex items-center justify-center font-bold text-white shadow-xl z-10">4</div>
+                        <div class="md:w-5/12 pl-16 md:pl-12 text-left">
+                            <h3 class="text-2xl font-header font-bold mb-3 text-gray-1 dark:text-white group-hover:text-brand dark:group-hover:text-brand-light transition-colors">4. QA, Despliegue y Soporte</h3>
+                            <p class="text-gray-500 dark:text-slate-400">Realizamos pruebas exhaustivas y desplegamos tu aplicación en la nube (Web) o tiendas oficiales (App Store / Play Store).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        '''
+        return html
+    
     html = f'''
     <section id="como-funciona" class="py-24 bg-[#FDFBF7] dark:bg-zinc-900">
         <div class="container mx-auto px-4 max-w-5xl">
@@ -1198,6 +1259,7 @@ def build_roadmap_html(row):
 def build_roi_table_html(row):
     moneda = row.get('Moneda', 'USD')
     precio_bajo = row.get('Precio_Bajo', '100')
+    industria = row.get('Industria', '')
     
     try:
         precio_num = float(re.sub(r'[^\d.]', '', str(precio_bajo)))
@@ -1215,7 +1277,53 @@ def build_roi_table_html(row):
         costo_humano = f"{moneda} 400"
         precio_bajo_str = f"{moneda} 100"
         
-    html = f'''
+    if industria == 'Desarrollo de Apps y Software':
+        html = f'''
+    <section class="py-16 bg-[#FDFBF7] dark:bg-zinc-900 border-y border-gray-border dark:border-zinc-800">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-header font-bold mb-4">Agencia Tradicional vs. Desarrollo IA-Native</h2>
+                <p class="text-lg text-gray-500 dark:text-slate-400">¿Por qué nuestro enfoque es la decisión más inteligente para tu ROI y velocidad?</p>
+            </div>
+            
+            <div class="overflow-x-auto rounded-2xl shadow-xl">
+                <table class="w-full text-left bg-white dark:bg-zinc-900 border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="bg-gray-100 dark:bg-zinc-800 border-b border-gray-border dark:border-zinc-700">
+                            <th class="p-6 font-bold text-gray-700 dark:text-slate-300 w-1/3">Característica</th>
+                            <th class="p-6 font-bold text-gray-500 dark:text-slate-400 w-1/3 text-center border-x border-gray-border dark:border-zinc-700">Agencia Tradicional</th>
+                            <th class="p-6 font-bold text-brand dark:text-brand-light w-1/3 text-center bg-brand/5 dark:bg-brand/10">Desarrollo IA-Native (Consultor IA)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 dark:text-slate-400">
+                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
+                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Tiempo de Lanzamiento</td>
+                            <td class="p-5 text-center">3 a 6 meses</td>
+                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">4 a 8 semanas (Desarrollo Ágil)</td>
+                        </tr>
+                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
+                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Integración de IA (LLMs)</td>
+                            <td class="p-5 text-center">Costosa, como módulo adicional posterior</td>
+                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">Nativa de Fábrica (Gemini, Speech, Visión)</td>
+                        </tr>
+                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
+                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Costo de Implementación</td>
+                            <td class="p-5 text-center text-red-500 font-medium">Elevado ($15,000+ USD)</td>
+                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">Optimizado (Desde {precio_bajo_str})</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
+                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Propiedad del Código</td>
+                            <td class="p-5 text-center">A menudo cautivo o limitado</td>
+                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">100% Tuyo (Código y BD Libres)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+        '''
+    else:
+        html = f'''
     <section class="py-16 bg-[#FDFBF7] dark:bg-zinc-900 border-y border-gray-border dark:border-zinc-800">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-10">
@@ -1258,8 +1366,9 @@ def build_roi_table_html(row):
             </div>
         </div>
     </section>
-    '''
+        '''
     return html
+
 
 
 def build_calculadora_html(row):
