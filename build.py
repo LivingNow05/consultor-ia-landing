@@ -1581,7 +1581,7 @@ def build_calculadora_app_html(row):
                 </div>
 
                 <!-- Panel de Resultados (Derecha) -->
-                <div class="w-full lg:w-5/12 bg-zinc-50/50 dark:bg-zinc-950/40 border border-gray-150 dark:border-zinc-800/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-inner relative overflow-hidden min-h-[350px]">
+                <div class="w-full lg:w-5/12 bg-zinc-50/50 dark:bg-zinc-950/40 border border-gray-150 dark:border-zinc-800/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-inner relative overflow-visible min-h-[350px]">
                     
                     <!-- Pantalla 1: Resultados del Cálculo (Activa por defecto) -->
                     <div id="app-results-screen" class="flex flex-col gap-6 transition-all duration-300">
@@ -1590,7 +1590,7 @@ def build_calculadora_app_html(row):
                             <div class="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white" id="app-cost-val">$0</div>
                             <span class="text-[10px] text-zinc-400 block mt-1">Pago único de desarrollo e integración inicial</span>
                         </div>
-
+                        
                         <div class="grid grid-cols-2 gap-4">
                             <div class="bg-white/60 dark:bg-zinc-900/30 p-4 rounded-2xl border border-gray-150 dark:border-zinc-850/50 text-center">
                                 <span class="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest block mb-1">Retorno Anual Est.</span>
@@ -1603,7 +1603,7 @@ def build_calculadora_app_html(row):
                                 <span class="text-[9px] text-zinc-400 block mt-0.5">Tasa de rentabilidad</span>
                             </div>
                         </div>
-
+                        
                         <div class="bg-white/80 dark:bg-zinc-900/60 p-4 rounded-2xl border border-gray-150 dark:border-zinc-850/50 flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
                                 <i class="fas fa-history text-lg"></i>
@@ -1613,38 +1613,38 @@ def build_calculadora_app_html(row):
                                 <span class="text-sm font-extrabold text-zinc-850 dark:text-zinc-200" id="app-time-val">4 - 6 semanas</span>
                             </div>
                         </div>
-
+                        
                         <button type="button" id="app-qualify-btn" class="w-full py-4 rounded-2xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 font-bold hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl select-none cursor-pointer">
                             <span>Ver Recomendación y Siguiente Paso</span>
                             <i class="fas fa-arrow-right text-xs"></i>
                         </button>
                     </div>
-
+                    
                     <!-- Pantalla 2: Recomendación y CTA Calificado (Oculta al inicio) -->
-                    <div id="app-cta-screen" class="hidden flex-col gap-6 transition-all duration-300">
+                    <div id="app-cta-screen" class="hidden flex-col gap-4 transition-all duration-300">
                         <div class="flex items-center gap-2">
                             <button type="button" id="app-back-btn" class="text-zinc-400 hover:text-zinc-800 dark:hover:text-white transition-colors text-sm flex items-center gap-1 focus:outline-none select-none cursor-pointer">
                                 <i class="fas fa-arrow-left text-xs"></i>
                                 <span>Volver a simular</span>
                             </button>
                         </div>
-
-                        <div class="text-center p-5 rounded-2xl bg-blue-500/5 dark:bg-blue-400/5 border border-blue-500/15 dark:border-blue-400/10">
-                            <div class="w-12 h-12 rounded-full bg-blue-500/10 dark:bg-blue-400/10 text-blue-500 dark:text-[#53bdeb] flex items-center justify-center mx-auto mb-3">
-                                <i id="cta-icon" class="fas fa-clipboard-check text-xl"></i>
+                        
+                        <div class="text-center p-4 rounded-2xl bg-blue-500/5 dark:bg-blue-400/5 border border-blue-500/15 dark:border-blue-400/10">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/10 dark:bg-blue-400/10 text-blue-500 dark:text-[#53bdeb] flex items-center justify-center mx-auto mb-2">
+                                <i id="cta-icon" class="fas fa-clipboard-check text-lg"></i>
                             </div>
                             <span class="text-[10px] font-bold text-blue-600 dark:text-[#53bdeb] uppercase tracking-widest block mb-1">Diagnóstico Automático</span>
-                            <h5 class="text-lg font-bold text-zinc-900 dark:text-white" id="cta-title">Recomendación</h5>
-                            <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed" id="cta-description">Diagnóstico detallado.</p>
+                            <h5 class="text-base font-bold text-zinc-900 dark:text-white" id="cta-title">Recomendación</h5>
+                            <p class="text-[11px] text-zinc-600 dark:text-zinc-400 mt-1.5 leading-relaxed" id="cta-description">Diagnóstico detallado.</p>
                         </div>
-
+                        
                         <!-- CTA Calificado Alto Costo: Agendar Consultoría IA-Native -->
-                        <div id="cta-high-cost" class="hidden flex-col gap-3">
-                            <button data-cal-link="localexpert/consultorialocalexpert" data-cal-namespace="consultorialocalexpert" data-cal-config='{"layout":"month_view"}' class="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-center font-bold transition-all shadow-md flex items-center justify-center gap-2 select-none cursor-pointer">
+                        <div id="cta-high-cost" class="hidden flex-col gap-2.5">
+                            <button data-cal-link="localexpert/consultorialocalexpert" data-cal-namespace="consultorialocalexpert" data-cal-config='{"layout":"month_view"}' class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-center font-bold transition-all shadow-md flex items-center justify-center gap-2 select-none cursor-pointer">
                                 <i class="far fa-calendar-alt"></i>
                                 <span>Agendar Consultoría de Desarrollo IA-Native</span>
                             </button>
-                            <p class="text-[9.5px] text-zinc-400 text-center leading-normal">Sesión de 30 min para estructurar requerimientos, servidores e integraciones de IA.</p>
+                            <p class="text-[9px] text-zinc-400 text-center leading-normal">Sesión de 30 min para estructurar requerimientos, servidores e integraciones de IA.</p>
                         </div>
 
                         <!-- CTA Calificado Bajo Costo: Comenzar con WhatsApp / No-Code -->
@@ -1837,6 +1837,249 @@ def build_calculadora_app_html(row):
     </section>
     '''
     return html.replace('__MONEDA__', moneda).replace('__WA_NUMERO__', wa_numero)
+
+
+def build_hero_visual_html(row, hero_chat_user, hero_chat_bot):
+    """Genera el HTML del visual del Hero: WhatsApp interactivo para chatbots o Dashboard para Apps."""
+    ind = row.get('Industria', '')
+    ciudad = row.get('Ciudad', '')
+    pais = row.get('País', '')
+    
+    if ind == 'Desarrollo de Apps y Software':
+        html = f'''
+        <div class="lg:w-2/5 w-full">
+            <div class="relative group-hero cursor-pointer mt-8 lg:mt-0">
+                <!-- Glassmorphic App Mockup Container -->
+                <div class="relative bg-zinc-50 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-2xl p-5 flex flex-col gap-4">
+                    <!-- Top bar representing phone status -->
+                    <div class="flex justify-between items-center text-[10px] text-zinc-400 font-sans px-1">
+                        <span>9:41</span>
+                        <div class="flex items-center gap-1">
+                            <i class="fas fa-signal"></i>
+                            <i class="fas fa-wifi"></i>
+                            <i class="fas fa-battery-three-quarters"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- App Header -->
+                    <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-zinc-800">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center">
+                                <i class="fas fa-chart-line text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-zinc-850 dark:text-zinc-200">Panel de Control</h4>
+                                <span class="text-[9px] text-zinc-400 block">IA-Native App</span>
+                            </div>
+                        </div>
+                        <span class="text-[10px] bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded-full font-semibold uppercase tracking-wider">Activo</span>
+                    </div>
+                    
+                    <!-- Metrics Cards Grid -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-white/60 dark:bg-zinc-950/40 border border-gray-150/50 dark:border-zinc-850 p-3 rounded-2xl">
+                            <span class="text-[9px] text-zinc-400 block mb-1">Ventas del Mes</span>
+                            <span class="text-sm font-bold text-zinc-800 dark:text-zinc-100">$24,850</span>
+                            <span class="text-[8px] text-emerald-500 block mt-0.5"><i class="fas fa-arrow-up"></i> +28.4%</span>
+                        </div>
+                        <div class="bg-white/60 dark:bg-zinc-950/40 border border-gray-150/50 dark:border-zinc-850 p-3 rounded-2xl">
+                            <span class="text-[9px] text-zinc-400 block mb-1">Usuarios Activos</span>
+                            <span class="text-sm font-bold text-zinc-800 dark:text-zinc-100">12,450</span>
+                            <span class="text-[8px] text-blue-500 block mt-0.5"><i class="fas fa-check"></i> 100% Sinc.</span>
+                        </div>
+                    </div>
+
+                    <!-- Main Activity Box -->
+                    <div class="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-4 text-white">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <span class="text-[10px] text-blue-100 uppercase tracking-wider font-semibold">Integración IA Activa</span>
+                                <h4 class="text-base font-bold mt-0.5">Gemini API Core</h4>
+                            </div>
+                            <div class="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center">
+                                <i class="fas fa-brain text-xs"></i>
+                            </div>
+                        </div>
+                        <p class="text-[10.5px] text-blue-50/90 leading-relaxed">Procesando solicitudes, categorizando cotizaciones y automatizando atención 24/7 sin intervención humana.</p>
+                    </div>
+
+                    <!-- System Status & Sync -->
+                    <div class="bg-white/80 dark:bg-zinc-950/60 border border-gray-150/50 dark:border-zinc-850 p-3.5 rounded-2xl flex items-center justify-between">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center">
+                                <i class="fas fa-network-wired text-xs"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] text-zinc-400 block">Sincronización ERP</span>
+                                <span class="text-[11px] font-bold text-zinc-850 dark:text-zinc-200">Facturación & Caja</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-sync text-zinc-300 text-xs animate-spin-slow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        '''
+    else:
+        html = f'''
+        <div class="lg:w-2/5 w-full">
+            <div class="relative group-hero cursor-pointer mt-8 lg:mt-0">
+                <!-- WhatsApp Chat Mockup -->
+                <div class="relative bg-[#efeae2] dark:bg-[#0b141a] border border-gray-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-2xl transition-all hover:shadow-[0_20px_50px_-12px_rgba(79,70,229,0.2)]">
+                    
+                    <!-- Header WhatsApp -->
+                    <div class="bg-[#00a884] dark:bg-[#202c33] p-4 flex items-center gap-3 relative z-10">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0">
+                            <i class="fas fa-robot text-xl text-[#00a884] dark:text-[#8696a0]"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-white text-base leading-tight">Consultor-IA Bot</h3>
+                            <p class="text-white/80 text-xs mt-0.5">en línea</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Body -->
+                    <div class="p-5 flex flex-col gap-3 relative z-10 min-h-[300px]">
+                        <!-- Chat pattern background -->
+                        <div class="absolute inset-0 opacity-40 dark:opacity-[0.05] bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center -z-10"></div>
+                        
+                        <!-- Client Message -->
+                        <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
+                            {hero_chat_user}
+                        </div>
+                        
+                        <!-- AI Bot Message -->
+                        <div class="self-start bg-white dark:bg-[#202c33] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tl-none py-2 px-3 max-w-[90%] text-[15px] shadow-sm animate-fade-in-up animation-delay-500">
+                            {hero_chat_bot}
+                        </div>
+                        
+                        <!-- ROI Box inside Chat -->
+                        <div class="self-start w-full mt-2 animate-fade-in-up animation-delay-1000">
+                            <div class="bg-white/90 dark:bg-[#202c33]/90 backdrop-blur-sm border border-gray-100 dark:border-zinc-800 rounded-xl p-4 flex justify-between shadow-sm">
+                                <div>
+                                    <p class="text-xs text-gray-500 dark:text-[#8696a0]">ROI Promedio</p>
+                                    <p class="font-bold text-accent dark:text-[#53bdeb] text-lg">+315%</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-gray-500 dark:text-[#8696a0]">Implementación</p>
+                                    <p class="font-bold text-gray-800 dark:text-[#e9edef] text-lg">5-7 Días</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        '''
+    return html
+
+def build_precios_seccion_html(row):
+    """Genera el bloque HTML de precios adaptado para chatbots o desarrollo de aplicaciones."""
+    ind = row.get('Industria', '')
+    pais = row.get('País', '')
+    ciudad = row.get('Ciudad', '')
+    moneda = row.get('Moneda', 'USD')
+    precio_bajo = row.get('Precio_Bajo', '2,000')
+    precio_medio = row.get('Precio_Medio', '5,000')
+    wa_numero = row.get('WA_Numero', '') or WA_NUMERO
+        
+    if ind == 'Desarrollo de Apps y Software':
+        html = f'''
+        <section id="precios" class="py-24">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-16">
+                    <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios en {pais}</h2>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en {moneda}. Sin sorpresas ni cobros ocultos.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
+                    <!-- Card 1: Desarrollo MVP -->
+                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+                        <h3 class="font-header font-bold text-2xl mb-2">Desarrollo MVP / Base</h3>
+                        <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Ideal para validar tu idea de negocio rápido</p>
+                        <div class="text-3xl font-bold mb-6 text-gray-1 dark:text-white">Desde {moneda} {precio_bajo} <span class="text-lg font-normal text-gray-400">{moneda}</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-slate-300">
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Aplicación Web o PWA optimizada para móviles</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Base de datos estructurada y panel de administración básico</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Integración de pasarela de pago estándar local</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Entrega y lanzamiento en 3 a 5 semanas</li>
+                        </ul>
+                        <a href="https://wa.me/{wa_numero}?text=Hola,%20quisiera%20cotizar%20un%20proyecto%20MVP%20en%20{ciudad}" target="_blank" class="block w-full text-center border border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-zinc-800 py-3 rounded-xl font-medium transition-colors">Cotizar MVP</a>
+                    </div>
+                    
+                    <!-- Card 2: Aplicación Completa / Pro -->
+                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">IA-Native</div>
+                        <h3 class="font-header font-bold text-2xl mb-2 text-white">Aplicación Pro / IA-Native</h3>
+                        <p class="text-brand-100 text-sm mb-6">Desarrollo robusto con inteligencia artificial a medida</p>
+                        <div class="text-3xl font-bold mb-6 text-white">Desde {moneda} {precio_medio} <span class="text-lg font-normal text-brand-200">{moneda}</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-brand-100">
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3 text-[#E8DAC1]"></i> App Móvil nativa híbrida (iOS y Android en tiendas)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3 text-[#E8DAC1]"></i> Integración nativa de IA (Gemini API, visión y voz)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3 text-[#E8DAC1]"></i> Sincronización completa con tu CRM, ERP o Base de datos</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3 text-[#E8DAC1]"></i> Soporte continuo y actualizaciones en fase de despliegue</li>
+                        </ul>
+                        <a href="https://wa.me/{wa_numero}?text=Hola,%20quisiera%20cotizar%20un%20proyecto%20App%20Pro/IA-Native%20en%20{ciudad}" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-3.5 rounded-xl overflow-hidden transition-all duration-500">
+                            <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                            <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                                Iniciar Consultoría <i class="fas fa-arrow-right text-[12px]"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        '''
+    else:
+        html = f'''
+        <section id="precios" class="py-24">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-16">
+                    <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios en {pais}</h2>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
+                    <!-- Pricing Card 1: Setup -->
+                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+                        <h3 class="font-header font-bold text-2xl mb-2">Configuración Completa</h3>
+                        <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Pago único por la creación del sistema</p>
+                        <div class="text-4xl font-bold mb-6 text-gray-1 dark:text-white">$497 <span class="text-lg font-normal text-gray-400">USD</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-slate-300">
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Desarrollo y entrenamiento del Agente IA</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Integración completa con WhatsApp y Web</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Ingesta de base de conocimiento (FAQ, servicios)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Pruebas y despliegue inicial (5-7 días)</li>
+                        </ul>
+                        <a href="https://wa.me/{wa_numero}" target="_blank" class="block w-full text-center border border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-zinc-800 py-3 rounded-xl font-medium transition-colors">Solicitar Configuración</a>
+                    </div>
+                    
+                    <!-- Pricing Card 2: Mantenimiento (Destacada) -->
+                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Esencial</div>
+                        <h3 class="font-header font-bold text-2xl mb-2 text-white">Mantenimiento Mensual</h3>
+                        <p class="text-brand-100 text-sm mb-6">Suscripción para el funcionamiento de la IA</p>
+                        <div class="text-4xl font-bold mb-6 text-white">$97 <span class="text-lg font-normal text-brand-200">USD /mes</span></div>
+                        <ul class="space-y-4 mb-8 text-sm">
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Hosting del agente y consumo de IA</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Soporte técnico prioritario</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Ajustes y optimizaciones mensuales</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Actualizaciones de plataforma automáticas</li>
+                        </ul>
+                        <a href="https://wa.me/{wa_numero}" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-3.5 rounded-xl overflow-hidden transition-all duration-500">
+                            <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                            <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                                Ver Detalles <i class="fas fa-arrow-right text-[12px]"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        '''
+    return html
 
 
 def build_footer_html(data):
@@ -3796,6 +4039,20 @@ def build():
         hero_chat_user = spin_text(apply_jargon(hero_chat_user, row.get('País', 'Default')))
         hero_chat_bot = spin_text(apply_jargon(hero_chat_bot, row.get('País', 'Default')))
 
+        # Dynamic services text, hero visual, and precios
+        industria_singular = row.get('Industria_Singular', 'negocio')
+        if row.get('Industria') == 'Desarrollo de Apps y Software':
+            servicios_titulo = f"¿Qué tipo de App o Software desarrollamos para tu {industria_singular}?"
+            servicios_subtitulo = "Desarrollo de software a medida con Inteligencia Artificial integrada nativamente."
+            demo_interactiva_html = ""
+        else:
+            servicios_titulo = f"¿Qué hace el Agente para tu {industria_singular}?"
+            servicios_subtitulo = "Automatización inteligente que se siente humana, diseñada específicamente para las necesidades de tu sector."
+            demo_interactiva_html = build_demo_interactiva_html(row)
+            
+        hero_visual_html = build_hero_visual_html(row, hero_chat_user, hero_chat_bot)
+        precios_seccion_html = build_precios_seccion_html(row)
+
         # Replacements
         replacements = {
             '{FOOTER_HTML}': footer_html,
@@ -3820,7 +4077,7 @@ def build():
             '{INDUSTRIA_SINGULAR}': row.get('Industria_Singular', ''),
             '{PAIS}': row.get('País', ''),
             '{PAIS_SLUG}': row.get('País_Slug', ''),
-            '{CODIGO_PAIS}': row.get('País_Slug', '')[:2], # approx
+            '{CODIGO_PAIS}': row.get('País_Slug')[:2], # approx
             '{CIUDAD}': row.get('Ciudad', ''),
             '{CIUDAD_SLUG}': row.get('Ciudad_Slug', ''),
             '{CONTENIDO_EEAT}': build_dynamic_eeat_html(row),
@@ -3829,7 +4086,7 @@ def build():
             '{AEROPUERTO}': row.get('Aeropuerto', ''),
             '{URL_FINAL}': row.get('URL_Final', ''),
             '{H1}': row.get('H1', ''),
-                '{H1_HTML}': format_h1(row.get('H1', '')),
+            '{H1_HTML}': format_h1(row.get('H1', '')),
             '{TITLE_SEO}': row.get('Title_SEO', ''),
             '{META_DESCRIPTION}': row.get('Meta_Description', ''),
             '{KEYWORD_PRINCIPAL}': row.get('Keyword_Principal', ''),
@@ -3844,7 +4101,11 @@ def build():
             '{CLIENTE_NEGOCIO}': row.get('Cliente_Negocio', ''),
             '{CLIENTE_BARRIO}': row.get('Cliente_Barrio', ''),
             '{TESTIMONIALS_HTML}': build_testimonials_html(row),
-            '{DEMO_INTERACTIVA_HTML}': build_demo_interactiva_html(row)
+            '{DEMO_INTERACTIVA_HTML}': demo_interactiva_html,
+            '{HERO_VISUAL_HTML}': hero_visual_html,
+            '{PRECIOS_SECCION_HTML}': precios_seccion_html,
+            '{SERVICIOS_SECCION_TITULO}': servicios_titulo,
+            '{SERVICIOS_SECCION_SUBTITULO}': servicios_subtitulo
         }
         
         for k, v in replacements.items():
