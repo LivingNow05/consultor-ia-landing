@@ -20,7 +20,8 @@ BLOG_CATEGORY_TAGS = {
     'nuevas-reglas-meta-chatbot-whatsapp-2026': 'Normativa',
     'whatsapp-corporativo-ia-ventas': 'Ventas',
     'chatbot-whatsapp-notas-de-voz': 'Notas de Voz',
-    'agentes-autonomos-ia-whatsapp': 'Agentes IA'
+    'agentes-autonomos-ia-whatsapp': 'Agentes IA',
+    'precios-whatsapp-business-api-2026': 'Costos'
 }
 
 def calculate_reading_time(slug):
