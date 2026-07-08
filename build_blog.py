@@ -21,7 +21,8 @@ BLOG_CATEGORY_TAGS = {
     'whatsapp-corporativo-ia-ventas': 'Ventas',
     'chatbot-whatsapp-notas-de-voz': 'Notas de Voz',
     'agentes-autonomos-ia-whatsapp': 'Agentes IA',
-    'precios-whatsapp-business-api-2026': 'Costos'
+    'precios-whatsapp-business-api-2026': 'Costos',
+    'calificacion-leads-whatsapp-ia': 'Leads'
 }
 
 def calculate_reading_time(slug):
