@@ -4292,6 +4292,10 @@ def build():
     from datetime import date
     lastmod = date.today().isoformat()
     build_agencia_pages(data, footer_html, mega_menu_html, urls)
+    
+    # Generate dynamic page
+    build_automatizacion_dinamica(footer_html, mega_menu_html)
+    
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sitemap += f'  <url>\n    <loc>https://consultor-ia.com.co/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
     for url in urls:
@@ -4334,6 +4338,26 @@ def build():
 
     print(f"Build complete! Generated {len(urls)} localized pages + homepage.")
 
+
+def build_automatizacion_dinamica(footer_html, mega_menu_html):
+    import os
+    template_path = os.path.join(SRC_DIR, "automatizacion_whatsapp.html")
+    if not os.path.exists(template_path):
+        return # Skip if template doesn't exist yet
+        
+    with open(template_path, "r", encoding="utf-8") as f:
+        html = f.read()
+        
+    html = html.replace('{FOOTER_HTML}', footer_html)
+    html = html.replace('{MEGA_MENU}', mega_menu_html)
+    
+    if "</body>" in html:
+        html = html.replace("</body>", '<script src="/js/geo-personalization.js"></script>\n</body>')
+        
+    out_path = os.path.join(DIST_DIR, "automatizacion-whatsapp-dinamica.html")
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print("Generated automatizacion-whatsapp-dinamica.html")
 
 def build_agencia_pages(data, footer_html, mega_menu_html, urls):
     import os

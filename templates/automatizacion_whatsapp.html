@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatización de WhatsApp Inteligente</title>
+    
+    <!-- Tailwind CSS (via CDN para la demo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'brand': '#18181b',
+                        'accent': '#2563eb',
+                        'success': '#10b981'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+    
+    {MEGA_MENU}
+
+    <main class="flex-grow flex flex-col items-center justify-center text-center p-8 mt-20">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 text-brand">
+            Automatización de Ventas en <span id="dynamic-city" class="text-accent underline decoration-4 decoration-accent/30">tu ciudad</span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl">
+            Implementamos tu Chatbot Corporativo e IA Generativa. Aumenta tus conversiones con precios accesibles desde <span id="dynamic-currency" class="font-bold text-success">USD</span> <span class="font-bold text-success">499</span> al mes.
+        </p>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 max-w-3xl w-full">
+            <h2 class="text-2xl font-bold mb-4">Lo que dicen nuestros clientes en la región</h2>
+            <blockquote class="italic text-lg text-gray-700 bg-gray-50 p-6 rounded-lg border-l-4 border-accent">
+                <span id="dynamic-testimonial">"Nuestra atención al cliente mejoró en un 30% gracias a la automatización inteligente." - Empresa Líder</span>
+            </blockquote>
+        </div>
+        
+        <a href="#contacto" class="mt-10 bg-accent hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+            Quiero mi Agente de IA
+        </a>
+    </main>
+
+    {FOOTER_HTML}
+
+</body>
+</html>
