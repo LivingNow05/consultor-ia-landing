@@ -5,53 +5,59 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ejemplo: /automatizacion-whatsapp-ia/mexico/monterrey/
     const parts = path.split('/').filter(Boolean);
     
-    let cityStr = 'default';
+    let cityStr = 'tu ciudad';
+    let countryStr = '';
+    
     if (parts.length >= 3 && parts[0] === 'automatizacion-whatsapp-ia') {
-        cityStr = parts[2].toLowerCase(); // Toma 'monterrey' de parts = ['automatizacion-whatsapp-ia', 'mexico', 'monterrey']
+        countryStr = parts[1].toLowerCase();
+        cityStr = parts[2].toLowerCase(); 
     } else if (parts.length === 2 && parts[0] === 'automatizacion-whatsapp-ia') {
         cityStr = parts[1].toLowerCase();
     }
 
-    // 2. Diccionario de datos mock (base de datos geo-personalizada)
-    const geoData = {
-        'monterrey': {
-            city: 'Monterrey',
-            currency: 'MXN',
-            company: 'Industrias Regias',
-            savings: '40%',
-            testimonial: '"Implementar IA en Monterrey con ellos aumentó nuestras ventas un 40% y redujo tiempos." - Industrias Regias'
-        },
-        'bogota': {
-            city: 'Bogotá',
-            currency: 'COP',
-            company: 'Comercio Capital',
-            savings: '45%',
-            testimonial: '"Automatizamos nuestro WhatsApp en Bogotá y bajamos costos un 45% en servicio." - Comercio Capital'
-        },
-        'lima': {
-            city: 'Lima',
-            currency: 'PEN',
-            company: 'Servicios Andinos',
-            savings: '35%',
-            testimonial: '"La solución que necesitábamos para escalar en todo Perú, altamente recomendado." - Servicios Andinos'
-        },
-        'default': {
-            city: 'tu ciudad',
-            currency: 'USD',
-            company: 'Empresa Líder',
-            savings: '30%',
-            testimonial: '"Nuestra atención al cliente mejoró en un 30% gracias a la automatización inteligente." - Empresa Líder'
-        }
+    // Formatear ciudad
+    const toTitleCase = (str) => {
+        if(str === 'tu ciudad') return str;
+        return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     };
+    
+    let formattedCity = toTitleCase(cityStr);
+    
+    // Tildes comunes para mejorar presentación
+    const tildes = {
+        'Bogota': 'Bogotá',
+        'Medellin': 'Medellín',
+        'Cancun': 'Cancún',
+        'Queretaro': 'Querétaro',
+        'Merida': 'Mérida',
+        'San Jose Cr': 'San José',
+        'Panama': 'Panamá',
+        'Cordoba Ar': 'Córdoba'
+    };
+    if (tildes[formattedCity]) formattedCity = tildes[formattedCity];
 
-    // 3. Obtener los datos de la ciudad (o fallback a default)
-    const data = geoData[cityStr] || geoData['default'];
+    // Moneda y Precio por país (aproximado)
+    let currency = 'USD';
+    let price = '499';
+    if (countryStr === 'colombia') { currency = 'COP'; price = '1.800.000'; }
+    else if (countryStr === 'mexico') { currency = 'MXN'; price = '9.500'; }
+    else if (countryStr === 'peru') { currency = 'PEN'; price = '1.900'; }
+    else if (countryStr === 'chile') { currency = 'CLP'; price = '450.000'; }
+    else if (countryStr === 'argentina') { currency = 'ARS'; price = '500.000'; }
+
+    const data = {
+        city: formattedCity,
+        currency: currency,
+        company: `Tu Empresa en ${formattedCity}`,
+        testimonial: `"Nuestra atención al cliente en ${formattedCity} mejoró en un 40% gracias a la automatización inteligente." - Negocio Local`,
+        price: price
+    };
 
     // 4. Actualizar el DOM usando clases para actualizar múltiples elementos
     document.querySelectorAll('.dyn-city').forEach(el => el.textContent = data.city);
     document.querySelectorAll('.dyn-currency').forEach(el => el.textContent = data.currency);
     document.querySelectorAll('.dyn-testimonial').forEach(el => el.textContent = data.testimonial);
     document.querySelectorAll('.dyn-company').forEach(el => el.textContent = data.company);
-    document.querySelectorAll('.dyn-price').forEach(el => el.textContent = '499'); // Podrías añadirlo a geoData si varía
+    document.querySelectorAll('.dyn-price').forEach(el => el.textContent = data.price);
 
 });
