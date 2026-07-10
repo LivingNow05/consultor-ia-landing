@@ -47,13 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // 3. Obtener los datos de la ciudad (o fallback a default)
     const data = geoData[cityStr] || geoData['default'];
 
-    // 4. Actualizar el DOM
-    const cityEl = document.getElementById('dynamic-city');
-    if (cityEl) cityEl.textContent = data.city;
+    // 4. Actualizar el DOM usando clases para actualizar múltiples elementos
+    document.querySelectorAll('.dyn-city').forEach(el => el.textContent = data.city);
+    document.querySelectorAll('.dyn-currency').forEach(el => el.textContent = data.currency);
+    document.querySelectorAll('.dyn-testimonial').forEach(el => el.textContent = data.testimonial);
+    document.querySelectorAll('.dyn-company').forEach(el => el.textContent = data.company);
+    document.querySelectorAll('.dyn-price').forEach(el => el.textContent = '499'); // Podrías añadirlo a geoData si varía
 
-    const currencyEl = document.getElementById('dynamic-currency');
-    if (currencyEl) currencyEl.textContent = data.currency;
-
-    const testimonialEl = document.getElementById('dynamic-testimonial');
-    if (testimonialEl) testimonialEl.textContent = data.testimonial;
 });

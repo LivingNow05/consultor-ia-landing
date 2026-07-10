@@ -271,7 +271,7 @@ Conoce muy bien tu entorno local de '{ciudad}'. Usa de forma natural y sutil exp
 Responde de forma muy concisa (máximo 1 o 2 oraciones, no te extiendas en párrafos largos). Este es un chat de WhatsApp de ritmo rápido.
 
 Instrucción de agendamiento:
-- Hoy es {day_of_week}, día {today_str}. Asume que el año actual es 2026.
+- Hoy es {day_of_week}, día {today_str}.
 - Tabla de referencia para saber qué fecha YYYY-MM-DD corresponde a cada día de la semana (¡USA ESTA LISTA OBLIGATORIAMENTE PARA TUS CÁLCULOS!):
 {proximos_dias_str}
 - Si el usuario muestra interés en agendar, coordina con él un día y una hora específicos (entre 8:00 y 18:00).
@@ -660,8 +660,8 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 const chatStatus = document.getElementById("chat-status");
                 
                 // --- Calendario e Inicialización ---
-                const dateBase = new Date(); // Año 2026, mes base
-                let currentYear = 2026;
+                const dateBase = new Date(); // Fecha actual real
+                let currentYear = dateBase.getFullYear();
                 let currentMonth = dateBase.getMonth(); // Mes actual del sistema
                 const todayDay = dateBase.getDate();
                 const actualMonth = dateBase.getMonth();
@@ -708,7 +708,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 }
                 
                 function formatDateKey(date) {
-                    const y = date.getFullYear() === actualYear ? 2026 : date.getFullYear(); // Forzar 2026 para el prompt
+                    const y = date.getFullYear();
                     const m = String(date.getMonth() + 1).padStart(2, '0');
                     const d = String(date.getDate()).padStart(2, '0');
                     return `${y}-${m}-${d}`;
@@ -822,7 +822,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                             slotBtn.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>' + h;
                             slotBtn.addEventListener("click", () => {
                                 // Rellenar input del chat automáticamente al hacer clic en un horario libre
-                                chatInput.value = "Hola, me gustaría agendar una cita para el " + formatHumanDate(dateStr) + " a las " + h;
+                                chatInput.value = "Hola, me llamo Usuario Demo y mi correo es demo@consultor-ia.com.co. Me gustaría agendar una cita para el " + formatHumanDate(dateStr) + " a las " + h;
                                 chatInput.focus();
                             });
                         }
@@ -833,7 +833,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 
                 // Controladores de botones del Calendario
                 calendarPrevBtn.addEventListener("click", () => {
-                    if (currentMonth === actualMonth && currentYear === 2026) return; // No ir al pasado
+                    if (currentMonth === actualMonth && currentYear === actualYear) return; // No ir al pasado
                     currentMonth--;
                     if (currentMonth < 0) {
                         currentMonth = 11;
@@ -855,7 +855,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 function getAvailabilityContext() {
                     let ctx = `\n\nDISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):\n`;
                     const tempDate = new Date();
-                    for (let i = 0; i < 5; i++) {
+                    for (let i = 0; i < 30; i++) {
                         const dateStr = formatDateKey(tempDate);
                         const slots = availabilityDb[dateStr] || {};
                         const freeSlots = [];
@@ -1002,8 +1002,9 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                                         }
                                         availabilityDb[dateKey][timeKey] = 'booked';
                                         
-                                        // Remover la firma estructurada de la respuesta del bot para que no la vea el usuario
-                                        botResponse = botResponse.substring(0, confirmIdx).trim() + " " + botResponse.substring(endIdx + 1).trim();
+                                        // Reemplazar la firma estructurada por un bloque UI hermoso para confirmar en el chat
+                                        const confirmationHtml = `<br><br><div class="bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 text-emerald-800 dark:text-emerald-300 flex items-center gap-2 mt-2"><i class="fas fa-check-circle text-emerald-500 text-lg"></i><div class="leading-tight"><span class="font-bold text-sm block mb-0.5">✅ Cita confirmada exitosamente</span><span class="text-xs opacity-90 block">Para el ${formatHumanDate(dateKey)} a las ${timeKey}</span></div><div id="qa-confirmation-tag" style="display:none">[CONFIRMAR_CITA]</div></div>`;
+                                        botResponse = botResponse.substring(0, confirmIdx).trim() + confirmationHtml + botResponse.substring(endIdx + 1).trim();
                                         botResponse = botResponse.trim();
                                         
                                         // Mostrar alerta premium superior de reserva
@@ -1279,7 +1280,7 @@ def build_roi_table_html(row):
         
     if industria == 'Desarrollo de Apps y Software':
         html = f'''
-    <section class="py-16 bg-[#FDFBF7] dark:bg-zinc-900 border-y border-gray-border dark:border-zinc-800">
+    <section class="py-16 bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl border-y border-gray-border/50 dark:border-zinc-800/50">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-header font-bold mb-4">Agencia Tradicional vs. Desarrollo IA-Native</h2>
@@ -1324,7 +1325,7 @@ def build_roi_table_html(row):
         '''
     else:
         html = f'''
-    <section class="py-16 bg-[#FDFBF7] dark:bg-zinc-900 border-y border-gray-border dark:border-zinc-800">
+    <section class="py-16 bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl border-y border-gray-border/50 dark:border-zinc-800/50">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-header font-bold mb-4">Humano vs. Agente IA</h2>
@@ -1376,7 +1377,7 @@ def build_calculadora_html(row):
     industria = row.get('Industria', 'negocio')
     
     html = f'''
-    <section class="py-16 bg-white dark:bg-zinc-950">
+    <section class="py-16 bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl relative">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-10">
                 <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Descubre tu Potencial</span>
