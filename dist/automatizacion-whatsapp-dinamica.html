@@ -85,7 +85,7 @@
     </script>
     
     <!-- Schema: FAQPage -->
-    {SCHEMA_FAQ}
+    
     
     <!-- Schema: BreadcrumbList -->
     <script type="application/ld+json">
@@ -94,8 +94,8 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://consultor-ia.com.co/"},
-        {"@type": "ListItem", "position": 2, "name": "{INDUSTRIA}", "item": "https://consultor-ia.com.co/default/"},
-        {"@type": "ListItem", "position": 3, "name": "tu país", "item": "https://consultor-ia.com.co/default/{PAIS_SLUG}/"},
+        {"@type": "ListItem", "position": 2, "name": "cualquier industria", "item": "https://consultor-ia.com.co/default/"},
+        {"@type": "ListItem", "position": 3, "name": "tu país", "item": "https://consultor-ia.com.co/default/tu-pais/"},
         {"@type": "ListItem", "position": 4, "name": "<span id="dynamic-city" class="dyn-city">tu ciudad</span>", "item": "https://consultor-ia.com.co/automatizacion-whatsapp-ia/"}
       ]
     }
@@ -278,7 +278,7 @@
                     <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
                 </button>
 
-                <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
+                <a href="https://wa.me/573132644262?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
                     <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
                     <span class="relative z-10 flex items-center gap-2 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
                         Asesoría <i class="fab fa-whatsapp text-sm"></i>
@@ -296,8 +296,8 @@
     <div class="pt-24 pb-2 border-b border-gray-200/50 dark:border-zinc-800/50 relative z-10">
         <div class="container mx-auto px-4 py-3 text-sm text-zinc-600 dark:text-zinc-400">
             <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a> <span class="mx-2 opacity-50">&gt;</span> 
-            <a href="/default/" class="hover:text-brand dark:hover:text-brand-light transition-colors">{INDUSTRIA}</a> <span class="mx-2 opacity-50">&gt;</span> 
-            <a href="/default/{PAIS_SLUG}/" class="hover:text-brand dark:hover:text-brand-light transition-colors">tu país</a> <span class="mx-2 opacity-50">&gt;</span> 
+            <a href="/default/" class="hover:text-brand dark:hover:text-brand-light transition-colors">cualquier industria</a> <span class="mx-2 opacity-50">&gt;</span> 
+            <a href="/default/tu-pais/" class="hover:text-brand dark:hover:text-brand-light transition-colors">tu país</a> <span class="mx-2 opacity-50">&gt;</span> 
             <span class="text-gray-1 dark:text-slate-200 font-normal"><span id="dynamic-city" class="dyn-city">tu ciudad</span></span>
         </div>
     </div>
@@ -314,19 +314,19 @@
                     <div class="lg:w-3/5">
                         <span class="inline-flex items-center bg-brand/10 dark:bg-brand/20 text-brand dark:text-brand-light px-4 py-2 rounded-full text-sm font-normal mb-6 shadow-sm border border-brand/20">
                             <span class="w-2 h-2 rounded-full bg-brand dark:bg-brand-light mr-2 animate-pulse"></span>
-                            IA para {INDUSTRIA} en <span id="dynamic-city" class="dyn-city">tu ciudad</span>
+                            IA para cualquier industria en <span id="dynamic-city" class="dyn-city">tu ciudad</span>
                         </span>
                         
                         <h1 class="text-5xl lg:text-7xl font-header font-extrabold mb-6 leading-[1.1] tracking-tight">
-                            {H1_HTML}
+                            Agente IA en <span class="text-brand dark:text-brand-light block mt-2"><span class="dyn-city">tu ciudad</span><span class="typewriter-cursor"></span></span>
                         </h1>
                         
                         <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                            {SPIN_INTRO}
+                            Automatiza ventas, reservas y atención al cliente en <span class="dyn-city">tu ciudad</span> sin contratar más personal.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                            <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="group relative inline-flex items-center justify-center bg-brand text-white dark:bg-brand-light dark:text-zinc-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl shadow-brand/20 hover:scale-105 hover:shadow-2xl transition-all overflow-hidden">
+                            <a href="https://wa.me/573132644262?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="group relative inline-flex items-center justify-center bg-brand text-white dark:bg-brand-light dark:text-zinc-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl shadow-brand/20 hover:scale-105 hover:shadow-2xl transition-all overflow-hidden">
                                 <span class="relative z-10 flex items-center gap-3">
                                     Ver Demo en Vivo <i class="fab fa-whatsapp text-[16px]"></i>
                                 </span>
@@ -356,14 +356,24 @@
                     </div>
                     
                     <!-- Hero Visual / Sidebar Autoridad -->
-                    {HERO_VISUAL_HTML}
+                    
+    <div class="relative w-full max-w-md mx-auto aspect-[9/19] bg-zinc-900 rounded-[2.5rem] border-[8px] border-zinc-800 shadow-2xl overflow-hidden">
+        <div class="absolute top-0 w-full h-12 bg-zinc-800 flex items-center justify-between px-6 z-10">
+            <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-zinc-700"></div><span class="text-white font-medium text-sm dyn-company">Tu Empresa</span></div>
+        </div>
+        <div class="absolute inset-0 pt-16 pb-20 px-4 bg-[#0B141A] flex flex-col gap-3 overflow-y-auto">
+            <div class="bg-[#202C33] text-white p-3 rounded-2xl rounded-tl-none self-start max-w-[85%] text-sm">¡Hola! ¿Cuánto cuesta el servicio en <span class="dyn-city">tu ciudad</span>?</div>
+            <div class="bg-[#005C4B] text-white p-3 rounded-2xl rounded-tr-none self-end max-w-[85%] text-sm">¡Hola! Los precios arrancan desde <span class="dyn-currency">USD</span> <span class="dyn-price">499</span>. ¿Te ayudo a agendar?</div>
+        </div>
+    </div>
+    
                     
                 </div>
             </div>
         </section>
 
         <!-- Testimonials Marquee (Scroll Infinito de Reseñas) -->
-        {TESTIMONIALS_HTML}
+        <div class="text-center text-white italic text-xl p-8 bg-zinc-800/30 rounded-2xl border border-zinc-700 dyn-testimonial">"Nuestra atención mejoró un 40%."</div>
 
         <!-- Contenido Editorial EEAT (SEO) -->
         
@@ -373,8 +383,8 @@
             <div class="container mx-auto px-4 max-w-6xl relative z-10">
                 <div class="text-center mb-16 max-w-3xl mx-auto">
                     <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Soluciones Especializadas</span>
-                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">{SERVICIOS_SECCION_TITULO}</h2>
-                    <p class="text-xl text-zinc-600 dark:text-zinc-400">{SERVICIOS_SECCION_SUBTITULO}</p>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">Todo lo que tu negocio en <span class="dyn-city">tu ciudad</span> necesita</h2>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Automatiza procesos repetitivos con IA.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 gap-8">
@@ -587,7 +597,16 @@
     
 
         <!-- 6. Precios -->
-        {PRECIOS_SECCION_HTML}
+        
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-3xl bg-zinc-800/50 border border-zinc-700">
+            <h3 class="text-xl font-bold text-white mb-2">Plan Básico</h3>
+            <p class="text-4xl font-bold text-brand mb-6"><span class="dyn-currency">USD</span> <span class="dyn-price">499</span></p>
+            <ul class="text-zinc-400 space-y-3 mb-8"><li>Atención 24/7</li><li>Integración básica</li></ul>
+            <a href="#" class="block text-center bg-brand text-white py-3 rounded-xl">Probar Gratis</a>
+        </div>
+    </div>
+    
 
         <!-- Demo Interactiva de Agente Conversacional y Calendario -->
         
@@ -1278,8 +1297,8 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
                                 
                                 // Extraer fecha y hora de la primera parte
                                 const dateTimePart = parts[0];
-                                const dateMatch = dateTimePart.match(/(\d{4}-\d{2}-\d{2})/);
-                                const timeMatch = dateTimePart.match(/(\d{2}:\d{2})/);
+                                const dateMatch = dateTimePart.match(/(\d-\d-\d)/);
+                                const timeMatch = dateTimePart.match(/(\d:\d)/);
                                 
                                 if (dateMatch && timeMatch) {
                                     const dateKey = dateMatch[1];
@@ -1435,7 +1454,7 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
                 </div>
                 
                 <div class="space-y-4">
-                    {FAQS_HTML}
+                    
                 </div>
                 <style>
                     .faq-item { border: 1px solid #E8DAC1; border-radius: 20px; overflow: hidden; background: #FDFBF7; transition: all 0.3s ease; }
@@ -1484,7 +1503,7 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
             <div class="container mx-auto px-4 max-w-3xl relative z-10 text-center">
                 <h2 class="text-4xl md:text-5xl font-header font-bold mb-6 text-zinc-900 dark:text-white tracking-tight">¿Listo para transformar tu negocio?</h2>
                 <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 font-normal">Agenda una sesión de consultoría gratuita de 15 minutos y descubre cómo la IA puede automatizar tus ventas y atención.</p>
-                <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
+                <a href="https://wa.me/573132644262?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
                     <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
                     <span class="relative z-10 flex items-center gap-3 font-body text-[12px] font-bold uppercase tracking-[0.25em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
                         Hablar con un Experto <i class="fab fa-whatsapp text-[15px]"></i>
@@ -1496,9 +1515,9 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
         <!-- 8. Ciudades Hermanas -->
         <section class="py-16 border-t border-gray-border dark:border-zinc-800">
             <div class="container mx-auto px-4 max-w-5xl">
-                <h3 class="text-xl font-header font-bold mb-8 text-center text-gray-500 dark:text-slate-400 uppercase tracking-widest text-sm">Más {INDUSTRIA} en tu país</h3>
+                <h3 class="text-xl font-header font-bold mb-8 text-center text-gray-500 dark:text-slate-400 uppercase tracking-widest text-sm">Más cualquier industria en tu país</h3>
                 <div class="flex flex-wrap justify-center gap-4">
-                    {CIUDADES_HERMANAS_HTML}
+                    
                 </div>
                 <style>
                     .card-ciudad { display: inline-block; background: #FAF9FF; border: 1px solid #EEEEF3; border-radius: 12px; padding: 12px 24px; font-weight: 500; color: #434345; transition: all 0.3s; }
@@ -1532,7 +1551,7 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
         </section>
 
         <!-- 9. Recomendación de Blogs -->
-        {BLOG_RECOMENDACIONES_HTML}
+        
 
     </main>
 
@@ -1589,7 +1608,7 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
 
     
     <!-- WhatsApp Flotante -->
-    <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30 z-50 hover:scale-110 transition-transform hover:shadow-2xl group">
+    <a href="https://wa.me/573132644262?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30 z-50 hover:scale-110 transition-transform hover:shadow-2xl group">
         <i class="fab fa-whatsapp"></i>
         <span class="absolute right-full mr-4 bg-white dark:bg-zinc-800 text-gray-800 dark:text-white text-sm font-normal px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">
             ¡Escríbenos!
@@ -1620,7 +1639,7 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
             </nav>
 
             <div class="mt-auto pt-8 border-t border-zinc-200 dark:border-zinc-800">
-                <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
+                <a href="https://wa.me/573132644262?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
                     Asesoría WhatsApp <i class="fab fa-whatsapp text-lg"></i>
                 </a>
             </div>

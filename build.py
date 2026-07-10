@@ -4342,6 +4342,7 @@ def build():
 
 def build_automatizacion_dinamica(footer_html, mega_menu_html):
     import os
+    from urllib.parse import quote
     template_path = os.path.join(SRC_DIR, "automatizacion_whatsapp.html")
     if not os.path.exists(template_path):
         return # Skip if template doesn't exist yet
@@ -4349,8 +4350,54 @@ def build_automatizacion_dinamica(footer_html, mega_menu_html):
     with open(template_path, "r", encoding="utf-8") as f:
         html = f.read()
         
+    # Replacements para que no queden variables {PYTHON} rotas en el cliente
+    wa_mensaje = "Hola, busco automatizar WhatsApp para mi empresa"
+    wa_encoded = quote(wa_mensaje)
+    
+    hero_visual_html = """
+    <div class="relative w-full max-w-md mx-auto aspect-[9/19] bg-zinc-900 rounded-[2.5rem] border-[8px] border-zinc-800 shadow-2xl overflow-hidden">
+        <div class="absolute top-0 w-full h-12 bg-zinc-800 flex items-center justify-between px-6 z-10">
+            <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-zinc-700"></div><span class="text-white font-medium text-sm dyn-company">Tu Empresa</span></div>
+        </div>
+        <div class="absolute inset-0 pt-16 pb-20 px-4 bg-[#0B141A] flex flex-col gap-3 overflow-y-auto">
+            <div class="bg-[#202C33] text-white p-3 rounded-2xl rounded-tl-none self-start max-w-[85%] text-sm">¡Hola! ¿Cuánto cuesta el servicio en <span class="dyn-city">tu ciudad</span>?</div>
+            <div class="bg-[#005C4B] text-white p-3 rounded-2xl rounded-tr-none self-end max-w-[85%] text-sm">¡Hola! Los precios arrancan desde <span class="dyn-currency">USD</span> <span class="dyn-price">499</span>. ¿Te ayudo a agendar?</div>
+        </div>
+    </div>
+    """
+    
+    precios_html = """
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-3xl bg-zinc-800/50 border border-zinc-700">
+            <h3 class="text-xl font-bold text-white mb-2">Plan Básico</h3>
+            <p class="text-4xl font-bold text-brand mb-6"><span class="dyn-currency">USD</span> <span class="dyn-price">499</span></p>
+            <ul class="text-zinc-400 space-y-3 mb-8"><li>Atención 24/7</li><li>Integración básica</li></ul>
+            <a href="#" class="block text-center bg-brand text-white py-3 rounded-xl">Probar Gratis</a>
+        </div>
+    </div>
+    """
+    
     html = html.replace('{FOOTER_HTML}', footer_html)
     html = html.replace('{MEGA_MENU}', mega_menu_html)
+    html = html.replace('{H1_HTML}', 'Agente IA en <span class="text-brand dark:text-brand-light block mt-2"><span class="dyn-city">tu ciudad</span><span class="typewriter-cursor"></span></span>')
+    html = html.replace('{SPIN_INTRO}', 'Automatiza ventas, reservas y atención al cliente en <span class="dyn-city">tu ciudad</span> sin contratar más personal.')
+    html = html.replace('{INDUSTRIA}', 'cualquier industria')
+    html = html.replace('{PAIS_SLUG}', 'tu-pais')
+    html = html.replace('{WA_NUMERO}', '573132644262')
+    html = html.replace('{WA_MENSAJE_ENCODED}', wa_encoded)
+    html = html.replace('{HERO_VISUAL_HTML}', hero_visual_html)
+    html = html.replace('{TESTIMONIALS_HTML}', '<div class="text-center text-white italic text-xl p-8 bg-zinc-800/30 rounded-2xl border border-zinc-700 dyn-testimonial">"Nuestra atención mejoró un 40%."</div>')
+    html = html.replace('{PRECIOS_SECCION_HTML}', precios_html)
+    html = html.replace('{SERVICIOS_SECCION_TITULO}', 'Todo lo que tu negocio en <span class="dyn-city">tu ciudad</span> necesita')
+    html = html.replace('{SERVICIOS_SECCION_SUBTITULO}', 'Automatiza procesos repetitivos con IA.')
+    html = html.replace('{FAQS_HTML}', '')
+    html = html.replace('{CIUDADES_HERMANAS_HTML}', '')
+    html = html.replace('{BLOG_RECOMENDACIONES_HTML}', '')
+    html = html.replace('{SCHEMA_FAQ}', '')
+    
+    import re
+    # Limpiar cualquier otra variable suelta
+    html = re.sub(r'\{[A-Z0-9_]+\}', '', html)
     
     if "</body>" in html:
         html = html.replace("</body>", '<script src="/js/geo-personalization.js"></script>\n</body>')
