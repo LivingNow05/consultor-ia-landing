@@ -23,7 +23,8 @@ BLOG_CATEGORY_TAGS = {
     'agentes-autonomos-ia-whatsapp': 'Agentes IA',
     'precios-whatsapp-business-api-2026': 'Costos',
     'calificacion-leads-whatsapp-ia': 'Leads',
-    'embudo-de-ventas-whatsapp-ia': 'Embudos'
+    'embudo-de-ventas-whatsapp-ia': 'Embudos',
+    'whatsapp-flows-ia-ventas': 'WhatsApp Flows'
 }
 
 def calculate_reading_time(slug):

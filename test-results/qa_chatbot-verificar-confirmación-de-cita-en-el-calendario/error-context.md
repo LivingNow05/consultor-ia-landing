@@ -1,0 +1,781 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: qa_chatbot.spec.js >> verificar confirmación de cita en el calendario
+- Location: qa_chatbot.spec.js:3:1
+
+# Error details
+
+```
+Error: La respuesta del bot no contiene el texto [CONFIRMAR_CITA:
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - banner:
+    - generic [ref=e2]:
+      - link "Consultor-IA" [ref=e3] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e4]: Consultor-IA
+      - navigation [ref=e5]:
+        - generic [ref=e6]:
+          - button "Industrias " [ref=e7] [cursor=pointer]:
+            - text: Industrias
+            - generic [ref=e8]: 
+          - text:                                                                                                                         
+        - link "Cómo Funciona" [ref=e9] [cursor=pointer]:
+          - /url: "#como-funciona"
+        - link "Precios" [ref=e10] [cursor=pointer]:
+          - /url: "#precios"
+        - link "Blog" [ref=e11] [cursor=pointer]:
+          - /url: /blog/
+        - button "" [ref=e12] [cursor=pointer]:
+          - generic [ref=e13]: 
+          - text: 
+        - link "Asesoría " [ref=e14] [cursor=pointer]:
+          - /url: https://wa.me/573151206985?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20Agente%20IA%20para%20Restaurantes%20en%20Bogot%C3%A1%20y%20me%20interesa%20conocer%20m%C3%A1s.
+          - generic [ref=e15]:
+            - text: Asesoría
+            - generic [ref=e16]: 
+      - text: 
+  - generic [ref=e18]:
+    - link "Inicio" [ref=e19] [cursor=pointer]:
+      - /url: /
+    - text: ">"
+    - link "Restaurantes" [ref=e20] [cursor=pointer]:
+      - /url: /chatbot-whatsapp-para-restaurantes/
+    - text: ">"
+    - link "Colombia" [ref=e21] [cursor=pointer]:
+      - /url: /chatbot-whatsapp-para-restaurantes/colombia/
+    - text: "> Bogotá"
+  - main [ref=e22]:
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]: IA para Restaurantes en Bogotá
+        - heading "Chatbot de WhatsApp para Restaurantes en Bogotá" [level=1] [ref=e29]:
+          - text: Chatbot de WhatsApp para
+          - generic [ref=e30]: Restaurantes en Bogotá
+        - paragraph [ref=e32]: Deja de perder reservas por no responder a tiempo. Tu asistente IA en Bogotá gestiona mesas 24/7, responde dudas del menú al instante y evita los molestos no-shows. Recupera tu tiempo y llena tu negocio sin estrés. ¡De una!
+        - generic [ref=e33]:
+          - link "Ver Demo en Vivo " [ref=e34] [cursor=pointer]:
+            - /url: https://wa.me/573151206985?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20Agente%20IA%20para%20Restaurantes%20en%20Bogot%C3%A1%20y%20me%20interesa%20conocer%20m%C3%A1s.
+            - generic [ref=e35]:
+              - text: Ver Demo en Vivo
+              - generic [ref=e36]: 
+          - link "Probar Demo Web" [ref=e37] [cursor=pointer]:
+            - /url: "#demo-interactiva"
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - generic [ref=e41]: 
+              - generic [ref=e42]: 
+              - generic [ref=e43]: 
+              - generic [ref=e44]: 
+              - generic [ref=e45]: 
+            - generic [ref=e46]:
+              - paragraph [ref=e47]: 4.9/5.0
+              - paragraph [ref=e48]: Casos de Éxito en Colombia
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - generic [ref=e52]: 
+              - text: Setup 5 Días
+            - generic [ref=e53]:
+              - generic [ref=e54]: 
+              - text: Soporte Local
+      - generic [ref=e57] [cursor=pointer]:
+        - generic [ref=e58]:
+          - generic [ref=e60]: 
+          - generic [ref=e61]:
+            - heading "Consultor-IA Bot" [level=3] [ref=e62]
+            - paragraph [ref=e63]: en línea
+        - generic [ref=e64]:
+          - generic [ref=e66]: Quiubo, tienen mesa para 4 hoy tipo 9? vamos con un perrito 🐶
+          - generic [ref=e67]: ¡Hola! 👋 Sí, somos Pet Friendly. 🐾 Tenemos una mesa perfecta en la terraza. Confírmame a qué nombre la dejo agendada y la cargamos directo a nuestro sistema de reservas.
+          - generic [ref=e69]:
+            - generic [ref=e70]:
+              - paragraph [ref=e71]: ROI Promedio
+              - paragraph [ref=e72]: +315%
+            - generic [ref=e73]:
+              - paragraph [ref=e74]: Implementación
+              - paragraph [ref=e75]: 5-7 Días
+    - region "Reseñas de clientes" [ref=e76]:
+      - generic [ref=e77]:
+        - generic [ref=e78]: ⭐⭐⭐⭐⭐ "Pedidos automáticos al 100%" - Le Bistro
+        - generic [ref=e79]: ⭐⭐⭐⭐⭐ "Ahorro de tiempo en reservas" - Trattoria Bella
+        - generic [ref=e80]: ⭐⭐⭐⭐⭐ "Respuestas al instante los fines de semana" - Hamburguesas El Corral
+        - generic [ref=e81]: ⭐⭐⭐⭐⭐ "Aumentamos pedidos un 35%" - Sushi Express
+        - generic [ref=e82]: ⭐⭐⭐⭐⭐ "La IA responde preguntas del menú 24/7" - Pizzería Roma
+        - generic [ref=e83]: ⭐⭐⭐⭐⭐ "Excelente soporte para domicilios" - Asados El Carbon
+        - generic [ref=e84]: ⭐⭐⭐⭐⭐ "Ventas automáticas 24/7 en WhatsApp" - Le Bistro
+        - generic [ref=e85]: ⭐⭐⭐⭐⭐ "Integración perfecta con nuestro CRM" - InmoLATAM
+        - generic [ref=e86]: ⭐⭐⭐⭐⭐ "Pedidos automáticos al 100%" - Le Bistro
+        - generic [ref=e87]: ⭐⭐⭐⭐⭐ "Ahorro de tiempo en reservas" - Trattoria Bella
+        - generic [ref=e88]: ⭐⭐⭐⭐⭐ "Respuestas al instante los fines de semana" - Hamburguesas El Corral
+        - generic [ref=e89]: ⭐⭐⭐⭐⭐ "Aumentamos pedidos un 35%" - Sushi Express
+        - generic [ref=e90]: ⭐⭐⭐⭐⭐ "La IA responde preguntas del menú 24/7" - Pizzería Roma
+        - generic [ref=e91]: ⭐⭐⭐⭐⭐ "Excelente soporte para domicilios" - Asados El Carbon
+        - generic [ref=e92]: ⭐⭐⭐⭐⭐ "Ventas automáticas 24/7 en WhatsApp" - Le Bistro
+        - generic [ref=e93]: ⭐⭐⭐⭐⭐ "Integración perfecta con nuestro CRM" - InmoLATAM
+    - generic [ref=e95]:
+      - generic [ref=e96]:
+        - generic [ref=e97]: Flujo de Trabajo y Contexto
+        - 'heading "Inteligencia Artificial para Restaurantes en Bogotá: Más Allá de la Reserva" [level=2] [ref=e98]'
+      - generic [ref=e101]:
+        - generic [ref=e102]:
+          - generic [ref=e103]: "01"
+          - heading "Contexto de la Industria" [level=3] [ref=e104]
+          - paragraph [ref=e106]:
+            - text: "La escena gastronómica en Bogotá es una de las más competitivas de Latinoamérica. Desde las exclusivas propuestas en la Zona G hasta los conceptos vibrantes en Usaquén y Chapinero, los restauranteros enfrentan un desafío crítico que no tiene que ver con la cocina:"
+            - strong [ref=e107]: la atención al cliente digital
+            - text: . En una ciudad donde el tráfico y el clima dictan los planes de última hora, los clientes exigen respuestas inmediatas a través de WhatsApp o Instagram.
+        - generic [ref=e108]:
+          - generic [ref=e109]: "02"
+          - heading "El Dolor de Gestión" [level=3] [ref=e110]
+          - paragraph [ref=e112]:
+            - text: El problema radica en que, durante los picos de servicio (el rush del viernes por la noche o el brunch del domingo), el personal de hostelería no puede ni debe estar pegado a un smartphone. Esto se traduce en mesas vacías por falta de confirmación, reservas perdidas ante la competencia que sí respondió a tiempo, y una tasa alarmante de
+            - emphasis [ref=e113]: no-shows
+            - text: que impacta directamente el margen de ganancia.
+        - generic [ref=e114]:
+          - generic [ref=e115]: "03"
+          - heading "Solución con IA" [level=3] [ref=e116]
+          - generic [ref=e117]:
+            - heading "La Solución Autónoma para la Hostelería Bogotana" [level=4] [ref=e118]
+            - paragraph [ref=e120]:
+              - text: Implementar agentes de Inteligencia Artificial de Consultor IA transforma este cuello de botella en una ventaja competitiva. Nuestro sistema no es un simple chatbot de opciones numeradas; es un conserje virtual entrenado con el lenguaje y la personalidad de tu restaurante. Es capaz de gestionar reservaciones integrándose con tu software actual, responder dudas sobre el menú (incluyendo alérgenos), coordinar pedidos de
+              - emphasis [ref=e121]: delivery
+              - text: y enviar recordatorios automáticos para reducir drásticamente los
+              - emphasis [ref=e122]: no-shows
+              - text: ", operando 24/7 sin interrupciones."
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - generic [ref=e126]: Soluciones Especializadas
+        - heading "¿Qué hace el Agente para tu restaurante?" [level=2] [ref=e127]
+        - paragraph [ref=e128]: Automatización inteligente que se siente humana, diseñada específicamente para las necesidades de tu sector.
+      - generic [ref=e129]:
+        - generic [ref=e130]:
+          - generic [ref=e132]: 
+          - heading "Reservas 24/7" [level=3] [ref=e133]
+          - paragraph [ref=e134]: La IA toma reservas, verifica mesas disponibles y actualiza tu agenda automáticamente, de día o de noche.
+        - generic [ref=e135]:
+          - generic [ref=e137]: 
+          - heading "Menú Interactivo" [level=3] [ref=e138]
+          - paragraph [ref=e139]: Responde al instante preguntas sobre alérgenos, opciones veganas o platos del día, guiando el antojo del cliente.
+        - generic [ref=e140]:
+          - generic [ref=e142]: 
+          - heading "Anti No-Shows" [level=3] [ref=e143]
+          - paragraph [ref=e144]: Envía recordatorios amigables horas antes de la reserva y gestiona cancelaciones para liberar mesas rápidamente.
+        - generic [ref=e145]:
+          - generic [ref=e147]: 
+          - heading "Fidelización" [level=3] [ref=e148]
+          - paragraph [ref=e149]: Contacta a clientes que no visitan hace semanas con promociones automáticas para reactivar su consumo.
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e153]: Implementación Rápida
+        - heading "Roadmap para Restaurantes en Bogotá" [level=2] [ref=e154]
+        - paragraph [ref=e155]: Lanzamos tu agente de IA en 4 pasos simples, sin que tengas que programar nada.
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - generic [ref=e160]:
+            - heading "1. Auditoría y Estrategia" [level=3] [ref=e161]
+            - paragraph [ref=e162]: Analizamos el flujo de ventas de tu Restaurantes y definimos la personalidad y base de conocimiento del agente.
+          - generic [ref=e163]: "1"
+        - generic [ref=e164]:
+          - generic [ref=e165]: "2"
+          - generic [ref=e166]:
+            - heading "2. Entrenamiento IA" [level=3] [ref=e167]
+            - paragraph [ref=e168]: Cargamos tus PDFs, FAQs e historial de WhatsApp para que la IA responda como tu mejor vendedor.
+        - generic [ref=e169]:
+          - generic [ref=e170]:
+            - heading "3. Integración WhatsApp" [level=3] [ref=e171]
+            - paragraph [ref=e172]: Conectamos el cerebro de IA con el número de WhatsApp oficial de tu negocio de forma segura.
+          - generic [ref=e173]: "3"
+        - generic [ref=e174]:
+          - generic [ref=e175]: "4"
+          - generic [ref=e176]:
+            - heading "4. Lanzamiento y Optimización" [level=3] [ref=e177]
+            - paragraph [ref=e178]: Encendemos el agente. Monitoreamos las primeras conversaciones y ajustamos sus respuestas en tiempo real.
+    - generic [ref=e180]:
+      - generic [ref=e181]:
+        - heading "Humano vs. Agente IA" [level=2] [ref=e182]
+        - paragraph [ref=e183]: ¿Por qué un Agente es la decisión más inteligente para tu ROI?
+      - table [ref=e185]:
+        - rowgroup [ref=e186]:
+          - row "Característica Empleado Tradicional Agente IA Consultor" [ref=e187]:
+            - columnheader "Característica" [ref=e188]
+            - columnheader "Empleado Tradicional" [ref=e189]
+            - columnheader "Agente IA Consultor" [ref=e190]
+        - rowgroup [ref=e191]:
+          - row "Disponibilidad 8 horas / Lunes a Viernes 24/7/365 (Sin descansos)" [ref=e192]:
+            - cell "Disponibilidad" [ref=e193]
+            - cell "8 horas / Lunes a Viernes" [ref=e194]
+            - cell "24/7/365 (Sin descansos)" [ref=e195]
+          - row "Velocidad de Respuesta 15 min - 2 horas < 3 Segundos" [ref=e196]:
+            - cell "Velocidad de Respuesta" [ref=e197]
+            - cell "15 min - 2 horas" [ref=e198]
+            - cell "< 3 Segundos" [ref=e199]
+          - row "Capacidad Simultánea 1 cliente a la vez Ilimitada" [ref=e200]:
+            - cell "Capacidad Simultánea" [ref=e201]
+            - cell "1 cliente a la vez" [ref=e202]
+            - cell "Ilimitada" [ref=e203]
+          - row "Costo Mensual Estimado Aprox. COP 3,200,000 Desde COP 800,000" [ref=e204]:
+            - cell "Costo Mensual Estimado" [ref=e205]
+            - cell "Aprox. COP 3,200,000" [ref=e206]
+            - cell "Desde COP 800,000" [ref=e207]
+    - generic [ref=e209]:
+      - generic [ref=e210]:
+        - generic [ref=e211]: Descubre tu Potencial
+        - heading "Calculadora de ROI para Restaurantes" [level=2] [ref=e212]
+        - paragraph [ref=e213]: Estima cuánto dinero y tiempo estás dejando en la mesa por no automatizar.
+      - generic [ref=e214]:
+        - generic [ref=e215]:
+          - generic [ref=e216]:
+            - generic [ref=e217]:
+              - generic [ref=e218]: Chats diarios recibidos
+              - generic [ref=e219]: "50"
+            - slider [ref=e220] [cursor=pointer]: "50"
+            - paragraph [ref=e221]: Mensajes de WhatsApp por día
+          - generic [ref=e222]:
+            - generic [ref=e223]:
+              - generic [ref=e224]: Ticket promedio de venta
+              - generic [ref=e225]: COP 100
+            - slider [ref=e226] [cursor=pointer]: "100"
+            - paragraph [ref=e227]: Valor promedio de lo que vendes
+        - generic [ref=e228]:
+          - generic [ref=e229]:
+            - paragraph [ref=e230]: Horas ahorradas al mes
+            - generic [ref=e231]: 125h
+          - generic [ref=e233]:
+            - paragraph [ref=e234]: Leads recuperados (Est. 20%)
+            - generic [ref=e235]: "+300"
+          - generic [ref=e237]:
+            - paragraph [ref=e238]: Ingresos Extra Estimados (Mes)
+            - generic [ref=e239]: COP 4,500
+            - paragraph [ref=e240]: "*Basado en una tasa de cierre conservadora del 15%."
+    - generic [ref=e242]:
+      - generic [ref=e243]:
+        - generic [ref=e244]: Inversión Transparente
+        - heading "Planes y Precios en Colombia" [level=2] [ref=e245]
+        - paragraph [ref=e246]: Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.
+      - generic [ref=e247]:
+        - generic [ref=e248]:
+          - heading "Configuración Completa" [level=3] [ref=e249]
+          - paragraph [ref=e250]: Pago único por la creación del sistema
+          - generic [ref=e251]: $497 USD
+          - list [ref=e252]:
+            - listitem [ref=e253]:
+              - generic [ref=e254]: 
+              - text: Desarrollo y entrenamiento del Agente IA
+            - listitem [ref=e255]:
+              - generic [ref=e256]: 
+              - text: Integración completa con WhatsApp y Web
+            - listitem [ref=e257]:
+              - generic [ref=e258]: 
+              - text: Ingesta de base de conocimiento (FAQ, servicios)
+            - listitem [ref=e259]:
+              - generic [ref=e260]: 
+              - text: Pruebas y despliegue inicial (5-7 días)
+          - link "Solicitar Configuración" [ref=e261] [cursor=pointer]:
+            - /url: https://wa.me/573151206985
+        - generic [ref=e262]:
+          - generic [ref=e263]: Esencial
+          - heading "Mantenimiento Mensual" [level=3] [ref=e264]
+          - paragraph [ref=e265]: Suscripción para el funcionamiento de la IA
+          - generic [ref=e266]: $97 USD /mes
+          - list [ref=e267]:
+            - listitem [ref=e268]:
+              - generic [ref=e269]: 
+              - text: Hosting del agente y consumo de IA
+            - listitem [ref=e270]:
+              - generic [ref=e271]: 
+              - text: Soporte técnico prioritario
+            - listitem [ref=e272]:
+              - generic [ref=e273]: 
+              - text: Ajustes y optimizaciones mensuales
+            - listitem [ref=e274]:
+              - generic [ref=e275]: 
+              - text: Actualizaciones de plataforma automáticas
+          - link "Ver Detalles " [ref=e276] [cursor=pointer]:
+            - /url: https://wa.me/573151206985
+            - generic [ref=e277]:
+              - text: Ver Detalles
+              - generic [ref=e278]: 
+    - generic [ref=e280]:
+      - generic [ref=e281]:
+        - generic [ref=e282]:
+          - generic [ref=e283]:
+            - generic [ref=e284]: 
+            - text: Demo Interactiva en Vivo
+          - heading "No parecemos un bot de menú aburrido" [level=2] [ref=e285]
+          - paragraph [ref=e286]:
+            - text: "Tus clientes odian presionar el \"1\" o el \"2\". El Agente de IA para restaurante de pizzería artesanal conversa de forma 100% natural:"
+            - strong [ref=e287]: entiende notas de voz, tolera errores al escribir y agenda de forma autónoma.
+        - generic [ref=e288]:
+          - list [ref=e289]:
+            - listitem [ref=e290]:
+              - generic [ref=e291]: 
+              - text: Tono conversacional y cálido
+            - listitem [ref=e292]:
+              - generic [ref=e293]: 
+              - text: Transcribe y entiende audios (notas de voz)
+            - listitem [ref=e294]:
+              - generic [ref=e295]: 
+              - text: Tolera jergas y errores de ortografía
+            - listitem [ref=e296]:
+              - generic [ref=e297]: 
+              - text: Soporta imágenes y procesamiento visual
+          - generic [ref=e298]:
+            - generic [ref=e299]: 
+            - generic [ref=e300]:
+              - strong [ref=e301]: ¡Pónlo a prueba!
+              - text: Escríbele al chat de abajo con mala ortografía o dile "quiero agendar cita" para ver el resultado en el calendario de la derecha.
+      - generic [ref=e302]:
+        - generic [ref=e304]:
+          - generic [ref=e305]:
+            - generic [ref=e306]:
+              - generic [ref=e308]: 
+              - generic [ref=e309]:
+                - heading "Agente IA - pizzería artesanal" [level=4] [ref=e310]
+                - paragraph [ref=e311]: escribiendo...
+            - generic [ref=e312]:
+              - generic [ref=e313] [cursor=pointer]: 
+              - generic [ref=e314] [cursor=pointer]: 
+              - generic [ref=e315] [cursor=pointer]: 
+          - generic [ref=e317]:
+            - text: Hola, me gustaría agendar una cita para el martes, 1 de septiembre a las 09:00
+            - generic [ref=e318]:
+              - text: 15:01
+              - generic [ref=e319]: 
+          - generic [ref=e324]:
+            - button "" [ref=e325] [cursor=pointer]:
+              - generic [ref=e326]: 
+            - button "+" [ref=e327] [cursor=pointer]:
+              - generic [ref=e328]: +
+            - textbox "Escribe un mensaje..." [ref=e329]
+            - button "" [active] [ref=e330] [cursor=pointer]:
+              - generic [ref=e331]: 
+        - generic [ref=e333]:
+          - generic:
+            - generic:
+              - generic: 
+            - generic:
+              - heading "¡Cita Reservada con Éxito!" [level=5]
+              - paragraph: El Agente ha confirmado tu reservación en la agenda.
+          - generic [ref=e334]:
+            - generic [ref=e335]:
+              - generic [ref=e336]:
+                - generic [ref=e337]:
+                  - heading "Agenda de pizzería artesanal" [level=3] [ref=e338]
+                  - paragraph [ref=e339]: Demostración en tiempo real
+                - generic [ref=e340]:
+                  - generic [ref=e343]: Seleccionado
+                  - generic [ref=e346]: Reservado
+              - generic [ref=e347]:
+                - generic [ref=e348]: Septiembre 2026
+                - generic [ref=e349]:
+                  - button "" [ref=e350] [cursor=pointer]:
+                    - generic [ref=e351]: 
+                  - button "" [ref=e352] [cursor=pointer]:
+                    - generic [ref=e353]: 
+              - generic [ref=e354]:
+                - generic [ref=e355]: DOM
+                - generic [ref=e356]: LUN
+                - generic [ref=e357]: MAR
+                - generic [ref=e358]: MIÉ
+                - generic [ref=e359]: JUE
+                - generic [ref=e360]: VIE
+                - generic [ref=e361]: SÁB
+              - generic [ref=e362]:
+                - button "1" [ref=e363] [cursor=pointer]
+                - button "2" [ref=e364] [cursor=pointer]
+                - button "3" [ref=e365] [cursor=pointer]
+                - button "4" [ref=e366] [cursor=pointer]
+                - button "5" [ref=e367] [cursor=pointer]
+                - button "6" [ref=e368] [cursor=pointer]
+                - button "7" [ref=e369] [cursor=pointer]
+                - button "8" [ref=e370] [cursor=pointer]
+                - button "9" [ref=e371] [cursor=pointer]
+                - button "10" [ref=e372] [cursor=pointer]
+                - button "11" [ref=e373] [cursor=pointer]
+                - button "12" [ref=e374] [cursor=pointer]
+                - button "13" [ref=e375] [cursor=pointer]
+                - button "14" [ref=e376] [cursor=pointer]
+                - button "15" [ref=e377] [cursor=pointer]
+                - button "16" [ref=e378] [cursor=pointer]
+                - button "17" [ref=e379] [cursor=pointer]
+                - button "18" [ref=e380] [cursor=pointer]
+                - button "19" [ref=e381] [cursor=pointer]
+                - button "20" [ref=e382] [cursor=pointer]
+                - button "21" [ref=e383] [cursor=pointer]
+                - button "22" [ref=e384] [cursor=pointer]
+                - button "23" [ref=e385] [cursor=pointer]
+                - button "24" [ref=e386] [cursor=pointer]
+                - button "25" [ref=e387] [cursor=pointer]
+                - button "26" [ref=e388] [cursor=pointer]
+                - button "27" [ref=e389] [cursor=pointer]
+                - button "28" [ref=e390] [cursor=pointer]
+                - button "29" [ref=e391] [cursor=pointer]
+                - button "30" [ref=e392] [cursor=pointer]
+            - generic [ref=e393]:
+              - heading "Disponibilidad para el martes, 1 de septiembre:" [level=4] [ref=e394]
+              - generic [ref=e395]:
+                - button "08:00": 08:00
+                - button "09:00" [ref=e396] [cursor=pointer]: 09:00
+                - button "10:00": 10:00
+                - button "11:00" [ref=e398] [cursor=pointer]: 11:00
+                - button "12:00": 12:00
+                - button "14:00": 14:00
+                - button "15:00" [ref=e400] [cursor=pointer]: 15:00
+                - button "16:00": 16:00
+                - button "17:00" [ref=e402] [cursor=pointer]: 17:00
+          - generic [ref=e404]:
+            - heading "Estado de Reserva" [level=4] [ref=e405]
+            - generic [ref=e406]:
+              - generic [ref=e407]:
+                - generic [ref=e409]: 
+                - paragraph [ref=e410]: Sin Reservas
+                - paragraph [ref=e411]: Pide una cita al chatbot facilitando fecha, hora, nombre y correo.
+              - text:  
+      - generic: agente de inteligencia artificial para agendamiento de citas en Bogotá, automatización de reservas por whatsapp restaurante Bogotá, chatbot inteligente para restaurante en Bogotá, agenda virtual inteligente de pizzería artesanal.
+    - generic [ref=e413]:
+      - generic [ref=e414]:
+        - heading "Preguntas Frecuentes" [level=2] [ref=e415]
+        - paragraph [ref=e416]: Resolvemos tus dudas sobre la implementación en Bogotá.
+      - generic [ref=e417]:
+        - group [ref=e418]:
+          - generic "¿Cómo se conecta el bot con mi software de reservas actual? " [ref=e419] [cursor=pointer]
+        - group [ref=e420]:
+          - generic "¿El bot puede gestionar depósitos de seña para fechas especiales? " [ref=e421] [cursor=pointer]
+        - group [ref=e422]:
+          - generic "¿Qué pasa si el cliente pide algo muy específico fuera del menú? " [ref=e423] [cursor=pointer]
+        - group [ref=e424]:
+          - generic "¿Cuánto tarda la implementación completa? " [ref=e425] [cursor=pointer]
+        - group [ref=e426]:
+          - generic "¿Es WhatsApp Business oficial o puede haber ban? " [ref=e427] [cursor=pointer]
+        - group [ref=e428]:
+          - generic "¿Puedo cancelar cuando quiera? " [ref=e429] [cursor=pointer]
+    - generic [ref=e431]:
+      - heading "¿Listo para transformar tu negocio?" [level=2] [ref=e432]
+      - paragraph [ref=e433]: Agenda una sesión de consultoría gratuita de 15 minutos y descubre cómo la IA puede automatizar tus ventas y atención.
+      - link "Hablar con un Experto " [ref=e434] [cursor=pointer]:
+        - /url: https://wa.me/573151206985?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20Agente%20IA%20para%20Restaurantes%20en%20Bogot%C3%A1%20y%20me%20interesa%20conocer%20m%C3%A1s.
+        - generic [ref=e435]:
+          - text: Hablar con un Experto
+          - generic [ref=e436]: 
+    - generic [ref=e438]:
+      - heading "Más Restaurantes en Colombia" [level=3] [ref=e439]
+      - generic [ref=e440]:
+        - link "Medellín" [ref=e441] [cursor=pointer]:
+          - /url: /chatbot-whatsapp-para-restaurantes/colombia/medellin/
+        - link "Cali" [ref=e442] [cursor=pointer]:
+          - /url: /chatbot-whatsapp-para-restaurantes/colombia/cali/
+        - link "Barranquilla" [ref=e443] [cursor=pointer]:
+          - /url: /chatbot-whatsapp-para-restaurantes/colombia/barranquilla/
+        - link "Cartagena" [ref=e444] [cursor=pointer]:
+          - /url: /chatbot-whatsapp-para-restaurantes/colombia/cartagena/
+    - generic [ref=e446]:
+      - generic [ref=e447]:
+        - heading "Aprende a Escalar y Automatizar tu Negocio con Inteligencia Artificial" [level=2] [ref=e448]
+        - paragraph [ref=e449]: Artículos y guías exclusivas para potenciar tu sector utilizando tecnología de vanguardia.
+      - generic [ref=e450]:
+        - 'link "IA para Restaurantes: Cómo Automatizar Reservas y Pedidos vía WhatsApp Restaurantes  Lectura: 15 min IA para Restaurantes: Cómo Automatizar Reservas y Pedidos vía WhatsApp Implementa inteligencia artificial en tu restaurante en LATAM. Automatiza reservas por WhatsApp, consultas de menú, recordatorios de mesas y reduce no-shows en 2026. Leer artículo " [ref=e451] [cursor=pointer]':
+          - /url: /blog/ia-para-restaurantes/
+          - generic [ref=e452]:
+            - 'img "IA para Restaurantes: Cómo Automatizar Reservas y Pedidos vía WhatsApp" [ref=e453]'
+            - generic [ref=e454]: Restaurantes
+          - generic [ref=e455]:
+            - generic [ref=e456]:
+              - generic [ref=e457]:
+                - generic [ref=e458]: 
+                - text: "Lectura: 15 min"
+              - 'heading "IA para Restaurantes: Cómo Automatizar Reservas y Pedidos vía WhatsApp" [level=3] [ref=e459]'
+              - paragraph [ref=e460]: Implementa inteligencia artificial en tu restaurante en LATAM. Automatiza reservas por WhatsApp, consultas de menú, recordatorios de mesas y reduce no-shows en 2026.
+            - generic [ref=e461]:
+              - text: Leer artículo
+              - generic [ref=e462]: 
+        - 'link "Precios de Inteligencia Artificial para Empresas: ¿Cuánto cuesta implementar un Chatbot de WhatsApp Corporativo y Agentes de IA en LATAM? Precios  Lectura: 13 min Precios de Inteligencia Artificial para Empresas: ¿Cuánto cuesta implementar un Chatbot de WhatsApp Corporativo y Agentes de IA en LATAM? Cuánto cuesta implementar un agente IA y chatbot de WhatsApp corporativo en LATAM. Costos, API de Meta, ROI y planes transparentes para PYMES en 2026. Leer artículo " [ref=e463] [cursor=pointer]':
+          - /url: /blog/precios-agente-ia-latam/
+          - generic [ref=e464]:
+            - 'img "Precios de Inteligencia Artificial para Empresas: ¿Cuánto cuesta implementar un Chatbot de WhatsApp Corporativo y Agentes de IA en LATAM?" [ref=e465]'
+            - generic [ref=e466]: Precios
+          - generic [ref=e467]:
+            - generic [ref=e468]:
+              - generic [ref=e469]:
+                - generic [ref=e470]: 
+                - text: "Lectura: 13 min"
+              - 'heading "Precios de Inteligencia Artificial para Empresas: ¿Cuánto cuesta implementar un Chatbot de WhatsApp Corporativo y Agentes de IA en LATAM?" [level=3] [ref=e471]'
+              - paragraph [ref=e472]: Cuánto cuesta implementar un agente IA y chatbot de WhatsApp corporativo en LATAM. Costos, API de Meta, ROI y planes transparentes para PYMES en 2026.
+            - generic [ref=e473]:
+              - text: Leer artículo
+              - generic [ref=e474]: 
+        - 'link "Cómo Implementar un Agente IA en tu Empresa: 5 Pasos para Automatizar Ventas y Servicio en LATAM Implementación  Lectura: 11 min Cómo Implementar un Agente IA en tu Empresa: 5 Pasos para Automatizar Ventas y Servicio en LATAM Guía práctica para implementar un agente IA en tu empresa LATAM. 5 pasos clave, tiempos reales, errores a evitar y agentes de WhatsApp corporativos. Leer artículo " [ref=e475] [cursor=pointer]':
+          - /url: /blog/como-implementar-agente-ia/
+          - generic [ref=e476]:
+            - 'img "Cómo Implementar un Agente IA en tu Empresa: 5 Pasos para Automatizar Ventas y Servicio en LATAM" [ref=e477]'
+            - generic [ref=e478]: Implementación
+          - generic [ref=e479]:
+            - generic [ref=e480]:
+              - generic [ref=e481]:
+                - generic [ref=e482]: 
+                - text: "Lectura: 11 min"
+              - 'heading "Cómo Implementar un Agente IA en tu Empresa: 5 Pasos para Automatizar Ventas y Servicio en LATAM" [level=3] [ref=e483]'
+              - paragraph [ref=e484]: Guía práctica para implementar un agente IA en tu empresa LATAM. 5 pasos clave, tiempos reales, errores a evitar y agentes de WhatsApp corporativos.
+            - generic [ref=e485]:
+              - text: Leer artículo
+              - generic [ref=e486]: 
+      - link "Ver todos los artículos " [ref=e488] [cursor=pointer]:
+        - /url: /blog/
+        - generic [ref=e489]:
+          - text: Ver todos los artículos
+          - generic [ref=e490]: 
+  - contentinfo [ref=e491]:
+    - generic [ref=e492]:
+      - generic [ref=e493]:
+        - generic [ref=e494]:
+          - link "Consultor-IA" [ref=e495] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e496]: Consultor-IA
+          - paragraph [ref=e497]: Transformamos la atención al cliente en LATAM con Agentes de Inteligencia Artificial que trabajan 24/7 en WhatsApp.
+          - generic [ref=e498]:
+            - link "" [ref=e499] [cursor=pointer]:
+              - /url: https://wa.me/573151206985
+              - generic [ref=e500]: 
+            - link "" [ref=e501] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e502]: 
+            - link "" [ref=e503] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e504]: 
+        - generic [ref=e505]:
+          - heading "Soluciones" [level=4] [ref=e506]
+          - list [ref=e507]:
+            - listitem [ref=e508]:
+              - link "Academias y Cursos" [ref=e509] [cursor=pointer]:
+                - /url: /chatbot-whatsapp-para-academias-cursos/colombia/bogota/
+            - listitem [ref=e510]:
+              - link "Clínicas Dentales" [ref=e511] [cursor=pointer]:
+                - /url: /chatbot-whatsapp-para-clinicas-dentales/colombia/bogota/
+            - listitem [ref=e512]:
+              - link "Desarrollo de Apps y Software" [ref=e513] [cursor=pointer]:
+                - /url: /desarrollo-apps-y-software/colombia/bogota/
+            - listitem [ref=e514]:
+              - link "Gimnasios" [ref=e515] [cursor=pointer]:
+                - /url: /chatbot-whatsapp-para-gimnasios/colombia/bogota/
+            - listitem [ref=e516]:
+              - link "Hoteles y Hostales" [ref=e517] [cursor=pointer]:
+                - /url: /chatbot-whatsapp-para-hoteles-y-hostales/colombia/bogota/
+            - listitem [ref=e518]:
+              - link "Inmobiliarias" [ref=e519] [cursor=pointer]:
+                - /url: /chatbot-whatsapp-para-inmobiliarias/colombia/bogota/
+            - listitem [ref=e520]:
+              - link "Restaurantes" [ref=e521] [cursor=pointer]:
+                - /url: /chatbot-whatsapp-para-restaurantes/colombia/bogota/
+            - listitem [ref=e522]:
+              - link "Salones de Belleza" [ref=e523] [cursor=pointer]:
+                - /url: /chatbot-whatsapp-para-salones-de-belleza/colombia/bogota/
+            - listitem [ref=e524]:
+              - link "Spas y Centros de Estética" [ref=e525] [cursor=pointer]:
+                - /url: /chatbot-whatsapp-para-spas-centros-esteticos/colombia/bogota/
+            - listitem [ref=e526]:
+              - link "Talleres Automotrices" [ref=e527] [cursor=pointer]:
+                - /url: /chatbot-whatsapp-para-talleres-automotrices/colombia/bogota/
+        - generic [ref=e528]:
+          - heading "Presencia en LATAM" [level=4] [ref=e529]
+          - generic [ref=e530]:
+            - generic [ref=e531]:
+              - heading "Colombia" [level=4] [ref=e532]
+              - list [ref=e533]:
+                - listitem [ref=e534]:
+                  - link "Bogotá" [ref=e535] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/colombia/bogota/
+                - listitem [ref=e536]:
+                  - link "Medellín" [ref=e537] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/colombia/medellin/
+                - listitem [ref=e538]:
+                  - link "Cali" [ref=e539] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/colombia/cali/
+                - listitem [ref=e540]:
+                  - link "Barranquilla" [ref=e541] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/colombia/barranquilla/
+                - listitem [ref=e542]:
+                  - link "Cartagena" [ref=e543] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/colombia/cartagena/
+                - listitem [ref=e544]:
+                  - link "Bucaramanga" [ref=e545] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/colombia/bucaramanga/
+                - listitem [ref=e546]:
+                  - link "Manizales" [ref=e547] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/colombia/manizales/
+                - listitem [ref=e548]:
+                  - link "Armenia" [ref=e549] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/colombia/armenia/
+            - generic [ref=e550]:
+              - heading "México" [level=4] [ref=e551]
+              - list [ref=e552]:
+                - listitem [ref=e553]:
+                  - link "Ciudad de México" [ref=e554] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/mexico/ciudad-de-mexico/
+                - listitem [ref=e555]:
+                  - link "Guadalajara" [ref=e556] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/mexico/guadalajara/
+                - listitem [ref=e557]:
+                  - link "Monterrey" [ref=e558] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/mexico/monterrey/
+                - listitem [ref=e559]:
+                  - link "Puebla" [ref=e560] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/mexico/puebla/
+                - listitem [ref=e561]:
+                  - link "Querétaro" [ref=e562] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/mexico/queretaro/
+                - listitem [ref=e563]:
+                  - link "Cancún" [ref=e564] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/mexico/cancun/
+                - listitem [ref=e565]:
+                  - link "Mérida" [ref=e566] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/mexico/merida/
+                - listitem [ref=e567]:
+                  - link "Tijuana" [ref=e568] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/mexico/tijuana/
+            - generic [ref=e569]:
+              - heading "Argentina" [level=4] [ref=e570]
+              - list [ref=e571]:
+                - listitem [ref=e572]:
+                  - link "Buenos Aires" [ref=e573] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/argentina/buenos-aires/
+                - listitem [ref=e574]:
+                  - link "Córdoba" [ref=e575] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/argentina/cordoba-ar/
+                - listitem [ref=e576]:
+                  - link "Rosario" [ref=e577] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/argentina/rosario/
+                - listitem [ref=e578]:
+                  - link "Mendoza" [ref=e579] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/argentina/mendoza/
+            - generic [ref=e580]:
+              - heading "Chile" [level=4] [ref=e581]
+              - list [ref=e582]:
+                - listitem [ref=e583]:
+                  - link "Santiago" [ref=e584] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/chile/santiago/
+                - listitem [ref=e585]:
+                  - link "Valparaíso" [ref=e586] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/chile/valparaiso/
+            - generic [ref=e587]:
+              - heading "Perú" [level=4] [ref=e588]
+              - list [ref=e589]:
+                - listitem [ref=e590]:
+                  - link "Lima" [ref=e591] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/peru/lima/
+                - listitem [ref=e592]:
+                  - link "Arequipa" [ref=e593] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/peru/arequipa/
+            - generic [ref=e594]:
+              - heading "Ecuador" [level=4] [ref=e595]
+              - list [ref=e596]:
+                - listitem [ref=e597]:
+                  - link "Quito" [ref=e598] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/ecuador/quito/
+                - listitem [ref=e599]:
+                  - link "Guayaquil" [ref=e600] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/ecuador/guayaquil/
+            - generic [ref=e601]:
+              - heading "Panamá" [level=4] [ref=e602]
+              - list [ref=e603]:
+                - listitem [ref=e604]:
+                  - link "Ciudad de Panamá" [ref=e605] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/panama/ciudad-de-panama/
+            - generic [ref=e606]:
+              - heading "Costa Rica" [level=4] [ref=e607]
+              - list [ref=e608]:
+                - listitem [ref=e609]:
+                  - link "San José" [ref=e610] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/costa-rica/san-jose-cr/
+            - generic [ref=e611]:
+              - heading "Uruguay" [level=4] [ref=e612]
+              - list [ref=e613]:
+                - listitem [ref=e614]:
+                  - link "Montevideo" [ref=e615] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/uruguay/montevideo/
+            - generic [ref=e616]:
+              - heading "Rep. Dominicana" [level=4] [ref=e617]
+              - list [ref=e618]:
+                - listitem [ref=e619]:
+                  - link "Santo Domingo" [ref=e620] [cursor=pointer]:
+                    - /url: /chatbot-whatsapp-para-restaurantes/republica-dominicana/santo-domingo/
+      - generic [ref=e621]:
+        - generic [ref=e622]:
+          - generic [ref=e623]: © 2026 Consultor-IA. Todos los derechos reservados.
+          - link "Sitemap" [ref=e624] [cursor=pointer]:
+            - /url: /sitemap.xml
+        - generic [ref=e625]:
+          - link "Aviso Legal" [ref=e626] [cursor=pointer]:
+            - /url: /aviso-legal/
+          - link "Política de Privacidad" [ref=e627] [cursor=pointer]:
+            - /url: /politica-de-privacidad/
+  - link " ¡Escríbenos!" [ref=e628] [cursor=pointer]:
+    - /url: https://wa.me/573151206985?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20Agente%20IA%20para%20Restaurantes%20en%20Bogot%C3%A1%20y%20me%20interesa%20conocer%20m%C3%A1s.
+    - generic [ref=e629]: 
+    - generic [ref=e630]: ¡Escríbenos!
+  - text:    
+```
+
+# Test source
+
+```ts
+  1  | const { test, expect } = require('@playwright/test');
+  2  | 
+  3  | test('verificar confirmación de cita en el calendario', async ({ page }) => {
+  4  |   await page.goto('http://localhost:8000/dist/chatbot-whatsapp-para-restaurantes/colombia/bogota/index.html');
+  5  | 
+  6  |   // Asegurar que estamos al menos 7 días en el futuro haciendo clic en el botón de siguiente
+  7  |   const nextBtn = page.locator('#calendar-next-btn');
+  8  |   if (await nextBtn.isVisible()) {
+  9  |       await nextBtn.click();
+  10 |       await page.waitForTimeout(500); // Esperar a que la transición ocurra
+  11 |       
+  12 |       // Hacemos un segundo clic por seguridad en caso de que sea vista semanal
+  13 |       await nextBtn.click();
+  14 |       await page.waitForTimeout(500);
+  15 |   }
+  16 | 
+  17 |   // Seleccionar directamente un día libre en el calendario
+  18 |   const diaLibre = page.locator('#calendar-days-grid button:not(.pointer-events-none)').nth(0);
+  19 |   await diaLibre.waitFor({ state: 'visible' });
+  20 |   await diaLibre.click();
+  21 | 
+  22 |   // Hacer clic en un horario libre
+  23 |   const horarioLibre = page.locator('#time-slots-container button:not(.pointer-events-none)').nth(0);
+  24 |   await horarioLibre.waitFor({ state: 'visible' });
+  25 |   await horarioLibre.click();
+  26 | 
+  27 |   // Enviar el mensaje
+  28 |   // Capturar la respuesta del bot desde la red antes de que se parsee y elimine el tag
+  29 |   const [response] = await Promise.all([
+  30 |     page.waitForResponse(res => res.url().includes('openrouter.ai') && res.status() === 200, { timeout: 15000 }),
+  31 |     page.locator('#demo-chat-send-btn').click()
+  32 |   ]);
+  33 | 
+  34 |   const jsonResponse = await response.json();
+  35 |   const botMessage = jsonResponse.choices[0].message.content;
+  36 |   console.log("Respuesta real del bot:", botMessage);
+  37 | 
+  38 |   // Verificar que contiene el texto de confirmación
+  39 |   const hasConfirmTag = botMessage.includes('[CONFIRMAR_CITA:');
+  40 |   
+  41 |   if (!hasConfirmTag) {
+> 42 |     throw new Error('La respuesta del bot no contiene el texto [CONFIRMAR_CITA:');
+     |           ^ Error: La respuesta del bot no contiene el texto [CONFIRMAR_CITA:
+  43 |   }
+  44 | 
+  45 |   // Verificación final del texto
+  46 |   const textoChat = await page.locator('#demo-chat-body').innerText();
+  47 |   expect(textoChat).toContain('[CONFIRMAR_CITA:');
+  48 | });
+  49 | 
+```
