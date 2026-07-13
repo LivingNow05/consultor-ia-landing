@@ -24,7 +24,8 @@ BLOG_CATEGORY_TAGS = {
     'precios-whatsapp-business-api-2026': 'Costos',
     'calificacion-leads-whatsapp-ia': 'Leads',
     'embudo-de-ventas-whatsapp-ia': 'Embudos',
-    'whatsapp-flows-ia-ventas': 'WhatsApp Flows'
+    'whatsapp-flows-ia-ventas': 'WhatsApp Flows',
+    'pagos-en-whatsapp-chatbot': 'Pagos'
 }
 
 def calculate_reading_time(slug):

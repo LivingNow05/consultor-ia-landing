@@ -1,13 +1,23 @@
-from PIL import Image
 import os
+import glob
+from PIL import Image
 
-src = "/Users/anthony/.gemini/antigravity/brain/81f1b6de-28a6-4206-95da-c7829ab6568b/hero_ia_salud_1780002390911.png"
-dst = "/Users/anthony/Downloads/consultor-ia.com.co/images/blog/ia-para-salud/hero.webp"
+artifact_dir = "/Users/anthony/.gemini/antigravity/brain/09a899df-f4d5-4000-b660-713831804eb9"
+search_pattern = os.path.join(artifact_dir, "hero_payments_whatsapp_*.jpg")
+files = glob.glob(search_pattern)
 
-if os.path.exists(src):
-    os.makedirs(os.path.dirname(dst), exist_ok=True)
-    img = Image.open(src)
-    img.save(dst, "WEBP", quality=90)
-    print(f"✅ Conversión completada: {src} -> {dst}")
-else:
-    print(f"❌ Error: No se encontró la imagen de origen en {src}")
+if not files:
+    print("Error: No se encontró la imagen generada.")
+    exit(1)
+
+latest_file = sorted(files)[-1]
+print(f"Imagen de origen encontrada: {latest_file}")
+
+dest_dir = "/Users/anthony/Downloads/consultor-ia.com.co/images/blog/pagos-en-whatsapp-chatbot"
+os.makedirs(dest_dir, exist_ok=True)
+dest_path = os.path.join(dest_dir, "hero.webp")
+
+print(f"Convirtiendo a WEBP y guardando en: {dest_path}")
+img = Image.open(latest_file)
+img.save(dest_path, "WEBP", quality=85)
+print("¡Conversión exitosa!")
