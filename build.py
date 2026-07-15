@@ -4350,32 +4350,31 @@ def build_automatizacion_dinamica(footer_html, mega_menu_html):
     with open(template_path, "r", encoding="utf-8") as f:
         html = f.read()
         
-    # Replacements para que no queden variables {PYTHON} rotas en el cliente
+    # Crear un "row" simulado para inyectar spans dinámicos y HTML estándar
+    mock_row = {
+        'Ciudad': '<span class="dyn-city">tu ciudad</span>',
+        'País': '<span class="dyn-country">tu país</span>',
+        'Industria': 'cualquier industria',
+        'Moneda': '<span class="dyn-currency">USD</span>',
+        'Precio_Bajo': '<span class="dyn-price">499</span>',
+        'Precio_Medio': '<span class="dyn-price-medio">1,800</span>',
+        'Precio_Alto': '<span class="dyn-price-alto">3,500</span>',
+        'WA_Numero': '573132644262',
+        'Testimonio_Texto': 'Nuestra atención al cliente mejoró en un 40% gracias a la automatización inteligente.',
+        'Testimonio_Autor': 'Negocio Local',
+        'Testimonio_Compania': '<span class="dyn-company">Tu Empresa</span>'
+    }
+
     wa_mensaje = "Hola, busco automatizar WhatsApp para mi empresa"
     wa_encoded = quote(wa_mensaje)
     
-    hero_visual_html = """
-    <div class="relative w-full max-w-md mx-auto aspect-[9/19] bg-zinc-900 rounded-[2.5rem] border-[8px] border-zinc-800 shadow-2xl overflow-hidden">
-        <div class="absolute top-0 w-full h-12 bg-zinc-800 flex items-center justify-between px-6 z-10">
-            <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-zinc-700"></div><span class="text-white font-medium text-sm dyn-company">Tu Empresa</span></div>
-        </div>
-        <div class="absolute inset-0 pt-16 pb-20 px-4 bg-[#0B141A] flex flex-col gap-3 overflow-y-auto">
-            <div class="bg-[#202C33] text-white p-3 rounded-2xl rounded-tl-none self-start max-w-[85%] text-sm">¡Hola! ¿Cuánto cuesta el servicio en <span class="dyn-city">tu ciudad</span>?</div>
-            <div class="bg-[#005C4B] text-white p-3 rounded-2xl rounded-tr-none self-end max-w-[85%] text-sm">¡Hola! Los precios arrancan desde <span class="dyn-currency">USD</span> <span class="dyn-price">499</span>. ¿Te ayudo a agendar?</div>
-        </div>
-    </div>
-    """
+    hero_chat_user = f"¡Hola! ¿Cuánto cuesta el servicio en <span class='dyn-city'>tu ciudad</span>?"
+    hero_chat_bot = f"¡Hola! Los precios arrancan desde <span class='dyn-currency'>USD</span> <span class='dyn-price'>499</span>. ¿Te ayudo a agendar?"
     
-    precios_html = """
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-8 rounded-3xl bg-zinc-800/50 border border-zinc-700">
-            <h3 class="text-xl font-bold text-white mb-2">Plan Básico</h3>
-            <p class="text-4xl font-bold text-brand mb-6"><span class="dyn-currency">USD</span> <span class="dyn-price">499</span></p>
-            <ul class="text-zinc-400 space-y-3 mb-8"><li>Atención 24/7</li><li>Integración básica</li></ul>
-            <a href="#" class="block text-center bg-brand text-white py-3 rounded-xl">Probar Gratis</a>
-        </div>
-    </div>
-    """
+    hero_visual_html = build_hero_visual_html(mock_row, hero_chat_user, hero_chat_bot)
+    precios_html = build_precios_seccion_html(mock_row)
+    testimonials_html = build_testimonials_html(mock_row)
+    faqs_html, schema_faq = build_faqs(mock_row, {})
     
     html = html.replace('{FOOTER_HTML}', footer_html)
     html = html.replace('{MEGA_MENU}', mega_menu_html)
@@ -4386,14 +4385,14 @@ def build_automatizacion_dinamica(footer_html, mega_menu_html):
     html = html.replace('{WA_NUMERO}', '573132644262')
     html = html.replace('{WA_MENSAJE_ENCODED}', wa_encoded)
     html = html.replace('{HERO_VISUAL_HTML}', hero_visual_html)
-    html = html.replace('{TESTIMONIALS_HTML}', '<div class="text-center text-white italic text-xl p-8 bg-zinc-800/30 rounded-2xl border border-zinc-700 dyn-testimonial">"Nuestra atención mejoró un 40%."</div>')
+    html = html.replace('{TESTIMONIALS_HTML}', testimonials_html)
     html = html.replace('{PRECIOS_SECCION_HTML}', precios_html)
     html = html.replace('{SERVICIOS_SECCION_TITULO}', 'Todo lo que tu negocio en <span class="dyn-city">tu ciudad</span> necesita')
     html = html.replace('{SERVICIOS_SECCION_SUBTITULO}', 'Automatiza procesos repetitivos con IA.')
-    html = html.replace('{FAQS_HTML}', '')
+    html = html.replace('{FAQS_HTML}', faqs_html)
     html = html.replace('{CIUDADES_HERMANAS_HTML}', '')
     html = html.replace('{BLOG_RECOMENDACIONES_HTML}', '')
-    html = html.replace('{SCHEMA_FAQ}', '')
+    html = html.replace('{SCHEMA_FAQ}', schema_faq)
     
     import re
     # Limpiar cualquier otra variable suelta

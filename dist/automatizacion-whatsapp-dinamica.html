@@ -85,7 +85,9 @@
     </script>
     
     <!-- Schema: FAQPage -->
-    
+    <script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": []}
+</script>
     
     <!-- Schema: BreadcrumbList -->
     <script type="application/ld+json">
@@ -357,23 +359,126 @@
                     
                     <!-- Hero Visual / Sidebar Autoridad -->
                     
-    <div class="relative w-full max-w-md mx-auto aspect-[9/19] bg-zinc-900 rounded-[2.5rem] border-[8px] border-zinc-800 shadow-2xl overflow-hidden">
-        <div class="absolute top-0 w-full h-12 bg-zinc-800 flex items-center justify-between px-6 z-10">
-            <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-zinc-700"></div><span class="text-white font-medium text-sm dyn-company">Tu Empresa</span></div>
+        <div class="lg:w-2/5 w-full">
+            <div class="relative group-hero cursor-pointer mt-8 lg:mt-0">
+                <!-- WhatsApp Chat Mockup -->
+                <div class="relative bg-[#efeae2] dark:bg-[#0b141a] border border-gray-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-2xl transition-all hover:shadow-[0_20px_50px_-12px_rgba(79,70,229,0.2)]">
+                    
+                    <!-- Header WhatsApp -->
+                    <div class="bg-[#00a884] dark:bg-[#202c33] p-4 flex items-center gap-3 relative z-10">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0">
+                            <i class="fas fa-robot text-xl text-[#00a884] dark:text-[#8696a0]"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-medium text-white text-base leading-tight">Consultor-IA Bot</h3>
+                            <p class="text-white/80 text-xs mt-0.5">en línea</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Body -->
+                    <div class="p-5 flex flex-col gap-3 relative z-10 min-h-[300px]">
+                        <!-- Chat pattern background -->
+                        <div class="absolute inset-0 opacity-40 dark:opacity-[0.05] bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center -z-10"></div>
+                        
+                        <!-- Client Message -->
+                        <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
+                            ¡Hola! ¿Cuánto cuesta el servicio en <span class='dyn-city'>tu ciudad</span>?
+                        </div>
+                        
+                        <!-- AI Bot Message -->
+                        <div class="self-start bg-white dark:bg-[#202c33] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tl-none py-2 px-3 max-w-[90%] text-[15px] shadow-sm animate-fade-in-up animation-delay-500">
+                            ¡Hola! Los precios arrancan desde <span class='dyn-currency'>USD</span> <span class='dyn-price'>499</span>. ¿Te ayudo a agendar?
+                        </div>
+                        
+                        <!-- ROI Box inside Chat -->
+                        <div class="self-start w-full mt-2 animate-fade-in-up animation-delay-1000">
+                            <div class="bg-white/90 dark:bg-[#202c33]/90 backdrop-blur-sm border border-gray-100 dark:border-zinc-800 rounded-xl p-4 flex justify-between shadow-sm">
+                                <div>
+                                    <p class="text-xs text-gray-500 dark:text-[#8696a0]">ROI Promedio</p>
+                                    <p class="font-bold text-accent dark:text-[#53bdeb] text-lg">+315%</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-gray-500 dark:text-[#8696a0]">Implementación</p>
+                                    <p class="font-bold text-gray-800 dark:text-[#e9edef] text-lg">5-7 Días</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="absolute inset-0 pt-16 pb-20 px-4 bg-[#0B141A] flex flex-col gap-3 overflow-y-auto">
-            <div class="bg-[#202C33] text-white p-3 rounded-2xl rounded-tl-none self-start max-w-[85%] text-sm">¡Hola! ¿Cuánto cuesta el servicio en <span class="dyn-city">tu ciudad</span>?</div>
-            <div class="bg-[#005C4B] text-white p-3 rounded-2xl rounded-tr-none self-end max-w-[85%] text-sm">¡Hola! Los precios arrancan desde <span class="dyn-currency">USD</span> <span class="dyn-price">499</span>. ¿Te ayudo a agendar?</div>
-        </div>
-    </div>
-    
+        
                     
                 </div>
             </div>
         </section>
 
         <!-- Testimonials Marquee (Scroll Infinito de Reseñas) -->
-        <div class="text-center text-white italic text-xl p-8 bg-zinc-800/30 rounded-2xl border border-zinc-700 dyn-testimonial">"Nuestra atención mejoró un 40%."</div>
+        <section class="py-6 overflow-hidden border-y border-gray-100 dark:border-zinc-800/50 bg-[#FDFBF7]/50 dark:bg-zinc-900/50" aria-label="Reseñas de clientes">
+    <style>
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee-scroll 35s linear infinite;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        .testimonial-item {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            padding: 8px 24px;
+            margin: 0 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #52525b;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.7);
+            border: 1px solid #e4e4e7;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+        .dark .testimonial-item {
+            color: #a1a1aa;
+            background: rgba(39,39,42,0.5);
+            border-color: #3f3f46;
+        }
+        .testimonial-item:hover {
+            border-color: #10b981;
+            color: #18181b;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(16,185,129,0.1);
+        }
+        .dark .testimonial-item:hover {
+            color: #f4f4f5;
+            border-color: #34d399;
+        }
+    </style>
+    <div class="marquee-track">
+        <span class="testimonial-item">⭐⭐⭐⭐⭐ "Ventas automáticas 24/7 en WhatsApp" - Le Bistro</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Integración perfecta con nuestro CRM" - InmoLATAM</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Nuestros leads calificados crecieron 35%" - Repuestos Cauca</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Atención al cliente en 2 segundos" - DentalCare</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Súper fácil de configurar e integrar" - Glamour</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Soporte e IA conversacional de primer nivel" - AutoTec</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Calificación de prospectos automatizada" - Academia Global</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Clientes agendan citas sin fricción" - Clínica Vitality</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Ventas automáticas 24/7 en WhatsApp" - Le Bistro</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Integración perfecta con nuestro CRM" - InmoLATAM</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Nuestros leads calificados crecieron 35%" - Repuestos Cauca</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Atención al cliente en 2 segundos" - DentalCare</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Súper fácil de configurar e integrar" - Glamour</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Soporte e IA conversacional de primer nivel" - AutoTec</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Calificación de prospectos automatizada" - Academia Global</span>
+<span class="testimonial-item">⭐⭐⭐⭐⭐ "Clientes agendan citas sin fricción" - Clínica Vitality</span>
+
+    </div>
+</section>
 
         <!-- Contenido Editorial EEAT (SEO) -->
         
@@ -526,7 +631,7 @@
                     <div>
                         <div class="flex justify-between mb-4">
                             <label class="font-header font-bold text-gray-700 dark:text-zinc-200 text-lg">Ticket promedio de venta</label>
-                            <span id="calc-ticket-val" class="text-brand dark:text-white font-bold text-2xl"><span id="dynamic-currency">USD</span> 100</span>
+                            <span id="calc-ticket-val" class="text-brand dark:text-white font-bold text-2xl"><span class="dyn-currency">USD</span> 100</span>
                         </div>
                         <input type="range" id="calc-ticket" min="10" max="1000" step="10" value="100" class="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-brand dark:accent-white">
                         <p class="text-xs text-gray-400 dark:text-zinc-500 mt-3 font-medium uppercase tracking-wider">Valor promedio de lo que vendes</p>
@@ -551,7 +656,7 @@
                     
                     <div class="text-center bg-brand/5 dark:bg-white/5 rounded-2xl p-6 border border-brand/10 dark:border-white/10">
                         <p class="text-xs text-brand dark:text-brand-light dark:text-white font-bold mb-2 uppercase tracking-tighter">Ingresos Extra Estimados (Mes)</p>
-                        <div class="text-4xl font-header font-extrabold text-brand dark:text-brand-light dark:text-white" id="res-revenue"><span id="dynamic-currency">USD</span> 4,500</div>
+                        <div class="text-4xl font-header font-extrabold text-brand dark:text-brand-light dark:text-white" id="res-revenue"><span class="dyn-currency">USD</span> 4,500</div>
                         <p class="text-[10px] text-gray-400 dark:text-zinc-500 mt-4 leading-tight">*Basado en una tasa de cierre conservadora del 15%.</p>
                     </div>
                 </div>
@@ -574,15 +679,15 @@
                     const chats = parseInt(calcChats.value);
                     const ticket = parseInt(calcTicket.value);
                     
+                    // Obtener la moneda actual que geo-personalization.js haya establecido (o 'USD' por defecto si aún no corre)
+                    let currentCurrency = 'USD';
+                    const currEl = document.querySelector('.dyn-currency');
+                    if (currEl && currEl.textContent) currentCurrency = currEl.textContent.trim();
+                    
                     valChats.textContent = chats;
-                    valTicket.innerHTML = '<span id="dynamic-currency">USD</span> ' + ticket.toLocaleString();
+                    valTicket.innerHTML = `<span class="dyn-currency">${currentCurrency}</span> ` + ticket.toLocaleString();
                     
                     const hoursSaved = Math.round((chats * 30 * 5) / 60);
-                    resHours.textContent = hoursSaved.toLocaleString() + 'h';
-                    
-                    const leadsLostPerMonth = Math.round((chats * 30) * 0.20);
-                    resLeads.textContent = "+" + leadsLostPerMonth.toLocaleString();
-                    
                     const extraRevenue = Math.round(leadsLostPerMonth * 0.15 * ticket);
                     resRevenue.innerHTML = '<span id="dynamic-currency">USD</span> ' + extraRevenue.toLocaleString();
                 }
@@ -598,15 +703,52 @@
 
         <!-- 6. Precios -->
         
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-8 rounded-3xl bg-zinc-800/50 border border-zinc-700">
-            <h3 class="text-xl font-bold text-white mb-2">Plan Básico</h3>
-            <p class="text-4xl font-bold text-brand mb-6"><span class="dyn-currency">USD</span> <span class="dyn-price">499</span></p>
-            <ul class="text-zinc-400 space-y-3 mb-8"><li>Atención 24/7</li><li>Integración básica</li></ul>
-            <a href="#" class="block text-center bg-brand text-white py-3 rounded-xl">Probar Gratis</a>
-        </div>
-    </div>
-    
+        <section id="precios" class="py-24">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-16">
+                    <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios en <span class="dyn-country">tu país</span></h2>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
+                    <!-- Pricing Card 1: Setup -->
+                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
+                        <h3 class="font-header font-bold text-2xl mb-2">Configuración Completa</h3>
+                        <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Pago único por la creación del sistema</p>
+                        <div class="text-4xl font-bold mb-6 text-gray-1 dark:text-white">$497 <span class="text-lg font-normal text-gray-400">USD</span></div>
+                        <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-slate-300">
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Desarrollo y entrenamiento del Agente IA</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Integración completa con WhatsApp y Web</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Ingesta de base de conocimiento (FAQ, servicios)</li>
+                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Pruebas y despliegue inicial (5-7 días)</li>
+                        </ul>
+                        <a href="https://wa.me/573132644262" target="_blank" class="block w-full text-center border border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-zinc-800 py-3 rounded-xl font-medium transition-colors">Solicitar Configuración</a>
+                    </div>
+                    
+                    <!-- Pricing Card 2: Mantenimiento (Destacada) -->
+                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Esencial</div>
+                        <h3 class="font-header font-bold text-2xl mb-2 text-white">Mantenimiento Mensual</h3>
+                        <p class="text-brand-100 text-sm mb-6">Suscripción para el funcionamiento de la IA</p>
+                        <div class="text-4xl font-bold mb-6 text-white">$97 <span class="text-lg font-normal text-brand-200">USD /mes</span></div>
+                        <ul class="space-y-4 mb-8 text-sm">
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Hosting del agente y consumo de IA</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Soporte técnico prioritario</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Ajustes y optimizaciones mensuales</li>
+                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Actualizaciones de plataforma automáticas</li>
+                        </ul>
+                        <a href="https://wa.me/573132644262" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-3.5 rounded-xl overflow-hidden transition-all duration-500">
+                            <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
+                            <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                                Ver Detalles <i class="fas fa-arrow-right text-[12px]"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
 
         <!-- Demo Interactiva de Agente Conversacional y Calendario -->
         

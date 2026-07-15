@@ -516,7 +516,7 @@
                     <div>
                         <div class="flex justify-between mb-4">
                             <label class="font-header font-bold text-gray-700 dark:text-zinc-200 text-lg">Ticket promedio de venta</label>
-                            <span id="calc-ticket-val" class="text-brand dark:text-white font-bold text-2xl"><span id="dynamic-currency">USD</span> 100</span>
+                            <span id="calc-ticket-val" class="text-brand dark:text-white font-bold text-2xl"><span class="dyn-currency">USD</span> 100</span>
                         </div>
                         <input type="range" id="calc-ticket" min="10" max="1000" step="10" value="100" class="w-full h-2 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-brand dark:accent-white">
                         <p class="text-xs text-gray-400 dark:text-zinc-500 mt-3 font-medium uppercase tracking-wider">Valor promedio de lo que vendes</p>
@@ -541,7 +541,7 @@
                     
                     <div class="text-center bg-brand/5 dark:bg-white/5 rounded-2xl p-6 border border-brand/10 dark:border-white/10">
                         <p class="text-xs text-brand dark:text-brand-light dark:text-white font-bold mb-2 uppercase tracking-tighter">Ingresos Extra Estimados (Mes)</p>
-                        <div class="text-4xl font-header font-extrabold text-brand dark:text-brand-light dark:text-white" id="res-revenue"><span id="dynamic-currency">USD</span> 4,500</div>
+                        <div class="text-4xl font-header font-extrabold text-brand dark:text-brand-light dark:text-white" id="res-revenue"><span class="dyn-currency">USD</span> 4,500</div>
                         <p class="text-[10px] text-gray-400 dark:text-zinc-500 mt-4 leading-tight">*Basado en una tasa de cierre conservadora del 15%.</p>
                     </div>
                 </div>
@@ -564,15 +564,15 @@
                     const chats = parseInt(calcChats.value);
                     const ticket = parseInt(calcTicket.value);
                     
+                    // Obtener la moneda actual que geo-personalization.js haya establecido (o 'USD' por defecto si aún no corre)
+                    let currentCurrency = 'USD';
+                    const currEl = document.querySelector('.dyn-currency');
+                    if (currEl && currEl.textContent) currentCurrency = currEl.textContent.trim();
+                    
                     valChats.textContent = chats;
-                    valTicket.innerHTML = '<span id="dynamic-currency">USD</span> ' + ticket.toLocaleString();
+                    valTicket.innerHTML = `<span class="dyn-currency">${currentCurrency}</span> ` + ticket.toLocaleString();
                     
                     const hoursSaved = Math.round((chats * 30 * 5) / 60);
-                    resHours.textContent = hoursSaved.toLocaleString() + 'h';
-                    
-                    const leadsLostPerMonth = Math.round((chats * 30) * 0.20);
-                    resLeads.textContent = "+" + leadsLostPerMonth.toLocaleString();
-                    
                     const extraRevenue = Math.round(leadsLostPerMonth * 0.15 * ticket);
                     resRevenue.innerHTML = '<span id="dynamic-currency">USD</span> ' + extraRevenue.toLocaleString();
                 }
