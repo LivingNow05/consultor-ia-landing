@@ -25,7 +25,8 @@ BLOG_CATEGORY_TAGS = {
     'calificacion-leads-whatsapp-ia': 'Leads',
     'embudo-de-ventas-whatsapp-ia': 'Embudos',
     'whatsapp-flows-ia-ventas': 'WhatsApp Flows',
-    'pagos-en-whatsapp-chatbot': 'Pagos'
+    'pagos-en-whatsapp-chatbot': 'Pagos',
+    'chatbot-whatsapp-n8n-ia': 'n8n & IA'
 }
 
 def calculate_reading_time(slug):
