@@ -2287,6 +2287,20 @@ def build_home_page(data):
     <script type="application/ld+json">
     {{
       "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Consultor IA",
+      "url": "https://consultor-ia.com.co",
+      "logo": "https://consultor-ia.com.co/favicon-192x192.png",
+      "description": "Automatizamos la atención al cliente, ventas y operaciones con Agentes de Inteligencia Artificial para empresas en toda Latinoamérica.",
+      "sameAs": [
+        "https://www.linkedin.com/company/consultor-ia",
+        "https://www.instagram.com/consultoria_col"
+      ]
+    }}
+    </script>
+    <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Consultor IA",
       "url": "https://consultor-ia.com.co",
