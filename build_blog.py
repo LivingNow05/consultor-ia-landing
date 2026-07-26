@@ -27,7 +27,8 @@ BLOG_CATEGORY_TAGS = {
     'whatsapp-flows-ia-ventas': 'WhatsApp Flows',
     'pagos-en-whatsapp-chatbot': 'Pagos',
     'chatbot-whatsapp-n8n-ia': 'n8n & IA',
-    'chatbot-whatsapp-rag-base-de-conocimiento': 'RAG & IA'
+    'chatbot-whatsapp-rag-base-de-conocimiento': 'RAG & IA',
+    'chatbot-whatsapp-hibrido-ia-vendedores': 'Modelo Híbrido'
 }
 
 def calculate_reading_time(slug):
