@@ -28,7 +28,8 @@ BLOG_CATEGORY_TAGS = {
     'pagos-en-whatsapp-chatbot': 'Pagos',
     'chatbot-whatsapp-n8n-ia': 'n8n & IA',
     'chatbot-whatsapp-rag-base-de-conocimiento': 'RAG & IA',
-    'chatbot-whatsapp-hibrido-ia-vendedores': 'Modelo Híbrido'
+    'chatbot-whatsapp-hibrido-ia-vendedores': 'Modelo Híbrido',
+    'whatsapp-coexistencia-app-api-ia': 'Coexistencia App+API'
 }
 
 def calculate_reading_time(slug):
