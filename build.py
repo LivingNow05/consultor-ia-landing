@@ -2298,23 +2298,7 @@ def build_home_page(data):
       ]
     }}
     </script>
-    <script type="application/ld+json">
-    {{
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Consultor IA",
-      "url": "https://consultor-ia.com.co",
-      "logo": "https://consultor-ia.com.co/favicon-192x192.png",
-      "description": "Automatizamos la atención al cliente, ventas y operaciones con Agentes de Inteligencia Artificial para empresas en toda Latinoamérica.",
-      "aggregateRating": {{
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "115"
-      }}
-    }}
-    </script>
+
     <script type="application/ld+json">
     {{
       "@context": "https://schema.org",
