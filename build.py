@@ -15,6 +15,27 @@ CSV_FILE = "programatic.csv"
 PILLARS_CSV = "pillars.csv"
 WA_NUMERO = "573151206985" # Phone Number
 
+COUNTRY_ISO_MAP = {
+    'colombia': 'co',
+    'mexico': 'mx',
+    'argentina': 'ar',
+    'chile': 'cl',
+    'peru': 'pe',
+    'costa-rica': 'cr',
+    'ecuador': 'ec',
+    'panama': 'pa',
+    'republica-dominicana': 'do',
+    'uruguay': 'uy',
+    'espana': 'es',
+    'estados-unidos': 'us'
+}
+
+def get_country_iso(pais_slug):
+    if not pais_slug:
+        return 'co'
+    slug = str(pais_slug).lower().strip()
+    return COUNTRY_ISO_MAP.get(slug, 'co')
+
 def spin_text(text):
     """
     Parses standard spintax like {option1|option2|option3}.
@@ -2086,13 +2107,14 @@ def build_precios_seccion_html(row):
 def build_footer_html(data):
     """Genera un footer premium con enlaces a industrias y ciudades principales."""
     
-    # Obtener industrias únicas y sus URLs (primer encuentro)
+    # Obtener industrias únicas y sus URLs de Hub
     industries = {}
     for row in data:
         if row.get('Estado') != 'PUBLICAR': continue
         ind = row.get('Industria')
-        if ind and ind not in industries:
-            industries[ind] = row.get('URL_Final')
+        ind_slug = row.get('Industria_Slug')
+        if ind and ind_slug and ind not in industries:
+            industries[ind] = f"/{ind_slug}/"
             
     # Obtener ciudades principales (agrupar por país, sin duplicados)
     countries = {}
@@ -2210,8 +2232,9 @@ def build_home_page(data):
         if row.get('Estado') != 'PUBLICAR':
             continue
         ind = row['Industria']
-        if ind not in industry_first_url:
-            industry_first_url[ind] = row['URL_Final']
+        ind_slug = row.get('Industria_Slug', '')
+        if ind not in industry_first_url and ind_slug:
+            industry_first_url[ind] = f"/{ind_slug}/"
 
     industries_html = ""
     for ind, url in industry_first_url.items():
@@ -2826,7 +2849,7 @@ def build_home_page(data):
         f.write(html)
     return output_path
 
-def build_legal_pages(data):
+def build_legal_pages(data, urls=None):
     footer_html = build_footer_html(data)
 
     pages = [
@@ -2887,7 +2910,7 @@ def build_legal_pages(data):
     <link rel="icon" type="image/x-icon" href="https://consultor-ia.com.co/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="https://consultor-ia.com.co/apple-touch-icon.png">
     <title>{page['title']}</title>
-    <meta name="robots" content="noindex, follow">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://consultor-ia.com.co/{page['slug']}/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2927,17 +2950,13 @@ def build_legal_pages(data):
     <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
 </div>
 
-
-
-
     <header class="border-b border-gray-border dark:border-zinc-800 py-4 px-6">
         <div class="max-w-4xl mx-auto flex items-center justify-between">
-            <a href="/" class="font-header font-extrabold tracking-tighter text-2xl text-zinc-900 dark:text-white">
-                Consultor-<span class="text-brand dark:text-brand-light">IA</span>
-            </a>
-            <a href="/" class="text-sm text-gray-2 hover:text-zinc-900 dark:hover:text-white transition-colors">← Volver al inicio</a>
+            <a href="/" class="font-header font-bold text-xl text-zinc-900 dark:text-white">Consultor IA</a>
+            <a href="/" class="text-sm text-accent hover:underline">&larr; Volver al inicio</a>
         </div>
     </header>
+
     <main class="max-w-4xl mx-auto px-6 py-16">
         <h1 class="text-4xl md:text-5xl font-header font-bold mb-8">{page['h1']}</h1>
         <div class="prose max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed space-y-4">
@@ -2952,6 +2971,8 @@ def build_legal_pages(data):
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(html)
+        if urls is not None:
+            urls.append(f"https://consultor-ia.com.co/{page['slug']}/")
 
 def build_pillar_content(row):
     slug = row.get('Slug', '').strip('/')
@@ -3350,26 +3371,30 @@ def setup_dist():
 
 def get_mega_menu(data):
     # data is a list of dicts (rows)
-    # Structure: Industria -> Pais -> list of (Ciudad, URL)
+    # Structure: Industria -> (ind_slug, Paises: Pais -> (pais_slug, Ciudades: list of (Ciudad, URL)))
     tree = {}
     for row in data:
         if row.get('Estado') != 'PUBLICAR': continue
         ind = row['Industria']
+        ind_slug = row.get('Industria_Slug', '')
         pais = row['País']
+        pais_slug = row.get('País_Slug', '')
         ciudad = row['Ciudad']
         url = row['URL_Final']
         
         if ind not in tree:
-            tree[ind] = {}
-        if pais not in tree[ind]:
-            tree[ind][pais] = []
+            tree[ind] = {'slug': ind_slug, 'paises': {}}
+        if pais not in tree[ind]['paises']:
+            tree[ind]['paises'][pais] = {'slug': pais_slug, 'ciudades': []}
             
-        tree[ind][pais].append((ciudad, url))
+        tree[ind]['paises'][pais]['ciudades'].append((ciudad, url))
         
     html = '<ul class="text-sm">'
-    for ind, paises in tree.items():
+    for ind, ind_data in tree.items():
+        ind_slug = ind_data['slug']
+        paises = ind_data['paises']
         html += f'<li class="group/ind relative py-2.5 px-2 flex items-center justify-between cursor-pointer rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/50">'
-        html += f'<span class="font-normal text-zinc-900 dark:text-zinc-100 group-hover/ind:text-brand dark:group-hover/ind:text-brand-light transition-colors">{ind}</span>'
+        html += f'<a href="/{ind_slug}/" class="font-medium text-zinc-900 dark:text-zinc-100 group-hover/ind:text-brand dark:group-hover/ind:text-brand-light transition-colors">{ind}</a>'
         html += f'<i class="fas fa-chevron-right text-[10px] text-zinc-400 dark:text-zinc-600"></i>'
         
         # Paises submenu
@@ -3377,9 +3402,11 @@ def get_mega_menu(data):
         html += f'<div class="bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border border-gray-200 dark:border-zinc-800 shadow-2xl rounded-xl p-2">'
         html += f'<ul class="space-y-0.5">'
         
-        for pais, ciudades in paises.items():
+        for pais, pais_data in paises.items():
+            pais_slug = pais_data['slug']
+            ciudades = pais_data['ciudades']
             html += f'<li class="group/pais relative py-2 px-3 flex items-center justify-between cursor-pointer rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800/50">'
-            html += f'<span class="font-normal text-zinc-700 dark:text-zinc-300 group-hover/pais:text-brand dark:group-hover/pais:text-brand-light transition-colors">{pais}</span>'
+            html += f'<a href="/{ind_slug}/{pais_slug}/" class="font-normal text-zinc-700 dark:text-zinc-300 group-hover/pais:text-brand dark:group-hover/pais:text-brand-light transition-colors">{pais}</a>'
             html += f'<i class="fas fa-chevron-right text-[10px] text-zinc-400 dark:text-zinc-600"></i>'
             
             # Cities submenu
@@ -4076,7 +4103,7 @@ def build():
             '{INDUSTRIA_SINGULAR}': row.get('Industria_Singular', ''),
             '{PAIS}': row.get('País', ''),
             '{PAIS_SLUG}': row.get('País_Slug', ''),
-            '{CODIGO_PAIS}': row.get('País_Slug')[:2], # approx
+            '{CODIGO_PAIS}': get_country_iso(row.get('País_Slug')),
             '{CIUDAD}': row.get('Ciudad', ''),
             '{CIUDAD_SLUG}': row.get('Ciudad_Slug', ''),
             '{CONTENIDO_EEAT}': build_dynamic_eeat_html(row),
@@ -4287,33 +4314,96 @@ def build():
                 f.write(p_html)
             urls.append(f"https://consultor-ia.com.co/{ind_slug}/{p_slug}/")
 
-    # Generate Sitemap
+    # Generate agencia & legal pages
     from datetime import date
     lastmod = date.today().isoformat()
     build_agencia_pages(data, footer_html, mega_menu_html, urls)
-    
-    # Generate dynamic page
+    build_legal_pages(data, urls)
     build_automatizacion_dinamica(footer_html, mega_menu_html)
-    
-    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    sitemap += f'  <url>\n    <loc>https://consultor-ia.com.co/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
-    for url in urls:
-        sitemap += f'  <url>\n    <loc>{url}</loc>\n    <changefreq>weekly</changefreq>\n    <lastmod>{lastmod}</lastmod>\n  </url>\n'
-    sitemap += '</urlset>'
-    
+    build_home_page(data)
+
+    # Deduplicate & Sort URLs
+    unique_urls = list(dict.fromkeys(urls))
+
+    def get_url_priority_and_freq(url):
+        path = url.replace("https://consultor-ia.com.co", "").strip("/")
+        depth = path.count("/") if path else 0
+        if depth == 0:
+            return "1.0", "daily"
+        elif depth == 1:
+            return "0.9", "weekly"
+        elif depth == 2:
+            return "0.8", "weekly"
+        else:
+            return "0.7", "monthly"
+
+    sitemap_lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        '  <url>',
+        '    <loc>https://consultor-ia.com.co/</loc>',
+        '    <changefreq>daily</changefreq>',
+        '    <priority>1.0</priority>',
+        f'    <lastmod>{lastmod}</lastmod>',
+        '  </url>'
+    ]
+
+    for u in unique_urls:
+        if u == "https://consultor-ia.com.co/":
+            continue
+        prio, freq = get_url_priority_and_freq(u)
+        sitemap_lines.append('  <url>')
+        sitemap_lines.append(f'    <loc>{u}</loc>')
+        sitemap_lines.append(f'    <changefreq>{freq}</changefreq>')
+        sitemap_lines.append(f'    <priority>{prio}</priority>')
+        sitemap_lines.append(f'    <lastmod>{lastmod}</lastmod>')
+        sitemap_lines.append('  </url>')
+
+    sitemap_lines.append('</urlset>')
+    sitemap_xml = "\n".join(sitemap_lines)
+
     with open(os.path.join(DIST_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
-        f.write(sitemap)
+        f.write(sitemap_xml)
         
     # Generate robots.txt
-    robots = "User-agent: *\nAllow: /\n\nSitemap: https://consultor-ia.com.co/sitemap.xml"
+    robots = "User-agent: *\nAllow: /\n\nSitemap: https://consultor-ia.com.co/sitemap.xml\n"
     with open(os.path.join(DIST_DIR, "robots.txt"), "w", encoding="utf-8") as f:
         f.write(robots)
 
-    # Generate Homepage
-    build_home_page(data)
+    # Export all_urls.txt and urls_to_index.txt
+    all_urls_list = ["https://consultor-ia.com.co/"] + [u for u in unique_urls if u != "https://consultor-ia.com.co/"]
+    with open("all_urls.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(all_urls_list) + "\n")
+    with open("urls_to_index.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(all_urls_list) + "\n")
 
-    # Generate Legal Pages
-    build_legal_pages(data)
+    # Generate llms.txt and llms-full.txt for RAG / AI crawlers
+    llms_txt_content = """# Consultor IA
+
+> Consultora tecnológica especializada en desarrollo e integración de Agentes de Inteligencia Artificial y automatización de ventas por WhatsApp Business Cloud API en Latinoamérica.
+
+## Resumen de Servicios
+- **Agentes IA Conversacionales:** Entrenados con RAG sobre base documental/PDF del cliente, sin alucinaciones.
+- **Canal Oficial:** Integración directa con Meta WhatsApp Business Cloud API.
+- **Integraciones:** Google Calendar (agendamiento 24/7), CRMs (HubSpot, Clientify, Salesforce) y pasarelas locales (Nequi, PSE, Wompi).
+- **Formatos:** Procesamiento nativo de notas de voz y mensajes de texto.
+
+## Precios y Estructura Comercial
+- **Configuración Completa (Setup):** USD $497 (pago único)
+- **Mantenimiento y Hosting Cloud:** USD $97/mes
+
+## Enlaces Principales
+- [Home](https://consultor-ia.com.co/)
+- [Agente IA vs Chatbot Tradicional](https://consultor-ia.com.co/agente-ia-vs-chatbot/)
+- [Consultor Inteligencia Artificial](https://consultor-ia.com.co/consultor-inteligencia-artificial/)
+- [IA para Negocios](https://consultor-ia.com.co/ia-para-negocios/)
+- [Aviso Legal](https://consultor-ia.com.co/aviso-legal/)
+- [Política de Privacidad](https://consultor-ia.com.co/politica-de-privacidad/)
+"""
+    with open(os.path.join(DIST_DIR, "llms.txt"), "w", encoding="utf-8") as f:
+        f.write(llms_txt_content)
+    with open(os.path.join(DIST_DIR, "llms-full.txt"), "w", encoding="utf-8") as f:
+        f.write(llms_txt_content)
 
     # Copy Assets (Favicon, etc.) to dist
     import shutil
@@ -4440,11 +4530,11 @@ def build_agencia_pages(data, footer_html, mega_menu_html, urls):
             '{HERO_CHAT_BOT}': hero_chat_bot,
             '{H1}': f"Agencia de Inteligencia Artificial en {ciudad}",
             '{H1_HTML}': f'Agencia de <span class="text-brand dark:text-brand-light block mt-2">Inteligencia Artificial en {ciudad}<span class="typewriter-cursor"></span></span>',
-            '{TITLE_SEO}': f"Agencia de Inteligencia Artificial en {ciudad} 2026 | Consultor IA",
-            '{META_DESCRIPTION}': f"Tu Agencia de Inteligencia Artificial en {ciudad}. Implementamos automatizaciones, agentes virtuales y consultoría estratégica para escalar tu negocio.",
+            '{TITLE_SEO}': f"🤖 Agencia de Inteligencia Artificial en {ciudad} [Agentes IA 24/7]",
+            '{META_DESCRIPTION}': f"Agencia de Inteligencia Artificial en {ciudad}. Implementamos agentes de IA conversacionales, automatización de ventas por WhatsApp y consultoría B2B. ¡Pide tu Demo!",
             '{CIUDAD}': ciudad,
             '{PAIS}': row.get('País', ''),
-            '{CODIGO_PAIS}': row.get('Codigo_Pais', 'co'),
+            '{CODIGO_PAIS}': get_country_iso(row.get('País_Slug') or row.get('Codigo_Pais')),
             '{URL_FINAL}': url_final + "/",
             '{WA_NUMERO}': '573132644262',
             '{WA_MENSAJE_ENCODED}': wa_encoded,

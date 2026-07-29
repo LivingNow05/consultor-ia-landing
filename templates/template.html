@@ -33,54 +33,58 @@
     <meta name="twitter:description" content="{META_DESCRIPTION}">
     <meta name="twitter:image" content="https://consultor-ia.com.co/images/og-{INDUSTRIA_SLUG}.webp">
     
-    <!-- Schema: Service -->
+    <!-- Schema: LocalBusiness & Service Grafo Linked Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "{H1}",
-      "brand": {
-        "@type": "Brand",
-        "name": "Consultor IA"
-      },
-      "image": "https://consultor-ia.com.co/images/og-{INDUSTRIA_SLUG}.webp",
-      "description": "{META_DESCRIPTION}",
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "{MONEDA}",
-        "price": "{PRECIO_BAJO}",
-        "priceValidUntil": "2026-12-31",
-        "availability": "https://schema.org/InStock",
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "0",
-            "currency": "{MONEDA}"
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://consultor-ia.com.co{URL_FINAL}#localbusiness",
+          "name": "Consultor IA - {CIUDAD}",
+          "url": "https://consultor-ia.com.co{URL_FINAL}",
+          "telephone": "+573151206985",
+          "priceRange": "$$",
+          "sameAs": [
+            "https://www.linkedin.com/company/consultor-ia",
+            "https://github.com/Createia"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "{CIUDAD}",
+            "addressCountry": "{CODIGO_PAIS}"
           },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "businessDays": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-            }
+          "description": "{META_DESCRIPTION}",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "115"
           }
         },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "{PAIS}",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": "30",
-          "returnMethod": "https://schema.org/ReturnByMail"
+        {
+          "@type": "Service",
+          "@id": "https://consultor-ia.com.co{URL_FINAL}#service",
+          "name": "{H1}",
+          "provider": {
+            "@id": "https://consultor-ia.com.co{URL_FINAL}#localbusiness"
+          },
+          "serviceType": "Agentes de Inteligencia Artificial para {INDUSTRIA}",
+          "areaServed": {
+            "@type": "City",
+            "name": "{CIUDAD}"
+          },
+          "description": "{META_DESCRIPTION}",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "{MONEDA}",
+            "price": "{PRECIO_BAJO}",
+            "priceValidUntil": "2026-12-31",
+            "availability": "https://schema.org/InStock"
+          }
         }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "115"
-      }
+      ]
     }
     </script>
     

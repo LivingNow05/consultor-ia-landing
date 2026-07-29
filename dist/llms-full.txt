@@ -1,0 +1,21 @@
+# Consultor IA
+
+> Consultora tecnológica especializada en desarrollo e integración de Agentes de Inteligencia Artificial y automatización de ventas por WhatsApp Business Cloud API en Latinoamérica.
+
+## Resumen de Servicios
+- **Agentes IA Conversacionales:** Entrenados con RAG sobre base documental/PDF del cliente, sin alucinaciones.
+- **Canal Oficial:** Integración directa con Meta WhatsApp Business Cloud API.
+- **Integraciones:** Google Calendar (agendamiento 24/7), CRMs (HubSpot, Clientify, Salesforce) y pasarelas locales (Nequi, PSE, Wompi).
+- **Formatos:** Procesamiento nativo de notas de voz y mensajes de texto.
+
+## Precios y Estructura Comercial
+- **Configuración Completa (Setup):** USD $497 (pago único)
+- **Mantenimiento y Hosting Cloud:** USD $97/mes
+
+## Enlaces Principales
+- [Home](https://consultor-ia.com.co/)
+- [Agente IA vs Chatbot Tradicional](https://consultor-ia.com.co/agente-ia-vs-chatbot/)
+- [Consultor Inteligencia Artificial](https://consultor-ia.com.co/consultor-inteligencia-artificial/)
+- [IA para Negocios](https://consultor-ia.com.co/ia-para-negocios/)
+- [Aviso Legal](https://consultor-ia.com.co/aviso-legal/)
+- [Política de Privacidad](https://consultor-ia.com.co/politica-de-privacidad/)
