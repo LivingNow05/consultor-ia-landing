@@ -3,7 +3,7 @@ import os
 import time
 
 # Añadir la ruta de la skill para poder importar el script original
-sys.path.append('/Users/anthony/.gemini/antigravity/skills/google-indexing-api/scripts')
+sys.path.append('/Users/anthony/.gemini/config/skills/google-indexing-api/scripts')
 from index_url import index_url
 
 def main():

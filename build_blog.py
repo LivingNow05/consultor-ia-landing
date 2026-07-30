@@ -30,7 +30,9 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-rag-base-de-conocimiento': 'RAG & IA',
     'chatbot-whatsapp-hibrido-ia-vendedores': 'Modelo Híbrido',
     'whatsapp-coexistencia-app-api-ia': 'Coexistencia App+API',
-    'chatbot-whatsapp-cotizaciones-b2b-ia': 'Ventas B2B'
+    'chatbot-whatsapp-cotizaciones-b2b-ia': 'Ventas B2B',
+    'meta-conversions-api-whatsapp-chatbot-ia': 'Meta CAPI & ROAS',
+    'orquestacion-multi-agente-whatsapp-ia': 'Multi-Agente IA'
 }
 
 def calculate_reading_time(slug):
