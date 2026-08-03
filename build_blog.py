@@ -32,7 +32,8 @@ BLOG_CATEGORY_TAGS = {
     'whatsapp-coexistencia-app-api-ia': 'Coexistencia App+API',
     'chatbot-whatsapp-cotizaciones-b2b-ia': 'Ventas B2B',
     'meta-conversions-api-whatsapp-chatbot-ia': 'Meta CAPI & ROAS',
-    'orquestacion-multi-agente-whatsapp-ia': 'Multi-Agente IA'
+    'orquestacion-multi-agente-whatsapp-ia': 'Multi-Agente IA',
+    'recuperacion-carritos-abandonados-whatsapp-ia': 'Recuperación de Carritos'
 }
 
 def calculate_reading_time(slug):
