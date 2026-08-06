@@ -34,7 +34,8 @@ BLOG_CATEGORY_TAGS = {
     'meta-conversions-api-whatsapp-chatbot-ia': 'Meta CAPI & ROAS',
     'orquestacion-multi-agente-whatsapp-ia': 'Multi-Agente IA',
     'recuperacion-carritos-abandonados-whatsapp-ia': 'Recuperación de Carritos',
-    'chatbot-whatsapp-erp-integracion-ia': 'Integración ERP & IA'
+    'chatbot-whatsapp-erp-integracion-ia': 'Integración ERP & IA',
+    'chatbot-whatsapp-b2b-distribuidoras-mayoristas-ia': 'Ventas B2B & Mayoristas'
 }
 
 def calculate_reading_time(slug):
