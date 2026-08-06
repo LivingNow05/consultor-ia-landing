@@ -2382,7 +2382,7 @@ def build_home_page(data):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <script>
         tailwind.config = {{
             darkMode: 'class',
@@ -2916,7 +2916,7 @@ def build_legal_pages(data, urls=None):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <script>
         tailwind.config = {{
             darkMode: 'class',
@@ -4405,16 +4405,25 @@ def build():
     with open(os.path.join(DIST_DIR, "llms-full.txt"), "w", encoding="utf-8") as f:
         f.write(llms_txt_content)
 
-    # Copy Assets (Favicon, etc.) to dist
+    # Copy Assets to dist (including subdirectories like assets/css)
     import shutil
     ASSETS_DIR = "assets"
     if os.path.exists(ASSETS_DIR):
+        dst_assets = os.path.join(DIST_DIR, "assets")
+        os.makedirs(dst_assets, exist_ok=True)
         for item in os.listdir(ASSETS_DIR):
             s = os.path.join(ASSETS_DIR, item)
-            d = os.path.join(DIST_DIR, item)
+            d_root = os.path.join(DIST_DIR, item)
+            d_sub = os.path.join(dst_assets, item)
             if os.path.isfile(s) and not item.endswith('.png_source'):
-                shutil.copy2(s, d)
+                shutil.copy2(s, d_root)
+                shutil.copy2(s, d_sub)
                 print(f"Copied asset: {item}")
+            elif os.path.isdir(s):
+                if os.path.exists(d_sub):
+                    shutil.rmtree(d_sub)
+                shutil.copytree(s, d_sub)
+                print(f"Copied asset directory: {item}")
 
     # Guardar caché de autocompletado al final del build
     os.makedirs(os.path.dirname(CACHE_FILE), exist_ok=True)
