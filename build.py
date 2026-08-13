@@ -3634,7 +3634,8 @@ BLOG_CATEGORY_TAGS = {
     'como-implementar-agente-ia': 'Implementación',
     'agente-ia-vs-chatbot': 'Tecnología',
     'casos-exito-ia-pymes': 'Casos de Éxito',
-    'chatbot-whatsapp': 'Automatización'
+    'chatbot-whatsapp': 'Automatización',
+    'chatbot-whatsapp-agendamiento-demos-b2b-ia': 'Agendamiento B2B'
 }
 
 def build_blog_recomendaciones_html(row):
