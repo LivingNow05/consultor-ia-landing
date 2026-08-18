@@ -38,7 +38,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-b2b-distribuidoras-mayoristas-ia': 'Ventas B2B & Mayoristas',
     'chatbot-whatsapp-agendamiento-demos-b2b-ia': 'Agendamiento B2B',
     'chatbot-whatsapp-cobranza-cartera-ia': 'Cobranza & Cartera',
-    'chatbot-whatsapp-postventa-garantias-recompras-ia': 'Postventa & Recompras'
+    'chatbot-whatsapp-postventa-garantias-recompras-ia': 'Postventa & Recompras',
+    'chatbot-whatsapp-auditoria-conversaciones-qa-ventas-ia': 'QA & Auditoría de Ventas'
 }
 
 def calculate_reading_time(slug):
