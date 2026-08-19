@@ -39,7 +39,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-agendamiento-demos-b2b-ia': 'Agendamiento B2B',
     'chatbot-whatsapp-cobranza-cartera-ia': 'Cobranza & Cartera',
     'chatbot-whatsapp-postventa-garantias-recompras-ia': 'Postventa & Recompras',
-    'chatbot-whatsapp-auditoria-conversaciones-qa-ventas-ia': 'QA & Auditoría de Ventas'
+    'chatbot-whatsapp-auditoria-conversaciones-qa-ventas-ia': 'QA & Auditoría de Ventas',
+    'chatbot-whatsapp-concesionarios-automotriz-ia': 'Sector Automotriz'
 }
 
 def calculate_reading_time(slug):
