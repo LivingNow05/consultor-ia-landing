@@ -42,7 +42,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-auditoria-conversaciones-qa-ventas-ia': 'QA & Auditoría de Ventas',
     'chatbot-whatsapp-concesionarios-automotriz-ia': 'Sector Automotriz',
     'chatbot-whatsapp-educacion-universidades-ia': 'Educación & Admisiones',
-    'chatbot-whatsapp-seguros-insurtech-ia': 'Seguros & Insurtech'
+    'chatbot-whatsapp-seguros-insurtech-ia': 'Seguros & Insurtech',
+    'chatbot-whatsapp-fintech-creditos-ia': 'Fintech & Créditos'
 }
 
 def calculate_reading_time(slug):
