@@ -43,7 +43,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-concesionarios-automotriz-ia': 'Sector Automotriz',
     'chatbot-whatsapp-educacion-universidades-ia': 'Educación & Admisiones',
     'chatbot-whatsapp-seguros-insurtech-ia': 'Seguros & Insurtech',
-    'chatbot-whatsapp-fintech-creditos-ia': 'Fintech & Créditos'
+    'chatbot-whatsapp-fintech-creditos-ia': 'Fintech & Créditos',
+    'chatbot-whatsapp-logistica-envios-ia': 'Logística & Envíos'
 }
 
 def calculate_reading_time(slug):
