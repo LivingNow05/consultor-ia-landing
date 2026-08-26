@@ -44,7 +44,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-educacion-universidades-ia': 'Educación & Admisiones',
     'chatbot-whatsapp-seguros-insurtech-ia': 'Seguros & Insurtech',
     'chatbot-whatsapp-fintech-creditos-ia': 'Fintech & Créditos',
-    'chatbot-whatsapp-logistica-envios-ia': 'Logística & Envíos'
+    'chatbot-whatsapp-logistica-envios-ia': 'Logística & Envíos',
+    'chatbot-whatsapp-agencias-viajes-turismo-ia': 'Viajes & Turismo'
 }
 
 def calculate_reading_time(slug):
