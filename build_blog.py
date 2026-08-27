@@ -45,7 +45,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-seguros-insurtech-ia': 'Seguros & Insurtech',
     'chatbot-whatsapp-fintech-creditos-ia': 'Fintech & Créditos',
     'chatbot-whatsapp-logistica-envios-ia': 'Logística & Envíos',
-    'chatbot-whatsapp-agencias-viajes-turismo-ia': 'Viajes & Turismo'
+    'chatbot-whatsapp-agencias-viajes-turismo-ia': 'Viajes & Turismo',
+    'chatbot-whatsapp-clinicas-dentales-odontologia-ia': 'Odontología & Clínicas'
 }
 
 def calculate_reading_time(slug):
