@@ -47,7 +47,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-logistica-envios-ia': 'Logística & Envíos',
     'chatbot-whatsapp-agencias-viajes-turismo-ia': 'Viajes & Turismo',
     'chatbot-whatsapp-clinicas-dentales-odontologia-ia': 'Odontología & Clínicas',
-    'chatbot-whatsapp-isp-telecomunicaciones-ia': 'ISPs & Telecom'
+    'chatbot-whatsapp-isp-telecomunicaciones-ia': 'ISPs & Telecom',
+    'chatbot-whatsapp-abogados-firmas-legales-ia': 'Legal & Abogados'
 }
 
 def calculate_reading_time(slug):
