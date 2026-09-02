@@ -49,7 +49,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-clinicas-dentales-odontologia-ia': 'Odontología & Clínicas',
     'chatbot-whatsapp-isp-telecomunicaciones-ia': 'ISPs & Telecom',
     'chatbot-whatsapp-abogados-firmas-legales-ia': 'Legal & Abogados',
-    'chatbot-whatsapp-energia-solar-paneles-ia': 'Energía Solar & CleanTech'
+    'chatbot-whatsapp-energia-solar-paneles-ia': 'Energía Solar & CleanTech',
+    'chatbot-whatsapp-laboratorios-clinicos-diagnostico-ia': 'Laboratorios & Diagnóstico'
 }
 
 def calculate_reading_time(slug):
