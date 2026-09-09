@@ -51,7 +51,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-abogados-firmas-legales-ia': 'Legal & Abogados',
     'chatbot-whatsapp-energia-solar-paneles-ia': 'Energía Solar & CleanTech',
     'chatbot-whatsapp-laboratorios-clinicos-diagnostico-ia': 'Laboratorios & Diagnóstico',
-    'chatbot-whatsapp-seguridad-privada-vigilancia-ia': 'Seguridad & Vigilancia'
+    'chatbot-whatsapp-seguridad-privada-vigilancia-ia': 'Seguridad & Vigilancia',
+    'chatbot-whatsapp-maquinaria-pesada-construccion-ia': 'Maquinaria & Construcción'
 }
 
 def calculate_reading_time(slug):
