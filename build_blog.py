@@ -53,7 +53,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-laboratorios-clinicos-diagnostico-ia': 'Laboratorios & Diagnóstico',
     'chatbot-whatsapp-seguridad-privada-vigilancia-ia': 'Seguridad & Vigilancia',
     'chatbot-whatsapp-maquinaria-pesada-construccion-ia': 'Maquinaria & Construcción',
-    'chatbot-whatsapp-recursos-humanos-reclutamiento-ia': 'Recursos Humanos & Reclutamiento'
+    'chatbot-whatsapp-recursos-humanos-reclutamiento-ia': 'Recursos Humanos & Reclutamiento',
+    'chatbot-whatsapp-ferreterias-materiales-construccion-ia': 'Ferreterías & Construcción'
 }
 
 def calculate_reading_time(slug):
