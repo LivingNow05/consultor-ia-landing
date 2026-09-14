@@ -3606,8 +3606,8 @@ INDUSTRY_BLOG_MAPPING = {
     'Restaurantes': 'ia-para-restaurantes',
     'Salones de Belleza': 'ia-para-salones-de-belleza',
     'Spas y Centros de Estética': 'ia-para-salones-de-belleza',
-    'Clínicas Dentales': 'ia-para-salud',
-    'Veterinarias': 'ia-para-salud',
+    'Clínicas Dentales': 'chatbot-whatsapp-clinicas-dentales-odontologia-ia',
+    'Veterinarias': 'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia',
     'Hoteles y Hostales': 'ia-para-hoteles',
     'Inmobiliarias': 'chatbot-whatsapp-para-inmobiliarias'
 }
@@ -3635,7 +3635,8 @@ BLOG_CATEGORY_TAGS = {
     'agente-ia-vs-chatbot': 'Tecnología',
     'casos-exito-ia-pymes': 'Casos de Éxito',
     'chatbot-whatsapp': 'Automatización',
-    'chatbot-whatsapp-agendamiento-demos-b2b-ia': 'Agendamiento B2B'
+    'chatbot-whatsapp-agendamiento-demos-b2b-ia': 'Agendamiento B2B',
+    'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia': 'Veterinarias & Mascotas'
 }
 
 def build_blog_recomendaciones_html(row):

@@ -130,7 +130,7 @@ def publish_blog(json_path):
         'slug': slug,
         'description': meta_desc,
         'image': image_url,
-        'category': 'Negocios',
+        'category': data.get('category', 'Negocios'),
         'date': datetime.datetime.now().isoformat()
     })
     

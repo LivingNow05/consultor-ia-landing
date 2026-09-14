@@ -55,7 +55,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-maquinaria-pesada-construccion-ia': 'Maquinaria & Construcción',
     'chatbot-whatsapp-recursos-humanos-reclutamiento-ia': 'Recursos Humanos & Reclutamiento',
     'chatbot-whatsapp-ferreterias-materiales-construccion-ia': 'Ferreterías & Construcción',
-    'chatbot-whatsapp-farmacias-droguerias-ia': 'Farmacias & Salud'
+    'chatbot-whatsapp-farmacias-droguerias-ia': 'Farmacias & Salud',
+    'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia': 'Veterinarias & Mascotas'
 }
 
 def calculate_reading_time(slug):
