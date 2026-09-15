@@ -2194,7 +2194,7 @@ def build_footer_html(data):
     </div>
 </footer>
 <!-- Script del Modal de WhatsApp (con cache buster) -->
-<script src="/js/wa-modal.js?v=1.3" charset="utf-8" defer></script>
+<script src="/js/wa-modal.js?v=1.4" charset="utf-8" defer></script>
 '''
     return footer.replace("{WA_NUMERO}", str(WA_NUMERO))
 def build_home_page(data):
@@ -4426,6 +4426,18 @@ def build():
                     shutil.rmtree(d_sub)
                 shutil.copytree(s, d_sub)
                 print(f"Copied asset directory: {item}")
+
+    # Copy JS to dist
+    JS_DIR = "js"
+    if os.path.exists(JS_DIR):
+        dst_js = os.path.join(DIST_DIR, "js")
+        os.makedirs(dst_js, exist_ok=True)
+        for item in os.listdir(JS_DIR):
+            s = os.path.join(JS_DIR, item)
+            d = os.path.join(dst_js, item)
+            if os.path.isfile(s):
+                shutil.copy2(s, d)
+                print(f"Copied JS file: {item}")
 
     # Guardar caché de autocompletado al final del build
     os.makedirs(os.path.dirname(CACHE_FILE), exist_ok=True)
