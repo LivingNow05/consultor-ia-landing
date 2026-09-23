@@ -57,7 +57,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-ferreterias-materiales-construccion-ia': 'Ferreterías & Construcción',
     'chatbot-whatsapp-farmacias-droguerias-ia': 'Farmacias & Salud',
     'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia': 'Veterinarias & Mascotas',
-    'chatbot-whatsapp-autopartes-repuestos-ia': 'Autopartes & Repuestos'
+    'chatbot-whatsapp-autopartes-repuestos-ia': 'Autopartes & Repuestos',
+    'chatbot-whatsapp-agencias-aduanas-freight-forwarders-ia': 'Aduanas & Comercio Exterior'
 }
 
 def calculate_reading_time(slug):
