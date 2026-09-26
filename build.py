@@ -4324,6 +4324,13 @@ def build():
     build_automatizacion_dinamica(footer_html, mega_menu_html)
     build_home_page(data)
 
+    # Add blog index and published blog posts to sitemap
+    urls.append("https://consultor-ia.com.co/blog/")
+    for b in get_published_blogs():
+        slug = b.get('slug')
+        if slug:
+            urls.append(f"https://consultor-ia.com.co/blog/{slug}/")
+
     # Deduplicate & Sort URLs
     unique_urls = list(dict.fromkeys(urls))
 
