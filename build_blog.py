@@ -59,7 +59,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia': 'Veterinarias & Mascotas',
     'chatbot-whatsapp-autopartes-repuestos-ia': 'Autopartes & Repuestos',
     'chatbot-whatsapp-agencias-aduanas-freight-forwarders-ia': 'Aduanas & Comercio Exterior',
-    'chatbot-whatsapp-rent-a-car-alquiler-autos-ia': 'Rent a Car & Flotas'
+    'chatbot-whatsapp-rent-a-car-alquiler-autos-ia': 'Rent a Car & Flotas',
+    'chatbot-whatsapp-gimnasios-fitness-ia': 'Gimnasios & Fitness'
 }
 
 def calculate_reading_time(slug):
