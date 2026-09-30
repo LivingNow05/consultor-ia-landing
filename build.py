@@ -3610,7 +3610,8 @@ INDUSTRY_BLOG_MAPPING = {
     'Veterinarias': 'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia',
     'Hoteles y Hostales': 'ia-para-hoteles',
     'Inmobiliarias': 'chatbot-whatsapp-para-inmobiliarias',
-    'Gimnasios': 'chatbot-whatsapp-gimnasios-fitness-ia'
+    'Gimnasios': 'chatbot-whatsapp-gimnasios-fitness-ia',
+    'Academias y Cursos': 'chatbot-whatsapp-academias-cursos-capacitacion-ia'
 }
 
 GENERAL_BLOG_SLUGS = [
@@ -3638,7 +3639,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp': 'Automatización',
     'chatbot-whatsapp-agendamiento-demos-b2b-ia': 'Agendamiento B2B',
     'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia': 'Veterinarias & Mascotas',
-    'chatbot-whatsapp-gimnasios-fitness-ia': 'Gimnasios & Fitness'
+    'chatbot-whatsapp-gimnasios-fitness-ia': 'Gimnasios & Fitness',
+    'chatbot-whatsapp-academias-cursos-capacitacion-ia': 'Academias & Cursos'
 }
 
 def build_blog_recomendaciones_html(row):

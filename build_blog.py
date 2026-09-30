@@ -61,7 +61,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-agencias-aduanas-freight-forwarders-ia': 'Aduanas & Comercio Exterior',
     'chatbot-whatsapp-rent-a-car-alquiler-autos-ia': 'Rent a Car & Flotas',
     'chatbot-whatsapp-gimnasios-fitness-ia': 'Gimnasios & Fitness',
-    'chatbot-whatsapp-constructoras-proyectos-inmobiliarios-ia': 'Constructoras & Real Estate'
+    'chatbot-whatsapp-constructoras-proyectos-inmobiliarios-ia': 'Constructoras & Real Estate',
+    'chatbot-whatsapp-academias-cursos-capacitacion-ia': 'Academias & Cursos'
 }
 
 def calculate_reading_time(slug):
