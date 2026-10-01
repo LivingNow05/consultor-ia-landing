@@ -3611,7 +3611,8 @@ INDUSTRY_BLOG_MAPPING = {
     'Hoteles y Hostales': 'ia-para-hoteles',
     'Inmobiliarias': 'chatbot-whatsapp-para-inmobiliarias',
     'Gimnasios': 'chatbot-whatsapp-gimnasios-fitness-ia',
-    'Academias y Cursos': 'chatbot-whatsapp-academias-cursos-capacitacion-ia'
+    'Academias y Cursos': 'chatbot-whatsapp-academias-cursos-capacitacion-ia',
+    'Talleres Automotrices': 'chatbot-whatsapp-talleres-mecanicos-automotrices-ia'
 }
 
 GENERAL_BLOG_SLUGS = [
@@ -3640,7 +3641,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-agendamiento-demos-b2b-ia': 'Agendamiento B2B',
     'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia': 'Veterinarias & Mascotas',
     'chatbot-whatsapp-gimnasios-fitness-ia': 'Gimnasios & Fitness',
-    'chatbot-whatsapp-academias-cursos-capacitacion-ia': 'Academias & Cursos'
+    'chatbot-whatsapp-academias-cursos-capacitacion-ia': 'Academias & Cursos',
+    'chatbot-whatsapp-talleres-mecanicos-automotrices-ia': 'Talleres Mecánicos'
 }
 
 def build_blog_recomendaciones_html(row):
