@@ -63,7 +63,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-gimnasios-fitness-ia': 'Gimnasios & Fitness',
     'chatbot-whatsapp-constructoras-proyectos-inmobiliarios-ia': 'Constructoras & Real Estate',
     'chatbot-whatsapp-academias-cursos-capacitacion-ia': 'Academias & Cursos',
-    'chatbot-whatsapp-talleres-mecanicos-automotrices-ia': 'Talleres Mecánicos'
+    'chatbot-whatsapp-talleres-mecanicos-automotrices-ia': 'Talleres Mecánicos',
+    'chatbot-whatsapp-catering-eventos-banquetes-ia': 'Catering & Eventos'
 }
 
 def calculate_reading_time(slug):
