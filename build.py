@@ -3605,7 +3605,7 @@ def calculate_reading_time(slug):
 INDUSTRY_BLOG_MAPPING = {
     'Restaurantes': 'ia-para-restaurantes',
     'Salones de Belleza': 'ia-para-salones-de-belleza',
-    'Spas y Centros de Estética': 'ia-para-salones-de-belleza',
+    'Spas y Centros de Estética': 'chatbot-whatsapp-spas-centros-estetica-ia',
     'Clínicas Dentales': 'chatbot-whatsapp-clinicas-dentales-odontologia-ia',
     'Veterinarias': 'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia',
     'Hoteles y Hostales': 'ia-para-hoteles',
@@ -3642,7 +3642,9 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia': 'Veterinarias & Mascotas',
     'chatbot-whatsapp-gimnasios-fitness-ia': 'Gimnasios & Fitness',
     'chatbot-whatsapp-academias-cursos-capacitacion-ia': 'Academias & Cursos',
-    'chatbot-whatsapp-talleres-mecanicos-automotrices-ia': 'Talleres Mecánicos'
+    'chatbot-whatsapp-talleres-mecanicos-automotrices-ia': 'Talleres Mecánicos',
+    'chatbot-whatsapp-catering-eventos-banquetes-ia': 'Catering & Eventos',
+    'chatbot-whatsapp-spas-centros-estetica-ia': 'Spas & Estética'
 }
 
 def build_blog_recomendaciones_html(row):
