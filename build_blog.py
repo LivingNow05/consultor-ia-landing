@@ -65,7 +65,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-academias-cursos-capacitacion-ia': 'Academias & Cursos',
     'chatbot-whatsapp-talleres-mecanicos-automotrices-ia': 'Talleres Mecánicos',
     'chatbot-whatsapp-catering-eventos-banquetes-ia': 'Catering & Eventos',
-    'chatbot-whatsapp-spas-centros-estetica-ia': 'Spas & Estética'
+    'chatbot-whatsapp-spas-centros-estetica-ia': 'Spas & Estética',
+    'chatbot-whatsapp-climatizacion-aire-acondicionado-ia': 'Climatización & HVAC'
 }
 
 def calculate_reading_time(slug):
