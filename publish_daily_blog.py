@@ -103,6 +103,7 @@ def publish_blog(json_path):
         
         import sys
         sys.path.append('/Users/anthony/.gemini/antigravity/skills/google-indexing-api/scripts')
+        sys.path.append('/Users/anthony/.gemini/config/skills/google-indexing-api/scripts')
         from index_url_oauth import index_url
         
         secrets_file = 'client_secret_225332237034-80flchf9i185nshspr3e7q0nlj5sjck7.apps.googleusercontent.com.json'
