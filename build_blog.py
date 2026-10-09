@@ -67,7 +67,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-catering-eventos-banquetes-ia': 'Catering & Eventos',
     'chatbot-whatsapp-spas-centros-estetica-ia': 'Spas & Estética',
     'chatbot-whatsapp-climatizacion-aire-acondicionado-ia': 'Climatización & HVAC',
-    'chatbot-whatsapp-dotaciones-uniformes-corporativos-ia': 'Dotaciones & Uniformes'
+    'chatbot-whatsapp-dotaciones-uniformes-corporativos-ia': 'Dotaciones & Uniformes',
+    'chatbot-whatsapp-seguridad-electronica-cctv-ia': 'Seguridad Electrónica & CCTV'
 }
 
 def calculate_reading_time(slug):
