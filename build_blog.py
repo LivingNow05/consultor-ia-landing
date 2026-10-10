@@ -68,7 +68,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-spas-centros-estetica-ia': 'Spas & Estética',
     'chatbot-whatsapp-climatizacion-aire-acondicionado-ia': 'Climatización & HVAC',
     'chatbot-whatsapp-dotaciones-uniformes-corporativos-ia': 'Dotaciones & Uniformes',
-    'chatbot-whatsapp-seguridad-electronica-cctv-ia': 'Seguridad Electrónica & CCTV'
+    'chatbot-whatsapp-seguridad-electronica-cctv-ia': 'Seguridad Electrónica & CCTV',
+    'chatbot-whatsapp-fumigacion-control-plagas-ia': 'Fumigación & Control de Plagas'
 }
 
 def calculate_reading_time(slug):
