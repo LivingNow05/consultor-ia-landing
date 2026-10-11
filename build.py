@@ -3612,7 +3612,8 @@ INDUSTRY_BLOG_MAPPING = {
     'Inmobiliarias': 'chatbot-whatsapp-para-inmobiliarias',
     'Gimnasios': 'chatbot-whatsapp-gimnasios-fitness-ia',
     'Academias y Cursos': 'chatbot-whatsapp-academias-cursos-capacitacion-ia',
-    'Talleres Automotrices': 'chatbot-whatsapp-talleres-mecanicos-automotrices-ia'
+    'Talleres Automotrices': 'chatbot-whatsapp-talleres-mecanicos-automotrices-ia',
+    'Desarrollo de Apps y Software': 'chatbot-whatsapp-desarrollo-software-apps-ia'
 }
 
 GENERAL_BLOG_SLUGS = [
@@ -3645,7 +3646,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-talleres-mecanicos-automotrices-ia': 'Talleres Mecánicos',
     'chatbot-whatsapp-catering-eventos-banquetes-ia': 'Catering & Eventos',
     'chatbot-whatsapp-spas-centros-estetica-ia': 'Spas & Estética',
-    'chatbot-whatsapp-climatizacion-aire-acondicionado-ia': 'Climatización & HVAC'
+    'chatbot-whatsapp-climatizacion-aire-acondicionado-ia': 'Climatización & HVAC',
+    'chatbot-whatsapp-desarrollo-software-apps-ia': 'Software & Tecnología'
 }
 
 def build_blog_recomendaciones_html(row):
