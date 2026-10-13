@@ -71,7 +71,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-seguridad-electronica-cctv-ia': 'Seguridad Electrónica & CCTV',
     'chatbot-whatsapp-fumigacion-control-plagas-ia': 'Fumigación & Control de Plagas',
     'chatbot-whatsapp-desarrollo-software-apps-ia': 'Software & Tecnología',
-    'chatbot-whatsapp-firmas-contables-tributarias-ia': 'Contabilidad & Finanzas'
+    'chatbot-whatsapp-firmas-contables-tributarias-ia': 'Contabilidad & Finanzas',
+    'chatbot-whatsapp-salud-ocupacional-sst-ia': 'Salud Ocupacional & SST'
 }
 
 def calculate_reading_time(slug):
