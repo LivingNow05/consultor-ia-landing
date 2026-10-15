@@ -73,7 +73,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-desarrollo-software-apps-ia': 'Software & Tecnología',
     'chatbot-whatsapp-firmas-contables-tributarias-ia': 'Contabilidad & Finanzas',
     'chatbot-whatsapp-salud-ocupacional-sst-ia': 'Salud Ocupacional & SST',
-    'chatbot-whatsapp-concesionarios-motos-credito-ia': 'Motos & Créditos'
+    'chatbot-whatsapp-concesionarios-motos-credito-ia': 'Motos & Créditos',
+    'chatbot-whatsapp-imprentas-litografias-artes-graficas-ia': 'Imprentas & Litografías'
 }
 
 def calculate_reading_time(slug):
