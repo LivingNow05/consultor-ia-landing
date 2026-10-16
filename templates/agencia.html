@@ -33,54 +33,68 @@
     <meta name="twitter:description" content="{META_DESCRIPTION}">
     <meta name="twitter:image" content="https://consultor-ia.com.co/images/og-agencia-de-inteligencia-artificial.webp">
     
-    <!-- Schema: Service -->
+    <!-- Schema: LocalBusiness & Service Grafo Híbrido GEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "{H1}",
-      "brand": {
-        "@type": "Brand",
-        "name": "Consultor IA"
-      },
-      "image": "https://consultor-ia.com.co/images/og-agencias-de-marketing.webp",
-      "description": "{META_DESCRIPTION}",
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "{MONEDA}",
-        "price": "{PRECIO_BAJO}",
-        "priceValidUntil": "2026-12-31",
-        "availability": "https://schema.org/InStock",
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "0",
-            "currency": "{MONEDA}"
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://consultor-ia.com.co{URL_FINAL}#localbusiness",
+          "name": "Consultor IA - Agencia de IA en {CIUDAD}",
+          "url": "https://consultor-ia.com.co{URL_FINAL}",
+          "logo": "https://consultor-ia.com.co/favicon-192x192.png",
+          "telephone": "+573151206985",
+          "priceRange": "$$",
+          "parentOrganization": {
+            "@type": "Organization",
+            "@id": "https://consultor-ia.com.co/#organization",
+            "name": "Consultor IA",
+            "url": "https://consultor-ia.com.co/"
           },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "businessDays": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+          "knowsAbout": [
+            "Agencia de Inteligencia Artificial en {CIUDAD}",
+            "Agentes de Inteligencia Artificial B2B",
+            "Automatización de WhatsApp Business API",
+            "Integración de CRM y Flujos con n8n",
+            "Consultoría de IA en {CIUDAD}"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/consultor-ia",
+            "https://github.com/Createia"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "{CIUDAD}",
+            "addressCountry": "{CODIGO_PAIS}"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "{CIUDAD}"
+            },
+            {
+              "@type": "Place",
+              "name": "{BARRIO_PRINCIPAL}, {CIUDAD}"
             }
-          }
+          ],
+          "description": "{META_DESCRIPTION}"
         },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "{PAIS}",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": "30",
-          "returnMethod": "https://schema.org/ReturnByMail"
+        {
+          "@type": "Service",
+          "@id": "https://consultor-ia.com.co{URL_FINAL}#service",
+          "name": "{H1}",
+          "provider": {
+            "@id": "https://consultor-ia.com.co{URL_FINAL}#localbusiness"
+          },
+          "serviceType": "Agencia de Inteligencia Artificial y Automatización B2B",
+          "areaServed": {
+            "@type": "City",
+            "name": "{CIUDAD}"
+          },
+          "description": "{META_DESCRIPTION}"
         }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "115"
-      }
+      ]
     }
     </script>
     
@@ -94,92 +108,19 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://consultor-ia.com.co/"},
-        {"@type": "ListItem", "position": 2, "name": "Agencia de IA", "item": "https://consultor-ia.com.co/agencia-de-inteligencia-artificial/"},
-        {"@type": "ListItem", "position": 3, "name": "{PAIS}", "item": "https://consultor-ia.com.co/agencia-de-inteligencia-artificial/{PAIS_SLUG}/"},
-        {"@type": "ListItem", "position": 4, "name": "{CIUDAD}", "item": "https://consultor-ia.com.co{URL_FINAL}"}
+        {"@type": "ListItem", "position": 2, "name": "Agencia de IA", "item": "https://consultor-ia.com.co/consultor-inteligencia-artificial/"},
+        {"@type": "ListItem", "position": 3, "name": "{CIUDAD}", "item": "https://consultor-ia.com.co{URL_FINAL}"}
       ]
     }
     </script>
     
-    <!-- Schema: LocalBusiness -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "Consultor IA",
-        "url": "https://consultor-ia.com.co"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/consultor-ia",
-        "https://www.instagram.com/consultoria_col"
-      ],
-      "name": "Consultor IA",
-      "url": "https://consultor-ia.com.co{URL_FINAL}",
-      "logo": "https://consultor-ia.com.co/favicon-192x192.png",
-      "description": "{META_DESCRIPTION}",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "115"
-      }
-    }
-    </script>
-    
-    <!-- Fonts -->
-        <!-- Fonts: Playfair Display (Headers) + Inter (Body) -->
+    <!-- Fonts: Playfair Display (Headers) + Inter (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
-    
-    <!-- Tailwind -->
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'brand': '#18181b',      /* Zinc 900 */
-                        'brand-light': '#f4f4f5',/* Zinc 100 */
-                        'accent': '#2563eb',     /* Blue 600 - Tech Professional */
-                        'success': '#10b981',    /* Emerald 500 */
-                        'gray-1': '#18181b',
-                        'gray-2': '#52525b',
-                        'gray-card': '#ffffff',
-                        'gray-border': '#e4e4e7',
-                    },
-                    fontFamily: {
-                        body: ['"Inter"', 'sans-serif'],
-                        header: ['"Playfair Display"', 'serif'],
-                    },
-                    borderRadius: {
-                        '3xl': '24px',
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind Compiled CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css?v=2.0">
     
     <!-- Dark Mode Init Script -->
     <script>
@@ -190,8 +131,10 @@
         }
     </script>
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome Non-Blocking -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
@@ -200,46 +143,35 @@
         
         /* Glassmorphism effects */
         .glass {
-            background: rgba(253, 251, 247, 0.85); /* FDFBF7 */
+            background: rgba(253, 251, 247, 0.85);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
         .dark .glass {
-            background: rgba(30, 28, 26, 0.85); /* 1E1C1A */
+            background: rgba(30, 28, 26, 0.85);
         }
-        
-        /* Gradient Text */
         
         .hero-zoom { transition: transform 0.7s ease-out; }
         .group-hero:hover .hero-zoom { transform: scale(1.05); }
 
-        /* Neon Border Beam (Marketing Labb Style) */
+        /* TYPEWRITER CURSOR */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.15em;
+            background-color: var(--color-brand);
+            vertical-align: text-bottom;
+            margin-left: 6px;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
         
-
-
-    
-
-
-    /* TYPEWRITER CURSOR */
-    .typewriter-cursor {
-        display: inline-block;
-        width: 3px;
-        height: 1.15em;
-        background-color: var(--color-brand);
-        vertical-align: text-bottom;
-        margin-left: 6px;
-        animation: blink 1s step-end infinite;
-    }
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-    
-    /* INTERACTIVE CANVAS BG */
-    /* FIX OVERSCROLL (RUBBER BANDING) */
-    html, body {
-        overscroll-behavior: none;
-    }
+        html, body {
+            overscroll-behavior: none;
+        }
 
         /* Smooth Global Background Blobs */
         @keyframes global-blob-1 {
@@ -273,11 +205,6 @@
     <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
 </div>
 
-
-
-
-
-
     <!-- 1. Header (Sticky & Glass) -->
     <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
         <div class="w-full max-w-7xl glass rounded-full border border-gray-200 dark:border-zinc-800/80 shadow-2xl pointer-events-auto flex justify-between items-center px-6 py-3">
@@ -288,7 +215,7 @@
             <nav class="hidden md:flex space-x-8 items-center">
                 <!-- Mega Menu Industrias -->
                 <div class="relative group z-50 py-2">
-                    <button class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light flex items-center gap-1 transition-colors">
+                    <button class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light flex items-center gap-1 transition-colors">
                         Industrias <i class="fas fa-chevron-down text-xs"></i>
                     </button>
                     <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
@@ -296,12 +223,15 @@
                     </div>
                 </div>
                 
-                <a href="/#como-funciona" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Cómo Funciona</a>
-                <a href="/#precios" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Precios</a>
-                <a href="/blog/" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Blog</a>
+                <a href="#demo-interactiva" class="font-medium text-accent hover:text-brand dark:hover:text-brand-light transition-colors flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Demo en Vivo
+                </a>
+                <a href="#servicios" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Soluciones</a>
+                <a href="#precios" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+                <a href="/blog/" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
                 
                 <!-- Dark Mode Toggle -->
-                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
+                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
                     <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                     <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
                 </button>
@@ -323,9 +253,8 @@
     <!-- 2. Breadcrumbs -->
     <div class="pt-24 pb-2 border-b border-gray-200/50 dark:border-zinc-800/50 relative z-10">
         <div class="container mx-auto px-4 py-3 text-sm text-zinc-600 dark:text-zinc-400">
-            <a href="/" class="hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Inicio</a> <span class="mx-2 opacity-50">&gt;</span> 
-            <span class="text-zinc-600 dark:text-zinc-400">Agencia de IA</span> <span class="mx-2 opacity-50">&gt;</span> 
-            <span class="text-zinc-600 dark:text-zinc-400">{PAIS}</span> <span class="mx-2 opacity-50">&gt;</span> 
+            <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a> <span class="mx-2 opacity-50">&gt;</span> 
+            <a href="/consultor-inteligencia-artificial/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Agencia de IA</a> <span class="mx-2 opacity-50">&gt;</span> 
             <span class="text-gray-1 dark:text-slate-200 font-normal">{CIUDAD}</span>
         </div>
     </div>
@@ -333,8 +262,6 @@
     <main>
         <!-- 4. Hero Section (High Impact + Dark Mode + Blob) -->
         <section class="relative pt-12 pb-24 lg:pt-16 lg:pb-32 overflow-hidden flex items-center min-h-[80vh]">
-            <!-- Minimal Background Grid/Shadow (Optional) -->
-            
             <div class="container mx-auto px-4 relative z-10 animate-fade-in-up">
                 <div class="flex flex-col lg:flex-row items-center gap-12">
                     
@@ -350,137 +277,134 @@
                         </h1>
                         
                         <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                            Somos la agencia líder en implementación de Inteligencia Artificial para empresas en {CIUDAD}. Optimizamos procesos, automatizamos ventas y desarrollamos agentes con IA a la medida de tu negocio.
+                            Implementamos Agentes de Inteligencia Artificial, automatizaciones en WhatsApp Cloud API y flujos inteligentes conectados a tu CRM para empresas en {CIUDAD}.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                            <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-8 py-4 overflow-hidden transition-all duration-500">
-                                <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
-                                <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
-                                    Ver Demo en Vivo <i class="fab fa-whatsapp text-[14px]"></i>
+                            <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="group relative inline-flex items-center justify-center bg-brand text-white dark:bg-brand-light dark:text-zinc-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl shadow-brand/20 hover:scale-105 hover:shadow-2xl transition-all overflow-hidden">
+                                <span class="relative z-10 flex items-center gap-3">
+                                    Solicitar Diagnóstico <i class="fab fa-whatsapp text-[16px]"></i>
                                 </span>
                             </a>
-                            <a href="#como-funciona" class="bg-transparent text-gray-800 dark:text-white border border-gray-border dark:border-zinc-700 px-8 py-4 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-all flex items-center justify-center text-lg">
-                                ¿Cómo Funciona?
+                            <a href="#demo-interactiva" class="bg-white dark:bg-zinc-900 text-brand dark:text-brand-light border border-gray-border dark:border-zinc-700 px-8 py-4 rounded-full font-medium shadow-md hover:shadow-lg hover:border-brand/30 dark:hover:border-brand-light/30 transition-all flex items-center justify-center text-sm uppercase tracking-wider">
+                                Probar Demo en Vivo
                             </a>
                         </div>
                         
-                        <!-- Trust Badges (Inspired by Dinastía) -->
+                        <!-- Garantías Técnicas Verificables -->
                         <div class="flex flex-wrap items-center gap-6 border-t border-gray-border dark:border-zinc-800 pt-6">
                             <div class="flex items-center gap-3">
-                                <div class="flex items-center text-[#FFD700] text-xl">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg">
+                                    <i class="fab fa-whatsapp"></i>
                                 </div>
                                 <div class="text-sm">
-                                    <p class="font-normal">4.9/5.0</p>
-                                    <p class="text-gray-500 dark:text-slate-400 text-xs">Casos de Éxito en {PAIS}</p>
+                                    <p class="font-semibold text-zinc-900 dark:text-white">WhatsApp Cloud API</p>
+                                    <p class="text-gray-500 dark:text-slate-400 text-xs">Integración Oficial en {PAIS}</p>
                                 </div>
                             </div>
                             <div class="h-8 w-px bg-gray-border dark:bg-zinc-800 hidden sm:block"></div>
-                            <div class="flex gap-4">
-                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Setup 5 Días</span>
-                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Soporte Local</span>
+                            <div class="flex flex-wrap gap-4">
+                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Setup en 5-7 Días</span>
+                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Integración CRM y Agenda</span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Hero Visual / Sidebar Autoridad (Inspired by Dinastía) -->
-                    <div class="lg:w-2/5 w-full">
-                        <div class="relative group-hero cursor-pointer mt-8 lg:mt-0">
-                            <!-- WhatsApp Chat Mockup -->
-                            <div class="relative bg-[#efeae2] dark:bg-[#0b141a] border border-gray-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-2xl transition-all hover:shadow-[0_20px_50px_-12px_rgba(79,70,229,0.2)]">
-                                
-                                <!-- Header WhatsApp -->
-                                <div class="bg-[#00a884] dark:bg-[#202c33] p-4 flex items-center gap-3 relative z-10">
-                                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0">
-                                        <i class="fas fa-robot text-xl text-[#00a884] dark:text-[#8696a0]"></i>
-                                    </div>
-                                    <div class="flex-1">
-                                        <h3 class="font-medium text-white text-base leading-tight">Consultor-IA Bot</h3>
-                                        <p class="text-white/80 text-xs mt-0.5">en línea</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chat Body -->
-                                <div class="p-5 flex flex-col gap-3 relative z-10 min-h-[300px]">
-                                    <!-- Chat pattern background -->
-                                    <div class="absolute inset-0 opacity-40 dark:opacity-[0.05] bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center -z-10"></div>
-                                    
-                                    <!-- Client Message -->
-                                    <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                                        {HERO_CHAT_USER}
-                                    </div>
-                                    
-                                    <!-- AI Bot Message -->
-                                    <div class="self-start bg-white dark:bg-[#202c33] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tl-none py-2 px-3 max-w-[90%] text-[15px] shadow-sm animate-fade-in-up animation-delay-500">
-                                        {HERO_CHAT_BOT}
-                                    </div>
-                                    
-                                    <!-- ROI Box inside Chat -->
-                                    <div class="self-start w-full mt-2 animate-fade-in-up animation-delay-1000">
-                                        <div class="bg-white/90 dark:bg-[#202c33]/90 backdrop-blur-sm border border-gray-100 dark:border-zinc-800 rounded-xl p-4 flex justify-between shadow-sm">
-                                            <div>
-                                                <p class="text-xs text-gray-500 dark:text-[#8696a0]">ROI Promedio</p>
-                                                <p class="font-bold text-accent dark:text-[#53bdeb] text-lg">+315%</p>
-                                            </div>
-                                            <div class="text-right">
-                                                <p class="text-xs text-gray-500 dark:text-[#8696a0]">Implementación</p>
-                                                <p class="font-bold text-gray-800 dark:text-[#e9edef] text-lg">5-7 Días</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Hero Visual / Sidebar Autoridad -->
+                    {HERO_VISUAL_HTML}
                     
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Marquee (Scroll Infinito de Reseñas) -->
+        <!-- Casos de Uso y Arquitectura Técnica -->
         {TESTIMONIALS_HTML}
-        
-<!-- 5. Servicios de Agencia -->
-<section id="servicios" class="py-24 relative">
-    <div class="container mx-auto px-4 max-w-6xl relative z-10">
-        <div class="text-center mb-16 max-w-3xl mx-auto">
-            <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Soluciones Corporativas</span>
-            <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">¿Qué hacemos como tu Agencia de IA en {CIUDAD}?</h2>
-            <p class="text-xl text-zinc-600 dark:text-zinc-400">Desde consultoría estratégica hasta desarrollo de agentes automatizados.</p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl transition-all duration-300">
-                <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Agentes de WhatsApp</h3>
-                <p class="text-zinc-600 dark:text-zinc-400">Desarrollo de asistentes virtuales capaces de vender, agendar y atender clientes 24/7 de manera natural.</p>
-            </div>
-            <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl transition-all duration-300">
-                <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6">
-                    <i class="fas fa-project-diagram"></i>
-                </div>
-                <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Automatización de Procesos</h3>
-                <p class="text-zinc-600 dark:text-zinc-400">Integramos n8n y Make para conectar tu CRM, ERP y bases de datos, eliminando el trabajo manual.</p>
-            </div>
-            <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl transition-all duration-300">
-                <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Consultoría Estratégica</h3>
-                <p class="text-zinc-600 dark:text-zinc-400">Analizamos el flujo de tu empresa y diseñamos un roadmap de transformación digital con IA.</p>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- 8. Ciudades Hermanas -->
+        <!-- Bloque Visual Dinámico E-E-A-T + Contexto Hiper-Local GEO -->
+        {CONTENIDO_EEAT}
 
+        <!-- Demo Interactiva de Agente Conversacional y Calendario -->
+        {DEMO_INTERACTIVA_HTML}
+        
+        <!-- 5. Servicios de Agencia -->
+        <section id="servicios" class="py-24 relative scroll-mt-24">
+            <div class="container mx-auto px-4 max-w-6xl relative z-10">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Soluciones Corporativas</span>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">¿Qué hacemos como tu Agencia de IA en {CIUDAD}?</h2>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Desde consultoría de arquitectura hasta despliegue de agentes autónomos y flujos B2B.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Agentes IA de WhatsApp</h3>
+                        <p class="text-zinc-600 dark:text-zinc-400">Desarrollo de asistentes virtuales conectados a WhatsApp Business Cloud API capaces de calificar prospectos, agendar citas y atender clientes 24/7.</p>
+                    </div>
+                    <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Flujos Inteligentes y CRM</h3>
+                        <p class="text-zinc-600 dark:text-zinc-400">Integramos n8n, Make y Webhooks para conectar tu WhatsApp con HubSpot, Pipedrive, Google Calendar, ERP y bases de datos empresariales.</p>
+                    </div>
+                    <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 border border-gray-border dark:border-zinc-800 shadow-sm hover:shadow-xl transition-all duration-300">
+                        <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand dark:text-brand-light flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-2xl font-header font-bold text-gray-1 dark:text-white mb-3">Arquitectura RAG Privada</h3>
+                        <p class="text-zinc-600 dark:text-zinc-400">Entrenamos agentes con tus catálogos, PDFs, políticas comerciales y listas de precios reales para responder con precisión técnica sin inventar datos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5.5 Roadmap -->
+        {ROADMAP_HTML}
+
+        <!-- 5.6 Tabla Comparativa GEO -->
+        {TABLA_ROI_HTML}
+
+        <!-- 6. Precios -->
+        {PRECIOS_SECCION_HTML}
+
+        <!-- 7. FAQ (Acordeón Premium) -->
+        <section id="faq" class="py-24 scroll-mt-24">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-4">Preguntas Frecuentes en {CIUDAD}</h2>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Todo lo que necesitas saber de forma simple sobre tu Agencia de IA en {CIUDAD}.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    {FAQS_HTML}
+                </div>
+                <style>
+                    .faq-item { border: 1px solid #E8DAC1; border-radius: 20px; overflow: hidden; background: #FDFBF7; transition: all 0.3s ease; }
+                    .dark .faq-item { background: #18181b; border-color: #27272a; }
+                    .faq-item:hover { box-shadow: 0 10px 25px -5px rgba(226, 125, 96, 0.1); border-color: #E27D60; }
+                    .dark .faq-item:hover { box-shadow: 0 10px 25px -5px rgba(226, 125, 96, 0.2); border-color: #E27D60; }
+                    
+                    .faq-item summary { padding: 24px; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #262627; }
+                    .dark .faq-item summary { color: #f8fafc; }
+                    .faq-item summary::-webkit-details-marker { display: none; }
+                    
+                    .faq-item summary::after { content: '\f078'; font-family: "Font Awesome 5 Free"; font-weight: 900; color: #1A362D; transition: transform 0.3s; }
+                    .dark .faq-item summary::after { color: #A9C49A; }
+                    .faq-item[open] summary::after { transform: rotate(180deg); }
+                    
+                    .faq-item p { padding: 0 24px 24px; color: #434345; line-height: 1.6; }
+                    .dark .faq-item p { color: #cbd5e1; }
+                </style>
+            </div>
+        </section>
+
+        <!-- 8. Ciudades Hermanas -->
         <section class="py-16 border-t border-gray-border dark:border-zinc-800">
             <div class="container mx-auto px-4 max-w-5xl">
-                <h3 class="text-xl font-header font-bold mb-8 text-center text-gray-500 dark:text-slate-400 uppercase tracking-widest text-sm">Más Agencia de IA en {PAIS}</h3>
+                <h3 class="text-xl font-header font-bold mb-8 text-center text-gray-500 dark:text-slate-400 uppercase tracking-widest text-sm">Agencia de IA en Otras Ciudades de {PAIS}</h3>
                 <div class="flex flex-wrap justify-center gap-4">
                     {CIUDADES_HERMANAS_HTML}
                 </div>
@@ -489,88 +413,22 @@
                     .dark .card-ciudad { background: #1e293b; border-color: #334155; color: #e2e8f0; }
                     .card-ciudad:hover { border-color: #28D366; color: #28D366; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(40, 211, 102, 0.15); }
                     .dark .card-ciudad:hover { border-color: #4ade80; color: #4ade80; background: #0f172a; }
+                </style>
+            </div>
+        </section>
 
-        /* Smooth Global Background Blobs */
-        @keyframes global-blob-1 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(20vw, -15vh) scale(1.2) rotate(10deg); }
-            66% { transform: translate(-15vw, 20vh) scale(0.8) rotate(-10deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes global-blob-2 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(-20vw, 20vh) scale(1.3) rotate(-15deg); }
-            66% { transform: translate(20vw, -15vh) scale(0.7) rotate(15deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes global-blob-3 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            50% { transform: translate(25vw, 25vh) scale(1.4) rotate(20deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        .global-blob-1 { animation: global-blob-1 6s infinite alternate ease-in-out; }
-        .global-blob-2 { animation: global-blob-2 8s infinite alternate ease-in-out; }
-        .global-blob-3 { animation: global-blob-3 10s infinite alternate ease-in-out; }
-    </style>
-            </div>
-        </section>
-        
-        <!-- 6. Precios (Tarjetas Premium) -->
-        <section id="precios" class="py-24">
-            <div class="container mx-auto px-4 max-w-5xl">
-                <div class="text-center mb-16">
-                    <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
-                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios</h2>
-                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
-                    <!-- Pricing Card 1: Setup -->
-                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
-                        <h3 class="font-header font-bold text-2xl mb-2">Configuración Completa</h3>
-                        <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Pago único por la creación del sistema</p>
-                        <div class="text-4xl font-bold mb-6 text-gray-1 dark:text-white">$497 <span class="text-lg font-normal text-gray-400">USD</span></div>
-                        <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-slate-300">
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Desarrollo y entrenamiento del Agente IA</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Integración completa con WhatsApp y Web</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Ingesta de base de conocimiento (FAQ, servicios)</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Pruebas y despliegue inicial (5-7 días)</li>
-                        </ul>
-                        <a href="https://wa.me/{WA_NUMERO}" target="_blank" class="block w-full text-center border border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-zinc-800 py-3 rounded-xl font-medium transition-colors">Solicitar Configuración</a>
-                    </div>
-                    
-                    <!-- Pricing Card 2: Mantenimiento (Destacada) -->
-                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Esencial</div>
-                        <h3 class="font-header font-bold text-2xl mb-2 text-white">Mantenimiento Mensual</h3>
-                        <p class="text-brand-100 text-sm mb-6">Suscripción para el funcionamiento de la IA</p>
-                        <div class="text-4xl font-bold mb-6 text-white">$97 <span class="text-lg font-normal text-brand-200">USD /mes</span></div>
-                        <ul class="space-y-4 mb-8 text-sm">
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Hosting del agente y consumo de IA</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Soporte técnico prioritario</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Ajustes y optimizaciones mensuales</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Actualizaciones de plataforma automáticas</li>
-                        </ul>
-                        <a href="https://wa.me/{WA_NUMERO}" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-3.5 rounded-xl overflow-hidden transition-all duration-500">
-                            <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
-                            <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
-                                Ver Detalles <i class="fas fa-arrow-right text-[12px]"></i>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- 9. Recomendación de Blogs -->
+        {BLOG_RECOMENDACIONES_HTML}
         
         <!-- CTA Final -->
         <section class="py-24 border-t border-gray-200 dark:border-zinc-800 relative overflow-hidden backdrop-blur-md">
             <div class="container mx-auto px-4 max-w-3xl relative z-10 text-center">
-                <h2 class="text-4xl md:text-5xl font-header font-bold mb-6 text-zinc-900 dark:text-white tracking-tight">¿Listo para transformar tu negocio?</h2>
-                <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 font-normal">Agenda una sesión de consultoría gratuita de 15 minutos y descubre cómo la IA puede automatizar tus ventas y atención.</p>
+                <h2 class="text-4xl md:text-5xl font-header font-bold mb-6 text-zinc-900 dark:text-white tracking-tight">¿Listo para automatizar tu empresa en {CIUDAD}?</h2>
+                <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 font-normal">Agenda una sesión de diagnóstico técnico de 15 minutos y descubre cómo integrar Agentes de IA en tus canales de venta y atención.</p>
                 <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
                     <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
                     <span class="relative z-10 flex items-center gap-3 font-body text-[12px] font-bold uppercase tracking-[0.25em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
-                        Hablar con un Experto <i class="fab fa-whatsapp text-[15px]"></i>
+                        Hablar con un Ingeniero <i class="fab fa-whatsapp text-[15px]"></i>
                     </span>
                 </a>
             </div>
@@ -581,7 +439,7 @@
     {FOOTER_HTML}
     
     <!-- WhatsApp Flotante -->
-    <a href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30 z-50 hover:scale-110 transition-transform hover:shadow-2xl group">
+    <a id="floating-wa-btn" href="https://wa.me/{WA_NUMERO}?text={WA_MENSAJE_ENCODED}" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30 z-50 hover:scale-110 transition-all duration-300 hover:shadow-2xl group">
         <i class="fab fa-whatsapp"></i>
         <span class="absolute right-full mr-4 bg-white dark:bg-zinc-800 text-gray-800 dark:text-white text-sm font-normal px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">
             ¡Escríbenos!
@@ -594,7 +452,7 @@
             <div class="flex justify-between items-center mb-12">
                 <span class="font-header font-extrabold text-2xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 <div class="flex items-center gap-4">
-                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light focus:outline-none rounded-lg text-2xl p-2 transition-colors">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-2xl p-2 transition-colors">
                         <i id="theme-toggle-dark-icon-mobile" class="fas fa-moon hidden"></i>
                         <i id="theme-toggle-light-icon-mobile" class="fas fa-sun hidden"></i>
                     </button>
@@ -605,10 +463,11 @@
             </div>
             
             <nav class="flex flex-col space-y-6 text-2xl font-header font-bold">
-                <a href="/" class="hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Inicio</a>
-                <a href="/#como-funciona" class="mobile-link hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Cómo Funciona</a>
-                <a href="/#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Precios</a>
-                <a href="/blog/" class="hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Blog</a>
+                <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a>
+                <a href="#demo-interactiva" class="mobile-link text-accent hover:text-brand dark:hover:text-brand-light transition-colors flex items-center gap-2">Demo en Vivo <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span></a>
+                <a href="#servicios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Soluciones</a>
+                <a href="#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+                <a href="/blog/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
             </nav>
 
             <div class="mt-auto pt-8 border-t border-zinc-200 dark:border-zinc-800">
@@ -688,8 +547,22 @@
                 document.body.classList.remove('overflow-hidden');
             });
         });
+
+        // Ocultar botón flotante de WhatsApp cuando #demo-interactiva esté en pantalla
+        const demoSection = document.getElementById('demo-interactiva');
+        const floatingWa = document.getElementById('floating-wa-btn');
+        if (demoSection && floatingWa && 'IntersectionObserver' in window) {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        floatingWa.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    } else {
+                        floatingWa.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    }
+                });
+            }, { threshold: 0.15 });
+            obs.observe(demoSection);
+        }
     </script>
-    
-    
 </body>
 </html>

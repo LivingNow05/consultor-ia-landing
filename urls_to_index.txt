@@ -475,14 +475,14 @@ https://consultor-ia.com.co/desarrollo-apps-software/panama/
 https://consultor-ia.com.co/desarrollo-apps-software/costa-rica/
 https://consultor-ia.com.co/desarrollo-apps-software/uruguay/
 https://consultor-ia.com.co/desarrollo-apps-software/republica-dominicana/
-https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-cartagena/
-https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-bucaramanga/
-https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-manizales/
-https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-bogota/
-https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-medellin/
 https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-armenia/
 https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-barranquilla/
+https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-bogota/
+https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-bucaramanga/
 https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-cali/
+https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-cartagena/
+https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-manizales/
+https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-medellin/
 https://consultor-ia.com.co/aviso-legal/
 https://consultor-ia.com.co/politica-de-privacidad/
 https://consultor-ia.com.co/blog/
@@ -572,3 +572,4 @@ https://consultor-ia.com.co/blog/chatbot-whatsapp-firmas-contables-tributarias-i
 https://consultor-ia.com.co/blog/chatbot-whatsapp-salud-ocupacional-sst-ia/
 https://consultor-ia.com.co/blog/chatbot-whatsapp-concesionarios-motos-credito-ia/
 https://consultor-ia.com.co/blog/chatbot-whatsapp-imprentas-litografias-artes-graficas-ia/
+https://consultor-ia.com.co/blog/chatbot-whatsapp-insumos-agricolas-agroquimicos-ia/

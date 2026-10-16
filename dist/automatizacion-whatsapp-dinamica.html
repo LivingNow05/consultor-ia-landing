@@ -52,50 +52,14 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Automatización de Ventas en <span id="dynamic-city" class="text-accent underline decoration-4 decoration-accent/30 dyn-city">tu ciudad</span>",
-      "brand": {
-        "@type": "Brand",
-        "name": "Consultor IA"
+      "@type": "Service",
+      "name": "Automatización de WhatsApp e IA para Empresas",
+      "provider": {
+        "@type": "Organization",
+        "name": "Consultor IA",
+        "url": "https://consultor-ia.com.co"
       },
-      "image": "https://consultor-ia.com.co/images/og-default.webp",
-      "description": "Implementamos tu Chatbot Corporativo en tu ciudad.",
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": \"USD\",
-        "price": \"499\",
-        "priceValidUntil": "2026-12-31",
-        "availability": "https://schema.org/InStock",
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingRate": {
-            "@type": "MonetaryAmount",
-            "value": "0",
-            "currency": \"USD\"
-          },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "businessDays": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-            }
-          }
-        },
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "tu país",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": "30",
-          "returnMethod": "https://schema.org/ReturnByMail"
-        }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "115"
-      }
+      "description": "Implementamos Agentes de IA, automatizaciones de WhatsApp Cloud API y flujos inteligentes para empresas."
     }
     </script>
     
@@ -111,64 +75,18 @@
       "@type": "BreadcrumbList",
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://consultor-ia.com.co/"},
-        {"@type": "ListItem", "position": 2, "name": "cualquier industria", "item": "https://consultor-ia.com.co/default/"},
-        {"@type": "ListItem", "position": 3, "name": "tu país", "item": "https://consultor-ia.com.co/default/tu-pais/"},
-        {"@type": "ListItem", "position": 4, "name": \"tu ciudad\", "item": "https://consultor-ia.com.co/automatizacion-whatsapp-ia/"}
+        {"@type": "ListItem", "position": 2, "name": "Automatización de WhatsApp", "item": "https://consultor-ia.com.co/automatizacion-whatsapp-dinamica.html"}
       ]
     }
     </script>
     
-    <!-- Fonts -->
-        <!-- Fonts: Playfair Display (Headers) + Inter (Body) -->
+    <!-- Fonts: Playfair Display (Headers) + Inter (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
-    
-    <!-- Tailwind -->
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'brand': '#18181b',      /* Zinc 900 */
-                        'brand-light': '#f4f4f5',/* Zinc 100 */
-                        'accent': '#2563eb',     /* Blue 600 - Tech Professional */
-                        'success': '#10b981',    /* Emerald 500 */
-                        'gray-1': '#18181b',
-                        'gray-2': '#52525b',
-                        'gray-card': '#ffffff',
-                        'gray-border': '#e4e4e7',
-                    },
-                    fontFamily: {
-                        body: ['"Inter"', 'sans-serif'],
-                        header: ['"Playfair Display"', 'serif'],
-                    },
-                    borderRadius: {
-                        '3xl': '24px',
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind Compiled CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css?v=2.0">
     
     <!-- Dark Mode Init Script -->
     <script>
@@ -179,8 +97,10 @@
         }
     </script>
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome Non-Blocking -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
@@ -189,46 +109,35 @@
         
         /* Glassmorphism effects */
         .glass {
-            background: rgba(253, 251, 247, 0.85); /* FDFBF7 */
+            background: rgba(253, 251, 247, 0.85);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
         }
         .dark .glass {
-            background: rgba(30, 28, 26, 0.85); /* 1E1C1A */
+            background: rgba(30, 28, 26, 0.85);
         }
-        
-        /* Gradient Text */
         
         .hero-zoom { transition: transform 0.7s ease-out; }
         .group-hero:hover .hero-zoom { transform: scale(1.05); }
 
-        /* Neon Border Beam (Marketing Labb Style) */
+        /* TYPEWRITER CURSOR */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.15em;
+            background-color: var(--color-brand);
+            vertical-align: text-bottom;
+            margin-left: 6px;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
         
-
-
-    
-
-
-    /* TYPEWRITER CURSOR */
-    .typewriter-cursor {
-        display: inline-block;
-        width: 3px;
-        height: 1.15em;
-        background-color: var(--color-brand);
-        vertical-align: text-bottom;
-        margin-left: 6px;
-        animation: blink 1s step-end infinite;
-    }
-    @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0; }
-    }
-    
-    /* INTERACTIVE CANVAS BG */
-    /* FIX OVERSCROLL (RUBBER BANDING) */
-    html, body {
-        overscroll-behavior: none;
-    }
+        html, body {
+            overscroll-behavior: none;
+        }
 
         /* Smooth Global Background Blobs */
         @keyframes global-blob-1 {
@@ -262,11 +171,6 @@
     <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
 </div>
 
-
-
-
-
-
     <!-- 1. Header (Sticky & Glass) -->
     <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
         <div class="w-full max-w-7xl glass rounded-full border border-gray-200 dark:border-zinc-800/80 shadow-2xl pointer-events-auto flex justify-between items-center px-6 py-3">
@@ -285,6 +189,9 @@
                     </div>
                 </div>
                 
+                <a href="#demo-interactiva" class="font-medium text-accent hover:text-brand dark:hover:text-brand-light transition-colors flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Demo en Vivo
+                </a>
                 <a href="#como-funciona" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
                 <a href="#precios" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
                 <a href="/blog/" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
@@ -295,7 +202,7 @@
                     <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
                 </button>
 
-                <a href="https://wa.me/573132644262?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
+                <a href="https://wa.me/573151206985?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
                     <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
                     <span class="relative z-10 flex items-center gap-2 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
                         Asesoría <i class="fab fa-whatsapp text-sm"></i>
@@ -313,8 +220,7 @@
     <div class="pt-24 pb-2 border-b border-gray-200/50 dark:border-zinc-800/50 relative z-10">
         <div class="container mx-auto px-4 py-3 text-sm text-zinc-600 dark:text-zinc-400">
             <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a> <span class="mx-2 opacity-50">&gt;</span> 
-            <a href="/automatizacion-whatsapp-ia/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Automatización de WhatsApp</a> <span class="mx-2 opacity-50">&gt;</span> 
-            <a href="/automatizacion-whatsapp-ia/" class="hover:text-brand dark:hover:text-brand-light transition-colors dyn-country">tu país</a> <span class="mx-2 opacity-50">&gt;</span> 
+            <span class="text-zinc-600 dark:text-zinc-400">Automatización de WhatsApp</span> <span class="mx-2 opacity-50">&gt;</span> 
             <span class="text-gray-1 dark:text-slate-200 font-normal"><span id="dynamic-city" class="dyn-city">tu ciudad</span></span>
         </div>
     </div>
@@ -322,8 +228,6 @@
     <main>
         <!-- 4. Hero Section (High Impact + Dark Mode + Blob) -->
         <section class="relative pt-12 pb-24 lg:pt-16 lg:pb-32 overflow-hidden flex items-center min-h-[80vh]">
-            <!-- Minimal Background Grid/Shadow (Optional) -->
-            
             <div class="container mx-auto px-4 relative z-10 animate-fade-in-up">
                 <div class="flex flex-col lg:flex-row items-center gap-12">
                     
@@ -331,7 +235,7 @@
                     <div class="lg:w-3/5">
                         <span class="inline-flex items-center bg-brand/10 dark:bg-brand/20 text-brand dark:text-brand-light px-4 py-2 rounded-full text-sm font-normal mb-6 shadow-sm border border-brand/20">
                             <span class="w-2 h-2 rounded-full bg-brand dark:bg-brand-light mr-2 animate-pulse"></span>
-                            IA para cualquier industria en <span id="dynamic-city" class="dyn-city">tu ciudad</span>
+                            IA para cualquier industria en <span class="dyn-city">tu ciudad</span>
                         </span>
                         
                         <h1 class="text-5xl lg:text-7xl font-header font-extrabold mb-6 leading-[1.1] tracking-tight">
@@ -343,31 +247,31 @@
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                            <a href="https://wa.me/573132644262?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="group relative inline-flex items-center justify-center bg-brand text-white dark:bg-brand-light dark:text-zinc-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl shadow-brand/20 hover:scale-105 hover:shadow-2xl transition-all overflow-hidden">
+                            <a href="https://wa.me/573151206985?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="group relative inline-flex items-center justify-center bg-brand text-white dark:bg-brand-light dark:text-zinc-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl shadow-brand/20 hover:scale-105 hover:shadow-2xl transition-all overflow-hidden">
                                 <span class="relative z-10 flex items-center gap-3">
-                                    Ver Demo en Vivo <i class="fab fa-whatsapp text-[16px]"></i>
+                                    Solicitar Diagnóstico <i class="fab fa-whatsapp text-[16px]"></i>
                                 </span>
                             </a>
                             <a href="#demo-interactiva" class="bg-white dark:bg-zinc-900 text-brand dark:text-brand-light border border-gray-border dark:border-zinc-700 px-8 py-4 rounded-full font-medium shadow-md hover:shadow-lg hover:border-brand/30 dark:hover:border-brand-light/30 transition-all flex items-center justify-center text-sm uppercase tracking-wider">
-                                Probar Demo Web
+                                Probar Demo en Vivo
                             </a>
                         </div>
                         
-                        <!-- Trust Badges (Inspired by Dinastía) -->
+                        <!-- Garantías Técnicas Verificables -->
                         <div class="flex flex-wrap items-center gap-6 border-t border-gray-border dark:border-zinc-800 pt-6">
                             <div class="flex items-center gap-3">
-                                <div class="flex items-center text-[#FFD700] text-xl">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg">
+                                    <i class="fab fa-whatsapp"></i>
                                 </div>
                                 <div class="text-sm">
-                                    <p class="font-normal">4.9/5.0</p>
-                                    <p class="text-gray-500 dark:text-slate-400 text-xs">Casos de Éxito en tu país</p>
+                                    <p class="font-semibold text-zinc-900 dark:text-white">WhatsApp Cloud API</p>
+                                    <p class="text-gray-500 dark:text-slate-400 text-xs">Integración Oficial en <span class="dyn-country">tu país</span></p>
                                 </div>
                             </div>
                             <div class="h-8 w-px bg-gray-border dark:bg-zinc-800 hidden sm:block"></div>
-                            <div class="flex gap-4">
-                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Setup 5 Días</span>
-                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Soporte Local</span>
+                            <div class="flex flex-wrap gap-4">
+                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Setup en 5-7 Días</span>
+                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Google Calendar y CRM</span>
                             </div>
                         </div>
                     </div>
@@ -385,15 +289,15 @@
                             <i class="fas fa-robot text-xl text-[#00a884] dark:text-[#8696a0]"></i>
                         </div>
                         <div class="flex-1">
-                            <h3 class="font-medium text-white text-base leading-tight">Consultor-IA Bot</h3>
-                            <p class="text-white/80 text-xs mt-0.5">en línea</p>
+                            <h3 class="font-medium text-white text-base leading-tight">Agente IA · Consultor-IA</h3>
+                            <p class="text-white/80 text-xs mt-0.5">en línea · Respuesta inmediata</p>
                         </div>
                     </div>
                     
                     <!-- Chat Body -->
                     <div class="p-5 flex flex-col gap-3 relative z-10 min-h-[300px]">
-                        <!-- Chat pattern background -->
-                        <div class="absolute inset-0 opacity-40 dark:opacity-[0.05] bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center -z-10"></div>
+                        <!-- Chat pattern background (pure CSS, no external request) -->
+                        <div class="absolute inset-0 opacity-[0.06] dark:opacity-[0.04] pointer-events-none -z-10" style="background-image: radial-gradient(#075E54 1px, transparent 1px); background-size: 18px 18px;"></div>
                         
                         <!-- Client Message -->
                         <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
@@ -405,12 +309,12 @@
                             ¡Hola! Los precios arrancan desde <span class='dyn-currency'>USD</span> <span class='dyn-price'>499</span>. ¿Te ayudo a agendar?
                         </div>
                         
-                        <!-- ROI Box inside Chat -->
+                        <!-- Operational Guarantee Box inside Chat -->
                         <div class="self-start w-full mt-2 animate-fade-in-up animation-delay-1000">
                             <div class="bg-white/90 dark:bg-[#202c33]/90 backdrop-blur-sm border border-gray-100 dark:border-zinc-800 rounded-xl p-4 flex justify-between shadow-sm">
                                 <div>
-                                    <p class="text-xs text-gray-500 dark:text-[#8696a0]">ROI Promedio</p>
-                                    <p class="font-bold text-accent dark:text-[#53bdeb] text-lg">+315%</p>
+                                    <p class="text-xs text-gray-500 dark:text-[#8696a0]">Atención y Citas</p>
+                                    <p class="font-bold text-accent dark:text-[#53bdeb] text-lg">24/7 Voz y Texto</p>
                                 </div>
                                 <div class="text-right">
                                     <p class="text-xs text-gray-500 dark:text-[#8696a0]">Implementación</p>
@@ -428,8 +332,8 @@
             </div>
         </section>
 
-        <!-- Testimonials Marquee (Scroll Infinito de Reseñas) -->
-        <section class="py-6 overflow-hidden border-y border-gray-100 dark:border-zinc-800/50 bg-[#FDFBF7]/50 dark:bg-zinc-900/50" aria-label="Reseñas de clientes">
+        <!-- Casos de Uso y Arquitectura Técnica -->
+        <section class="py-5 overflow-hidden border-y border-gray-100 dark:border-zinc-800/50 bg-[#FDFBF7]/50 dark:bg-zinc-900/50" aria-label="Capacidades de automatización">
     <style>
         @keyframes marquee-scroll {
             0% { transform: translateX(0); }
@@ -438,7 +342,7 @@
         .marquee-track {
             display: flex;
             width: max-content;
-            animation: marquee-scroll 35s linear infinite;
+            animation: marquee-scroll 38s linear infinite;
         }
         .marquee-track:hover {
             animation-play-state: paused;
@@ -447,20 +351,20 @@
             display: inline-flex;
             align-items: center;
             white-space: nowrap;
-            padding: 8px 24px;
+            padding: 8px 22px;
             margin: 0 8px;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 13px;
+            font-weight: 600;
             color: #52525b;
             border-radius: 9999px;
-            background: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.8);
             border: 1px solid #e4e4e7;
             backdrop-filter: blur(4px);
             transition: all 0.3s ease;
         }
         .dark .testimonial-item {
-            color: #a1a1aa;
-            background: rgba(39,39,42,0.5);
+            color: #d4d4d8;
+            background: rgba(39,39,42,0.6);
             border-color: #3f3f46;
         }
         .testimonial-item:hover {
@@ -475,25 +379,1001 @@
         }
     </style>
     <div class="marquee-track">
-        <span class="testimonial-item">⭐⭐⭐⭐⭐ "Ventas automáticas 24/7 en WhatsApp" - Le Bistro</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Integración perfecta con nuestro CRM" - InmoLATAM</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Nuestros leads calificados crecieron 35%" - Repuestos Cauca</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Atención al cliente en 2 segundos" - DentalCare</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Súper fácil de configurar e integrar" - Glamour</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Soporte e IA conversacional de primer nivel" - AutoTec</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Calificación de prospectos automatizada" - Academia Global</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Clientes agendan citas sin fricción" - Clínica Vitality</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Ventas automáticas 24/7 en WhatsApp" - Le Bistro</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Integración perfecta con nuestro CRM" - InmoLATAM</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Nuestros leads calificados crecieron 35%" - Repuestos Cauca</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Atención al cliente en 2 segundos" - DentalCare</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Súper fácil de configurar e integrar" - Glamour</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Soporte e IA conversacional de primer nivel" - AutoTec</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Calificación de prospectos automatizada" - Academia Global</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Clientes agendan citas sin fricción" - Clínica Vitality</span>
+        <span class="testimonial-item">🤖 Agentes de IA entrenados con los documentos reales de tu empresa</span>
+<span class="testimonial-item">⚡ Atención, calificación de leads y agendamiento en WhatsApp 24/7</span>
+<span class="testimonial-item">🎙️ Comprensión nativa de notas de voz, texto e imágenes</span>
+<span class="testimonial-item">📅 Conexión y reserva en tiempo real con Google Calendar</span>
+<span class="testimonial-item">🔄 Flujos inteligentes integrados con HubSpot, Kommo, Zoho y ERPs</span>
+<span class="testimonial-item">🛡️ Integración estable mediante WhatsApp Business Cloud API</span>
+<span class="testimonial-item">🚀 Configuración completa y despliegue en 5 a 7 días hábiles</span>
+<span class="testimonial-item">🏢 Soluciones B2B para Ventas, Atención al Cliente y Operaciones</span>
+<span class="testimonial-item">🤖 Agentes de IA entrenados con los documentos reales de tu empresa</span>
+<span class="testimonial-item">⚡ Atención, calificación de leads y agendamiento en WhatsApp 24/7</span>
+<span class="testimonial-item">🎙️ Comprensión nativa de notas de voz, texto e imágenes</span>
+<span class="testimonial-item">📅 Conexión y reserva en tiempo real con Google Calendar</span>
+<span class="testimonial-item">🔄 Flujos inteligentes integrados con HubSpot, Kommo, Zoho y ERPs</span>
+<span class="testimonial-item">🛡️ Integración estable mediante WhatsApp Business Cloud API</span>
+<span class="testimonial-item">🚀 Configuración completa y despliegue en 5 a 7 días hábiles</span>
+<span class="testimonial-item">🏢 Soluciones B2B para Ventas, Atención al Cliente y Operaciones</span>
 
     </div>
 </section>
+
+        <!-- Demo Interactiva de Agente Conversacional y Calendario -->
+        
+    <section id="demo-interactiva" class="scroll-mt-24 py-24 bg-gradient-to-b from-[#FDFBF7]/40 to-white dark:from-zinc-950 dark:to-zinc-900 border-t border-gray-200/50 dark:border-zinc-800/80 relative overflow-hidden">
+        <!-- Estilos CSS personalizados para la Demo Premium -->
+        <style>
+            @keyframes demo-shimmer {
+                0% { transform: translateX(-100%); }
+                100% { transform: translateX(100%); }
+            }
+            .animate-shimmer {
+                animation: demo-shimmer 2.5s infinite linear;
+            }
+            /* Suavizar la navegación del calendario */
+            #calendar-prev-btn, #calendar-next-btn {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            /* Scrollbar premium minimalista para las horas */
+            #time-slots-container::-webkit-scrollbar {
+                width: 4px;
+            }
+            #time-slots-container::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            #time-slots-container::-webkit-scrollbar-thumb {
+                background: #e4e4e7;
+                border-radius: 9999px;
+            }
+            .dark #time-slots-container::-webkit-scrollbar-thumb {
+                background: #3f3f46;
+            }
+            /* Estilo Premium de Botones de Respuesta Rápida */
+            .quick-reply-btn {
+                background-color: #ffffff;
+                color: #075E54;
+                border: 1px solid rgba(7, 94, 84, 0.15);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .quick-reply-btn:hover {
+                background-color: rgba(7, 94, 84, 0.04);
+                border-color: #075E54;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 10px rgba(7, 94, 84, 0.12);
+            }
+            .quick-reply-btn:active {
+                transform: scale(0.95);
+            }
+            
+            /* Modo Oscuro Premium */
+            .dark .quick-reply-btn {
+                background-color: rgba(0, 168, 132, 0.08);
+                color: #00e676;
+                border-color: rgba(0, 230, 118, 0.2);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+            .dark .quick-reply-btn:hover {
+                background-color: rgba(0, 230, 118, 0.18);
+                border-color: #00e676;
+                color: #ffffff;
+                box-shadow: 0 0 14px rgba(0, 230, 118, 0.4);
+                transform: translateY(-1px);
+            }
+            .dark .quick-reply-btn:active {
+                transform: scale(0.95);
+            }
+            /* Clases responsivas personalizadas para evitar conflictos de especificidad de Tailwind */
+            @media (max-width: 1023px) {
+                .hidden-mobile {
+                    display: none !important;
+                }
+                .visible-mobile-flex {
+                    display: flex !important;
+                }
+                /* Ajustes de tamaño del calendario para móviles */
+                .calendar-container {
+                    padding: 16px !important;
+                    gap: 14px !important;
+                }
+                #calendar-days-grid {
+                    gap: 4px !important;
+                }
+                #calendar-days-grid button {
+                    width: 34px !important;
+                    height: 34px !important;
+                    font-size: 11px !important;
+                }
+                #calendar-left-col h3 {
+                    font-size: 15px !important;
+                }
+                #calendar-left-col p {
+                    font-size: 10px !important;
+                }
+                /* Compactación del Chat en móvil */
+                #demo-chat-body {
+                    padding: 12px !important;
+                }
+                #demo-chat-body > div {
+                    font-size: 13px !important;
+                    padding: 9px 12px !important;
+                    margin-bottom: 2px !important;
+                }
+                .lg\:col-span-5 .shrink-0 {
+                    padding: 9px 12px !important;
+                }
+                .lg\:col-span-5 h4 {
+                    font-size: 13px !important;
+                }
+                .lg\:col-span-5 p {
+                    font-size: 10px !important;
+                }
+                #chat-quick-replies {
+                    padding: 6px 12px !important;
+                }
+                #chat-quick-replies button {
+                    font-size: 11px !important;
+                    padding: 6px 11px !important;
+                }
+            }
+            /* Carrusel horizontal de slots de hora en móvil */
+            @media (max-width: 639px) {
+                #time-slots-container {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    flex-wrap: nowrap !important;
+                    overflow-x: auto !important;
+                    padding-bottom: 8px !important;
+                    gap: 8px !important;
+                    scrollbar-width: none !important;
+                    -ms-overflow-style: none !important;
+                }
+                #time-slots-container::-webkit-scrollbar {
+                    display: none !important;
+                }
+                #time-slots-container button {
+                    flex-shrink: 0 !important;
+                    min-width: 76px !important;
+                    padding: 7px 12px !important;
+                    font-size: 11px !important;
+                }
+            }
+        </style>
+
+        <!-- Blobs decorativos -->
+        <div class="absolute -top-[10%] -left-[10%] w-[30vw] h-[30vw] rounded-full bg-accent/5 dark:bg-accent/10 blur-[100px] pointer-events-none"></div>
+        <div class="absolute -bottom-[10%] -right-[10%] w-[30vw] h-[30vw] rounded-full bg-success/5 dark:bg-success/10 blur-[100px] pointer-events-none"></div>
+        
+        <div class="container mx-auto px-4 max-w-6xl relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8 mb-14 border-b border-gray-150/40 dark:border-zinc-800/60 pb-10">
+                <div class="lg:w-7/12 text-left">
+                    <span class="inline-flex items-center gap-1.5 bg-[#2563eb]/10 dark:bg-[#2563eb]/20 text-accent dark:text-[#53bdeb] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
+                        <i class="fas fa-play-circle"></i> Demo Interactiva en Vivo · IA Real
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-5">Prueba nuestro Agente IA de Agendamiento en Tiempo Real</h2>
+                    <p class="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                        Tus clientes odian presionar el "1" o el "2". El Agente de IA para negocio de Consultor IA conversa de forma 100% natural: <strong>consulta disponibilidad real, valida horarios libres y bloquea citas en el calendario automáticamente.</strong>
+                    </p>
+                </div>
+                <div class="lg:w-5/12 w-full">
+                    <ul class="space-y-3 text-zinc-700 dark:text-zinc-300 font-semibold text-sm">
+                        <li class="flex items-center gap-3"><i class="fas fa-calendar-check text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Sincronización en vivo con Google Calendar y CRM</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-microphone text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Procesa notas de voz, texto natural e imágenes</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-user-check text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Califica al prospecto antes de agendar la cita</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-bolt text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Cero menús rígidos: atención consultiva 24/7</li>
+                    </ul>
+                    <div class="mt-4 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200/60 dark:border-zinc-800/80 rounded-2xl text-[11px] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
+                        <i class="fas fa-info-circle text-[#00a884] shrink-0 text-sm"></i>
+                        <span><strong>¡Haz la prueba ahora!</strong> Toca un horario libre en el calendario o escríbele en el chat para reservar una cita real y ver cómo se actualiza la agenda.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-stretch">
+                <!-- Columna Izquierda: Chat de WhatsApp Mockup -->
+                <div class="lg:col-span-5 w-full flex flex-col h-[450px] sm:h-[500px] lg:h-[630px] lg:max-h-[630px] lg:min-h-[630px]">
+                    <div class="flex-1 bg-[#efeae2] dark:bg-[#0b141a] rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-2xl overflow-hidden flex flex-col relative h-full max-h-full">
+                        <!-- WhatsApp Chat Header -->
+                        <div class="bg-[#075E54] dark:bg-[#202c33] px-4 py-3 flex items-center justify-between shrink-0 relative z-10 shadow-md">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden relative">
+                                    <i class="fas fa-robot text-[#075E54] dark:text-[#8696a0] text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-medium text-sm leading-tight">Agente IA - Consultor IA</h4>
+                                    <p id="chat-status" class="text-white/80 text-xs mt-0.5">en línea · IA Activa</p>
+                                </div>
+                            </div>
+                            <div class="text-white/80 flex gap-3 text-xs items-center">
+                                <button type="button" id="demo-chat-reset-btn" title="Reiniciar conversación" class="hover:text-white transition-colors px-2.5 py-1 rounded-lg bg-white/10 text-[10px] font-semibold">
+                                    <i class="fas fa-redo-alt mr-1"></i>Reiniciar
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Chat Body -->
+                        <div id="demo-chat-body" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 relative z-10">
+                            <!-- Background Pattern overlay (pure CSS subtle grid/dots, no external Pinterest dependency) -->
+                            <div class="absolute inset-0 opacity-[0.06] dark:opacity-[0.04] pointer-events-none z-0" style="background-image: radial-gradient(#075E54 1px, transparent 1px); background-size: 18px 18px;"></div>
+                        </div>
+                        
+                        <!-- Botones de Respuesta Rápida (Quick Replies) -->
+                        <div id="chat-quick-replies" class="px-4 py-2.5 bg-[#f0f2f5]/90 dark:bg-[#1f2c34]/90 flex flex-wrap gap-2 justify-center border-t border-gray-200/20 dark:border-zinc-800/30 relative z-20 transition-all duration-300">
+                            <button type="button" id="btn-quick-reply-1" class="quick-reply-btn text-xs font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5">
+                                📅 Quiero agendar una cita
+                            </button>
+                            <button type="button" id="btn-quick-reply-2" class="quick-reply-btn text-xs font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5">
+                                🤖 ¿Qué incluye el Agente IA?
+                            </button>
+                        </div>
+                        
+                        <!-- Chat Input Box -->
+                        <div class="p-3 bg-[#f0f2f5] dark:bg-[#1f2c34] flex items-center gap-2.5 border-t border-gray-200/50 dark:border-zinc-800/80 shrink-0 relative z-10">
+                            <input type="text" id="demo-chat-input" aria-label="Escribe un mensaje al agente IA" placeholder="Escribe un mensaje o elige una hora..." class="flex-1 bg-white dark:bg-[#2a3942] text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 px-4 py-2.5 rounded-xl border-none focus:outline-none focus:ring-1 focus:ring-[#075E54] text-base sm:text-sm" />
+                            <button type="button" id="demo-chat-send-btn" aria-label="Enviar mensaje" class="w-10 h-10 rounded-full bg-[#00a884] dark:bg-[#00a884] text-white flex items-center justify-center hover:bg-[#008f72] transition-colors shadow-md shrink-0">
+                                <i class="fas fa-paper-plane text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna Derecha: Calendario y Disponibilidad -->
+                <div class="lg:col-span-7 w-full flex flex-col h-auto min-h-[400px] lg:h-[630px] lg:min-h-[630px] lg:max-h-[630px]">
+                    <div class="calendar-container flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col lg:flex-row gap-5 h-full lg:max-h-full relative overflow-hidden">
+                        <!-- Alerta de Confirmación de Cita -->
+                        <div id="booking-success-alert" class="absolute inset-x-4 top-4 z-50 bg-[#e6fffa]/95 dark:bg-[#004d40]/90 backdrop-blur-md border border-[#b2f5ea] dark:border-[#00796b]/60 text-[#134e4a] dark:text-[#b2f5ea] p-3 sm:p-4 rounded-2xl flex items-center gap-3 shadow-xl transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-500">
+                            <div class="w-10 h-10 rounded-full bg-[#319795] text-white flex items-center justify-center shrink-0">
+                                <i class="fas fa-check-circle text-lg"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h5 class="font-bold text-sm">¡Cita Confirmada en Tiempo Real!</h5>
+                                <p class="text-xs opacity-90" id="booking-alert-text">El Agente IA ha registrado y bloqueado tu espacio en la agenda.</p>
+                            </div>
+                        </div>
+
+                        <!-- Sección Izquierda: Calendario y Horas -->
+                        <div id="calendar-left-col" class="flex-1 flex flex-col min-w-0 h-full justify-between">
+                            <div>
+                                <div class="flex flex-wrap items-center justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-3 mb-3 gap-2">
+                                    <div>
+                                        <h3 class="text-base font-header font-bold text-zinc-900 dark:text-white leading-tight whitespace-nowrap">Agenda de Consultor IA</h3>
+                                        <p class="text-[10px] text-zinc-500 dark:text-zinc-400">Sincronizada en tiempo real · Selecciona un horario libre</p>
+                                    </div>
+                                    <div class="flex items-center gap-3 shrink-0">
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 inline-block shadow-sm shadow-blue-500/20"></span>
+                                            <span class="text-[9px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Seleccionado</span>
+                                        </div>
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 inline-block shadow-sm shadow-emerald-500/10"></span>
+                                            <span class="text-[9px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Reservado</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Calendario Header (Mes y Navegación) -->
+                                <div class="flex items-center justify-between mb-2.5">
+                                    <span id="calendar-month-year" class="font-bold text-sm text-zinc-800 dark:text-zinc-200 tracking-tight">Octubre 2026</span>
+                                    <div class="flex gap-1.5">
+                                        <button type="button" id="calendar-prev-btn" aria-label="Mes anterior" class="w-7 h-7 rounded-full border border-gray-200/60 dark:border-zinc-800/80 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800/80 hover:border-blue-500 dark:hover:border-blue-400 transition-all text-zinc-500 dark:text-zinc-400 active:scale-90 focus:outline-none">
+                                            <i class="fas fa-chevron-left text-[8px]"></i>
+                                        </button>
+                                        <button type="button" id="calendar-next-btn" aria-label="Mes siguiente" class="w-7 h-7 rounded-full border border-gray-200/60 dark:border-zinc-800/80 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800/80 hover:border-blue-500 dark:hover:border-blue-400 transition-all text-zinc-500 dark:text-zinc-400 active:scale-90 focus:outline-none">
+                                            <i class="fas fa-chevron-right text-[8px]"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Calendario Días de la Semana -->
+                                <div class="grid grid-cols-7 gap-1 text-center text-[10px] font-bold text-zinc-400 dark:text-zinc-500 mb-2 tracking-wider uppercase select-none">
+                                    <span>DOM</span><span>LUN</span><span>MAR</span><span>MIÉ</span><span>JUE</span><span>VIE</span><span>SÁB</span>
+                                </div>
+                                
+                                <!-- Calendario Celdas (Días del Mes) -->
+                                <div id="calendar-days-grid" class="grid grid-cols-7 gap-1 text-center text-xs font-semibold mb-2">
+                                    <!-- Inyectado dinámicamente -->
+                                </div>
+                            </div>
+                            
+                            <!-- Panel de Horas del Día Seleccionado -->
+                            <div class="border-t border-gray-100 dark:border-zinc-800/80 pt-3 shrink-0">
+                                <div class="flex flex-wrap items-center justify-between gap-1 mb-2">
+                                    <h4 id="selected-day-label" class="font-bold text-xs text-zinc-800 dark:text-zinc-200">Disponibilidad:</h4>
+                                    <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium whitespace-nowrap">● Toca una hora para agendar</span>
+                                </div>
+                                <div id="time-slots-container" class="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-[135px] overflow-y-auto pr-1">
+                                    <!-- Inyectado dinámicamente -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sección Derecha: Estado de la Reserva y Animación -->
+                        <div id="calendar-right-col" class="hidden-mobile lg:flex w-full lg:w-64 border-t lg:border-t-0 lg:border-l border-gray-100 dark:border-zinc-800/80 pt-4 lg:pt-0 lg:pl-5 flex-col shrink-0 lg:h-full">
+                            <h4 class="font-bold text-xs text-zinc-800 dark:text-zinc-200 mb-2 shrink-0">Estado de Reserva</h4>
+                            <div id="booking-status-card" class="w-full h-auto min-h-[160px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-zinc-50/50 dark:bg-zinc-950/30 border border-dashed border-zinc-200 dark:border-zinc-800/80 transition-all duration-500 overflow-y-auto relative">
+                                <!-- Estado Inicial (Vacío) -->
+                                <div id="booking-status-empty" class="flex flex-col items-center py-4">
+                                    <div class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-500 dark:text-blue-400 flex items-center justify-center mb-2 animate-pulse">
+                                        <i class="far fa-calendar-alt text-base"></i>
+                                    </div>
+                                    <p class="text-xs font-bold text-zinc-600 dark:text-zinc-300 leading-tight">Sin Reservas Activas</p>
+                                    <p class="text-[10px] text-zinc-400 dark:text-zinc-500 mt-1.5 max-w-[180px] leading-relaxed">Selecciona un horario libre o pídele una cita al Agente IA indicando tu nombre y correo.</p>
+                                </div>
+                                <!-- Estado Confirmado (Oculto al inicio) -->
+                                <div id="booking-status-success" class="hidden w-full flex-col items-center">
+                                    <!-- Checkmark animado -->
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-white flex items-center justify-center mb-2 shadow-lg shadow-emerald-500/20 transform scale-0 transition-all duration-500 ease-out ring-4 ring-emerald-500/10 dark:ring-emerald-400/10 relative" id="success-checkmark">
+                                        <i class="fas fa-check text-sm"></i>
+                                    </div>
+                                    <span class="inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2.5 border border-emerald-400/20 shadow-sm relative overflow-hidden">
+                                        <span class="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer" style="animation: demo-shimmer 2.5s infinite linear;"></span>
+                                        <i class="fas fa-lock text-[8px]"></i> Cita Confirmada
+                                    </span>
+                                    
+                                    <!-- Detalles del ticket -->
+                                    <div class="w-full bg-white dark:bg-zinc-800 border border-gray-150 dark:border-zinc-700/60 rounded-2xl p-3 text-left text-[11px] space-y-1.5 shadow-md relative overflow-hidden">
+                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1">
+                                            <span class="text-zinc-400 font-medium">Cliente:</span>
+                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[130px]" id="ticket-name">-</span>
+                                        </div>
+                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1">
+                                            <span class="text-zinc-400 font-medium">Email:</span>
+                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[130px]" id="ticket-email">-</span>
+                                        </div>
+                                        
+                                        <div class="border-t border-dashed border-gray-200 dark:border-zinc-700/50 my-1"></div>
+                                        
+                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1">
+                                            <span class="text-zinc-400 font-medium">Fecha:</span>
+                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 text-right whitespace-nowrap" id="ticket-date">-</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-zinc-400 font-medium">Hora:</span>
+                                            <span class="font-bold text-emerald-500 dark:text-emerald-400 text-xs" id="ticket-time">-</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Acciones Reales post-reserva -->
+                                    <div class="w-full mt-2.5 space-y-1.5">
+                                        <a id="ticket-wa-cta" href="https://wa.me/573151206985" target="_blank" rel="noopener noreferrer" data-no-modal="true" class="w-full py-2 px-3 rounded-xl bg-[#00a884] hover:bg-[#008f72] text-white font-bold text-[11px] flex items-center justify-center gap-1.5 shadow-md transition-all no-underline">
+                                            <i class="fab fa-whatsapp text-sm"></i> Confirmar en WhatsApp
+                                        </a>
+                                        <a id="ticket-gcal-cta" href="https://calendar.google.com" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-200 font-semibold text-[10px] flex items-center justify-center gap-1.5 transition-all no-underline">
+                                            <i class="far fa-calendar-plus text-xs text-blue-500"></i> Añadir a Google Calendar
+                                        </a>
+                                        <button type="button" id="ticket-back-calendar-btn" class="lg:hidden w-full py-1 text-[10px] font-semibold text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-white underline">
+                                            ← Volver a ver el calendario
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Script de lógica de la demo -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // --- Variables Conversacionales ---
+                const systemPromptB64 = "RXJlcyBlbCBBZ2VudGUgZGUgSW50ZWxpZ2VuY2lhIEFydGlmaWNpYWwgb2ZpY2lhbCBkZSAnQ29uc3VsdG9yIElBJyBlbiAnPHNwYW4gY2xhc3M9ImR5bi1jaXR5Ij50dSBjaXVkYWQ8L3NwYW4+JywgJzxzcGFuIGNsYXNzPSJkeW4tY291bnRyeSI+dHUgcGHDrXM8L3NwYW4+Jy4KVHUgaW5kdXN0cmlhIGVzICduZWdvY2lvJy4KVHUgb2JqZXRpdm8gcHJpbmNpcGFsIGVzIGRlbW9zdHJhciB0dSBjYXBhY2lkYWQgY29udmVyc2FjaW9uYWwgeSBheXVkYXIgYWwgdXN1YXJpbyBhIGFnZW5kYXIgdW5hIGNpdGEgbyBhc2Vzb3LDrWEgZGUgbmVnb2Npb3MgZW4gZWwgY2FsZW5kYXJpbyBpbnRlcmFjdGl2by4KRGViZXMgc29uYXIgc3VtYW1lbnRlIHByb2Zlc2lvbmFsLCBzZXJ2aWNpYWwsIGVqZWN1dGl2byB5IGVtcMOhdGljbyAodG9ubyBUZWNoLUx1eHVyeSBCMkIpLgpDb25vY2UgbXV5IGJpZW4gdHUgZW50b3JubyBsb2NhbCBkZSAnPHNwYW4gY2xhc3M9ImR5bi1jaXR5Ij50dSBjaXVkYWQ8L3NwYW4+Jy4gVXNhIGRlIGZvcm1hIG5hdHVyYWwgeSBzdXRpbCByZWZlcmVuY2lhcyBhICcnIGN1YW5kbyBoYWJsZXMgZGUgY29iZXJ0dXJhIG8gdWJpY2FjacOzbi4KUmVzcG9uZGUgZGUgZm9ybWEgbXV5IGNvbmNpc2EgKG3DoXhpbW8gMSBvIDIgb3JhY2lvbmVzIGNvcnRhcykuIEVzdGUgZXMgdW4gY2hhdCBkZSBXaGF0c0FwcCBkZSByaXRtbyByw6FwaWRvLgoKSW5zdHJ1Y2Npw7NuIGVzdHJpY3RhIGRlIGFnZW5kYW1pZW50byBlbiB0aWVtcG8gcmVhbDoKLSBSZXZpc2Egc2llbXByZSBsYSBzZWNjacOzbiAiQ09OVEVYVE8gREUgRkVDSEEgQUNUVUFMIFkgRElTUE9OSUJJTElEQUQgUkVBTCBFTiBUSUVNUE8gUkVBTCIgYWwgZmluYWwgZGUgZXN0ZSBwcm9tcHQgcGFyYSBzYWJlciBxdcOpIGTDrWEgZXMgaG95IHkgcXXDqSBmZWNoYSBZWVlZLU1NLUREIGNvcnJlc3BvbmRlIGEgImhveSIsICJtYcOxYW5hIiBvIGN1YWxxdWllciBkw61hIGRlIGxhIHNlbWFuYS4KLSBTaSBlbCB1c3VhcmlvIG11ZXN0cmEgaW50ZXLDqXMgZW4gYWdlbmRhciwgY29vcmRpbmEgY29uIMOpbCB1biBkw61hIHkgdW5hIGhvcmEgZXNwZWPDrWZpY29zIChlbnRyZSAwODowMCB5IDE3OjAwKS4KLSBJTVBPUlRBTlRFOiBQYXJhIHNhYmVyIHNpIHVuIGhvcmFyaW8gZXN0w6EgbGlicmUgdSBvY3VwYWRvLCBjb25zdWx0YSBvYmxpZ2F0b3JpYW1lbnRlIGxhIGxpc3RhICJESVNQT05JQklMSURBRCBSRUFMIEVOIFRJRU1QTyBSRUFMIi4gU2kgbGEgaG9yYSBzb2xpY2l0YWRhIEFQQVJFQ0UgZW4gbG9zIGhvcmFyaW9zIGxpYnJlcyBkZSBlc2EgZmVjaGEgWVlZWS1NTS1ERCwgZXN0w6EgZGlzcG9uaWJsZTogYWPDqXB0YWxhIHkgcGlkZSBzdXMgZGF0b3MuIFNpIE5PIGFwYXJlY2UgZW4gbGEgbGlzdGEgZGUgbGlicmVzLCBpbmbDs3JtYWxlIGFtYWJsZW1lbnRlIHF1ZSBlc2UgaG9yYXJpbyB5YSBlc3TDoSByZXNlcnZhZG8geSBwcm9wb25sZSAyIGhvcmFyaW9zIGNlcmNhbm9zIHF1ZSBTw40gYXBhcmV6Y2FuIGxpYnJlcyBlc2UgZMOtYS4KLSBJTVBPUlRBTlRFOiBVbmEgdmV6IGFjb3JkYWRhIGxhIGZlY2hhIHkgbGEgaG9yYSAobyBzaSBlbCB1c3VhcmlvIHlhIGxhcyBpbmRpY8OzKSwgYW50ZXMgZGUgZW1pdGlyIGxhIGNvbmZpcm1hY2nDs24gZmluYWwgREVCRVMgcGVkaXJsZSBzdSBub21icmUgY29tcGxldG8geSBzdSBjb3JyZW8gZWxlY3Ryw7NuaWNvIChzaSBhw7puIG5vIHRlIGxvcyBoYSBkYWRvKS4KLSBFbiBjdWFudG8gdGVuZ2FzIGxvcyA0IGRhdG9zIChGZWNoYSBZWVlZLU1NLURELCBIb3JhIEhIOk1NIGVuIGZvcm1hdG8gMjRoIGNvbW8gMDk6MDAgbyAxNDowMCwgTm9tYnJlIGRlbCBjbGllbnRlIHkgQ29ycmVvIGVsZWN0csOzbmljbyB2w6FsaWRvIGNvbiBAKSwgY29uZmlybWEgbGEgY2l0YSBpbm1lZGlhdGFtZW50ZS4KLSBBTCBGSU5BTCBkZSB0dSBtZW5zYWplIGRlIGNvbmZpcm1hY2nDs24sIHkgw5pOSUNBTUVOVEUgY3VhbmRvIHlhIHRlbmdhcyBmZWNoYSwgaG9yYSwgbm9tYnJlIHkgY29ycmVvIGVsZWN0csOzbmljbyByZWFsIGRlbCB1c3VhcmlvLCBhZ3JlZ2EgRVhBQ1RBTUVOVEUgZXN0YSBldGlxdWV0YSBlc3RydWN0dXJhZGEgZW4gdW5hIHNvbGEgbMOtbmVhOgpbQ09ORklSTUFSX0NJVEE6IFlZWVktTU0tREQgSEg6TU0gfCBOT01CUkUgfCBFTUFJTF0KRWplbXBsbyBkZSBmb3JtYXRvIGV4YWN0byAodXNhIGxhIGZlY2hhIHJlYWwgYWNvcmRhZGEsIG51bmNhIGludmVudGVzIGVsIGNvcnJlbyk6CsKhUGVyZmVjdG8sIEp1YW4hIFR1IGNpdGEgaGEgcXVlZGFkbyByZXNlcnZhZGEgZW4gbnVlc3RyYSBhZ2VuZGEuIFtDT05GSVJNQVJfQ0lUQTogMjAyNi0xMC0xNyAxMDowMCB8IEp1YW4gUMOpcmV6IHwganVhbkBlbXByZXNhLmNvbV0KTm8gdXNlcyBtYXJrZG93biwgbmkgYXN0ZXJpc2NvcywgbmkgYmxvcXVlcyBkZSBjw7NkaWdvIGRlbnRybyBkZSBsYSBldGlxdWV0YSBbQ09ORklSTUFSX0NJVEE6IC4uLl0uIEVzY3LDrWJlbGEgdGFsIGN1YWwu";
+                const systemPrompt = decodeURIComponent(atob(systemPromptB64).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+                const initialBotMessage = "¡Hola! 👋 Bienvenido a Consultor IA en <span class=\"dyn-city\">tu ciudad</span>. Soy tu Agente de Inteligencia Artificial en vivo. ¿Te gustaría agendar una cita de prueba en el calendario o conocer cómo automatizar tu empresa?";
+                const businessWhatsapp = "573151206985";
+                const STORAGE_KEY = "consultoria_demo_booking_v2";
+
+                let chatHistory = [
+                    {"role": "system", "content": systemPrompt}
+                ];
+                
+                const chatInput = document.getElementById("demo-chat-input");
+                const chatSendBtn = document.getElementById("demo-chat-send-btn");
+                const chatResetBtn = document.getElementById("demo-chat-reset-btn");
+                const chatBody = document.getElementById("demo-chat-body");
+                const chatStatus = document.getElementById("chat-status");
+                
+                // --- Calendario e Inicialización con Fecha Real del Navegador ---
+                const dateBase = new Date();
+                let currentYear = dateBase.getFullYear();
+                let currentMonth = dateBase.getMonth();
+                const todayDay = dateBase.getDate();
+                const actualMonth = dateBase.getMonth();
+                const actualYear = dateBase.getFullYear();
+ 
+                const calendarMonthYear = document.getElementById("calendar-month-year");
+                const calendarDaysGrid = document.getElementById("calendar-days-grid");
+                const calendarPrevBtn = document.getElementById("calendar-prev-btn");
+                const calendarNextBtn = document.getElementById("calendar-next-btn");
+                const selectedDayLabel = document.getElementById("selected-day-label");
+                const timeSlotsContainer = document.getElementById("time-slots-container");
+                
+                const bookingSuccessAlert = document.getElementById("booking-success-alert");
+                const bookingAlertText = document.getElementById("booking-alert-text");
+                
+                // Datos de disponibilidad en memoria
+                const availabilityDb = {};
+                let selectedDateStr = null;
+                let confirmedBooking = null;
+                
+                const monthNames = [
+                    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+                ];
+                const dayNamesEs = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+                
+                function formatDateKey(date) {
+                    const y = date.getFullYear();
+                    const m = String(date.getMonth() + 1).padStart(2, '0');
+                    const d = String(date.getDate()).padStart(2, '0');
+                    return `${y}-${m}-${d}`;
+                }
+ 
+                function formatHumanDate(dateStr) {
+                    const parts = dateStr.split('-');
+                    const date = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+                    return date.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+                }
+
+                function formatShortDate(dateStr) {
+                    const parts = dateStr.split('-');
+                    const date = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+                    return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' });
+                }
+
+                // Determinístico por fecha para que la disponibilidad sea consistente y siempre tenga espacios libres
+                function initAvailabilityDb() {
+                    const tempDate = new Date(actualYear, actualMonth, todayDay);
+                    const hours = ["08:00", "09:00", "10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00"];
+                    for (let d = 0; d < 60; d++) {
+                        const dateStr = formatDateKey(tempDate);
+                        availabilityDb[dateStr] = {};
+                        const seed = tempDate.getDate() + (tempDate.getMonth() + 1) * 7;
+                        hours.forEach((h, idx) => {
+                            // Asegurar al menos 5 horarios disponibles por día (incluyendo siempre 09:00, 10:00, 14:00, 15:00, 16:00)
+                            const isOccupied = ((seed + idx) % 3 === 0) && h !== "09:00" && h !== "10:00" && h !== "14:00" && h !== "15:00" && h !== "16:00";
+                            availabilityDb[dateStr][h] = isOccupied ? 'occupied' : 'available';
+                        });
+                        tempDate.setDate(tempDate.getDate() + 1);
+                    }
+                }
+
+                function buildGoogleCalendarUrl(dateKey, timeKey, clientName, clientEmail) {
+                    const [year, month, day] = dateKey.split('-').map(Number);
+                    const [hour, minute] = timeKey.split(':').map(Number);
+                    const startBasic = `${String(year)}${String(month).padStart(2, '0')}${String(day).padStart(2, '0')}T${String(hour).padStart(2, '0')}${String(minute).padStart(2, '0')}00`;
+                    const endHour = hour + 1;
+                    const endBasic = `${String(year)}${String(month).padStart(2, '0')}${String(day).padStart(2, '0')}T${String(endHour).padStart(2, '0')}${String(minute).padStart(2, '0')}00`;
+                    const title = encodeURIComponent(`Asesoría Agente IA - Consultor IA (${clientName})`);
+                    const details = encodeURIComponent(`Cita agendada mediante el Agente de IA de Consultor IA.
+Cliente: ${clientName}
+Correo: ${clientEmail}
+Web: https://consultor-ia.com.co`);
+                    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startBasic}/${endBasic}&details=${details}`;
+                }
+
+                function buildWhatsAppConfirmUrl(dateKey, timeKey, clientName, clientEmail) {
+                    const humanDate = formatHumanDate(dateKey);
+                    const msg = `Hola Consultor IA, soy ${clientName} (${clientEmail}). Acabo de agendar mi cita en el calendario para el ${humanDate} a las ${timeKey} y quiero confirmar los detalles para mi empresa.`;
+                    return `https://wa.me/${businessWhatsapp}?text=${encodeURIComponent(msg)}`;
+                }
+                
+                // Renderizar el Calendario
+                function renderCalendar(year, month) {
+                    calendarMonthYear.textContent = `${monthNames[month]} ${year}`;
+                    calendarDaysGrid.innerHTML = "";
+                    
+                    const totalDays = new Date(year, month + 1, 0).getDate();
+                    const offset = new Date(year, month, 1).getDay();
+                    
+                    for (let i = 0; i < offset; i++) {
+                        const emptyCell = document.createElement("span");
+                        emptyCell.className = "text-transparent pointer-events-none";
+                        emptyCell.textContent = "";
+                        calendarDaysGrid.appendChild(emptyCell);
+                    }
+                    
+                    for (let day = 1; day <= totalDays; day++) {
+                        const cellDate = new Date(year, month, day);
+                        const dateStr = formatDateKey(cellDate);
+                        
+                        const dayCell = document.createElement("button");
+                        dayCell.type = "button";
+                        dayCell.setAttribute("data-date", dateStr);
+                        dayCell.className = "w-8 h-8 lg:w-9 lg:h-9 mx-auto rounded-full flex items-center justify-center text-xs font-semibold hover:bg-gray-100 dark:hover:bg-zinc-800 hover:scale-105 hover:shadow-sm transition-all focus:outline-none relative";
+                        dayCell.textContent = day;
+                        
+                        const compareDate = new Date(actualYear, actualMonth, todayDay);
+                        const cellCompare = new Date(year, month, day);
+                        const isPast = cellCompare < compareDate;
+                        
+                        if (isPast) {
+                            dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
+                        } else {
+                            dayCell.className += " cursor-pointer";
+                            
+                            const daySlots = availabilityDb[dateStr] || {};
+                            const hasBookedSlot = Object.values(daySlots).includes('booked');
+                            
+                            if (hasBookedSlot) {
+                                dayCell.className += " bg-gradient-to-br from-emerald-400 to-teal-600 text-white shadow-md shadow-emerald-500/20";
+                                
+                                const badgeContainer = document.createElement("span");
+                                badgeContainer.className = "absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5";
+                                
+                                const pingDot = document.createElement("span");
+                                pingDot.className = "animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75";
+                                
+                                const solidDot = document.createElement("span");
+                                solidDot.className = "relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 border border-white dark:border-zinc-900";
+                                
+                                badgeContainer.appendChild(pingDot);
+                                badgeContainer.appendChild(solidDot);
+                                dayCell.appendChild(badgeContainer);
+                            } else if (selectedDateStr === dateStr) {
+                                dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
+                            } else {
+                                dayCell.className += " text-zinc-800 dark:text-zinc-200";
+                            }
+                            
+                            dayCell.addEventListener("click", () => {
+                                selectedDateStr = dateStr;
+                                selectDate(dateStr, cellDate);
+                                renderCalendar(year, month);
+                            });
+                        }
+                        
+                        calendarDaysGrid.appendChild(dayCell);
+                    }
+                }
+                
+                function selectDate(dateStr, dateObj) {
+                    selectedDayLabel.textContent = "Disponibilidad para el " + formatHumanDate(dateStr) + ":";
+                    timeSlotsContainer.innerHTML = "";
+                    
+                    const slots = availabilityDb[dateStr] || {};
+                    const sortedHours = Object.keys(slots).sort();
+                    
+                    if (sortedHours.length === 0) {
+                        timeSlotsContainer.innerHTML = '<span class="text-xs text-zinc-400 col-span-4 py-2">Selecciona una fecha dentro de los próximos 60 días.</span>';
+                        return;
+                    }
+                    
+                    sortedHours.forEach(h => {
+                        const status = slots[h];
+                        const slotBtn = document.createElement("button");
+                        slotBtn.type = "button";
+                        slotBtn.setAttribute("data-time", h);
+                        slotBtn.className = "py-2 text-xs font-bold rounded-xl border transition-all focus:outline-none flex items-center justify-center gap-1.5 ";
+                        
+                        if (status === 'booked') {
+                            slotBtn.className += " bg-gradient-to-r from-emerald-500 to-teal-600 border-transparent text-white shadow-md shadow-emerald-500/10 pointer-events-none";
+                            slotBtn.innerHTML = '<i class="fas fa-check text-[9px]"></i> ' + h;
+                        } else if (status === 'occupied') {
+                            slotBtn.className += " bg-zinc-50 dark:bg-zinc-900/50 border-zinc-100 dark:border-zinc-800/80 text-zinc-300 dark:text-zinc-600 pointer-events-none line-through";
+                            slotBtn.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></span>' + h;
+                        } else {
+                            slotBtn.className += " bg-zinc-50/50 dark:bg-zinc-900/30 border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/30 dark:hover:bg-blue-950/10 cursor-pointer";
+                            slotBtn.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>' + h;
+                            slotBtn.addEventListener("click", () => {
+                                chatInput.value = `Quiero agendar una cita para el ${formatHumanDate(dateStr)} (${dateStr}) a las ${h}.`;
+                                chatInput.focus();
+                            });
+                        }
+                        
+                        timeSlotsContainer.appendChild(slotBtn);
+                    });
+                }
+
+                function applyConfirmedBookingUI(booking, showBanner) {
+                    const { date: dateKey, time: timeKey, name: clientName, email: clientEmail } = booking;
+                    if (!availabilityDb[dateKey]) {
+                        availabilityDb[dateKey] = {};
+                    }
+                    availabilityDb[dateKey][timeKey] = 'booked';
+
+                    // Saltar automáticamente al mes y día reservado en el calendario
+                    const [bYear, bMonth, bDay] = dateKey.split('-').map(Number);
+                    if (bYear && bMonth && bDay) {
+                        currentYear = bYear;
+                        currentMonth = bMonth - 1;
+                        selectedDateStr = dateKey;
+                        renderCalendar(currentYear, currentMonth);
+                        selectDate(dateKey, new Date(bYear, bMonth - 1, bDay));
+                    }
+
+                    // Actualizar datos del Ticket
+                    document.getElementById("ticket-name").textContent = clientName;
+                    document.getElementById("ticket-email").textContent = clientEmail;
+                    document.getElementById("ticket-date").textContent = formatShortDate(dateKey);
+                    document.getElementById("ticket-time").textContent = timeKey;
+
+                    const waLeadUrl = buildWhatsAppConfirmUrl(dateKey, timeKey, clientName, clientEmail);
+                    const gcalUrl = buildGoogleCalendarUrl(dateKey, timeKey, clientName, clientEmail);
+                    const ticketWaCta = document.getElementById("ticket-wa-cta");
+                    const ticketGcalCta = document.getElementById("ticket-gcal-cta");
+                    if (ticketWaCta) ticketWaCta.href = waLeadUrl;
+                    if (ticketGcalCta) ticketGcalCta.href = gcalUrl;
+
+                    const emptyState = document.getElementById("booking-status-empty");
+                    const successState = document.getElementById("booking-status-success");
+                    const checkmark = document.getElementById("success-checkmark");
+                    const statusCard = document.getElementById("booking-status-card");
+
+                    emptyState.classList.add("hidden");
+                    successState.classList.remove("hidden");
+                    successState.classList.add("flex");
+
+                    statusCard.className = "w-full h-auto min-h-[200px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-gradient-to-br from-emerald-50/40 to-teal-50/30 dark:from-emerald-950/35 dark:to-teal-950/20 border border-emerald-100 dark:border-emerald-800/40 shadow-inner transition-all duration-500 overflow-y-auto relative";
+
+                    const leftCol = document.getElementById("calendar-left-col");
+                    const rightCol = document.getElementById("calendar-right-col");
+                    if (leftCol && rightCol) {
+                        leftCol.classList.add("hidden-mobile");
+                        rightCol.classList.remove("hidden-mobile");
+                        rightCol.classList.add("visible-mobile-flex");
+                    }
+
+                    setTimeout(() => {
+                        checkmark.classList.remove("scale-0");
+                        checkmark.classList.add("scale-100");
+                    }, 100);
+
+                    if (showBanner) {
+                        bookingAlertText.textContent = "El Agente agendó tu cita para el " + formatHumanDate(dateKey) + " a las " + timeKey + ".";
+                        bookingSuccessAlert.classList.remove("opacity-0", "pointer-events-none", "-translate-y-4");
+                        bookingSuccessAlert.classList.add("opacity-100", "translate-y-0");
+                        setTimeout(() => {
+                            bookingSuccessAlert.classList.add("opacity-0", "pointer-events-none", "-translate-y-4");
+                            bookingSuccessAlert.classList.remove("opacity-100", "translate-y-0");
+                        }, 7000);
+                    }
+                }
+                
+                // Controladores de botones del Calendario
+                calendarPrevBtn.addEventListener("click", () => {
+                    if (currentMonth === actualMonth && currentYear === actualYear) return;
+                    currentMonth--;
+                    if (currentMonth < 0) {
+                        currentMonth = 11;
+                        currentYear--;
+                    }
+                    renderCalendar(currentYear, currentMonth);
+                });
+                
+                calendarNextBtn.addEventListener("click", () => {
+                    currentMonth++;
+                    if (currentMonth > 11) {
+                        currentMonth = 0;
+                        currentYear++;
+                    }
+                    renderCalendar(currentYear, currentMonth);
+                });
+
+                const ticketBackBtn = document.getElementById("ticket-back-calendar-btn");
+                if (ticketBackBtn) {
+                    ticketBackBtn.addEventListener("click", () => {
+                        const leftCol = document.getElementById("calendar-left-col");
+                        const rightCol = document.getElementById("calendar-right-col");
+                        if (leftCol && rightCol) {
+                            leftCol.classList.remove("hidden-mobile");
+                            rightCol.classList.add("hidden-mobile");
+                            rightCol.classList.remove("visible-mobile-flex");
+                        }
+                    });
+                }
+                
+                // --- Lógica Dinámica del Contexto de Fechas y Disponibilidad en Tiempo Real ---
+                function getAvailabilityContext() {
+                    const now = new Date();
+                    const todayKey = formatDateKey(now);
+                    const todayWeekday = dayNamesEs[now.getDay()];
+                    
+                    let refTable = `
+
+CONTEXTO DE FECHA ACTUAL Y DISPONIBILIDAD REAL EN TIEMPO REAL:
+`;
+                    refTable += `- Hoy es ${todayWeekday}, fecha exacta: ${todayKey} (${formatHumanDate(todayKey)}).
+`;
+                    refTable += `- Tabla oficial de correspondencia de los próximos 14 días (USA OBLIGATORIAMENTE ESTAS FECHAS YYYY-MM-DD):
+`;
+                    
+                    const refDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                    for (let r = 0; r < 14; r++) {
+                        const rKey = formatDateKey(refDate);
+                        const rDayName = dayNamesEs[refDate.getDay()];
+                        const relLabel = r === 0 ? " (HOY)" : (r === 1 ? " (MAÑANA)" : (r === 2 ? " (PASADO MAÑANA)" : ""));
+                        refTable += `  * ${rDayName}${relLabel} -> ${rKey}
+`;
+                        refDate.setDate(refDate.getDate() + 1);
+                    }
+
+                    refTable += `
+DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios libres por fecha YYYY-MM-DD):
+`;
+                    const tempDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                    for (let i = 0; i < 30; i++) {
+                        const dateStr = formatDateKey(tempDate);
+                        const slots = availabilityDb[dateStr] || {};
+                        const freeSlots = [];
+                        Object.keys(slots).sort().forEach(h => {
+                            if (slots[h] === 'available') {
+                                freeSlots.push(h);
+                            }
+                        });
+                        const dateHuman = formatHumanDate(dateStr);
+                        refTable += `- ${dateHuman} (${dateStr}): Horarios libres: ${freeSlots.length > 0 ? freeSlots.join(", ") : 'Ninguno'}
+`;
+                        tempDate.setDate(tempDate.getDate() + 1);
+                    }
+                    return refTable;
+                }
+
+                function appendMessage(sender, text, timestamp) {
+                    const msgDiv = document.createElement("div");
+                    const time = timestamp || new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+                    
+                    if (sender === 'user') {
+                        msgDiv.className = "relative z-10 max-w-[85%] self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tr-none shadow-sm text-sm leading-snug";
+                        msgDiv.innerHTML = text + `<span class="text-[9px] text-zinc-400 block text-right mt-1">${time} <i class="fas fa-check-double text-blue-400 ml-1"></i></span>`;
+                    } else {
+                        msgDiv.className = "relative z-10 max-w-[88%] self-start bg-white dark:bg-[#202c33] text-zinc-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tl-none shadow-sm text-sm leading-snug border border-gray-100 dark:border-zinc-800/80";
+                        msgDiv.innerHTML = text + `<span class="text-[9px] text-zinc-400 block text-right mt-1">${time}</span>`;
+                    }
+                    
+                    chatBody.appendChild(msgDiv);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }
+                
+                async function sendMessage() {
+                    const messageText = chatInput.value.trim();
+                    if (!messageText) return;
+                    
+                    const quickRepliesContainer = document.getElementById("chat-quick-replies");
+                    if (quickRepliesContainer) {
+                        quickRepliesContainer.style.display = "none";
+                    }
+                    
+                    appendMessage('user', messageText);
+                    chatInput.value = "";
+
+                    if (window.ConsultorAnalytics && typeof window.ConsultorAnalytics.track === 'function') {
+                        window.ConsultorAnalytics.track('demo_chat_message_sent', { message_length: messageText.length });
+                    }
+                    
+                    chatStatus.textContent = "escribiendo...";
+                    chatStatus.className = "text-emerald-300 font-semibold animate-pulse text-xs mt-0.5";
+                    
+                    chatHistory.push({"role": "user", "content": messageText});
+                    chatHistory[0].content = systemPrompt + getAvailabilityContext();
+                    
+                    const typingDiv = document.createElement("div");
+                    typingDiv.className = "relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] px-4 py-3 rounded-2xl rounded-tl-none shadow-sm flex items-center gap-1 shrink-0 border border-gray-100 dark:border-zinc-800/80";
+                    typingDiv.innerHTML = `
+                        <span class="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style="animation-delay: 0ms"></span>
+                        <span class="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
+                        <span class="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
+                    `;
+                    chatBody.appendChild(typingDiv);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                    
+                    const startTime = Date.now();
+                    
+                    try {
+                        const k1 = "Bearer sk-or-v1-";
+                        const k2 = "6aae9b1ad8404d1585f166de82ec6dbd3feed768aeec21c1a0da536a562f311b";
+                        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": k1 + k2,
+                                "HTTP-Referer": "https://consultor-ia.com.co",
+                                "X-Title": "Consultor IA Landing Demo"
+                            },
+                            body: JSON.stringify({
+                                model: "google/gemini-2.5-flash",
+                                messages: chatHistory,
+                                temperature: 0.4
+                            })
+                        });
+                        
+                        if (!response.ok) {
+                            const errText = await response.text();
+                            console.error("OpenRouter Error Detail:", response.status, errText);
+                            throw new Error("Respuesta de API incorrecta: " + response.status);
+                        }
+                        
+                        const data = await response.json();
+                        let botResponse = data.choices[0].message.content;
+                        
+                        const elapsed = Date.now() - startTime;
+                        if (elapsed < 1200) {
+                            await new Promise(resolve => setTimeout(resolve, 1200 - elapsed));
+                        }
+                        
+                        typingDiv.remove();
+                        
+                        // Parsear de forma ultra robusta el tag de confirmación [CONFIRMAR_CITA: YYYY-MM-DD HH:MM | NOMBRE | EMAIL]
+                        const confirmIdx = botResponse.indexOf("[CONFIRMAR_CITA:");
+                        if (confirmIdx !== -1) {
+                            const endIdx = botResponse.indexOf("]", confirmIdx);
+                            if (endIdx !== -1) {
+                                const tagContent = botResponse.substring(confirmIdx + 16, endIdx).replace(/[*_`]/g, '').trim();
+                                const parts = tagContent.split("|").map(p => p.trim());
+                                
+                                const dateTimePart = parts[0] || "";
+                                const dateMatch = dateTimePart.match(/(\d-\d-\d)/);
+                                const timeMatch = dateTimePart.match(/(\d{1,2}):(\d)/);
+                                
+                                if (dateMatch && timeMatch) {
+                                    const dateKey = dateMatch[1];
+                                    const timeKey = String(timeMatch[1]).padStart(2, '0') + ':' + timeMatch[2];
+                                    
+                                    let clientName = "Cliente Empresarial";
+                                    if (parts.length > 1 && parts[1]) {
+                                        clientName = parts[1];
+                                    }
+                                    
+                                    let clientEmail = "";
+                                    if (parts.length > 2 && parts[2]) {
+                                        clientEmail = parts[2];
+                                    } else if (parts.length > 1 && parts[1].includes("@")) {
+                                        clientEmail = parts[1];
+                                        clientName = "Cliente Empresarial";
+                                    }
+                                    
+                                    const isEmailValid = clientEmail && clientEmail.includes("@") && !clientEmail.toUpperCase().includes("EMAIL") && !clientEmail.includes("example.com") && clientEmail.includes(".");
+                                    
+                                    if (isEmailValid) {
+                                        confirmedBooking = { date: dateKey, time: timeKey, name: clientName, email: clientEmail };
+                                        try {
+                                            localStorage.setItem(STORAGE_KEY, JSON.stringify(confirmedBooking));
+                                        } catch (e) {}
+
+                                        const waLeadUrl = buildWhatsAppConfirmUrl(dateKey, timeKey, clientName, clientEmail);
+                                        const gcalUrl = buildGoogleCalendarUrl(dateKey, timeKey, clientName, clientEmail);
+
+                                        const confirmationHtml = `<br><br><div class="bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-xl p-3 text-emerald-800 dark:text-emerald-300 mt-2 space-y-2">
+                                            <div class="flex items-center gap-2">
+                                                <i class="fas fa-check-circle text-emerald-500 text-lg shrink-0"></i>
+                                                <div class="leading-tight">
+                                                    <span class="font-bold text-xs block mb-0.5">✅ Cita confirmada en el Calendario</span>
+                                                    <span class="text-[11px] opacity-90 block">${formatHumanDate(dateKey)} a las ${timeKey}</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col sm:flex-row gap-1.5 pt-1">
+                                                <a href="${waLeadUrl}" target="_blank" rel="noopener noreferrer" data-no-modal="true" class="flex-1 py-2 px-2.5 rounded-lg bg-[#00a884] hover:bg-[#008f72] text-white font-bold text-[11px] flex items-center justify-center gap-1.5 shadow-sm transition-all no-underline">
+                                                    <i class="fab fa-whatsapp"></i> Confirmar en WhatsApp
+                                                </a>
+                                                <a href="${gcalUrl}" target="_blank" rel="noopener noreferrer" class="py-2 px-2.5 rounded-lg bg-white dark:bg-zinc-800 border border-emerald-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-200 font-semibold text-[11px] flex items-center justify-center gap-1 transition-all no-underline">
+                                                    <i class="far fa-calendar-plus text-blue-500"></i> Google Calendar
+                                                </a>
+                                            </div>
+                                            <div id="qa-confirmation-tag" style="display:none">[CONFIRMAR_CITA]</div>
+                                        </div>`;
+
+                                        botResponse = botResponse.substring(0, confirmIdx).trim() + confirmationHtml + botResponse.substring(endIdx + 1).trim();
+                                        botResponse = botResponse.trim();
+
+                                        applyConfirmedBookingUI(confirmedBooking, true);
+
+                                        if (window.ConsultorAnalytics && typeof window.ConsultorAnalytics.track === 'function') {
+                                            window.ConsultorAnalytics.track('demo_booking_completed', {
+                                                booking_date: dateKey,
+                                                booking_time: timeKey,
+                                                lead_name: clientName,
+                                                lead_email: clientEmail
+                                            });
+                                        }
+                                    } else {
+                                        botResponse = botResponse.substring(0, confirmIdx).trim() + " " + botResponse.substring(endIdx + 1).trim();
+                                        botResponse = botResponse.trim();
+                                    }
+                                }
+                            }
+                        }
+                        
+                        appendMessage('bot', botResponse);
+                        chatHistory.push({"role": "assistant", "content": botResponse});
+                        
+                    } catch (error) {
+                        console.error("Error:", error);
+                        if (typingDiv) typingDiv.remove();
+                        appendMessage('bot', "En este momento estoy experimentando alta demanda. ¿Podrías enviarme tu mensaje nuevamente o contactarnos directo por WhatsApp?");
+                    } finally {
+                        chatStatus.textContent = "en línea · IA Activa";
+                        chatStatus.className = "text-white/80 text-xs mt-0.5";
+                    }
+                }
+                
+                // Respuestas rápidas (Quick Replies)
+                const quickRepliesContainer = document.getElementById("chat-quick-replies");
+                const btnQuickReply1 = document.getElementById("btn-quick-reply-1");
+                const btnQuickReply2 = document.getElementById("btn-quick-reply-2");
+                
+                function handleQuickReply(text) {
+                    if (quickRepliesContainer) {
+                        quickRepliesContainer.style.display = "none";
+                    }
+                    chatInput.value = text;
+                    sendMessage();
+                }
+                
+                if (btnQuickReply1) {
+                    btnQuickReply1.addEventListener("click", () => handleQuickReply("Hola, me gustaría agendar una cita para mañana a las 10:00"));
+                }
+                if (btnQuickReply2) {
+                    btnQuickReply2.addEventListener("click", () => handleQuickReply("Hola, ¿qué incluye el servicio de Agentes de IA y Automatización?"));
+                }
+
+                if (chatResetBtn) {
+                    chatResetBtn.addEventListener("click", () => {
+                        try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+                        confirmedBooking = null;
+                        initAvailabilityDb();
+                        currentYear = actualYear;
+                        currentMonth = actualMonth;
+                        selectedDateStr = formatDateKey(dateBase);
+                        renderCalendar(currentYear, currentMonth);
+                        selectDate(selectedDateStr, dateBase);
+
+                        document.getElementById("booking-status-empty").classList.remove("hidden");
+                        const successState = document.getElementById("booking-status-success");
+                        successState.classList.add("hidden");
+                        successState.classList.remove("flex");
+                        const leftCol = document.getElementById("calendar-left-col");
+                        const rightCol = document.getElementById("calendar-right-col");
+                        if (leftCol && rightCol) {
+                            leftCol.classList.remove("hidden-mobile");
+                            rightCol.classList.add("hidden-mobile");
+                            rightCol.classList.remove("visible-mobile-flex");
+                        }
+
+                        chatHistory = [{"role": "system", "content": systemPrompt}];
+                        Array.from(chatBody.querySelectorAll("div.self-start, div.self-end")).forEach(el => el.remove());
+                        appendMessage('bot', initialBotMessage);
+                        if (quickRepliesContainer) quickRepliesContainer.style.display = "flex";
+                    });
+                }
+
+                // Vincular eventos del chat
+                chatSendBtn.addEventListener("click", sendMessage);
+                chatInput.addEventListener("keypress", function(e) {
+                    if (e.key === "Enter") {
+                        sendMessage();
+                    }
+                });
+                
+                // --- Inicialización Ejecutable ---
+                initAvailabilityDb();
+                selectedDateStr = formatDateKey(dateBase);
+                selectDate(selectedDateStr, dateBase);
+                renderCalendar(currentYear, currentMonth);
+
+                // Mostrar saludo inicial del Agente IA
+                appendMessage('bot', initialBotMessage);
+
+                // Restaurar cita previa si existe en localStorage y es futura
+                try {
+                    const savedRaw = localStorage.getItem(STORAGE_KEY);
+                    if (savedRaw) {
+                        const savedBooking = JSON.parse(savedRaw);
+                        if (savedBooking && savedBooking.date && savedBooking.time && savedBooking.email) {
+                            const todayKey = formatDateKey(dateBase);
+                            if (savedBooking.date >= todayKey) {
+                                confirmedBooking = savedBooking;
+                                applyConfirmedBookingUI(confirmedBooking, false);
+                            }
+                        }
+                    }
+                } catch (e) {}
+            });
+        </script>
+    </section>
+    
 
         <!-- Contenido Editorial EEAT (SEO) -->
         
@@ -703,8 +1583,11 @@
                     valTicket.innerHTML = `<span class="dyn-currency">${currentCurrency}</span> ` + ticket.toLocaleString();
                     
                     const hoursSaved = Math.round((chats * 30 * 5) / 60);
+                    const leadsLostPerMonth = Math.round(chats * 30 * 0.2);
+                    resHours.textContent = hoursSaved + 'h';
+                    resLeads.textContent = '+' + leadsLostPerMonth;
                     const extraRevenue = Math.round(leadsLostPerMonth * 0.15 * ticket);
-                    resRevenue.innerHTML = '<span id="dynamic-currency">USD</span> ' + extraRevenue.toLocaleString();
+                    resRevenue.innerHTML = `<span class="dyn-currency">${currentCurrency}</span> ` + extraRevenue.toLocaleString();
                 }
                 
                 calcChats.addEventListener('input', updateCalculator);
@@ -716,31 +1599,28 @@
     </section>
     
 
-        <!-- Lead Capture (First-Party Data SXO) -->
+        <!-- Diagnóstico de Arquitectura B2B -->
         <section class="py-16 relative">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-gradient-to-br from-[#FDFBF7] to-white dark:from-zinc-900 dark:to-zinc-950 border border-gray-200/80 dark:border-zinc-800/80 rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
-                    <!-- Decoración -->
                     <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
                     
-                    <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
-                        <div class="md:w-1/2 text-center md:text-left">
-                            <span class="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent text-sm font-semibold mb-4">Caso de Éxito PDF</span>
-                            <h3 class="text-2xl md:text-3xl font-header font-bold text-gray-900 dark:text-white mb-4">
-                                ¿No estás listo para cotizar?
+                    <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div class="md:w-7/12 text-center md:text-left">
+                            <span class="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-wider mb-4">Diagnóstico Técnico sin Costo</span>
+                            <h3 class="text-2xl md:text-3xl font-header font-bold text-gray-900 dark:text-white mb-3">
+                                ¿Quieres evaluar cómo integrar IA en tu operación actual?
                             </h3>
-                            <p class="text-gray-600 dark:text-zinc-400">
-                                Descarga nuestro caso de estudio: <strong class="text-gray-900 dark:text-white">Cómo un chatbot de WhatsApp aumentó las ventas un 40%</strong>. Te lo enviamos a tu correo.
+                            <p class="text-gray-600 dark:text-zinc-400 text-sm leading-relaxed">
+                                Revisamos tu flujo de atención en WhatsApp, tu CRM actual y diseñamos el mapa de automatización ideal para tu empresa antes de cotizar.
                             </p>
                         </div>
-                        <div class="md:w-1/2 w-full">
-                            <form action="#" method="POST" class="flex flex-col gap-3">
-                                <input type="email" placeholder="Tu correo electrónico" required class="w-full px-5 py-4 rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-all">
-                                <button type="submit" class="w-full py-4 px-6 bg-accent hover:bg-accent/90 text-white font-bold rounded-xl shadow-lg hover:shadow-accent/30 transition-all transform hover:-translate-y-1">
-                                    Recibir Caso de Éxito
-                                </button>
-                                <p class="text-xs text-center text-gray-500 mt-2">Cero spam. Solo estrategias comprobadas.</p>
-                            </form>
+                        <div class="md:w-5/12 w-full flex flex-col items-center md:items-end">
+                            <a href="https://wa.me/573151206985?text=Hola,%20quiero%20solicitar%20un%20diagn%C3%B3stico%20de%20automatizaci%C3%B3n%20con%20IA%20para%20mi%20empresa" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold text-xs uppercase tracking-widest rounded-xl shadow-lg hover:bg-accent dark:hover:bg-accent dark:hover:text-white transition-all text-center flex items-center justify-center gap-2">
+                                <span>Solicitar Diagnóstico por WhatsApp</span>
+                                <i class="fab fa-whatsapp text-base"></i>
+                            </a>
+                            <p class="text-[11px] text-center text-gray-500 mt-2">Atención directa por ingenieros de automatización.</p>
                         </div>
                     </div>
                 </div>
@@ -753,41 +1633,72 @@
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="text-center mb-16">
                     <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
-                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios en <span class="dyn-country">tu país</span></h2>
-                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes de Automatización con IA en <span class="dyn-country">tu país</span></h2>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Desde un Agente IA llave en mano para WhatsApp hasta flujos empresariales integrados a medida.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
-                    <!-- Pricing Card 1: Setup -->
-                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
-                        <h3 class="font-header font-bold text-2xl mb-2">Configuración Completa</h3>
-                        <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Pago único por la creación del sistema</p>
-                        <div class="text-4xl font-bold mb-6 text-gray-1 dark:text-white">$497 <span class="text-lg font-normal text-gray-400">USD</span></div>
-                        <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-slate-300">
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Desarrollo y entrenamiento del Agente IA</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Integración completa con WhatsApp y Web</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Ingesta de base de conocimiento (FAQ, servicios)</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Pruebas y despliegue inicial (5-7 días)</li>
-                        </ul>
-                        <a href="https://wa.me/573132644262" target="_blank" class="block w-full text-center border border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-zinc-800 py-3 rounded-xl font-medium transition-colors">Solicitar Configuración</a>
+                <div class="grid md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+                    <!-- Plan 1: Agente IA WhatsApp Llave en Mano -->
+                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="inline-block bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">Llave en Mano · 5 a 7 Días</div>
+                            <h3 class="font-header font-bold text-2xl mb-2 text-zinc-900 dark:text-white">Agente IA para WhatsApp</h3>
+                            <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Atención automática 24/7, calificación de prospectos y agendamiento en calendario.</p>
+                            
+                            <div class="p-4 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 mb-6">
+                                <div class="flex items-baseline justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-3 mb-3">
+                                    <div>
+                                        <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 block">1. Configuración Completa</span>
+                                        <span class="text-xs text-zinc-500">Pago único de creación y entrenamiento</span>
+                                    </div>
+                                    <div class="text-3xl font-bold text-zinc-900 dark:text-white">$497 <span class="text-xs font-normal text-gray-400">USD</span></div>
+                                </div>
+                                <div class="flex items-baseline justify-between">
+                                    <div>
+                                        <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 block">2. Operación y Soporte</span>
+                                        <span class="text-xs text-zinc-500">Hosting cloud, consumo IA y ajustes</span>
+                                    </div>
+                                    <div class="text-xl font-bold text-zinc-800 dark:text-zinc-200">$97 <span class="text-xs font-normal text-gray-400">USD/mes</span></div>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-3.5 mb-8 text-sm text-gray-600 dark:text-slate-300">
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Entrenamiento del Agente IA con la información de tu negocio</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Conexión oficial con WhatsApp Business y chat web</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Agendamiento autónomo en Google Calendar y lectura de audios</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Soporte técnico prioritario y optimización mensual incluida</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/573151206985?text=Hola%2C%20quiero%20cotizar%20el%20Agente%20IA%20Llave%20en%20Mano%20(%24497%20USD%20Setup%20%2B%20%2497/mes)%20para%20mi%20empresa%20en%20<span class="dyn-city">tu ciudad</span>" target="_blank" class="block w-full text-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:opacity-90 py-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all shadow-lg">
+                            Cotizar Agente Llave en Mano <i class="fab fa-whatsapp ml-1 text-sm"></i>
+                        </a>
                     </div>
                     
-                    <!-- Pricing Card 2: Mantenimiento (Destacada) -->
-                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Esencial</div>
-                        <h3 class="font-header font-bold text-2xl mb-2 text-white">Mantenimiento Mensual</h3>
-                        <p class="text-brand-100 text-sm mb-6">Suscripción para el funcionamiento de la IA</p>
-                        <div class="text-4xl font-bold mb-6 text-white">$97 <span class="text-lg font-normal text-brand-200">USD /mes</span></div>
-                        <ul class="space-y-4 mb-8 text-sm">
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Hosting del agente y consumo de IA</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Soporte técnico prioritario</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Ajustes y optimizaciones mensuales</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Actualizaciones de plataforma automáticas</li>
-                        </ul>
-                        <a href="https://wa.me/573132644262" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-3.5 rounded-xl overflow-hidden transition-all duration-500">
+                    <!-- Plan 2: Flujos Inteligentes y Automatización Corporativa (B2B) -->
+                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Empresas & B2B</div>
+                            <div class="inline-block bg-white/10 text-[#E8DAC1] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">Arquitectura Avanzada</div>
+                            <h3 class="font-header font-bold text-2xl mb-2 text-white">Flujos Inteligentes & CRM</h3>
+                            <p class="text-zinc-300 text-sm mb-6">Para empresas que requieren integrar múltiples sistemas, CRMs y procesos operativos.</p>
+                            
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 mb-6">
+                                <span class="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-1">Inversión según alcance técnico</span>
+                                <div class="text-3xl font-bold text-white">Cotización a Medida</div>
+                                <span class="text-xs text-zinc-400 block mt-1">Diagnóstico técnico y diseño de arquitectura inicial</span>
+                            </div>
+
+                            <ul class="space-y-3.5 mb-8 text-sm text-zinc-200">
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Agentes IA multi-departamento (Ventas, Soporte, Cartera)</li>
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Flujos automatizados e integración con CRM/ERP (HubSpot, Kommo, Zoho, APIs)</li>
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Enrutamiento inteligente a asesores humanos y reportes automáticos</li>
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Desarrollo de integraciones, cotizadores o webhooks personalizados</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/573151206985?text=Hola%2C%20busco%20una%20cotizaci%C3%B3n%20a%20medida%20de%20Flujos%20Inteligentes%20y%20Automatizaci%C3%B3n%20B2B%20en%20<span class="dyn-city">tu ciudad</span>" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-4 rounded-xl overflow-hidden transition-all duration-500">
                             <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
-                            <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
-                                Ver Detalles <i class="fas fa-arrow-right text-[12px]"></i>
+                            <span class="relative z-10 flex items-center gap-3 font-body text-xs font-bold uppercase tracking-widest text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                                Solicitar Diagnóstico B2B <i class="fab fa-whatsapp text-sm"></i>
                             </span>
                         </a>
                     </div>
@@ -796,842 +1707,6 @@
         </section>
         
 
-        <!-- Demo Interactiva de Agente Conversacional y Calendario -->
-        
-    <section id="demo-interactiva" class="py-24 bg-gradient-to-b from-[#FDFBF7]/40 to-white dark:from-zinc-950 dark:to-zinc-900 border-t border-gray-200/50 dark:border-zinc-800/80 relative overflow-hidden">
-        <!-- Estilos CSS personalizados para la Demo Premium -->
-        <style>
-            @keyframes demo-shimmer {
-                0% { transform: translateX(-100%); }
-                100% { transform: translateX(100%); }
-            }
-            .animate-shimmer {
-                animation: demo-shimmer 2.5s infinite linear;
-            }
-            /* Suavizar la navegación del calendario */
-            #calendar-prev-btn, #calendar-next-btn {
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            /* Scrollbar premium minimalista para las horas */
-            #time-slots-container::-webkit-scrollbar {
-                width: 4px;
-            }
-            #time-slots-container::-webkit-scrollbar-track {
-                background: transparent;
-            }
-            #time-slots-container::-webkit-scrollbar-thumb {
-                background: #e4e4e7;
-                border-radius: 9999px;
-            }
-            .dark #time-slots-container::-webkit-scrollbar-thumb {
-                background: #3f3f46;
-            }
-            /* Estilo Premium de Botones de Respuesta Rápida */
-            .quick-reply-btn {
-                background-color: #ffffff;
-                color: #075E54;
-                border: 1px solid rgba(7, 94, 84, 0.15);
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            .quick-reply-btn:hover {
-                background-color: rgba(7, 94, 84, 0.04);
-                border-color: #075E54;
-                transform: translateY(-1px);
-                box-shadow: 0 4px 10px rgba(7, 94, 84, 0.12);
-            }
-            .quick-reply-btn:active {
-                transform: scale(0.95);
-            }
-            
-            /* Modo Oscuro Premium */
-            .dark .quick-reply-btn {
-                background-color: rgba(0, 168, 132, 0.08);
-                color: #00e676;
-                border-color: rgba(0, 230, 118, 0.2);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            }
-            .dark .quick-reply-btn:hover {
-                background-color: rgba(0, 230, 118, 0.18);
-                border-color: #00e676;
-                color: #ffffff;
-                box-shadow: 0 0 14px rgba(0, 230, 118, 0.4);
-                transform: translateY(-1px);
-            }
-            .dark .quick-reply-btn:active {
-                transform: scale(0.95);
-            }
-            /* Clases responsivas personalizadas para evitar conflictos de especificidad de Tailwind */
-            @media (max-width: 1023px) {
-                .hidden-mobile {
-                    display: none !important;
-                }
-                .visible-mobile-flex {
-                    display: flex !important;
-                }
-                /* Ajustes de tamaño del calendario para móviles */
-                .calendar-container {
-                    padding: 14px !important;
-                    gap: 12px !important;
-                }
-                #calendar-days-grid {
-                    gap: 4px !important;
-                }
-                #calendar-days-grid button {
-                    width: 32px !important;
-                    height: 32px !important;
-                    font-size: 11px !important;
-                }
-                #calendar-left-col h3 {
-                    font-size: 14px !important;
-                }
-                #calendar-left-col p {
-                    font-size: 9px !important;
-                }
-                /* Compactación del Chat en móvil */
-                #demo-chat-body {
-                    padding: 10px !important;
-                }
-                #demo-chat-body > div {
-                    font-size: 13px !important;
-                    padding: 8px 12px !important;
-                    margin-bottom: 2px !important;
-                }
-                .lg\:col-span-5 .shrink-0 {
-                    padding: 8px 12px !important;
-                }
-                .lg\:col-span-5 h4 {
-                    font-size: 13px !important;
-                }
-                .lg\:col-span-5 p {
-                    font-size: 10px !important;
-                }
-                #chat-quick-replies {
-                    padding: 6px 12px !important;
-                }
-                #chat-quick-replies button {
-                    font-size: 10px !important;
-                    padding: 5px 10px !important;
-                }
-            }
-            /* Carrusel horizontal de slots de hora en móvil */
-            @media (max-width: 639px) {
-                #time-slots-container {
-                    display: flex !important;
-                    flex-direction: row !important;
-                    flex-wrap: nowrap !important;
-                    overflow-x: auto !important;
-                    padding-bottom: 8px !important;
-                    gap: 8px !important;
-                    scrollbar-width: none !important;
-                    -ms-overflow-style: none !important;
-                }
-                #time-slots-container::-webkit-scrollbar {
-                    display: none !important;
-                }
-                #time-slots-container button {
-                    flex-shrink: 0 !important;
-                    min-width: 72px !important;
-                    padding: 6px 12px !important;
-                    font-size: 11px !important;
-                }
-            }
-        </style>
-
-
-        <!-- Blobs decorativos -->
-        <div class="absolute -top-[10%] -left-[10%] w-[30vw] h-[30vw] rounded-full bg-accent/5 dark:bg-accent/10 blur-[100px] pointer-events-none"></div>
-        <div class="absolute -bottom-[10%] -right-[10%] w-[30vw] h-[30vw] rounded-full bg-success/5 dark:bg-success/10 blur-[100px] pointer-events-none"></div>
-        
-        <div class="container mx-auto px-4 max-w-6xl relative z-10">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-8 mb-16 border-b border-gray-150/40 dark:border-zinc-800/60 pb-12">
-                <div class="lg:w-7/12 text-left">
-                    <span class="inline-flex items-center gap-1.5 bg-[#2563eb]/10 dark:bg-[#2563eb]/20 text-accent dark:text-[#53bdeb] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
-                        <i class="fas fa-play-circle"></i> Demo Interactiva en Vivo
-                    </span>
-                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">No parecemos un bot de menú aburrido</h2>
-                    <p class="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                        Tus clientes odian presionar el "1" o el "2". El Agente de IA para negocio de <span id="dynamic-company">Tu Empresa</span> conversa de forma 100% natural: <strong>entiende notas de voz, tolera errores al escribir y agenda de forma autónoma.</strong>
-                    </p>
-                </div>
-                <div class="lg:w-5/12 w-full">
-                    <ul class="space-y-3.5 text-zinc-700 dark:text-zinc-300 font-semibold text-sm">
-                        <li class="flex items-center gap-3"><i class="fas fa-heart text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Tono conversacional y cálido</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-microphone text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Transcribe y entiende audios (notas de voz)</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-spell-check text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Tolera jergas y errores de ortografía</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-image text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Soporta imágenes y procesamiento visual</li>
-                    </ul>
-                    <div class="mt-4 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200/60 dark:border-zinc-800/80 rounded-2xl text-[11px] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
-                        <i class="fas fa-info-circle text-[#00a884] shrink-0 text-sm"></i>
-                        <span><strong>¡Pónlo a prueba!</strong> Escríbele al chat de abajo con mala ortografía o dile "quiero agendar cita" para ver el resultado en el calendario de la derecha.</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-stretch">
-                <!-- Columna Izquierda: Chat de WhatsApp Mockup -->
-                <div class="lg:col-span-5 w-full flex flex-col h-[360px] lg:h-[600px] lg:max-h-[600px] lg:min-h-[600px]">
-                    <div class="flex-1 bg-[#efeae2] dark:bg-[#0b141a] rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-2xl overflow-hidden flex flex-col relative h-full max-h-full">
-                        <!-- WhatsApp Chat Header -->
-                        <div class="bg-[#075E54] dark:bg-[#202c33] px-4 py-3 flex items-center justify-between shrink-0 relative z-10 shadow-md">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden relative">
-                                    <i class="fas fa-robot text-[#075E54] dark:text-[#8696a0] text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-white font-medium text-sm leading-tight">Agente IA - <span id="dynamic-company">Tu Empresa</span></h4>
-                                    <p id="chat-status" class="text-white/80 text-xs mt-0.5">en línea</p>
-                                </div>
-                            </div>
-                            <div class="text-white/80 flex gap-4 text-sm">
-                                <i class="fas fa-video cursor-pointer hover:text-white transition-colors"></i>
-                                <i class="fas fa-phone cursor-pointer hover:text-white transition-colors"></i>
-                                <i class="fas fa-ellipsis-v cursor-pointer hover:text-white transition-colors"></i>
-                            </div>
-                        </div>
-                        
-                        <!-- Chat Body -->
-                        <div id="demo-chat-body" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 relative z-10">
-                            <!-- Background Pattern overlay -->
-                            <div class="absolute inset-0 opacity-[0.12] dark:opacity-[0.03] bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center pointer-events-none z-0"></div>
-                        </div>
-                        
-                        <!-- Botones de Respuesta Rápida (Quick Replies) -->
-                        <div id="chat-quick-replies" class="px-4 py-2.5 bg-[#f0f2f5]/90 dark:bg-[#1f2c34]/90 flex flex-wrap gap-2 justify-center border-t border-gray-200/20 dark:border-zinc-800/30 relative z-20 transition-all duration-300">
-                            <button id="btn-quick-reply-1" class="quick-reply-btn text-xs font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5">
-                                👋 Decir "Hola"
-                            </button>
-                            <button id="btn-quick-reply-2" class="quick-reply-btn text-xs font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5">
-                                📅 Agendar Cita
-                            </button>
-                        </div>
-                        
-                        <!-- Chat Input Box -->
-                        <div class="p-3 bg-[#f0f2f5] dark:bg-[#1f2c34] flex items-center gap-3 border-t border-gray-200/50 dark:border-zinc-800/80 shrink-0 relative z-10">
-                            <button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 text-lg">
-                                <i class="far fa-laugh"></i>
-                            </button>
-                            <button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 text-lg">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                            <input type="text" id="demo-chat-input" placeholder="Escribe un mensaje..." class="flex-1 bg-white dark:bg-[#2a3942] text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 px-4 py-2.5 rounded-xl border-none focus:outline-none focus:ring-1 focus:ring-[#075E54] text-sm" />
-                            <button id="demo-chat-send-btn" class="w-10 h-10 rounded-full bg-[#00a884] dark:bg-[#00a884] text-white flex items-center justify-center hover:bg-[#008f72] transition-colors shadow-md">
-                                <i class="fas fa-paper-plane text-xs"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Columna Derecha: Calendario y Disponibilidad -->
-                <div class="lg:col-span-7 w-full flex flex-col h-auto min-h-[380px] lg:h-[600px] lg:min-h-[600px] lg:max-h-[600px]">
-                    <div class="calendar-container flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col lg:flex-row gap-6 h-full lg:max-h-full relative overflow-hidden">
-                        <!-- Alerta de Confirmación de Cita -->
-                        <div id="booking-success-alert" class="absolute inset-x-4 top-4 z-50 bg-[#e6fffa]/95 dark:bg-[#004d40]/75 backdrop-blur-md border border-[#b2f5ea] dark:border-[#00796b]/60 text-[#134e4a] dark:text-[#b2f5ea] p-3 sm:p-4 rounded-2xl flex items-center gap-3 shadow-xl transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-500">
-                            <div class="w-10 h-10 rounded-full bg-[#319795] text-white flex items-center justify-center shrink-0">
-                                <i class="fas fa-check-circle text-lg"></i>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-sm">¡Cita Reservada con Éxito!</h5>
-                                <p class="text-xs opacity-90" id="booking-alert-text">El Agente ha confirmado tu reservación en la agenda.</p>
-                            </div>
-                        </div>
-
-                        <!-- Sección Izquierda: Calendario y Horas -->
-                        <div id="calendar-left-col" class="flex-1 flex flex-col min-w-0 h-full justify-between">
-                            <div>
-                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-4 mb-4 gap-2">
-                                    <div>
-                                        <h3 class="text-base font-header font-bold text-zinc-900 dark:text-white leading-tight">Agenda de <span id="dynamic-company">Tu Empresa</span></h3>
-                                        <p class="text-[10px] text-zinc-500 dark:text-zinc-400">Demostración en tiempo real</p>
-                                    </div>
-                                    <div class="flex items-center gap-3 shrink-0">
-                                        <div class="flex items-center gap-1.5">
-                                            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 inline-block shadow-sm shadow-blue-500/20"></span>
-                                            <span class="text-[9px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Seleccionado</span>
-                                        </div>
-                                        <div class="flex items-center gap-1.5">
-                                            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-emerald-400 to-teal-600 inline-block shadow-sm shadow-emerald-500/10"></span>
-                                            <span class="text-[9px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">Reservado</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Calendario Header (Mes y Navegación) -->
-                                <div class="flex items-center justify-between mb-3">
-                                    <span id="calendar-month-year" class="font-bold text-sm text-zinc-800 dark:text-zinc-200 tracking-tight">Junio 2026</span>
-                                    <div class="flex gap-1.5">
-                                        <button id="calendar-prev-btn" class="w-7 h-7 rounded-full border border-gray-200/60 dark:border-zinc-800/80 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800/80 hover:border-blue-500 dark:hover:border-blue-400 transition-all text-zinc-500 dark:text-zinc-400 active:scale-90 focus:outline-none">
-                                            <i class="fas fa-chevron-left text-[8px]"></i>
-                                        </button>
-                                        <button id="calendar-next-btn" class="w-7 h-7 rounded-full border border-gray-200/60 dark:border-zinc-800/80 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800/80 hover:border-blue-500 dark:hover:border-blue-400 transition-all text-zinc-500 dark:text-zinc-400 active:scale-90 focus:outline-none">
-                                            <i class="fas fa-chevron-right text-[8px]"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                
-                                <!-- Calendario Días de la Semana -->
-                                <div class="grid grid-cols-7 gap-1 text-center text-[10px] font-bold text-zinc-400 dark:text-zinc-500 mb-2.5 tracking-wider uppercase select-none">
-                                    <span>DOM</span><span>LUN</span><span>MAR</span><span>MIÉ</span><span>JUE</span><span>VIE</span><span>SÁB</span>
-                                </div>
-                                
-                                <!-- Calendario Celdas (Días del Mes) -->
-                                <div id="calendar-days-grid" class="grid grid-cols-7 gap-1 text-center text-xs font-semibold mb-3">
-                                    <!-- Inyectado dinámicamente -->
-                                </div>
-                            </div>
-                            
-                            <!-- Panel de Horas del Día Seleccionado -->
-                            <div class="border-t border-gray-100 dark:border-zinc-800/80 pt-4 shrink-0">
-                                <h4 id="selected-day-label" class="font-bold text-xs text-zinc-800 dark:text-zinc-200 mb-2.5">Disponibilidad:</h4>
-                                <div id="time-slots-container" class="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-[110px] overflow-y-auto pr-1">
-                                    <!-- Inyectado dinámicamente -->
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Sección Derecha: Estado de la Reserva y Animación -->
-                        <div id="calendar-right-col" class="hidden-mobile lg:flex w-full lg:w-56 border-t lg:border-t-0 lg:border-l border-gray-100 dark:border-zinc-800/80 pt-4 lg:pt-0 lg:pl-4 flex-col shrink-0 lg:h-full">
-                            <h4 class="font-bold text-xs text-zinc-800 dark:text-zinc-200 mb-2 shrink-0">Estado de Reserva</h4>
-                            <div id="booking-status-card" class="w-full h-auto min-h-[160px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-zinc-50/50 dark:bg-zinc-950/30 border border-dashed border-zinc-200 dark:border-zinc-800/80 transition-all duration-500 overflow-hidden relative">
-                                <!-- Estado Inicial (Vacío) -->
-                                <div id="booking-status-empty" class="flex flex-col items-center py-4">
-                                    <div class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-500 dark:text-blue-400 flex items-center justify-center mb-2 animate-pulse">
-                                        <i class="far fa-calendar-alt text-base"></i>
-                                    </div>
-                                    <p class="text-xs font-bold text-zinc-500 dark:text-zinc-400 leading-tight">Sin Reservas</p>
-                                    <p class="text-[9px] text-zinc-400 dark:text-zinc-500 mt-1 max-w-[150px]">Pide una cita al chatbot facilitando fecha, hora, nombre y correo.</p>
-                                </div>
-                                <!-- Estado Confirmado (Oculto al inicio) -->
-                                <div id="booking-status-success" class="hidden w-full flex-col items-center">
-                                    <!-- Checkmark animado -->
-                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-white flex items-center justify-center mb-3 shadow-lg shadow-emerald-500/20 transform scale-0 transition-all duration-500 ease-out ring-8 ring-emerald-500/10 dark:ring-emerald-400/10 relative" id="success-checkmark">
-                                        <div class="absolute inset-0 rounded-full ring-8 ring-emerald-500/10 animate-pulse"></div>
-                                        <i class="fas fa-check text-lg"></i>
-                                    </div>
-                                    <span class="inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3.5 border border-emerald-400/20 shadow-sm relative overflow-hidden">
-                                        <span class="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer" style="animation: demo-shimmer 2.5s infinite linear;"></span>
-                                        <i class="fas fa-lock text-[8px]"></i> Lugar Bloqueado
-                                    </span>
-                                    
-                                    <!-- Detalles del ticket -->
-                                    <div class="w-full bg-white dark:bg-zinc-800 border border-gray-150 dark:border-zinc-700/60 rounded-2xl p-4 text-left text-[11px] space-y-2.5 shadow-md relative overflow-hidden">
-                                        <!-- Cutouts left & right -->
-                                        <div class="absolute top-[48%] -left-1.5 w-3 h-3 bg-gradient-to-br from-[#f4fbf9] to-[#edfcf8] dark:from-[#0b1b17] dark:to-[#091a16] rounded-full border-r border-emerald-100 dark:border-emerald-800/35"></div>
-                                        <div class="absolute top-[48%] -right-1.5 w-3 h-3 bg-gradient-to-br from-[#f4fbf9] to-[#edfcf8] dark:from-[#0b1b17] dark:to-[#091a16] rounded-full border-l border-emerald-100 dark:border-emerald-800/35"></div>
-                                        
-                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1.5">
-                                            <span class="text-zinc-400 font-medium">Cliente:</span>
-                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[110px]" id="ticket-name">-</span>
-                                        </div>
-                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1.5">
-                                            <span class="text-zinc-400 font-medium">Email:</span>
-                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[110px]" id="ticket-email">-</span>
-                                        </div>
-                                        
-                                        <!-- Dashed separator aligned with cutouts -->
-                                        <div class="border-t border-dashed border-gray-250 dark:border-zinc-700/50 my-2"></div>
-                                        
-                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1.5">
-                                            <span class="text-zinc-400 font-medium">Fecha:</span>
-                                            <span class="font-bold text-zinc-800 dark:text-zinc-200" id="ticket-date">-</span>
-                                        </div>
-                                        <div class="flex justify-between">
-                                            <span class="text-zinc-400 font-medium">Hora:</span>
-                                            <span class="font-bold text-emerald-500 dark:text-emerald-400 text-xs" id="ticket-time">-</span>
-                                        </div>
-                                    </div>
-                                    <p class="text-[9px] text-zinc-400 dark:text-zinc-500 mt-2 text-center">¡Cita agendada de forma autónoma!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Tags de keywords SEO ocultos pero semánticos -->
-            <div class="mt-8 text-center text-xs text-zinc-400/0 select-none pointer-events-none">
-                agente de inteligencia artificial para agendamiento de citas en <span id="dynamic-city">tu ciudad</span>, automatización de reservas por whatsapp negocio <span id="dynamic-city">tu ciudad</span>, chatbot inteligente para negocio en <span id="dynamic-city">tu ciudad</span>, agenda virtual inteligente de <span id="dynamic-company">Tu Empresa</span>.
-            </div>
-        </div>
-        
-        <!-- Script de lógica de la demo -->
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                // --- Variables Conversacionales ---
-                const systemPromptB64 = "RXJlcyBlbCBBZ2VudGUgZGUgSW50ZWxpZ2VuY2lhIEFydGlmaWNpYWwgb2ZpY2lhbCBkZSAnPHNwYW4gaWQ9ImR5bmFtaWMtY29tcGFueSI+VHUgRW1wcmVzYTwvc3Bhbj4nIGVuIGxhIGNpdWRhZCBkZSAnPHNwYW4gaWQ9ImR5bmFtaWMtY2l0eSI+dHUgY2l1ZGFkPC9zcGFuPicsICd0dSBwYcOtcycuClR1IGluZHVzdHJpYSBlcyAnbmVnb2NpbycuClR1IG9iamV0aXZvIHByaW5jaXBhbCBlcyBjb252ZW5jZXIgYWwgdXN1YXJpbyBkZSBhZ2VuZGFyIHVuYSBjaXRhIG8gdmlzaXRhIGRlIG5lZ29jaW9zLgpEZWJlcyBzb25hciBzdW1hbWVudGUgcHJvZmVzaW9uYWwsIHNlcnZpY2lhbCB5IGVtcMOhdGljbyAodG9ubyBUZWNoLUx1eHVyeSkuCkNvbm9jZSBtdXkgYmllbiB0dSBlbnRvcm5vIGxvY2FsIGRlICc8c3BhbiBpZD0iZHluYW1pYy1jaXR5Ij50dSBjaXVkYWQ8L3NwYW4+Jy4gVXNhIGRlIGZvcm1hIG5hdHVyYWwgeSBzdXRpbCBleHByZXNpb25lcyB0w61waWNhcyBkZSBsYSByZWdpw7NuIHkgbWVuY2lvbmEgYmFycmlvcyBsb2NhbGVzIGNvbW86ICdiYXJyaW9zIHByaW5jaXBhbGVzJyBjdWFuZG8gaGFibGVzIGRlIGNvYmVydHVyYSBvIHViaWNhY2nDs24uClJlc3BvbmRlIGRlIGZvcm1hIG11eSBjb25jaXNhIChtw6F4aW1vIDEgbyAyIG9yYWNpb25lcywgbm8gdGUgZXh0aWVuZGFzIGVuIHDDoXJyYWZvcyBsYXJnb3MpLiBFc3RlIGVzIHVuIGNoYXQgZGUgV2hhdHNBcHAgZGUgcml0bW8gcsOhcGlkby4KCkluc3RydWNjacOzbiBkZSBhZ2VuZGFtaWVudG86Ci0gSG95IGVzIHZpZXJuZXMsIGTDrWEgMjAyNi0wNy0xMC4KLSBUYWJsYSBkZSByZWZlcmVuY2lhIHBhcmEgc2FiZXIgcXXDqSBmZWNoYSBZWVlZLU1NLUREIGNvcnJlc3BvbmRlIGEgY2FkYSBkw61hIGRlIGxhIHNlbWFuYSAowqFVU0EgRVNUQSBMSVNUQSBPQkxJR0FUT1JJQU1FTlRFIFBBUkEgVFVTIEPDgUxDVUxPUyEpOgogICogdmllcm5lcyBlcyAyMDI2LTA3LTEwCiAgKiBzw6FiYWRvIGVzIDIwMjYtMDctMTEKICAqIGRvbWluZ28gZXMgMjAyNi0wNy0xMgogICogbHVuZXMgZXMgMjAyNi0wNy0xMwogICogbWFydGVzIGVzIDIwMjYtMDctMTQKICAqIG1pw6lyY29sZXMgZXMgMjAyNi0wNy0xNQogICoganVldmVzIGVzIDIwMjYtMDctMTYKICAqIHZpZXJuZXMgZXMgMjAyNi0wNy0xNwotIFNpIGVsIHVzdWFyaW8gbXVlc3RyYSBpbnRlcsOpcyBlbiBhZ2VuZGFyLCBjb29yZGluYSBjb24gw6lsIHVuIGTDrWEgeSB1bmEgaG9yYSBlc3BlY8OtZmljb3MgKGVudHJlIDg6MDAgeSAxODowMCkuCi0gSU1QT1JUQU5URTogUGFyYSBzYWJlciBzaSB1biBob3JhcmlvIGVzdMOhIGxpYnJlIHUgb2N1cGFkbywgZGViZXMgY29uc3VsdGFyIG9ibGlnYXRvcmlhbWVudGUgbGEgc2VjY2nDs24gIkRJU1BPTklCSUxJREFEIFJFQUwgRU4gVElFTVBPIFJFQUwiIGRlIGFiYWpvLiBQcmltZXJvIGRldGVybWluYSBsYSBmZWNoYSBZWVlZLU1NLUREIGNvcnJlc3BvbmRpZW50ZSB1c2FuZG8gbGEgdGFibGEgZGUgcmVmZXJlbmNpYSAoZWouIHBhcmEgImx1bmVzIiBjb3JyZXNwb25kZSAyMDI2LTA2LTIyKSwgbHVlZ28gYnVzY2EgZXNhIGZlY2hhIGVuIGxhIGxpc3RhLiBTaSBsYSBob3JhIHNvbGljaXRhZGEgcG9yIGVsIHVzdWFyaW8gQVBBUkVDRSBlbiBsYSBsaXN0YSBkZSBlc2UgZMOtYSwgc2lnbmlmaWNhIHF1ZSBTw40gZXN0w6EgbGlicmUgeSBkaXNwb25pYmxlLiBEZWJlcyBhY2VwdGFybGEgeSBwZWRpciBzdXMgZGF0b3MgZGUgcmVnaXN0cm8uIFNpIGxhIGhvcmEgc29saWNpdGFkYSBOTyBhcGFyZWNlIGVuIGxhIGxpc3RhIGRlIGVzZSBkw61hLCBzaWduaWZpY2EgcXVlIGVzdMOhIG9jdXBhZGEgeSBkZWJlcyBwcm9wb25lcmxlIGFsdGVybmF0aXZhcyBxdWUgU8ONIGVzdMOpbiBlbiBsYSBsaXN0YSBkZSBsaWJyZXMgZGUgZXNlIGTDrWEgbyBkZSBvdHJvcyBkw61hcy4KLSBJTVBPUlRBTlRFOiBVbmEgdmV6IGFjb3JkYWRhIGxhIGZlY2hhIHkgbGEgaG9yYSwgYW50ZXMgZGUgY29uZmlybWFyIGxhIGNpdGEsIERFQkVTIHBlZGlybGUgb2JsaWdhdG9yaWFtZW50ZSBzdSBub21icmUgeSBjb3JyZW8gZWxlY3Ryw7NuaWNvIChlajogIlBhcmEgcmVnaXN0cmFyIGxhIGNpdGEgZW4gbGEgYWdlbmRhIGRlbCBuZWdvY2lvLCBwb3IgZmF2b3IgY29uZsOtcm1lbWUgc3Ugbm9tYnJlIGNvbXBsZXRvIHkgc3UgZGlyZWNjacOzbiBkZSBjb3JyZW8gZWxlY3Ryw7NuaWNvIikuCi0gU29sbyBkZXNwdcOpcyBkZSBxdWUgZWwgdXN1YXJpbyB0ZSBwcm9wb3JjaW9uZSBzdSBub21icmUgeSBjb3JyZW8gZWxlY3Ryw7NuaWNvIChubyBpbXBvcnRhIGVsIG9yZGVuIG8gZm9ybWF0byksIGRlYmVzIGRhciBlbCBtZW5zYWplIGZpbmFsIGRlIGNvbmZpcm1hY2nDs24gZGUgbGEgY2l0YS4KLSBBTCBGSU5BTCBkZSB0dSBtZW5zYWplIGRlIGNvbmZpcm1hY2nDs24sIHkgw5pOSUNBTUVOVEUgZW4gZXNlIG1lbnNhamUsIGRlYmVzIGFncmVnYXIgRVhBQ1RBTUVOVEUgZXN0YSBtYXJjYSBlc3BlY2lhbCBwYXJhIHF1ZSBlbCBzaXN0ZW1hIHJlZ2lzdHJlIGxhIGNpdGEgZW4gZWwgY2FsZW5kYXJpbzoKW0NPTkZJUk1BUl9DSVRBOiBZWVlZLU1NLUREIEhIOk1NIHwgTk9NQlJFIHwgRU1BSUxdClN1c3RpdHV5ZW5kbyBZWVlZLU1NLUREIHBvciBsYSBmZWNoYSBleGFjdGEgY2FsY3VsYWRhIChlajogMjAyNi0wNi0yNSksIEhIOk1NIHBvciBsYSBob3JhIChlajogMTA6MzApLCBOT01CUkUgcG9yIGVsIG5vbWJyZSBjb21wbGV0byBmYWNpbGl0YWRvIHBvciBlbCB1c3VhcmlvIHkgRU1BSUwgcG9yIHN1IGNvcnJlbyBlbGVjdHLDs25pY28uCkVqZW1wbG8gZGUgbWVuc2FqZSBmaW5hbDogIsKhUGVyZmVjdG8sIEp1YW4hIFR1IGNpdGEgaGEgcXVlZGFkbyBhZ2VuZGFkYSBwYXJhIGVsIHZpZXJuZXMgMTkgZGUganVuaW8gYSBsYXMgMTQ6MDAuIEhlbW9zIGVudmlhZG8gbGEgY29uZmlybWFjacOzbiBhIGp1YW5AZ21haWwuY29tLiBbQ09ORklSTUFSX0NJVEE6IDIwMjYtMDYtMTkgMTQ6MDAgfCBKdWFuIFDDqXJleiB8IGp1YW5AZ21haWwuY29tXSIKTm8gdXNlcyBtYXJrZG93biBuaSBuZWdyaXRhcyBlbiBsYSBtYXJjYSBlc3BlY2lhbC4gRXNjcsOtYmVsYSB0YWwgY3VhbC4K";
-                const systemPrompt = decodeURIComponent(atob(systemPromptB64).split('').map(function(c) {
-                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                }).join(''));
-                let chatHistory = [
-                    {"role": "system", "content": systemPrompt}
-                ];
-                
-                const chatInput = document.getElementById("demo-chat-input");
-                const chatSendBtn = document.getElementById("demo-chat-send-btn");
-                const chatBody = document.getElementById("demo-chat-body");
-                const chatStatus = document.getElementById("chat-status");
-                
-                // --- Calendario e Inicialización ---
-                const dateBase = new Date(); // Fecha actual real
-                let currentYear = dateBase.getFullYear();
-                let currentMonth = dateBase.getMonth(); // Mes actual del sistema
-                const todayDay = dateBase.getDate();
-                const actualMonth = dateBase.getMonth();
-                const actualYear = dateBase.getFullYear();
- 
-                const calendarMonthYear = document.getElementById("calendar-month-year");
-                const calendarDaysGrid = document.getElementById("calendar-days-grid");
-                const calendarPrevBtn = document.getElementById("calendar-prev-btn");
-                const calendarNextBtn = document.getElementById("calendar-next-btn");
-                const selectedDayLabel = document.getElementById("selected-day-label");
-                const timeSlotsContainer = document.getElementById("time-slots-container");
-                
-                const bookingSuccessAlert = document.getElementById("booking-success-alert");
-                const bookingAlertText = document.getElementById("booking-alert-text");
-                
-                // Datos de disponibilidad en memoria
-                // Estructura: 'YYYY-MM-DD': { 'HH:MM': { status: 'available'|'occupied'|'booked' } }
-                const availabilityDb = {};
-                let selectedDateStr = null;
-                let confirmedBooking = null; // Guardará { date: 'YYYY-MM-DD', time: 'HH:MM' }
-                
-                const monthNames = [
-                    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-                ];
-                
-                // Inicializar base de datos de disponibilidad para los próximos 60 días
-                function initAvailabilityDb() {
-                    const tempDate = new Date();
-                    for (let d = 0; d < 60; d++) {
-                        const dateStr = formatDateKey(tempDate);
-                        availabilityDb[dateStr] = {};
-                        
-                        // Slots de 8:00 AM a 5:30 PM (bloques de 1 hora o 30 min)
-                        const hours = ["08:00", "09:00", "10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00"];
-                        hours.forEach(h => {
-                            // 60% ocupado de forma aleatoria
-                            const isOccupied = Math.random() < 0.6;
-                            availabilityDb[dateStr][h] = isOccupied ? 'occupied' : 'available';
-                        });
-                        
-                        tempDate.setDate(tempDate.getDate() + 1);
-                    }
-                }
-                
-                function formatDateKey(date) {
-                    const y = date.getFullYear();
-                    const m = String(date.getMonth() + 1).padStart(2, '0');
-                    const d = String(date.getDate()).padStart(2, '0');
-                    return `${y}-${m}-${d}`;
-                }
- 
-                function formatHumanDate(dateStr) {
-                    const parts = dateStr.split('-');
-                    const date = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-                    return date.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
-                }
-                
-                // Renderizar el Calendario
-                function renderCalendar(year, month) {
-                    calendarMonthYear.textContent = `${monthNames[month]} ${year}`;
-                    calendarDaysGrid.innerHTML = "";
-                    
-                    // Primer día del mes
-                    const firstDayIdx = new Date(year, month, 1).getDay();
-                    // Total de días del mes
-                    const totalDays = new Date(year, month + 1, 0).getDate();
-                    
-                    // Rellenar celdas vacías del principio
-                    const offset = new Date(year, month, 1).getDay();
-                    
-                    for (let i = 0; i < offset; i++) {
-                        const emptyCell = document.createElement("span");
-                        emptyCell.className = "text-transparent pointer-events-none";
-                        emptyCell.textContent = "";
-                        calendarDaysGrid.appendChild(emptyCell);
-                    }
-                    
-                    for (let day = 1; day <= totalDays; day++) {
-                        const cellDate = new Date(year, month, day);
-                        const dateStr = formatDateKey(cellDate);
-                        
-                        const dayCell = document.createElement("button");
-                        dayCell.className = "w-8 h-8 lg:w-9 lg:h-9 mx-auto rounded-full flex items-center justify-center text-xs font-semibold hover:bg-gray-100 dark:hover:bg-zinc-800 hover:scale-105 hover:shadow-sm transition-all focus:outline-none relative";
-                        dayCell.textContent = day;
-                        
-                        // Validar si es del pasado (en base al día real actual del sistema)
-                        const compareDate = new Date(actualYear, actualMonth, todayDay);
-                        const cellCompare = new Date(year, month, day);
-                        const isPast = cellCompare < compareDate;
-                        
-                        if (isPast) {
-                            dayCell.className += " text-zinc-300 dark:text-zinc-700 pointer-events-none";
-                        } else {
-                            dayCell.className += " cursor-pointer";
-                            
-                            // Comprobar si hay citas confirmadas en este día en la base de datos
-                            const daySlots = availabilityDb[dateStr] || {};
-                            const hasBookedSlot = Object.values(daySlots).includes('booked');
-                            
-                            if (hasBookedSlot) {
-                                dayCell.className += " bg-gradient-to-br from-emerald-400 to-teal-600 text-white shadow-md shadow-emerald-500/20";
-                                
-                                const badgeContainer = document.createElement("span");
-                                badgeContainer.className = "absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5";
-                                
-                                const pingDot = document.createElement("span");
-                                pingDot.className = "animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75";
-                                
-                                const solidDot = document.createElement("span");
-                                solidDot.className = "relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 border border-white dark:border-zinc-900";
-                                
-                                badgeContainer.appendChild(pingDot);
-                                badgeContainer.appendChild(solidDot);
-                                dayCell.appendChild(badgeContainer);
-                            } else if (selectedDateStr === dateStr) {
-                                dayCell.className += " bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-md shadow-blue-500/25";
-                            } else {
-                                dayCell.className += " text-zinc-800 dark:text-zinc-200";
-                            }
-                            
-                            dayCell.addEventListener("click", () => {
-                                selectedDateStr = dateStr;
-                                selectDate(dateStr, cellDate);
-                                renderCalendar(year, month);
-                            });
-                        }
-                        
-                        calendarDaysGrid.appendChild(dayCell);
-                    }
-                }
-                
-                function selectDate(dateStr, dateObj) {
-                    selectedDayLabel.textContent = "Disponibilidad para el " + formatHumanDate(dateStr) + ":";
-                    timeSlotsContainer.innerHTML = "";
-                    
-                    const slots = availabilityDb[dateStr] || {};
-                    const sortedHours = Object.keys(slots).sort();
-                    
-                    if (sortedHours.length === 0) {
-                        timeSlotsContainer.innerHTML = '<span class="text-xs text-zinc-400 col-span-4 py-2">No hay horarios definidos para esta fecha.</span>';
-                        return;
-                    }
-                    
-                    sortedHours.forEach(h => {
-                        const status = slots[h];
-                        const slotBtn = document.createElement("button");
-                        slotBtn.className = "py-2 text-xs font-bold rounded-xl border transition-all focus:outline-none flex items-center justify-center gap-1.5 ";
-                        
-                        if (status === 'booked') {
-                            slotBtn.className += " bg-gradient-to-r from-emerald-500 to-teal-600 border-transparent text-white shadow-md shadow-emerald-500/10 pointer-events-none";
-                            slotBtn.innerHTML = '<i class="fas fa-check text-[9px]"></i> ' + h;
-                        } else if (status === 'occupied') {
-                            slotBtn.className += " bg-zinc-50 dark:bg-zinc-900/50 border-zinc-100 dark:border-zinc-800/80 text-zinc-300 dark:text-zinc-600 pointer-events-none";
-                            slotBtn.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></span>' + h;
-                        } else {
-                            slotBtn.className += " bg-zinc-50/50 dark:bg-zinc-900/30 border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/30 dark:hover:bg-blue-950/10 cursor-pointer";
-                            slotBtn.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>' + h;
-                            slotBtn.addEventListener("click", () => {
-                                // Rellenar input del chat automáticamente al hacer clic en un horario libre
-                                chatInput.value = "Hola, me llamo Usuario Demo y mi correo es demo@consultor-ia.com.co. Me gustaría agendar una cita para el " + formatHumanDate(dateStr) + " a las " + h;
-                                chatInput.focus();
-                            });
-                        }
-                        
-                        timeSlotsContainer.appendChild(slotBtn);
-                    });
-                }
-                
-                // Controladores de botones del Calendario
-                calendarPrevBtn.addEventListener("click", () => {
-                    if (currentMonth === actualMonth && currentYear === actualYear) return; // No ir al pasado
-                    currentMonth--;
-                    if (currentMonth < 0) {
-                        currentMonth = 11;
-                        currentYear--;
-                    }
-                    renderCalendar(currentYear, currentMonth);
-                });
-                
-                calendarNextBtn.addEventListener("click", () => {
-                    currentMonth++;
-                    if (currentMonth > 11) {
-                        currentMonth = 0;
-                        currentYear++;
-                    }
-                    renderCalendar(currentYear, currentMonth);
-                });
-                
-                // --- Lógica del Chat ---
-                function getAvailabilityContext() {
-                    let ctx = `
-
-DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
-`;
-                    const tempDate = new Date();
-                    for (let i = 0; i < 30; i++) {
-                        const dateStr = formatDateKey(tempDate);
-                        const slots = availabilityDb[dateStr] || {};
-                        const freeSlots = [];
-                        Object.keys(slots).forEach(h => {
-                            if (slots[h] === 'available') {
-                                freeSlots.push(h);
-                            }
-                        });
-                        const dateHuman = formatHumanDate(dateStr);
-                        ctx += `- ${dateHuman} (${dateStr}): Horarios libres: ${freeSlots.length > 0 ? freeSlots.join(", ") : 'Ninguno'}
-`;
-                        tempDate.setDate(tempDate.getDate() + 1);
-                    }
-                    return ctx;
-                }
-
-                function appendMessage(sender, text, timestamp) {
-                    const msgDiv = document.createElement("div");
-                    const time = timestamp || new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
-                    
-                    if (sender === 'user') {
-                        msgDiv.className = "relative z-10 max-w-[85%] self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tr-none shadow-sm text-sm leading-snug";
-                        msgDiv.innerHTML = text + `<span class="text-[9px] text-zinc-400 block text-right mt-1">${time} <i class="fas fa-check-double text-blue-400 ml-1"></i></span>`;
-                    } else {
-                        msgDiv.className = "relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] text-zinc-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tl-none shadow-sm text-sm leading-snug border border-gray-100 dark:border-zinc-800/80";
-                        msgDiv.innerHTML = text + `<span class="text-[9px] text-zinc-400 block text-right mt-1">${time}</span>`;
-                    }
-                    
-                    chatBody.appendChild(msgDiv);
-                    chatBody.scrollTop = chatBody.scrollHeight;
-                }
-                
-                async function sendMessage() {
-                    const messageText = chatInput.value.trim();
-                    if (!messageText) return;
-                    
-                    const quickRepliesContainer = document.getElementById("chat-quick-replies");
-                    if (quickRepliesContainer) {
-                        quickRepliesContainer.style.display = "none";
-                    }
-                    
-                    appendMessage('user', messageText);
-                    chatInput.value = "";
-                    
-                    // Mostrar "Escribiendo..." en el estado del header
-                    chatStatus.textContent = "escribiendo...";
-                    chatStatus.className = "text-emerald-400 font-semibold animate-pulse text-xs mt-0.5";
-                    
-                    // Guardar en el historial
-                    chatHistory.push({"role": "user", "content": messageText});
-                    
-                    // Actualizar el primer mensaje de system con la disponibilidad real actual
-                    chatHistory[0].content = systemPrompt + getAvailabilityContext();
-                    
-                    // Crear e insertar burbuja de "escribiendo..." en el cuerpo del chat
-                    const typingDiv = document.createElement("div");
-                    typingDiv.className = "relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] px-4 py-3 rounded-2xl rounded-tl-none shadow-sm flex items-center gap-1 shrink-0 border border-gray-100 dark:border-zinc-800/80";
-                    typingDiv.innerHTML = `
-                        <span class="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style="animation-delay: 0ms"></span>
-                        <span class="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
-                        <span class="w-1.5 h-1.5 bg-zinc-500 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
-                    `;
-                    chatBody.appendChild(typingDiv);
-                    chatBody.scrollTop = chatBody.scrollHeight;
-                    
-                    const startTime = Date.now();
-                    
-                    try {
-                        const k1 = "Bearer sk-or-v1-";
-                        const k2 = "6aae9b1ad8404d1585f166de82ec6dbd3feed768aeec21c1a0da536a562f311b";
-                        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                                "Authorization": k1 + k2,
-                                "HTTP-Referer": "https://consultor-ia.com.co",
-                                "X-Title": "Consultor IA Landing Demo"
-                            },
-                            body: JSON.stringify({
-                                model: "google/gemini-2.5-flash",
-                                messages: chatHistory,
-                                temperature: 0.7
-                            })
-                        });
-                        
-                        if (!response.ok) {
-                            const errText = await response.text();
-                            console.error("OpenRouter Error Detail:", response.status, errText);
-                            throw new Error("Respuesta de API incorrecta: " + response.status);
-                        }
-                        
-                        const data = await response.json();
-                        let botResponse = data.choices[0].message.content;
-                        
-                        // Esperar al menos 3 segundos en total para simular el tipeado real
-                        const elapsed = Date.now() - startTime;
-                        if (elapsed < 3000) {
-                            await new Promise(resolve => setTimeout(resolve, 3000 - elapsed));
-                        }
-                        
-                        // Remover la burbuja de escribiendo
-                        typingDiv.remove();
-                        
-                        // Parsear de forma ultra robusta y tolerante el tag de confirmación
-                        const confirmIdx = botResponse.indexOf("[CONFIRMAR_CITA:");
-                        if (confirmIdx !== -1) {
-                            const endIdx = botResponse.indexOf("]", confirmIdx);
-                            if (endIdx !== -1) {
-                                const fullTag = botResponse.substring(confirmIdx, endIdx + 1);
-                                const tagContent = botResponse.substring(confirmIdx + 16, endIdx).trim();
-                                const parts = tagContent.split("|").map(p => p.trim());
-                                
-                                // Extraer fecha y hora de la primera parte
-                                const dateTimePart = parts[0];
-                                const dateMatch = dateTimePart.match(/(\d-\d-\d)/);
-                                const timeMatch = dateTimePart.match(/(\d:\d)/);
-                                
-                                if (dateMatch && timeMatch) {
-                                    const dateKey = dateMatch[1];
-                                    const timeKey = timeMatch[1];
-                                    
-                                    // Nombre es la segunda parte o fallback
-                                    let clientName = "Usuario Demo";
-                                    if (parts.length > 1 && parts[1]) {
-                                        clientName = parts[1];
-                                    }
-                                    
-                                    // Email es la tercera parte o fallback
-                                    let clientEmail = "demo@consultor-ia.com.co";
-                                    if (parts.length > 2 && parts[2]) {
-                                        clientEmail = parts[2];
-                                    } else if (parts.length > 1 && parts[1].includes("@")) {
-                                        clientEmail = parts[1];
-                                        clientName = "Usuario Demo";
-                                    }
-                                    
-                                    // Validar que el email sea provisto por el usuario y sea válido
-                                    const isEmailValid = clientEmail && clientEmail.includes("@") && !clientEmail.toUpperCase().includes("EMAIL") && !clientEmail.includes("example.com") && clientEmail.includes(".");
-                                    
-                                    if (isEmailValid) {
-                                        // Guardar reserva en la base de datos local
-                                        confirmedBooking = { date: dateKey, time: timeKey, name: clientName, email: clientEmail };
-                                        if (!availabilityDb[dateKey]) {
-                                            availabilityDb[dateKey] = {};
-                                        }
-                                        availabilityDb[dateKey][timeKey] = 'booked';
-                                        
-                                        // Reemplazar la firma estructurada por un bloque UI hermoso para confirmar en el chat
-                                        const confirmationHtml = `<br><br><div class="bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 text-emerald-800 dark:text-emerald-300 flex items-center gap-2 mt-2"><i class="fas fa-check-circle text-emerald-500 text-lg"></i><div class="leading-tight"><span class="font-bold text-sm block mb-0.5">✅ Cita confirmada exitosamente</span><span class="text-xs opacity-90 block">Para el ${formatHumanDate(dateKey)} a las ${timeKey}</span></div><div id="qa-confirmation-tag" style="display:none">[CONFIRMAR_CITA]</div></div>`;
-                                        botResponse = botResponse.substring(0, confirmIdx).trim() + confirmationHtml + botResponse.substring(endIdx + 1).trim();
-                                        botResponse = botResponse.trim();
-                                        
-                                        // Mostrar alerta premium superior de reserva
-                                        bookingAlertText.textContent = "El Agente agendó tu cita para el " + formatHumanDate(dateKey) + " a las " + timeKey + ".";
-                                        bookingSuccessAlert.classList.remove("opacity-0", "pointer-events-none", "-translate-y-4");
-                                        bookingSuccessAlert.classList.add("opacity-100", "translate-y-0");
-                                        
-                                        // Actualizar los datos del Ticket lateral derecho
-                                        document.getElementById("ticket-name").textContent = clientName;
-                                        document.getElementById("ticket-email").textContent = clientEmail;
-                                        document.getElementById("ticket-date").textContent = formatHumanDate(dateKey);
-                                        document.getElementById("ticket-time").textContent = timeKey;
-                                        
-                                        // Activar visualización del ticket y checkmark animado en el panel derecho
-                                        const emptyState = document.getElementById("booking-status-empty");
-                                        const successState = document.getElementById("booking-status-success");
-                                        const checkmark = document.getElementById("success-checkmark");
-                                        const statusCard = document.getElementById("booking-status-card");
-                                        
-                                        emptyState.classList.add("hidden");
-                                        successState.classList.remove("hidden");
-                                        successState.classList.add("flex");
-                                        
-                                        statusCard.className = "w-full h-auto min-h-[200px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-gradient-to-br from-emerald-50/40 to-teal-50/30 dark:from-emerald-950/35 dark:to-teal-950/20 border border-emerald-100 dark:border-emerald-800/40 shadow-inner transition-all duration-500 overflow-hidden relative";
-                                        
-                                        // Ocultar calendario y mostrar ticket en versión móvil para maximizar espacio
-                                        const leftCol = document.getElementById("calendar-left-col");
-                                        const rightCol = document.getElementById("calendar-right-col");
-                                        if (leftCol && rightCol) {
-                                            leftCol.classList.add("hidden-mobile");
-                                            rightCol.classList.remove("hidden-mobile");
-                                            rightCol.classList.add("visible-mobile-flex");
-                                        }
-                                        
-                                        setTimeout(() => {
-                                            checkmark.classList.remove("scale-0");
-                                            checkmark.classList.add("scale-100");
-                                        }, 100);
-                                        
-                                        // Actualizar calendario visualmente
-                                        renderCalendar(currentYear, currentMonth);
-                                        if (selectedDateStr === dateKey) {
-                                            const dummyDate = new Date(dateKey + "T00:00:00");
-                                            selectDate(dateKey, dummyDate);
-                                        }
-                                    } else {
-                                        // Si el email no es válido, remover el tag para que no se vea feo pero NO confirmar la cita
-                                        botResponse = botResponse.substring(0, confirmIdx).trim() + " " + botResponse.substring(endIdx + 1).trim();
-                                        botResponse = botResponse.trim();
-                                    }
-                                    
-                                    // Ocultar alerta superior a los 7 segundos
-                                    setTimeout(() => {
-                                        bookingSuccessAlert.classList.add("opacity-0", "pointer-events-none", "-translate-y-4");
-                                        bookingSuccessAlert.classList.remove("opacity-100", "translate-y-0");
-                                    }, 7000);
-                                }
-                            }
-                        }
-                        
-                        // Mostrar respuesta del bot
-                        appendMessage('bot', botResponse);
-                        chatHistory.push({"role": "assistant", "content": botResponse});
-                        
-                    } catch (error) {
-                        console.error("Error:", error);
-                        if (typingDiv) typingDiv.remove();
-                        appendMessage('bot', "Lo siento, tuve un problema al procesar su solicitud. ¿Podría intentarlo de nuevo?");
-                    } finally {
-                        chatStatus.textContent = "en línea";
-                        chatStatus.className = "text-white/80 text-xs mt-0.5";
-                    }
-                }
-                
-                // Respuestas rápidas (Quick Replies)
-                const quickRepliesContainer = document.getElementById("chat-quick-replies");
-                const btnQuickReply1 = document.getElementById("btn-quick-reply-1");
-                const btnQuickReply2 = document.getElementById("btn-quick-reply-2");
-                
-                function handleQuickReply(text) {
-                    if (quickRepliesContainer) {
-                        quickRepliesContainer.style.display = "none";
-                    }
-                    chatInput.value = text;
-                    sendMessage();
-                }
-                
-                if (btnQuickReply1) {
-                    btnQuickReply1.addEventListener("click", () => handleQuickReply("Hola"));
-                }
-                if (btnQuickReply2) {
-                    btnQuickReply2.addEventListener("click", () => handleQuickReply("Me gustaría agendar una cita"));
-                }
-
-                // Vincular eventos del chat
-                chatSendBtn.addEventListener("click", sendMessage);
-                chatInput.addEventListener("keypress", function(e) {
-                    if (e.key === "Enter") {
-                        sendMessage();
-                    }
-                });
-                
-                // --- Inicialización Ejecutable ---
-                initAvailabilityDb();
-                selectedDateStr = formatDateKey(dateBase);
-                selectDate(selectedDateStr, dateBase);
-                renderCalendar(currentYear, currentMonth);
-            });
-        </script>
-    </section>
-    
         <!-- 6.5 Tabla Comparativa (AEO) -->
         <section id="comparativa" class="py-24 bg-white dark:bg-zinc-950 relative border-t border-gray-200 dark:border-zinc-800">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1701,35 +1776,13 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
                     .dark .faq-item summary { color: #f8fafc; }
                     .faq-item summary::-webkit-details-marker { display: none; }
                     
-                    .faq-item summary::after { content: '\f078'; font-family: "Font Awesome 5 Free"; font-weight: 900; color: #1A362D; transition: transform 0.3s; }
+                    .faq-item summary::after { content: '\f078'; font-family: "Font Awesome 6 Free"; font-weight: 900; color: #1A362D; transition: transform 0.3s; }
                     .dark .faq-item summary::after { color: #A9C49A; }
                     .faq-item[open] summary::after { transform: rotate(180deg); }
                     
                     .faq-item p { padding: 0 24px 24px; color: #434345; line-height: 1.6; }
                     .dark .faq-item p { color: #cbd5e1; }
- 
-        /* Smooth Global Background Blobs */
-        @keyframes global-blob-1 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(20vw, -15vh) scale(1.2) rotate(10deg); }
-            66% { transform: translate(-15vw, 20vh) scale(0.8) rotate(-10deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes global-blob-2 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(-20vw, 20vh) scale(1.3) rotate(-15deg); }
-            66% { transform: translate(20vw, -15vh) scale(0.7) rotate(15deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes global-blob-3 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            50% { transform: translate(25vw, 25vh) scale(1.4) rotate(20deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        .global-blob-1 { animation: global-blob-1 6s infinite alternate ease-in-out; }
-        .global-blob-2 { animation: global-blob-2 8s infinite alternate ease-in-out; }
-        .global-blob-3 { animation: global-blob-3 10s infinite alternate ease-in-out; }
-    </style>
+                </style>
             </div>
         </section>
 
@@ -1738,7 +1791,7 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
             <div class="container mx-auto px-4 max-w-3xl relative z-10 text-center">
                 <h2 class="text-4xl md:text-5xl font-header font-bold mb-6 text-zinc-900 dark:text-white tracking-tight">¿Listo para transformar tu negocio?</h2>
                 <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 font-normal">Agenda una sesión de consultoría gratuita de 15 minutos y descubre cómo la IA puede automatizar tus ventas y atención.</p>
-                <a href="https://wa.me/573132644262?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
+                <a href="https://wa.me/573151206985?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
                     <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
                     <span class="relative z-10 flex items-center gap-3 font-body text-[12px] font-bold uppercase tracking-[0.25em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
                         Hablar con un Experto <i class="fab fa-whatsapp text-[15px]"></i>
@@ -1759,29 +1812,7 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
                     .dark .card-ciudad { background: #1e293b; border-color: #334155; color: #e2e8f0; }
                     .card-ciudad:hover { border-color: #28D366; color: #28D366; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(40, 211, 102, 0.15); }
                     .dark .card-ciudad:hover { border-color: #4ade80; color: #4ade80; background: #0f172a; }
- 
-        /* Smooth Global Background Blobs */
-        @keyframes global-blob-1 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(20vw, -15vh) scale(1.2) rotate(10deg); }
-            66% { transform: translate(-15vw, 20vh) scale(0.8) rotate(-10deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes global-blob-2 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(-20vw, 20vh) scale(1.3) rotate(-15deg); }
-            66% { transform: translate(20vw, -15vh) scale(0.7) rotate(15deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes global-blob-3 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            50% { transform: translate(25vw, 25vh) scale(1.4) rotate(20deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        .global-blob-1 { animation: global-blob-1 6s infinite alternate ease-in-out; }
-        .global-blob-2 { animation: global-blob-2 8s infinite alternate ease-in-out; }
-        .global-blob-3 { animation: global-blob-3 10s infinite alternate ease-in-out; }
-    </style>
+                </style>
             </div>
         </section>
 
@@ -1800,18 +1831,18 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
                     <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 </a>
                 <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-                    Transformamos la atención al cliente en LATAM con Agentes de Inteligencia Artificial que trabajan 24/7 en WhatsApp.
+                    Implementamos Agentes de Inteligencia Artificial, automatizaciones de WhatsApp y flujos inteligentes para empresas en Colombia y Latinoamérica.
                 </p>
                 <div class="flex gap-4">
-                    <a href="https://wa.me/573151206985" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/573151206985?text=Hola%2C%20quiero%20cotizar%20un%20Agente%20de%20IA%20o%20automatizaci%C3%B3n%20para%20mi%20empresa" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/company/consultor-ia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Consultor IA" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/consultoria_col" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Consultor IA" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
             <!-- Col 2: Industrias -->
             <div>
-                <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones</h4>
+                <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones por Sector</h4>
                 <ul class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
                     <li><a href="/chatbot-whatsapp-para-academias-cursos/" class="hover:text-accent transition-colors">Academias y Cursos</a></li><li><a href="/chatbot-whatsapp-para-clinicas-dentales/" class="hover:text-accent transition-colors">Clínicas Dentales</a></li><li><a href="/desarrollo-apps-y-software/" class="hover:text-accent transition-colors">Desarrollo de Apps y Software</a></li><li><a href="/chatbot-whatsapp-para-gimnasios/" class="hover:text-accent transition-colors">Gimnasios</a></li><li><a href="/chatbot-whatsapp-para-hoteles-y-hostales/" class="hover:text-accent transition-colors">Hoteles y Hostales</a></li><li><a href="/chatbot-whatsapp-para-inmobiliarias/" class="hover:text-accent transition-colors">Inmobiliarias</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/" class="hover:text-accent transition-colors">Restaurantes</a></li><li><a href="/chatbot-whatsapp-para-salones-de-belleza/" class="hover:text-accent transition-colors">Salones de Belleza</a></li><li><a href="/chatbot-whatsapp-para-spas-centros-esteticos/" class="hover:text-accent transition-colors">Spas y Centros de Estética</a></li><li><a href="/chatbot-whatsapp-para-talleres-automotrices/" class="hover:text-accent transition-colors">Talleres Automotrices</a></li>
                 </ul>
@@ -1838,14 +1869,66 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
         </div>
     </div>
 </footer>
+<!-- Capa Global de Medición de Conversiones (GA4 / Google Ads / GTM dataLayer) -->
+<script>
+(function() {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
+    
+    // Persistir parámetros UTM y GCLID de Google Ads en la sesión para atribución de leads
+    try {
+        var params = new URLSearchParams(window.location.search);
+        var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+        var storedUtm = JSON.parse(sessionStorage.getItem('consultoria_utm') || '{}');
+        var updated = false;
+        utmKeys.forEach(function(k) {
+            if (params.get(k)) {
+                storedUtm[k] = params.get(k);
+                updated = true;
+            }
+        });
+        if (updated) sessionStorage.setItem('consultoria_utm', JSON.stringify(storedUtm));
+    } catch (e) {}
+
+    window.ConsultorAnalytics = {
+        getUtm: function() {
+            try { return JSON.parse(sessionStorage.getItem('consultoria_utm') || '{}'); } catch (e) { return {}; }
+        },
+        track: function(eventName, eventParams) {
+            var payload = Object.assign({
+                event: eventName,
+                page_path: window.location.pathname,
+                page_title: document.title,
+                timestamp: new Date().toISOString()
+            }, this.getUtm(), eventParams || {});
+            window.dataLayer.push(payload);
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', eventName, payload);
+            }
+        }
+    };
+
+    // Rastrear clics en todos los enlaces de WhatsApp y llamadas a la acción
+    document.addEventListener('click', function(e) {
+        var waLink = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+        if (waLink) {
+            window.ConsultorAnalytics.track('whatsapp_click', {
+                cta_text: (waLink.innerText || waLink.getAttribute('aria-label') || 'WhatsApp CTA').trim().substring(0, 80),
+                cta_href: waLink.href,
+                bypass_modal: waLink.dataset.noModal === 'true'
+            });
+        }
+    }, true);
+})();
+</script>
 <!-- Script del Modal de WhatsApp (con cache buster) -->
-<script src="/js/wa-modal.js?v=1.4" charset="utf-8" defer></script>
+<script src="/js/wa-modal.js?v=1.5" charset="utf-8" defer></script>
 
     
     <!-- WhatsApp Flotante -->
-    <a href="https://wa.me/573132644262?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30 z-50 hover:scale-110 transition-transform hover:shadow-2xl group">
+    <a id="floating-wa-btn" href="https://wa.me/573151206985?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" aria-label="Contactar por WhatsApp" class="fixed bottom-6 right-6 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-lg shadow-green-500/30 z-40 hover:scale-110 transition-all duration-300 hover:shadow-2xl group">
         <i class="fab fa-whatsapp"></i>
-        <span class="absolute right-full mr-4 bg-white dark:bg-zinc-800 text-gray-800 dark:text-white text-sm font-normal px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">
+        <span class="hidden md:block absolute right-full mr-4 bg-white dark:bg-zinc-800 text-gray-800 dark:text-white text-sm font-normal px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">
             ¡Escríbenos!
         </span>
     </a>
@@ -1868,13 +1951,14 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
             
             <nav class="flex flex-col space-y-6 text-2xl font-header font-bold">
                 <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a>
+                <a href="#demo-interactiva" class="mobile-link text-emerald-700 dark:text-emerald-400 hover:text-brand transition-colors flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span> Demo en Vivo</a>
                 <a href="#como-funciona" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
                 <a href="#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
                 <a href="/blog/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
             </nav>
 
             <div class="mt-auto pt-8 border-t border-zinc-200 dark:border-zinc-800">
-                <a href="https://wa.me/573132644262?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
+                <a href="https://wa.me/573151206985?text=Hola%2C%20busco%20automatizar%20WhatsApp%20para%20mi%20empresa" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
                     Asesoría WhatsApp <i class="fab fa-whatsapp text-lg"></i>
                 </a>
             </div>
@@ -1950,9 +2034,23 @@ DISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):
                 document.body.classList.remove('overflow-hidden');
             });
         });
+
+        // Ocultar botón flotante de WhatsApp mientras el usuario interactúa con la Demo en Vivo
+        const demoSec = document.getElementById('demo-interactiva');
+        const floatWaBtn = document.getElementById('floating-wa-btn');
+        if (demoSec && floatWaBtn && 'IntersectionObserver' in window) {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        floatWaBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    } else {
+                        floatWaBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    }
+                });
+            }, { threshold: 0.15 });
+            obs.observe(demoSec);
+        }
     </script>
-    
-    
 <script src="/js/geo-personalization.js"></script>
 </body>
 </html>

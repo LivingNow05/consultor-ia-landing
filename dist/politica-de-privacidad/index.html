@@ -91,18 +91,18 @@
                     <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 </a>
                 <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-                    Transformamos la atención al cliente en LATAM con Agentes de Inteligencia Artificial que trabajan 24/7 en WhatsApp.
+                    Implementamos Agentes de Inteligencia Artificial, automatizaciones de WhatsApp y flujos inteligentes para empresas en Colombia y Latinoamérica.
                 </p>
                 <div class="flex gap-4">
-                    <a href="https://wa.me/573151206985" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/573151206985?text=Hola%2C%20quiero%20cotizar%20un%20Agente%20de%20IA%20o%20automatizaci%C3%B3n%20para%20mi%20empresa" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/company/consultor-ia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Consultor IA" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/consultoria_col" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Consultor IA" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
             <!-- Col 2: Industrias -->
             <div>
-                <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones</h4>
+                <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones por Sector</h4>
                 <ul class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
                     <li><a href="/chatbot-whatsapp-para-academias-cursos/" class="hover:text-accent transition-colors">Academias y Cursos</a></li><li><a href="/chatbot-whatsapp-para-clinicas-dentales/" class="hover:text-accent transition-colors">Clínicas Dentales</a></li><li><a href="/desarrollo-apps-y-software/" class="hover:text-accent transition-colors">Desarrollo de Apps y Software</a></li><li><a href="/chatbot-whatsapp-para-gimnasios/" class="hover:text-accent transition-colors">Gimnasios</a></li><li><a href="/chatbot-whatsapp-para-hoteles-y-hostales/" class="hover:text-accent transition-colors">Hoteles y Hostales</a></li><li><a href="/chatbot-whatsapp-para-inmobiliarias/" class="hover:text-accent transition-colors">Inmobiliarias</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/" class="hover:text-accent transition-colors">Restaurantes</a></li><li><a href="/chatbot-whatsapp-para-salones-de-belleza/" class="hover:text-accent transition-colors">Salones de Belleza</a></li><li><a href="/chatbot-whatsapp-para-spas-centros-esteticos/" class="hover:text-accent transition-colors">Spas y Centros de Estética</a></li><li><a href="/chatbot-whatsapp-para-talleres-automotrices/" class="hover:text-accent transition-colors">Talleres Automotrices</a></li>
                 </ul>
@@ -129,8 +129,60 @@
         </div>
     </div>
 </footer>
+<!-- Capa Global de Medición de Conversiones (GA4 / Google Ads / GTM dataLayer) -->
+<script>
+(function() {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
+    
+    // Persistir parámetros UTM y GCLID de Google Ads en la sesión para atribución de leads
+    try {
+        var params = new URLSearchParams(window.location.search);
+        var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+        var storedUtm = JSON.parse(sessionStorage.getItem('consultoria_utm') || '{}');
+        var updated = false;
+        utmKeys.forEach(function(k) {
+            if (params.get(k)) {
+                storedUtm[k] = params.get(k);
+                updated = true;
+            }
+        });
+        if (updated) sessionStorage.setItem('consultoria_utm', JSON.stringify(storedUtm));
+    } catch (e) {}
+
+    window.ConsultorAnalytics = {
+        getUtm: function() {
+            try { return JSON.parse(sessionStorage.getItem('consultoria_utm') || '{}'); } catch (e) { return {}; }
+        },
+        track: function(eventName, eventParams) {
+            var payload = Object.assign({
+                event: eventName,
+                page_path: window.location.pathname,
+                page_title: document.title,
+                timestamp: new Date().toISOString()
+            }, this.getUtm(), eventParams || {});
+            window.dataLayer.push(payload);
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', eventName, payload);
+            }
+        }
+    };
+
+    // Rastrear clics en todos los enlaces de WhatsApp y llamadas a la acción
+    document.addEventListener('click', function(e) {
+        var waLink = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+        if (waLink) {
+            window.ConsultorAnalytics.track('whatsapp_click', {
+                cta_text: (waLink.innerText || waLink.getAttribute('aria-label') || 'WhatsApp CTA').trim().substring(0, 80),
+                cta_href: waLink.href,
+                bypass_modal: waLink.dataset.noModal === 'true'
+            });
+        }
+    }, true);
+})();
+</script>
 <!-- Script del Modal de WhatsApp (con cache buster) -->
-<script src="/js/wa-modal.js?v=1.4" charset="utf-8" defer></script>
+<script src="/js/wa-modal.js?v=1.5" charset="utf-8" defer></script>
 
 </body>
 </html>

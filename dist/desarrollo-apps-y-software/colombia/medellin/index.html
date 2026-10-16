@@ -33,7 +33,7 @@
     <meta name="twitter:description" content="Diseño y desarrollo de aplicaciones móviles y software a la medida en Medellín. Apps de delivery, sistemas de reservas y administración de negocios 100% personalizados.">
     <meta name="twitter:image" content="https://consultor-ia.com.co/images/og-desarrollo-apps-y-software.webp">
     
-    <!-- Schema: LocalBusiness & Service Grafo Linked Data -->
+    <!-- Schema: LocalBusiness & Service Grafo Híbrido GEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,10 +41,24 @@
         {
           "@type": "LocalBusiness",
           "@id": "https://consultor-ia.com.co/desarrollo-apps-y-software/colombia/medellin/#localbusiness",
-          "name": "Consultor IA - Medellín",
+          "name": "Consultor IA - Desarrollo de Apps y Software en Medellín",
           "url": "https://consultor-ia.com.co/desarrollo-apps-y-software/colombia/medellin/",
+          "logo": "https://consultor-ia.com.co/favicon-192x192.png",
           "telephone": "+573151206985",
           "priceRange": "$$",
+          "parentOrganization": {
+            "@type": "Organization",
+            "@id": "https://consultor-ia.com.co/#organization",
+            "name": "Consultor IA",
+            "url": "https://consultor-ia.com.co/"
+          },
+          "knowsAbout": [
+            "Agentes de Inteligencia Artificial",
+            "Automatización de WhatsApp Business API",
+            "Flujos Inteligentes para Desarrollo de Apps y Software",
+            "desarrollo de apps y software en medellín",
+            "cómo hacer una app para vender comida medellín, programa para administrar mi negocio medellín, sistema de reservas y citas medellín"
+          ],
           "sameAs": [
             "https://www.linkedin.com/company/consultor-ia",
             "https://github.com/Createia"
@@ -54,14 +68,17 @@
             "addressLocality": "Medellín",
             "addressCountry": "co"
           },
-          "description": "Diseño y desarrollo de aplicaciones móviles y software a la medida en Medellín. Apps de delivery, sistemas de reservas y administración de negocios 100% personalizados.",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "115"
-          }
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Medellín"
+            },
+            {
+              "@type": "Place",
+              "name": "El Poblado, Medellín"
+            }
+          ],
+          "description": "Diseño y desarrollo de aplicaciones móviles y software a la medida en Medellín. Apps de delivery, sistemas de reservas y administración de negocios 100% personalizados."
         },
         {
           "@type": "Service",
@@ -70,7 +87,7 @@
           "provider": {
             "@id": "https://consultor-ia.com.co/desarrollo-apps-y-software/colombia/medellin/#localbusiness"
           },
-          "serviceType": "Agentes de Inteligencia Artificial para Desarrollo de Apps y Software",
+          "serviceType": "Agentes de Inteligencia Artificial y Automatización WhatsApp para Desarrollo de Apps y Software",
           "areaServed": {
             "@type": "City",
             "name": "Medellín"
@@ -107,85 +124,13 @@
     }
     </script>
     
-    <!-- Schema: LocalBusiness -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "Consultor IA",
-        "url": "https://consultor-ia.com.co"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/consultor-ia",
-        "https://www.instagram.com/consultoria_col"
-      ],
-      "name": "Consultor IA",
-      "url": "https://consultor-ia.com.co/desarrollo-apps-y-software/colombia/medellin/",
-      "logo": "https://consultor-ia.com.co/favicon-192x192.png",
-      "description": "Diseño y desarrollo de aplicaciones móviles y software a la medida en Medellín. Apps de delivery, sistemas de reservas y administración de negocios 100% personalizados.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "115"
-      }
-    }
-    </script>
-    
-    <!-- Fonts -->
-        <!-- Fonts: Playfair Display (Headers) + Inter (Body) -->
+    <!-- Fonts: Playfair Display (Headers) + Inter (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
-    
-    <!-- Tailwind -->
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'brand': '#18181b',      /* Zinc 900 */
-                        'brand-light': '#f4f4f5',/* Zinc 100 */
-                        'accent': '#2563eb',     /* Blue 600 - Tech Professional */
-                        'success': '#10b981',    /* Emerald 500 */
-                        'gray-1': '#18181b',
-                        'gray-2': '#52525b',
-                        'gray-card': '#ffffff',
-                        'gray-border': '#e4e4e7',
-                    },
-                    fontFamily: {
-                        body: ['"Inter"', 'sans-serif'],
-                        header: ['"Playfair Display"', 'serif'],
-                    },
-                    borderRadius: {
-                        '3xl': '24px',
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind Compiled CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css?v=2.0">
     
     <!-- Dark Mode Init Script -->
     <script>
@@ -196,8 +141,10 @@
         }
     </script>
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome Non-Blocking -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <style>
         body { font-family: 'Inter', sans-serif; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; }
@@ -302,6 +249,9 @@
                     </div>
                 </div>
                 
+                <a href="#demo-interactiva" class="font-medium text-accent hover:text-brand dark:hover:text-brand-light transition-colors flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Demo en Vivo
+                </a>
                 <a href="#como-funciona" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
                 <a href="#precios" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
                 <a href="/blog/" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
@@ -339,8 +289,6 @@
     <main>
         <!-- 4. Hero Section (High Impact + Dark Mode + Blob) -->
         <section class="relative pt-12 pb-24 lg:pt-16 lg:pb-32 overflow-hidden flex items-center min-h-[80vh]">
-            <!-- Minimal Background Grid/Shadow (Optional) -->
-            
             <div class="container mx-auto px-4 relative z-10 animate-fade-in-up">
                 <div class="flex flex-col lg:flex-row items-center gap-12">
                     
@@ -356,35 +304,35 @@
                         </h1>
                         
                         <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                            Lleva tu negocio al siguiente nivel en Medellín con software diseñado a tu medida. Creamos la app para vender comida con entregas eficientes, el programa para administrar tu negocio sin complicaciones, o el sistema de reservas y citas que tus clientes amarán. Automatiza tus procesos y escala tu facturación de forma chévere.
+                            Lleva tu negocio al siguiente nivel en Medellín con software diseñado a tu medida. Creamos la app para vender comida con entregas eficientes, el programa para administrar tu negocio sin complicaciones, o el sistema de reservas y citas que tus clientes amarán. Automatiza tus procesos y escala tu facturación de forma bacanísimo.
                         </p>
                         
                         <div class="flex flex-col sm:flex-row gap-4 mb-12">
                             <a href="https://wa.me/573151206985?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20Desarrollo%20de%20Apps%20y%20Software%20a%20la%20Medida%20en%20Medell%C3%ADn%20y%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" class="group relative inline-flex items-center justify-center bg-brand text-white dark:bg-brand-light dark:text-zinc-900 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm shadow-xl shadow-brand/20 hover:scale-105 hover:shadow-2xl transition-all overflow-hidden">
                                 <span class="relative z-10 flex items-center gap-3">
-                                    Ver Demo en Vivo <i class="fab fa-whatsapp text-[16px]"></i>
+                                    Solicitar Diagnóstico <i class="fab fa-whatsapp text-[16px]"></i>
                                 </span>
                             </a>
                             <a href="#demo-interactiva" class="bg-white dark:bg-zinc-900 text-brand dark:text-brand-light border border-gray-border dark:border-zinc-700 px-8 py-4 rounded-full font-medium shadow-md hover:shadow-lg hover:border-brand/30 dark:hover:border-brand-light/30 transition-all flex items-center justify-center text-sm uppercase tracking-wider">
-                                Probar Demo Web
+                                Probar Demo en Vivo
                             </a>
                         </div>
                         
-                        <!-- Trust Badges (Inspired by Dinastía) -->
+                        <!-- Garantías Técnicas Verificables -->
                         <div class="flex flex-wrap items-center gap-6 border-t border-gray-border dark:border-zinc-800 pt-6">
                             <div class="flex items-center gap-3">
-                                <div class="flex items-center text-[#FFD700] text-xl">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg">
+                                    <i class="fab fa-whatsapp"></i>
                                 </div>
                                 <div class="text-sm">
-                                    <p class="font-normal">4.9/5.0</p>
-                                    <p class="text-gray-500 dark:text-slate-400 text-xs">Casos de Éxito en Colombia</p>
+                                    <p class="font-semibold text-zinc-900 dark:text-white">WhatsApp Cloud API</p>
+                                    <p class="text-gray-500 dark:text-slate-400 text-xs">Integración Oficial en Colombia</p>
                                 </div>
                             </div>
                             <div class="h-8 w-px bg-gray-border dark:bg-zinc-800 hidden sm:block"></div>
-                            <div class="flex gap-4">
-                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Setup 5 Días</span>
-                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Soporte Local</span>
+                            <div class="flex flex-wrap gap-4">
+                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Setup en 5-7 Días</span>
+                                <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i> Google Calendar y CRM</span>
                             </div>
                         </div>
                     </div>
@@ -469,8 +417,8 @@
             </div>
         </section>
 
-        <!-- Testimonials Marquee (Scroll Infinito de Reseñas) -->
-        <section class="py-6 overflow-hidden border-y border-gray-100 dark:border-zinc-800/50 bg-[#FDFBF7]/50 dark:bg-zinc-900/50" aria-label="Reseñas de clientes">
+        <!-- Casos de Uso y Arquitectura Técnica -->
+        <section class="py-5 overflow-hidden border-y border-gray-100 dark:border-zinc-800/50 bg-[#FDFBF7]/50 dark:bg-zinc-900/50" aria-label="Capacidades de automatización">
     <style>
         @keyframes marquee-scroll {
             0% { transform: translateX(0); }
@@ -479,7 +427,7 @@
         .marquee-track {
             display: flex;
             width: max-content;
-            animation: marquee-scroll 35s linear infinite;
+            animation: marquee-scroll 38s linear infinite;
         }
         .marquee-track:hover {
             animation-play-state: paused;
@@ -488,20 +436,20 @@
             display: inline-flex;
             align-items: center;
             white-space: nowrap;
-            padding: 8px 24px;
+            padding: 8px 22px;
             margin: 0 8px;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 13px;
+            font-weight: 600;
             color: #52525b;
             border-radius: 9999px;
-            background: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.8);
             border: 1px solid #e4e4e7;
             backdrop-filter: blur(4px);
             transition: all 0.3s ease;
         }
         .dark .testimonial-item {
-            color: #a1a1aa;
-            background: rgba(39,39,42,0.5);
+            color: #d4d4d8;
+            background: rgba(39,39,42,0.6);
             border-color: #3f3f46;
         }
         .testimonial-item:hover {
@@ -516,102 +464,232 @@
         }
     </style>
     <div class="marquee-track">
-        <span class="testimonial-item">⭐⭐⭐⭐⭐ "App de domicilios que duplicó nuestras ventas" - Pizzería Gourmet</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "ERP a la medida que ordenó nuestro inventario" - Distribuidora del Norte</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "El sistema de reservas automatizó el 90% de las citas" - Centro de Estética</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Excelente desarrollo de software ágil e integraciones" - Logística Express</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Nuestra app móvil iOS/Android quedó impecable" - Club Deportivo</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Un sistema de administración intuitivo y robusto" - Comercializadora Sur</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Ventas automáticas 24/7 en WhatsApp" - Le Bistro</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Integración perfecta con nuestro CRM" - InmoLATAM</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "App de domicilios que duplicó nuestras ventas" - Pizzería Gourmet</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "ERP a la medida que ordenó nuestro inventario" - Distribuidora del Norte</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "El sistema de reservas automatizó el 90% de las citas" - Centro de Estética</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Excelente desarrollo de software ágil e integraciones" - Logística Express</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Nuestra app móvil iOS/Android quedó impecable" - Club Deportivo</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Un sistema de administración intuitivo y robusto" - Comercializadora Sur</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Ventas automáticas 24/7 en WhatsApp" - Le Bistro</span>
-<span class="testimonial-item">⭐⭐⭐⭐⭐ "Integración perfecta con nuestro CRM" - InmoLATAM</span>
+        <span class="testimonial-item">💻 Desarrollo de aplicaciones web y móviles IA-Native a medida</span>
+<span class="testimonial-item">🔗 Integración mediante APIs y Webhooks con ERPs y CRMs</span>
+<span class="testimonial-item">🤖 Agentes de IA personalizados conectados a tus bases de datos</span>
+<span class="testimonial-item">⚡ Automatización de procesos operativos y flujos empresariales</span>
+<span class="testimonial-item">🛡️ Arquitectura cloud escalable, segura y de alto rendimiento</span>
+<span class="testimonial-item">🚀 Despliegue ágil con acompañamiento técnico continuo</span>
+<span class="testimonial-item">🤖 Agentes de IA entrenados con los documentos reales de tu empresa</span>
+<span class="testimonial-item">⚡ Atención, calificación de leads y agendamiento en WhatsApp 24/7</span>
+<span class="testimonial-item">💻 Desarrollo de aplicaciones web y móviles IA-Native a medida</span>
+<span class="testimonial-item">🔗 Integración mediante APIs y Webhooks con ERPs y CRMs</span>
+<span class="testimonial-item">🤖 Agentes de IA personalizados conectados a tus bases de datos</span>
+<span class="testimonial-item">⚡ Automatización de procesos operativos y flujos empresariales</span>
+<span class="testimonial-item">🛡️ Arquitectura cloud escalable, segura y de alto rendimiento</span>
+<span class="testimonial-item">🚀 Despliegue ágil con acompañamiento técnico continuo</span>
+<span class="testimonial-item">🤖 Agentes de IA entrenados con los documentos reales de tu empresa</span>
+<span class="testimonial-item">⚡ Atención, calificación de leads y agendamiento en WhatsApp 24/7</span>
 
     </div>
 </section>
 
-        <!-- Contenido Editorial EEAT (SEO) -->
+        <!-- Bloque Visual Dinámico E-E-A-T + Contexto Hiper-Local GEO -->
         
-    <section class="py-24 bg-white dark:bg-zinc-950 border-t border-gray-100 dark:border-zinc-900 relative overflow-hidden">
-        <div class="absolute top-1/2 left-0 w-72 h-72 bg-[#E8DAC1]/10 dark:bg-brand/5 rounded-full blur-3xl pointer-events-none"></div>
-        
+    <section id="eeat-geo-visual" class="py-20 lg:py-24 bg-white dark:bg-zinc-950 border-t border-gray-200 dark:border-zinc-800 relative overflow-hidden">
         <div class="container mx-auto px-4 max-w-6xl relative z-10">
-            <!-- Título Principal -->
-            <div class="text-center mb-20 max-w-3xl mx-auto">
-                <span class="text-brand dark:text-brand-light font-body text-xs font-bold uppercase tracking-widest mb-3 block">Flujo de Trabajo y Contexto</span>
-                <h2 class="text-3xl md:text-5xl font-header font-bold text-zinc-900 dark:text-white leading-tight">
+            <!-- Encabezado + Resumen GEO en Palabras Simples -->
+            <div class="text-center mb-14 max-w-4xl mx-auto">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 mb-4">
+                    <i class="fas fa-map-pin"></i> Guía Visual y Realidad Local en Medellín, Colombia
+                </span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-header font-bold text-zinc-900 dark:text-white leading-tight mb-6">
                     Software a la Medida en Medellín: Escalabilidad y Rendimiento Tecnológico
                 </h2>
-            </div>
-            
-            <!-- Contenedor del Flujo Horizontal -->
-            <div class="relative">
-                <!-- Línea de conexión horizontal con degradado (solo en desktop) -->
-                <div class="absolute top-4 left-4 right-4 h-[2px] bg-gradient-to-r from-zinc-200 via-brand/30 to-zinc-200 dark:from-zinc-800 dark:via-brand-light/30 dark:to-zinc-800 hidden lg:block -z-10"></div>
                 
-                <div class="grid lg:grid-cols-3 gap-12 lg:gap-16 items-stretch">
-                    <!-- Paso 1: La Oportunidad -->
-                    <div class="flex flex-col items-start relative group">
-                        <div class="w-8 h-8 rounded-full border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-400 dark:text-zinc-600 font-bold text-xs flex items-center justify-center mb-6 transition-colors group-hover:border-brand dark:group-hover:border-brand-light group-hover:text-brand dark:group-hover:text-brand-light">
-                            01
-                        </div>
-                        <h3 class="text-lg font-header font-bold text-zinc-900 dark:text-white mb-3">Contexto de la Industria</h3>
-                        <div class="prose dark:prose-invert max-w-none">
-                            <p class="text-base md:text-[17px] font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">En la capital de la innovación, la eficiencia operativa digital define el éxito. Las empresas en Medellín que aún dependen de procesos manuales o software genérico rígido se encuentran con un techo de crecimiento invisible que merma su rentabilidad.</p>
-                        </div>
+                <!-- Bloque Resumen GEO (Explicado tan fácil que cualquiera lo entiende en 5 segundos) -->
+                <div class="p-6 sm:p-7 rounded-3xl bg-[#FDFBF7] dark:bg-zinc-900 border-2 border-emerald-500/25 dark:border-emerald-500/30 shadow-lg text-left">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-4 border-b border-gray-200 dark:border-zinc-800">
+                        <span class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+                            <i class="fas fa-lightbulb text-amber-500 text-sm"></i> Explicado en palabras simples (En 10 segundos)
+                        </span>
+                        <span class="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                            Especial para <strong>Desarrollo de Apps y Software</strong> en <strong>Medellín</strong>
+                        </span>
                     </div>
-                    
-                    <!-- Paso 2: El Desafío -->
-                    <div class="flex flex-col items-start relative group">
-                        <div class="w-8 h-8 rounded-full border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-400 dark:text-zinc-600 font-bold text-xs flex items-center justify-center mb-6 transition-colors group-hover:border-red-400 group-hover:text-red-400">
-                            02
-                        </div>
-                        <h3 class="text-lg font-header font-bold text-zinc-900 dark:text-white mb-3">El Dolor de Gestión</h3>
-                        <div class="prose dark:prose-invert max-w-none">
-                            <p class="text-base md:text-[17px] font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">El gran reto de los comercios y servicios paisas es capturar el flujo de clientes digitales de forma automática. Un sistema fragmentado causa que los vendedores dediquen horas a responder las mismas preguntas en vez de enfocarse en tareas comerciales estratégicas.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Paso 3: La Solución con IA -->
-                    <div class="flex flex-col items-start relative group">
-                        <div class="w-8 h-8 rounded-full bg-brand dark:bg-brand-light text-white dark:text-zinc-950 font-bold text-xs flex items-center justify-center mb-6 shadow-md shadow-brand/10">
-                            03
-                        </div>
-                        <h3 class="text-lg font-header font-bold text-zinc-900 dark:text-white mb-3">Solución con IA</h3>
-                        <div class="w-full">
-                            <h4 class="text-sm font-semibold text-brand dark:text-brand-light mb-3">Sistemas Personalizados que Impulsan tu Negocio</h4>
-                            <div class="prose dark:prose-invert max-w-none">
-                                <p class="text-base md:text-[17px] font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">Diseñamos e implementamos software que soluciona tus dolores operativos. Creamos tu propia app de delivery, ERPs ágiles y plataformas de reservas en línea que automatizan las ventas e inventarios sin comisiones de intermediación. "*Hola, vi su página de Desarrollo de Apps y Software a la Medida en Medellín y me interesa cotizar un proyecto.*"</p>
+                    <p class="text-base sm:text-lg text-zinc-800 dark:text-zinc-200 leading-relaxed mb-5">
+                        <strong>Consultor IA</strong> conecta un <strong>Agente de Inteligencia Artificial</strong> al WhatsApp de tu <strong>desarrollo de apps y software en Medellín</strong> (atendiendo clientes desde <strong>El Poblado</strong> hasta <strong>Laureles</strong>). Funciona como tu mejor empleado disponible día y noche en <strong>3 pasos muy fáciles</strong>:
+                    </p>
+                    <div class="grid sm:grid-cols-3 gap-3 text-sm">
+                        <div class="p-3.5 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 flex items-start gap-3">
+                            <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+                            <div>
+                                <strong class="block text-zinc-900 dark:text-white">Te escriben al WhatsApp</strong>
+                                <span class="text-xs text-zinc-500 dark:text-zinc-400">El cliente manda texto o audio preguntando precios o citas en Medellín.</span>
                             </div>
-                            
-            <div class="mt-6 p-4 bg-[#E2F8CB] dark:bg-[#0b5c49] rounded-2xl rounded-tr-none border border-[#b2dca2]/40 dark:border-[#008f72]/20 shadow-md max-w-[95%] ml-auto relative">
-                <p class="text-xs text-zinc-800 dark:text-zinc-100 font-sans leading-normal">
-                    Hola, vi su página de Desarrollo de Apps y Software a la Medida en Medellín y me interesa cotizar un proyecto.
-                </p>
-                <span class="absolute top-0 right-[-8px] w-0 h-0 border-t-[8px] border-t-[#E2F8CB] dark:border-t-[#0b5c49] border-r-[8px] border-r-transparent"></span>
-                <div class="text-[9px] text-zinc-500 dark:text-zinc-300 text-right mt-1">
-                    <i class="fas fa-check-double text-sky-500 mr-0.5"></i> Entregado
-                </div>
-            </div>
-            
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 flex items-start gap-3">
+                            <span class="w-7 h-7 rounded-xl bg-blue-500/15 text-blue-700 dark:text-blue-400 font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+                            <div>
+                                <strong class="block text-zinc-900 dark:text-white">La IA responde en 3 seg</strong>
+                                <span class="text-xs text-zinc-500 dark:text-zinc-400">Lee tus precios reales y conversa amable sin usar menús robóticos.</span>
+                            </div>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 flex items-start gap-3">
+                            <span class="w-7 h-7 rounded-xl bg-purple-500/15 text-purple-700 dark:text-purple-400 font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+                            <div>
+                                <strong class="block text-zinc-900 dark:text-white">Agenda y te avisa listo</strong>
+                                <span class="text-xs text-zinc-500 dark:text-zinc-400">Aparta la hora en tu Google Calendar/CRM y te entrega el cliente listo.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
+            <!-- Bento Visual: Fotografía Realista + Tarjetas Dinámicas Paso a Paso -->
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+                
+                <!-- Columna Izquierda (5 cols): Fotografía Editorial Realista + Tarjetas en Vivo + Barrios de Medellín -->
+                <div class="lg:col-span-5 flex flex-col gap-6">
+                    <div class="relative rounded-3xl overflow-hidden border border-gray-200 dark:border-zinc-800 shadow-2xl group bg-zinc-900">
+                        <img src="/images/eeat/ejecutivo-b2b-latam.webp" alt="Director empresarial en Medellín operando con Agentes de IA y flujos de WhatsApp B2B" loading="lazy" decoding="async" class="w-full h-[420px] sm:h-[460px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                        
+                        <!-- Degradado suave para legibilidad de las tarjetas flotantes -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/35 pointer-events-none"></div>
+                        
+                        <!-- Badge Superior Flotante (HTML Nítido) -->
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
+                            <span class="inline-flex items-center gap-2 bg-zinc-950/85 backdrop-blur-md text-white text-xs font-semibold px-3.5 py-2 rounded-full border border-white/15 shadow-lg">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                Operación B2B · Medellín
+                            </span>
+                            <span class="bg-emerald-500 text-zinc-950 text-[11px] font-extrabold px-3 py-1.5 rounded-full shadow-lg">
+                                ⚡ 2.4 seg
+                            </span>
+                        </div>
+                        
+                        <!-- Tarjeta Inferior Flotante con Caso Real en Medellín -->
+                        <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-zinc-950/90 backdrop-blur-md border border-white/15 text-white shadow-2xl">
+                            <div class="flex items-center justify-between text-[11px] text-zinc-300 mb-2">
+                                <span class="font-semibold flex items-center gap-1.5"><i class="fab fa-whatsapp text-emerald-400 text-sm"></i> Cliente real en Medellín</span>
+                                <span class="text-emerald-400 font-bold">24/7 Activo</span>
+                            </div>
+                            <p class="text-xs text-zinc-100 italic bg-white/10 rounded-xl px-3 py-2 mb-2.5 border border-white/10">
+                                "Hola, necesitamos cotizar y agendar una reunión comercial en Medellín."
+                            </p>
+                            <div class="flex items-center gap-2 text-xs font-bold text-emerald-300">
+                                <i class="fas fa-check-circle text-emerald-400"></i>
+                                <span>Lead calificado en CRM + Reunión agendada en Calendar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Caja de Contexto Hiper-Local por Barrios en Medellín (SEO Local + GEO) -->
+                    <div class="p-6 rounded-3xl bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-sm">
+                        <div class="flex items-center gap-2.5 mb-3">
+                            <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                                <i class="fas fa-compass"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-header font-bold text-base text-zinc-900 dark:text-white leading-tight">Cobertura Hiper-Local en Medellín</h3>
+                                <p class="text-xs text-zinc-500 dark:text-zinc-400">Zonas donde operan empresas y paisas</p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">
+                            En Medellín, la competencia es fuerte. Los negocios en El Poblado y zonas cercanas saben que los paisas no esperan. Implementar un Agente IA es la mejor forma de resolver problemas como: Software genérico que no se adapta a las reglas del negocio y cobro de comisiones altas de plataformas tradicionales..
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 border border-gray-200 dark:border-zinc-700 shadow-sm">
+            <i class="fas fa-map-marker-alt text-emerald-500 text-[11px]"></i> El Poblado
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 border border-gray-200 dark:border-zinc-700 shadow-sm">
+            <i class="fas fa-map-marker-alt text-emerald-500 text-[11px]"></i> Laureles
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 border border-gray-200 dark:border-zinc-700 shadow-sm">
+            <i class="fas fa-map-marker-alt text-emerald-500 text-[11px]"></i> Envigado
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 border border-gray-200 dark:border-zinc-700 shadow-sm">
+            <i class="fas fa-map-marker-alt text-emerald-500 text-[11px]"></i> Sabaneta
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 border border-gray-200 dark:border-zinc-700 shadow-sm">
+            <i class="fas fa-map-marker-alt text-emerald-500 text-[11px]"></i> La Strada
+        </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna Derecha (7 cols): Las 3 Tarjetas Dinámicas de Diagnóstico y Solución -->
+                <div class="lg:col-span-7 flex flex-col gap-5">
+                    
+                    <!-- Tarjeta 01: Lo que pasa hoy en Medellín -->
+                    <div class="p-6 sm:p-7 rounded-3xl bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand/40 transition-all shadow-sm">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand dark:text-brand-light bg-brand/10 dark:bg-white/10 px-3 py-1 rounded-full">
+                                <i class="fas fa-city"></i> Paso 01 · Realidad hoy en Medellín
+                            </span>
+                            <span class="text-xs font-semibold text-zinc-400">Demanda Local</span>
+                        </div>
+                        <h3 class="text-xl font-header font-bold text-zinc-900 dark:text-white mb-2.5">
+                            ¿Cómo buscan y compran hoy los paisas en Medellín?
+                        </h3>
+                        <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">En la capital de la innovación, la eficiencia operativa digital define el éxito. Las empresas en Medellín que aún dependen de procesos manuales o software genérico rígido se encuentran con un techo de crecimiento invisible que merma su rentabilidad.</p>
+                    </div>
+                    
+                    <!-- Tarjeta 02: El Problema de contestar tarde -->
+                    <div class="p-6 sm:p-7 rounded-3xl bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-amber-500/40 transition-all shadow-sm">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full">
+                                <i class="fas fa-exclamation-triangle"></i> Paso 02 · El cuello de botella
+                            </span>
+                            <span class="text-xs font-semibold text-zinc-400">Fuga de Clientes</span>
+                        </div>
+                        <h3 class="text-xl font-header font-bold text-zinc-900 dark:text-white mb-2.5">
+                            Por qué se escapan las ventas cuando respondes a mano
+                        </h3>
+                        <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">El gran reto de los comercios y servicios paisas es capturar el flujo de clientes digitales de forma automática. Un sistema fragmentado causa que los vendedores dediquen horas a responder las mismas preguntas en vez de enfocarse en tareas comerciales estratégicas.</p>
+                    </div>
+                    
+                    <!-- Tarjeta 03: La Solución con Agente IA (Destacada) -->
+                    <div class="p-6 sm:p-7 rounded-3xl bg-white dark:bg-zinc-900 border-2 border-emerald-500/40 dark:border-emerald-500/40 shadow-xl relative overflow-hidden">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 bg-emerald-500/15 px-3.5 py-1 rounded-full">
+                                <i class="fas fa-robot"></i> Paso 03 · Solución con Agente IA en Medellín
+                            </span>
+                            <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400">Activo en 5-7 Días</span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-header font-bold text-zinc-900 dark:text-white mb-3">
+                            Sistemas Personalizados que Impulsan tu Negocio
+                        </h3>
+                        <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">Diseñamos e implementamos software que soluciona tus dolores operativos. Creamos tu propia app de delivery, ERPs ágiles y plataformas de reservas en línea que automatizan las ventas e inventarios sin comisiones de intermediación. "*Hola, vi su página de Desarrollo de Apps y Software a la Medida en Medellín y me interesa cotizar un proyecto.*"</p>
+                        
+            <div class="mt-5 p-4 bg-[#E2F8CB] dark:bg-[#0b5c49] rounded-2xl rounded-tr-none border border-[#b2dca2]/50 dark:border-[#008f72]/30 shadow-md max-w-[96%] ml-auto relative">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-200 block mb-1">Ejemplo real de mensaje en Medellín:</span>
+                <p class="text-xs sm:text-sm text-zinc-800 dark:text-zinc-100 font-sans leading-normal">
+                    "Hola, vi su página de Desarrollo de Apps y Software a la Medida en Medellín y me interesa cotizar un proyecto."
+                </p>
+                <div class="text-[10px] text-zinc-600 dark:text-zinc-300 text-right mt-1.5 font-medium">
+                    <i class="fas fa-check-double text-sky-500 mr-1"></i> Respondido en 2.4 seg por tu Agente IA
+                </div>
+            </div>
             
+                        
+                        <!-- Respaldo de Ingeniería Verificable (E-E-A-T Técnico sin métricas inventadas) -->
+                        <div class="mt-6 pt-5 border-t border-gray-200 dark:border-zinc-800 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                            <div class="flex items-center gap-2 font-semibold text-zinc-700 dark:text-zinc-300">
+                                <i class="fas fa-check-circle text-emerald-500"></i> WhatsApp Cloud API Oficial
+                            </div>
+                            <div class="flex items-center gap-2 font-semibold text-zinc-700 dark:text-zinc-300">
+                                <i class="fas fa-check-circle text-emerald-500"></i> Lee tus PDFs y Precios (RAG)
+                            </div>
+                            <div class="flex items-center gap-2 font-semibold text-zinc-700 dark:text-zinc-300">
+                                <i class="fas fa-check-circle text-emerald-500"></i> Google Calendar + CRM
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
         </div>
     </section>
     
 
+        <!-- Demo Interactiva de Agente Conversacional y Calendario -->
+        
+
         <!-- 5. Servicios (Grid Rediseñado con Glassmorphism) -->
-        <section id="servicios" class="py-24 relative">
+        <section id="servicios" class="py-24 relative scroll-mt-24">
             <div class="container mx-auto px-4 max-w-6xl relative z-10">
                 <div class="text-center mb-16 max-w-3xl mx-auto">
                     <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Soluciones Especializadas</span>
@@ -656,7 +734,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- 5.5 Roadmap -->
         
@@ -720,42 +797,48 @@
 
         <!-- 5.6 ROI Table -->
         
-    <section class="py-16 bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl border-y border-gray-border/50 dark:border-zinc-800/50">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-header font-bold mb-4">Agencia Tradicional vs. Desarrollo IA-Native</h2>
-                <p class="text-lg text-gray-500 dark:text-slate-400">¿Por qué nuestro enfoque es la decisión más inteligente para tu ROI y velocidad?</p>
+    <section class="py-20 bg-white dark:bg-zinc-950 border-y border-gray-border dark:border-zinc-800">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-12">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand/10 text-brand dark:text-brand-light mb-3">Comparativa Clara en Medellín</span>
+                <h2 class="text-3xl md:text-4xl font-header font-bold mb-4 text-zinc-900 dark:text-white">Agencia Tradicional vs. Desarrollo con IA en Medellín</h2>
+                <p class="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Mira de un vistazo por qué desarrollar tu plataforma con Inteligencia Artificial integrada ahorra meses de espera en Medellín.</p>
             </div>
             
-            <div class="overflow-x-auto rounded-2xl shadow-xl">
-                <table class="w-full text-left bg-white dark:bg-zinc-900 border-collapse min-w-[600px]">
+            <div class="overflow-x-auto rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-xl">
+                <table class="w-full text-left bg-white dark:bg-zinc-900 border-collapse min-w-[640px]">
                     <thead>
-                        <tr class="bg-gray-100 dark:bg-zinc-800 border-b border-gray-border dark:border-zinc-700">
-                            <th class="p-6 font-bold text-gray-700 dark:text-slate-300 w-1/3">Característica</th>
-                            <th class="p-6 font-bold text-gray-500 dark:text-slate-400 w-1/3 text-center border-x border-gray-border dark:border-zinc-700">Agencia Tradicional</th>
-                            <th class="p-6 font-bold text-brand dark:text-brand-light w-1/3 text-center bg-brand/5 dark:bg-brand/10">Desarrollo IA-Native (Consultor IA)</th>
+                        <tr class="bg-zinc-100 dark:bg-zinc-800/90 border-b border-gray-200 dark:border-zinc-700 text-sm">
+                            <th class="p-5 font-bold text-zinc-800 dark:text-zinc-200 w-1/4">¿Qué comparamos en Medellín?</th>
+                            <th class="p-5 font-bold text-zinc-500 dark:text-zinc-400 w-1/4 text-center border-x border-gray-200 dark:border-zinc-700">Programación Antigua</th>
+                            <th class="p-5 font-bold text-zinc-500 dark:text-zinc-400 w-1/4 text-center border-r border-gray-200 dark:border-zinc-700">Plantillas Limitadas</th>
+                            <th class="p-5 font-bold text-brand dark:text-brand-light w-1/4 text-center bg-emerald-500/10 dark:bg-emerald-500/15">Desarrollo IA-Native (Consultor IA)</th>
                         </tr>
                     </thead>
-                    <tbody class="text-gray-600 dark:text-slate-400">
-                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Tiempo de Lanzamiento</td>
-                            <td class="p-5 text-center">3 a 6 meses</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">4 a 8 semanas (Desarrollo Ágil)</td>
+                    <tbody class="text-sm text-zinc-600 dark:text-zinc-300">
+                        <tr class="border-b border-gray-100 dark:border-zinc-800">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">⏱️ Tiempo para salir al mercado</td>
+                            <td class="p-5 text-center">4 a 6 meses de espera</td>
+                            <td class="p-5 text-center">Rápido pero se rompe al crecer</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">4 a 8 semanas llave en mano</td>
                         </tr>
-                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Integración de IA (LLMs)</td>
-                            <td class="p-5 text-center">Costosa, como módulo adicional posterior</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">Nativa de Fábrica (Gemini, Speech, Visión)</td>
+                        <tr class="border-b border-gray-100 dark:border-zinc-800">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">🧠 Inteligencia Artificial y WhatsApp</td>
+                            <td class="p-5 text-center">Se cobra aparte como extra caro</td>
+                            <td class="p-5 text-center">No conecta con tus datos reales</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">Incluida de fábrica (Voz, Texto y API)</td>
                         </tr>
-                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Costo de Implementación</td>
-                            <td class="p-5 text-center text-red-500 font-medium">Elevado ($15,000+ USD)</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">Optimizado (Desde COP 100)</td>
+                        <tr class="border-b border-gray-100 dark:border-zinc-800">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">🔑 ¿De quién es el código y la base de datos?</td>
+                            <td class="p-5 text-center">Depende del proveedor</td>
+                            <td class="p-5 text-center">Alquilado (no eres dueño)</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">100% propiedad de tu empresa en Medellín</td>
                         </tr>
-                        <tr class="hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Propiedad del Código</td>
-                            <td class="p-5 text-center">A menudo cautivo o limitado</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">100% Tuyo (Código y BD Libres)</td>
+                        <tr>
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">💰 Inversión estimada en Medellín</td>
+                            <td class="p-5 text-center text-red-500 font-semibold">Más de $15,000 USD</td>
+                            <td class="p-5 text-center">Pagos mensuales sin soporte local</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">Desde COP 100</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1174,12 +1257,9 @@
             </div>
         </section>
         
-
-        <!-- Demo Interactiva de Agente Conversacional y Calendario -->
-        
         
         <!-- 7. FAQ (Acordeón Premium) -->
-        <section id="faq" class="py-24">
+        <section id="faq" class="py-24 scroll-mt-24">
             <div class="container mx-auto px-4 max-w-3xl">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-5xl font-header font-bold mb-4">Preguntas Frecuentes</h2>
@@ -1235,36 +1315,14 @@
                     
                     .faq-item p { padding: 0 24px 24px; color: #434345; line-height: 1.6; }
                     .dark .faq-item p { color: #cbd5e1; }
- 
-        /* Smooth Global Background Blobs */
-        @keyframes global-blob-1 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(20vw, -15vh) scale(1.2) rotate(10deg); }
-            66% { transform: translate(-15vw, 20vh) scale(0.8) rotate(-10deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes global-blob-2 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(-20vw, 20vh) scale(1.3) rotate(-15deg); }
-            66% { transform: translate(20vw, -15vh) scale(0.7) rotate(15deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes global-blob-3 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            50% { transform: translate(25vw, 25vh) scale(1.4) rotate(20deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        .global-blob-1 { animation: global-blob-1 6s infinite alternate ease-in-out; }
-        .global-blob-2 { animation: global-blob-2 8s infinite alternate ease-in-out; }
-        .global-blob-3 { animation: global-blob-3 10s infinite alternate ease-in-out; }
-    </style>
+                </style>
             </div>
         </section>
 
         <!-- CTA Final -->
         <section class="py-24 border-t border-gray-200 dark:border-zinc-800 relative overflow-hidden backdrop-blur-md">
             <div class="container mx-auto px-4 max-w-3xl relative z-10 text-center">
-                <h2 class="text-4xl md:text-5xl font-header font-bold mb-6 text-zinc-900 dark:text-white tracking-tight">¿Listo para transformar tu negocio?</h2>
+                <h2 class="text-4xl md:text-5xl font-header font-bold mb-6 text-zinc-900 dark:text-white tracking-tight">¿Listo para transformar tu negocio en Medellín?</h2>
                 <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 font-normal">Agenda una sesión de consultoría gratuita de 15 minutos y descubre cómo la IA puede automatizar tus ventas y atención.</p>
                 <a href="https://wa.me/573151206985?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20Desarrollo%20de%20Apps%20y%20Software%20a%20la%20Medida%20en%20Medell%C3%ADn%20y%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
                     <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
@@ -1287,29 +1345,7 @@
                     .dark .card-ciudad { background: #1e293b; border-color: #334155; color: #e2e8f0; }
                     .card-ciudad:hover { border-color: #28D366; color: #28D366; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(40, 211, 102, 0.15); }
                     .dark .card-ciudad:hover { border-color: #4ade80; color: #4ade80; background: #0f172a; }
- 
-        /* Smooth Global Background Blobs */
-        @keyframes global-blob-1 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(20vw, -15vh) scale(1.2) rotate(10deg); }
-            66% { transform: translate(-15vw, 20vh) scale(0.8) rotate(-10deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes global-blob-2 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(-20vw, 20vh) scale(1.3) rotate(-15deg); }
-            66% { transform: translate(20vw, -15vh) scale(0.7) rotate(15deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        @keyframes global-blob-3 {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            50% { transform: translate(25vw, 25vh) scale(1.4) rotate(20deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-        }
-        .global-blob-1 { animation: global-blob-1 6s infinite alternate ease-in-out; }
-        .global-blob-2 { animation: global-blob-2 8s infinite alternate ease-in-out; }
-        .global-blob-3 { animation: global-blob-3 10s infinite alternate ease-in-out; }
-    </style>
+                </style>
             </div>
         </section>
 
@@ -1331,7 +1367,7 @@
 
                 <a href="/blog/chatbot-whatsapp-desarrollo-software-apps-ia/" class="blog-card-rec bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 overflow-hidden shadow-sm flex flex-col h-full">
                     <div class="h-48 relative overflow-hidden">
-                        <img src="/images/blog/chatbot-whatsapp-desarrollo-software-apps-ia/hero.webp" alt="Chatbot de WhatsApp Corporativo para Empresas de Desarrollo de Software, Apps y Software Factories con IA: Cómo Automatizar el Discovery Técnico, Estimación de Presupuestos, Calificación de Requerimientos y Agendamiento B2B en LATAM (2026)" class="blog-card-img w-full h-full object-cover">
+                        <img src="/images/blog/chatbot-whatsapp-desarrollo-software-apps-ia/hero.webp" alt="Chatbot de WhatsApp Corporativo para Empresas de Desarrollo de Software, Apps y Software Factories con IA: Cómo Automatizar el Discovery Técnico, Estimación de Presupuestos, Calificación de Requerimientos y Agendamiento B2B en LATAM (2026)" loading="lazy" decoding="async" class="blog-card-img w-full h-full object-cover">
                         <div class="absolute top-4 left-4 bg-brand/90 dark:bg-brand-light/90 text-white dark:text-zinc-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10">
                             Software & Tecnología
                         </div>
@@ -1355,7 +1391,7 @@
                 </a>
                 <a href="/blog/precios-agente-ia-latam/" class="blog-card-rec bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 overflow-hidden shadow-sm flex flex-col h-full">
                     <div class="h-48 relative overflow-hidden">
-                        <img src="/images/blog/precios-agente-ia-latam/hero.webp" alt="Precios de Inteligencia Artificial para Empresas: ¿Cuánto cuesta implementar un Chatbot de WhatsApp Corporativo y Agentes de IA en LATAM?" class="blog-card-img w-full h-full object-cover">
+                        <img src="/images/blog/precios-agente-ia-latam/hero.webp" alt="Precios de Inteligencia Artificial para Empresas: ¿Cuánto cuesta implementar un Chatbot de WhatsApp Corporativo y Agentes de IA en LATAM?" loading="lazy" decoding="async" class="blog-card-img w-full h-full object-cover">
                         <div class="absolute top-4 left-4 bg-brand/90 dark:bg-brand-light/90 text-white dark:text-zinc-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10">
                             Precios
                         </div>
@@ -1379,7 +1415,7 @@
                 </a>
                 <a href="/blog/como-implementar-agente-ia/" class="blog-card-rec bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 overflow-hidden shadow-sm flex flex-col h-full">
                     <div class="h-48 relative overflow-hidden">
-                        <img src="/images/blog/como-implementar-agente-ia/hero.webp" alt="Cómo Implementar un Agente IA en tu Empresa: 5 Pasos para Automatizar Ventas y Servicio en LATAM" class="blog-card-img w-full h-full object-cover">
+                        <img src="/images/blog/como-implementar-agente-ia/hero.webp" alt="Cómo Implementar un Agente IA en tu Empresa: 5 Pasos para Automatizar Ventas y Servicio en LATAM" loading="lazy" decoding="async" class="blog-card-img w-full h-full object-cover">
                         <div class="absolute top-4 left-4 bg-brand/90 dark:bg-brand-light/90 text-white dark:text-zinc-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10">
                             Implementación
                         </div>
@@ -1450,18 +1486,18 @@
                     <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 </a>
                 <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-                    Transformamos la atención al cliente en LATAM con Agentes de Inteligencia Artificial que trabajan 24/7 en WhatsApp.
+                    Implementamos Agentes de Inteligencia Artificial, automatizaciones de WhatsApp y flujos inteligentes para empresas en Colombia y Latinoamérica.
                 </p>
                 <div class="flex gap-4">
-                    <a href="https://wa.me/573151206985" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/573151206985?text=Hola%2C%20quiero%20cotizar%20un%20Agente%20de%20IA%20o%20automatizaci%C3%B3n%20para%20mi%20empresa" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/company/consultor-ia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Consultor IA" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/consultoria_col" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Consultor IA" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
             <!-- Col 2: Industrias -->
             <div>
-                <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones</h4>
+                <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones por Sector</h4>
                 <ul class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
                     <li><a href="/chatbot-whatsapp-para-academias-cursos/" class="hover:text-accent transition-colors">Academias y Cursos</a></li><li><a href="/chatbot-whatsapp-para-clinicas-dentales/" class="hover:text-accent transition-colors">Clínicas Dentales</a></li><li><a href="/desarrollo-apps-y-software/" class="hover:text-accent transition-colors">Desarrollo de Apps y Software</a></li><li><a href="/chatbot-whatsapp-para-gimnasios/" class="hover:text-accent transition-colors">Gimnasios</a></li><li><a href="/chatbot-whatsapp-para-hoteles-y-hostales/" class="hover:text-accent transition-colors">Hoteles y Hostales</a></li><li><a href="/chatbot-whatsapp-para-inmobiliarias/" class="hover:text-accent transition-colors">Inmobiliarias</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/" class="hover:text-accent transition-colors">Restaurantes</a></li><li><a href="/chatbot-whatsapp-para-salones-de-belleza/" class="hover:text-accent transition-colors">Salones de Belleza</a></li><li><a href="/chatbot-whatsapp-para-spas-centros-esteticos/" class="hover:text-accent transition-colors">Spas y Centros de Estética</a></li><li><a href="/chatbot-whatsapp-para-talleres-automotrices/" class="hover:text-accent transition-colors">Talleres Automotrices</a></li>
                 </ul>
@@ -1488,12 +1524,64 @@
         </div>
     </div>
 </footer>
+<!-- Capa Global de Medición de Conversiones (GA4 / Google Ads / GTM dataLayer) -->
+<script>
+(function() {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
+    
+    // Persistir parámetros UTM y GCLID de Google Ads en la sesión para atribución de leads
+    try {
+        var params = new URLSearchParams(window.location.search);
+        var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+        var storedUtm = JSON.parse(sessionStorage.getItem('consultoria_utm') || '{}');
+        var updated = false;
+        utmKeys.forEach(function(k) {
+            if (params.get(k)) {
+                storedUtm[k] = params.get(k);
+                updated = true;
+            }
+        });
+        if (updated) sessionStorage.setItem('consultoria_utm', JSON.stringify(storedUtm));
+    } catch (e) {}
+
+    window.ConsultorAnalytics = {
+        getUtm: function() {
+            try { return JSON.parse(sessionStorage.getItem('consultoria_utm') || '{}'); } catch (e) { return {}; }
+        },
+        track: function(eventName, eventParams) {
+            var payload = Object.assign({
+                event: eventName,
+                page_path: window.location.pathname,
+                page_title: document.title,
+                timestamp: new Date().toISOString()
+            }, this.getUtm(), eventParams || {});
+            window.dataLayer.push(payload);
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', eventName, payload);
+            }
+        }
+    };
+
+    // Rastrear clics en todos los enlaces de WhatsApp y llamadas a la acción
+    document.addEventListener('click', function(e) {
+        var waLink = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+        if (waLink) {
+            window.ConsultorAnalytics.track('whatsapp_click', {
+                cta_text: (waLink.innerText || waLink.getAttribute('aria-label') || 'WhatsApp CTA').trim().substring(0, 80),
+                cta_href: waLink.href,
+                bypass_modal: waLink.dataset.noModal === 'true'
+            });
+        }
+    }, true);
+})();
+</script>
 <!-- Script del Modal de WhatsApp (con cache buster) -->
-<script src="/js/wa-modal.js?v=1.4" charset="utf-8" defer></script>
+<script src="/js/wa-modal.js?v=1.5" charset="utf-8" defer></script>
 
     
     <!-- WhatsApp Flotante -->
-    <a href="https://wa.me/573151206985?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20Desarrollo%20de%20Apps%20y%20Software%20a%20la%20Medida%20en%20Medell%C3%ADn%20y%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30 z-50 hover:scale-110 transition-transform hover:shadow-2xl group">
+    <a id="floating-wa-btn" href="https://wa.me/573151206985?text=Hola%2C%20vi%20su%20p%C3%A1gina%20de%20Desarrollo%20de%20Apps%20y%20Software%20a%20la%20Medida%20en%20Medell%C3%ADn%20y%20me%20interesa%20cotizar%20un%20proyecto." target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-lg shadow-green-500/30 z-50 hover:scale-110 transition-all duration-300 hover:shadow-2xl group">
         <i class="fab fa-whatsapp"></i>
         <span class="absolute right-full mr-4 bg-white dark:bg-zinc-800 text-gray-800 dark:text-white text-sm font-normal px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">
             ¡Escríbenos!
@@ -1518,6 +1606,8 @@
             
             <nav class="flex flex-col space-y-6 text-2xl font-header font-bold">
                 <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a>
+                <a href="#demo-interactiva" class="mobile-link text-accent hover:text-brand dark:hover:text-brand-light transition-colors flex items-center gap-2">Demo en Vivo <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span></a>
+                <a href="#servicios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Soluciones</a>
                 <a href="#como-funciona" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
                 <a href="#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
                 <a href="/blog/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
@@ -1600,6 +1690,22 @@
                 document.body.classList.remove('overflow-hidden');
             });
         });
+
+        // Ocultar botón flotante de WhatsApp cuando #demo-interactiva esté en pantalla
+        const demoSection = document.getElementById('demo-interactiva');
+        const floatingWa = document.getElementById('floating-wa-btn');
+        if (demoSection && floatingWa && 'IntersectionObserver' in window) {
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        floatingWa.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    } else {
+                        floatingWa.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    }
+                });
+            }, { threshold: 0.15 });
+            obs.observe(demoSection);
+        }
     </script>
     
     

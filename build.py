@@ -74,132 +74,123 @@ def build_local_context(row):
     return spin_text(random.choice(templates))
 
 def build_testimonials_html(row):
-    """Genera un marquee CSS con testimonios B2B reales por industria para validar AggregateRating y mejorar UX."""
+    """Genera un marquee CSS con capacidades reales y casos de uso B2B por industria (sin testimonios inventados)."""
     industria = row.get('Industria', 'Negocios')
     
-    testimonials_by_industry = {
+    capabilities_by_industry = {
         'Restaurantes': [
-            '"Pedidos automáticos al 100%" - Le Bistro',
-            '"Ahorro de tiempo en reservas" - Trattoria Bella',
-            '"Respuestas al instante los fines de semana" - Hamburguesas El Corral',
-            '"Aumentamos pedidos un 35%" - Sushi Express',
-            '"La IA responde preguntas del menú 24/7" - Pizzería Roma',
-            '"Excelente soporte para domicilios" - Asados El Carbon'
+            '⚡ Atención automática de reservas y consultas de menú 24/7',
+            '🎙️ Comprensión nativa de notas de voz y pedidos por WhatsApp',
+            '📅 Confirmación de mesas en tiempo real sin intervención manual',
+            '📍 Respuestas inmediatas sobre sedes, horarios y cobertura',
+            '🔄 Derivación inteligente a humano para eventos corporativos',
+            '📲 Integración con WhatsApp Business API Oficial'
         ],
         'Inmobiliarias': [
-            '"Calificación de prospectos al instante" - InmoLATAM',
-            '"Agendamiento de visitas automático" - Century Inmuebles',
-            '"Captura leads calificados durmiendo" - Propiedades Pro',
-            '"Filtro de clientes por presupuesto" - Inmobiliaria Central',
-            '"Mejor conversión de anuncios en WhatsApp" - Haus Inmobiliaria',
-            '"Excelente atención de primer contacto" - Rentas & Ventas'
+            '🏢 Calificación automática de prospectos por presupuesto y zona',
+            '📅 Agendamiento autónomo de visitas a inmuebles en calendario',
+            '⚡ Atención inmediata a leads de campañas publicitarias 24/7',
+            '🔄 Registro automático de clientes interesados en tu CRM',
+            '🎙️ Procesamiento de notas de voz y consultas específicas',
+            '📄 Envío automatizado de fichas técnicas y requisitos'
         ],
         'Clinicas Dentales': [
-            '"Agendamiento de citas sin fallos" - DentalCare',
-            '"Recordatorio de citas automático" - Sonrisas Sanas',
-            '"Respuestas de precios e implantes 24/7" - OdontoClinic',
-            '"Redujimos ausentismo a la mitad" - Estética Dental',
-            '"La IA atiende urgencias en la madrugada" - Clínicas Alfa',
-            '"Excelente atención al paciente" - Dental Center'
+            '📅 Agendamiento y confirmación de valoraciones en tiempo real',
+            '⏰ Recordatorios automáticos para reducir inasistencias',
+            '⚡ Respuesta 24/7 sobre tratamientos, sedes y preparación',
+            '🎙️ Escucha y entiende notas de voz de pacientes en WhatsApp',
+            '🔄 Sincronización directa con Google Calendar y sistemas clínicos',
+            '👩‍⚕️ Escalado inmediato a especialista en casos de urgencia'
         ],
         'Gimnasios': [
-            '"Inscripciones automatizadas en WhatsApp" - FitLife Gym',
-            '"La IA responde planes y horarios 24/7" - PowerZone',
-            '"Excelente servicio para socios" - Smart Fitness',
-            '"Recuperamos matrículas perdidas" - Crossfit Box',
-            '"Respuestas rápidas a tarifas" - Gym & Tonic',
-            '"Agiliza consultas de planes corporativos" - Body Studio'
+            '🏋️ Información instantánea de planes, tarifas y horarios 24/7',
+            '📅 Agendamiento automático de clases de prueba y valoraciones',
+            '🔄 Seguimiento automatizado de prospectos y renovaciones',
+            '🎙️ Respuesta a notas de voz y preguntas frecuentes en segundos',
+            '📲 Integración con WhatsApp Business y sistemas de gestión',
+            '🏢 Atención de convenios corporativos y planes grupales'
         ],
         'Academias y Cursos': [
-            '"Inscripción y temarios en segundos" - Academia Global',
-            '"La IA vende los cursos en automático" - EduPro Online',
-            '"Respuestas inmediatas a costos de matrícula" - Idiomas Pro',
-            '"Excelente filtro de alumnos interesados" - Cursos Digitales',
-            '"Atención 24/7 para estudiantes nuevos" - Skill Up',
-            '"Mejoró conversión de nuestras campañas" - TecnoAcademy'
+            '🎓 Envío automático de pensum, tarifas y fechas de inicio 24/7',
+            '📅 Agendamiento de clases demostrativas y entrevistas de admisión',
+            '🔄 Calificación de aspirantes e integración directa con tu CRM',
+            '🎙️ Atención natural a notas de voz y dudas sobre certificaciones',
+            '⚡ Respuesta en segundos para campañas de matrículas abiertas',
+            '📲 Flujos inteligentes de seguimiento para cierre de inscripciones'
         ],
         'Hoteles y Hostales': [
-            '"Reservas directas sin comisiones" - Hotel Plaza',
-            '"La IA responde check-in y políticas" - Hostal del Sol',
-            '"Excelente asistente turístico en WhatsApp" - Green Resort',
-            '"Atención 24/7 en múltiples idiomas" - Hotel Boutique',
-            '"Agiliza cotizaciones de eventos" - Hotel & Suites',
-            '"Clientes reservan directo por WhatsApp" - Posada Real'
+            '🏨 Cotización y atención de reservas directas 24/7 por WhatsApp',
+            '🌐 Atención multilingüe instantánea para huéspedes nacionales y extranjeros',
+            '📅 Respuestas automáticas sobre check-in, disponibilidad y tarifas',
+            '🎙️ Comprensión de notas de voz y solicitudes especiales',
+            '🔄 Derivación a recepción o ventas para eventos corporativos',
+            '📲 Flujos conectados con tu motor de reservas o calendario'
         ],
         'Salones de Belleza': [
-            '"Citas y agenda siempre al día" - Glamour Salón',
-            '"IA responde tarifas de color y corte" - Studio Hair',
-            '"Excelente flujo de reservas automáticas" - Bella Express',
-            '"Clientes agendan solas por WhatsApp" - Chic Estilistas',
-            '"Reducción de cancelaciones de último minuto" - D-Uñas',
-            '"Atención rápida a consultas de servicios" - Peluquería VIP'
+            '💇‍♀️ Agendamiento autónomo de citas por servicio y especialista',
+            '📅 Consulta de disponibilidad en tiempo real en Google Calendar',
+            '⏰ Recordatorios automáticos por WhatsApp para evitar inasistencias',
+            '🎙️ Comprensión de notas de voz e imágenes de referencia',
+            '⚡ Respuesta inmediata 24/7 sobre precios, ubicaciones y horarios',
+            '🔄 Escalado a asesor humano para paquetes especiales'
         ],
         'Spas y Centros Esteticos': [
-            '"Agendamiento automático de masajes" - Spa Vitality',
-            '"Respuestas rápidas sobre tratamientos" - Clínica L\'Amour',
-            '"Clientes reservan 24/7 sin secretarias" - Estética Wellness',
-            '"Excelente control de citas recurrentes" - Spa & Zen',
-            '"La IA explica contraindicaciones" - Centro Reductor',
-            '"Ahorro de horas en responder WhatsApp" - BioSpa'
+            '✨ Agendamiento confidencial de valoraciones y tratamientos 24/7',
+            '📅 Sincronización en tiempo real con la agenda de especialistas',
+            '🎙️ Escucha notas de voz y resuelve dudas de preparación previa',
+            '⏰ Confirmación y recordatorios automáticos de citas programadas',
+            '🔄 Registro estructurado de pacientes y prospectos en tu CRM',
+            '⚡ Atención inmediata a campañas de anuncios en WhatsApp'
         ],
         'Veterinarias': [
-            '"Citas médicas y vacunas en automático" - Veterinaria San Bernardo',
-            '"La IA responde urgencias preliminares 24/7" - Vet Center',
-            '"Excelente atención de baño y peluquería" - Huellitas Felices',
-            '"Recordatorios de consulta automáticos" - Doctor Pet',
-            '"Agiliza ventas de comida y accesorios" - Mundo Animal',
-            '"Atención rápida para control y vacunas" - Clínica Vet'
+            '🐾 Agendamiento rápido de consultas, vacunación y peluquería',
+            '🚨 Filtro preliminar 24/7 y derivación prioritaria de urgencias',
+            '⏰ Recordatorios automáticos de controles y esquemas de vacunas',
+            '🎙️ Procesamiento de notas de voz y consultas de propietarios',
+            '📅 Sincronización directa con el calendario de la clínica',
+            '🔄 Flujos de atención para farmacia, alimentos y servicios'
         ],
         'Talleres Automotrices': [
-            '"Agendamiento de mantenimiento rápido" - AutoTec Taller',
-            '"La IA cotiza repuestos y servicios" - Taller del Norte',
-            '"Excelente flujo de recepción de vehículos" - Mecánica Pro',
-            '"Recordatorio de revisión técnico-mecánica" - Motores Plus',
-            '"Respuestas 24/7 a cotizaciones comunes" - Centro Automotriz',
-            '"Clientes agendan alineación en segundos" - Frenos & Llantas'
+            '🔧 Agendamiento automático de revisiones, peritajes y mantenimiento',
+            '⚡ Recepción de datos del vehículo y síntoma 24/7 por WhatsApp',
+            '🎙️ Comprensión de notas de voz con consultas técnicas de clientes',
+            '📅 Coordinación de citas en calendario según disponibilidad de bahías',
+            '🔄 Notificaciones de estado de servicio y recordatorios preventivos',
+            '📲 Integración con CRM o sistema operativo del taller'
         ],
         'Desarrollo de Apps y Software': [
-            '"App de domicilios que duplicó nuestras ventas" - Pizzería Gourmet',
-            '"ERP a la medida que ordenó nuestro inventario" - Distribuidora del Norte',
-            '"El sistema de reservas automatizó el 90% de las citas" - Centro de Estética',
-            '"Excelente desarrollo de software ágil e integraciones" - Logística Express',
-            '"Nuestra app móvil iOS/Android quedó impecable" - Club Deportivo',
-            '"Un sistema de administración intuitivo y robusto" - Comercializadora Sur'
+            '💻 Desarrollo de aplicaciones web y móviles IA-Native a medida',
+            '🔗 Integración mediante APIs y Webhooks con ERPs y CRMs',
+            '🤖 Agentes de IA personalizados conectados a tus bases de datos',
+            '⚡ Automatización de procesos operativos y flujos empresariales',
+            '🛡️ Arquitectura cloud escalable, segura y de alto rendimiento',
+            '🚀 Despliegue ágil con acompañamiento técnico continuo'
         ],
     }
 
-    
-    generic_testimonials = [
-        '"Ventas automáticas 24/7 en WhatsApp" - Le Bistro',
-        '"Integración perfecta con nuestro CRM" - InmoLATAM',
-        '"Nuestros leads calificados crecieron 35%" - Repuestos Cauca',
-        '"Atención al cliente en 2 segundos" - DentalCare',
-        '"Súper fácil de configurar e integrar" - Glamour',
-        '"Soporte e IA conversacional de primer nivel" - AutoTec',
-        '"Calificación de prospectos automatizada" - Academia Global',
-        '"Clientes agendan citas sin fricción" - Clínica Vitality',
-        '"Ahorro de horas operativas al día" - Hotel Plaza',
-        '"Implementación en solo 5-7 días" - FitLife Gym'
+    generic_capabilities = [
+        '🤖 Agentes de IA entrenados con los documentos reales de tu empresa',
+        '⚡ Atención, calificación de leads y agendamiento en WhatsApp 24/7',
+        '🎙️ Comprensión nativa de notas de voz, texto e imágenes',
+        '📅 Conexión y reserva en tiempo real con Google Calendar',
+        '🔄 Flujos inteligentes integrados con HubSpot, Kommo, Zoho y ERPs',
+        '🛡️ Integración estable mediante WhatsApp Business Cloud API',
+        '🚀 Configuración completa y despliegue en 5 a 7 días hábiles',
+        '🏢 Soluciones B2B para Ventas, Atención al Cliente y Operaciones'
     ]
 
-    # Elegir los testimonios según la industria de la página
-    items = list(testimonials_by_industry.get(industria, []))
-    
-    # Rellenar con los genéricos si no hay suficientes
-    for item in generic_testimonials:
+    items = list(capabilities_by_industry.get(industria, []))
+    for item in generic_capabilities:
         if len(items) < 8 and item not in items:
             items.append(item)
 
-    # Generar los spans del marquee con estrellas
-    stars = '⭐⭐⭐⭐⭐'
     spans = ''
     for item in items:
-        spans += f'<span class="testimonial-item">{stars} {item}</span>\n'
+        spans += f'<span class="testimonial-item">{item}</span>\n'
 
-    # Duplicar para efecto seamless
     marquee_content = spans + spans
 
-    html = f'''<section class="py-6 overflow-hidden border-y border-gray-100 dark:border-zinc-800/50 bg-[#FDFBF7]/50 dark:bg-zinc-900/50" aria-label="Reseñas de clientes">
+    html = f'''<section class="py-5 overflow-hidden border-y border-gray-100 dark:border-zinc-800/50 bg-[#FDFBF7]/50 dark:bg-zinc-900/50" aria-label="Capacidades de automatización">
     <style>
         @keyframes marquee-scroll {{
             0% {{ transform: translateX(0); }}
@@ -208,7 +199,7 @@ def build_testimonials_html(row):
         .marquee-track {{
             display: flex;
             width: max-content;
-            animation: marquee-scroll 35s linear infinite;
+            animation: marquee-scroll 38s linear infinite;
         }}
         .marquee-track:hover {{
             animation-play-state: paused;
@@ -217,20 +208,20 @@ def build_testimonials_html(row):
             display: inline-flex;
             align-items: center;
             white-space: nowrap;
-            padding: 8px 24px;
+            padding: 8px 22px;
             margin: 0 8px;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 13px;
+            font-weight: 600;
             color: #52525b;
             border-radius: 9999px;
-            background: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.8);
             border: 1px solid #e4e4e7;
             backdrop-filter: blur(4px);
             transition: all 0.3s ease;
         }}
         .dark .testimonial-item {{
-            color: #a1a1aa;
-            background: rgba(39,39,42,0.5);
+            color: #d4d4d8;
+            background: rgba(39,39,42,0.6);
             border-color: #3f3f46;
         }}
         .testimonial-item:hover {{
@@ -267,47 +258,39 @@ def build_demo_interactiva_html(row):
     solucion = row.get('Solución_Clave', 'automatizar las respuestas')
     
     dias_semana = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+    meses_es = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
     today_obj = datetime.date.today()
     day_of_week = dias_semana[today_obj.weekday()]
     today_str = today_obj.strftime('%Y-%m-%d')
-    today_formatted = today_obj.strftime('%d de %B de %Y')
-    
-    # Generar tabla de correspondencia de días de la semana y fechas para los próximos 8 días
-    ref_dias = []
-    temp_ref = today_obj
-    for i in range(8):
-        ref_dias.append(f"  * {dias_semana[temp_ref.weekday()]} es {temp_ref.strftime('%Y-%m-%d')}")
-        temp_ref += datetime.timedelta(days=1)
-    proximos_dias_str = "\n".join(ref_dias)
+    tomorrow_obj = today_obj + datetime.timedelta(days=1)
+    tomorrow_str = tomorrow_obj.strftime('%Y-%m-%d')
+    mes_actual_label = f"{meses_es[today_obj.month - 1]} {today_obj.year}"
     
     # Prompt inicial del bot
-    bot_initial_msg = f"¡Hola! Bienvenido a {cliente_negocio} en {ciudad}. Soy su Asistente Virtual Inteligente. ¿Le gustaría agendar una cita o visita, o prefiere conocer nuestros servicios?"
+    bot_initial_msg = f"¡Hola! 👋 Bienvenido a {cliente_negocio} en {ciudad}. Soy tu Agente de Inteligencia Artificial en vivo. ¿Te gustaría agendar una cita de prueba en el calendario o conocer cómo automatizar tu empresa?"
     
-    # System Prompt para el modelo de OpenRouter
-    system_prompt = f"""Eres el Agente de Inteligencia Artificial oficial de '{cliente_negocio}' en la ciudad de '{ciudad}', '{pais}'.
+    # System Prompt para el modelo de OpenRouter (sin fechas estáticas de junio; usa el contexto en tiempo real inyectado por JS)
+    system_prompt = f"""Eres el Agente de Inteligencia Artificial oficial de '{cliente_negocio}' en '{ciudad}', '{pais}'.
 Tu industria es '{industria_singular}'.
-Tu objetivo principal es convencer al usuario de agendar una cita o visita de negocios.
-Debes sonar sumamente profesional, servicial y empático (tono Tech-Luxury).
-Conoce muy bien tu entorno local de '{ciudad}'. Usa de forma natural y sutil expresiones típicas de la región y menciona barrios locales como: '{barrios}' cuando hables de cobertura o ubicación.
-Responde de forma muy concisa (máximo 1 o 2 oraciones, no te extiendas en párrafos largos). Este es un chat de WhatsApp de ritmo rápido.
+Tu objetivo principal es demostrar tu capacidad conversacional y ayudar al usuario a agendar una cita o asesoría de negocios en el calendario interactivo.
+Debes sonar sumamente profesional, servicial, ejecutivo y empático (tono Tech-Luxury B2B).
+Conoce muy bien tu entorno local de '{ciudad}'. Usa de forma natural y sutil referencias a '{barrios}' cuando hables de cobertura o ubicación.
+Responde de forma muy concisa (máximo 1 o 2 oraciones cortas). Este es un chat de WhatsApp de ritmo rápido.
 
-Instrucción de agendamiento:
-- Hoy es {day_of_week}, día {today_str}.
-- Tabla de referencia para saber qué fecha YYYY-MM-DD corresponde a cada día de la semana (¡USA ESTA LISTA OBLIGATORIAMENTE PARA TUS CÁLCULOS!):
-{proximos_dias_str}
-- Si el usuario muestra interés en agendar, coordina con él un día y una hora específicos (entre 8:00 y 18:00).
-- IMPORTANTE: Para saber si un horario está libre u ocupado, debes consultar obligatoriamente la sección "DISPONIBILIDAD REAL EN TIEMPO REAL" de abajo. Primero determina la fecha YYYY-MM-DD correspondiente usando la tabla de referencia (ej. para "lunes" corresponde 2026-06-22), luego busca esa fecha en la lista. Si la hora solicitada por el usuario APARECE en la lista de ese día, significa que SÍ está libre y disponible. Debes aceptarla y pedir sus datos de registro. Si la hora solicitada NO aparece en la lista de ese día, significa que está ocupada y debes proponerle alternativas que SÍ estén en la lista de libres de ese día o de otros días.
-- IMPORTANTE: Una vez acordada la fecha y la hora, antes de confirmar la cita, DEBES pedirle obligatoriamente su nombre y correo electrónico (ej: "Para registrar la cita en la agenda del negocio, por favor confírmeme su nombre completo y su dirección de correo electrónico").
-- Solo después de que el usuario te proporcione su nombre y correo electrónico (no importa el orden o formato), debes dar el mensaje final de confirmación de la cita.
-- AL FINAL de tu mensaje de confirmación, y ÚNICAMENTE en ese mensaje, debes agregar EXACTAMENTE esta marca especial para que el sistema registre la cita en el calendario:
+Instrucción estricta de agendamiento en tiempo real:
+- Revisa siempre la sección "CONTEXTO DE FECHA ACTUAL Y DISPONIBILIDAD REAL EN TIEMPO REAL" al final de este prompt para saber qué día es hoy y qué fecha YYYY-MM-DD corresponde a "hoy", "mañana" o cualquier día de la semana.
+- Si el usuario muestra interés en agendar, coordina con él un día y una hora específicos (entre 08:00 y 17:00).
+- IMPORTANTE: Para saber si un horario está libre u ocupado, consulta obligatoriamente la lista "DISPONIBILIDAD REAL EN TIEMPO REAL". Si la hora solicitada APARECE en los horarios libres de esa fecha YYYY-MM-DD, está disponible: acéptala y pide sus datos. Si NO aparece en la lista de libres, infórmale amablemente que ese horario ya está reservado y proponle 2 horarios cercanos que SÍ aparezcan libres ese día.
+- IMPORTANTE: Una vez acordada la fecha y la hora (o si el usuario ya las indicó), antes de emitir la confirmación final DEBES pedirle su nombre completo y su correo electrónico (si aún no te los ha dado).
+- En cuanto tengas los 4 datos (Fecha YYYY-MM-DD, Hora HH:MM en formato 24h como 09:00 o 14:00, Nombre del cliente y Correo electrónico válido con @), confirma la cita inmediatamente.
+- AL FINAL de tu mensaje de confirmación, y ÚNICAMENTE cuando ya tengas fecha, hora, nombre y correo electrónico real del usuario, agrega EXACTAMENTE esta etiqueta estructurada en una sola línea:
 [CONFIRMAR_CITA: YYYY-MM-DD HH:MM | NOMBRE | EMAIL]
-Sustituyendo YYYY-MM-DD por la fecha exacta calculada (ej: 2026-06-25), HH:MM por la hora (ej: 10:30), NOMBRE por el nombre completo facilitado por el usuario y EMAIL por su correo electrónico.
-Ejemplo de mensaje final: "¡Perfecto, Juan! Tu cita ha quedado agendada para el viernes 19 de junio a las 14:00. Hemos enviado la confirmación a juan@gmail.com. [CONFIRMAR_CITA: 2026-06-19 14:00 | Juan Pérez | juan@gmail.com]"
-No uses markdown ni negritas en la marca especial. Escríbela tal cual.
-"""
+Ejemplo de formato exacto (usa la fecha real acordada, nunca inventes el correo):
+¡Perfecto, Juan! Tu cita ha quedado reservada en nuestra agenda. [CONFIRMAR_CITA: {tomorrow_str} 10:00 | Juan Pérez | juan@empresa.com]
+No uses markdown, ni asteriscos, ni bloques de código dentro de la etiqueta [CONFIRMAR_CITA: ...]. Escríbela tal cual."""
 
     html = '''
-    <section id="demo-interactiva" class="py-24 bg-gradient-to-b from-[#FDFBF7]/40 to-white dark:from-zinc-950 dark:to-zinc-900 border-t border-gray-200/50 dark:border-zinc-800/80 relative overflow-hidden">
+    <section id="demo-interactiva" class="scroll-mt-24 py-24 bg-gradient-to-b from-[#FDFBF7]/40 to-white dark:from-zinc-950 dark:to-zinc-900 border-t border-gray-200/50 dark:border-zinc-800/80 relative overflow-hidden">
         <!-- Estilos CSS personalizados para la Demo Premium -->
         <style>
             @keyframes demo-shimmer {
@@ -380,47 +363,47 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 }
                 /* Ajustes de tamaño del calendario para móviles */
                 .calendar-container {
-                    padding: 14px !important;
-                    gap: 12px !important;
+                    padding: 16px !important;
+                    gap: 14px !important;
                 }
                 #calendar-days-grid {
                     gap: 4px !important;
                 }
                 #calendar-days-grid button {
-                    width: 32px !important;
-                    height: 32px !important;
+                    width: 34px !important;
+                    height: 34px !important;
                     font-size: 11px !important;
                 }
                 #calendar-left-col h3 {
-                    font-size: 14px !important;
+                    font-size: 15px !important;
                 }
                 #calendar-left-col p {
-                    font-size: 9px !important;
+                    font-size: 10px !important;
                 }
                 /* Compactación del Chat en móvil */
                 #demo-chat-body {
-                    padding: 10px !important;
+                    padding: 12px !important;
                 }
                 #demo-chat-body > div {
                     font-size: 13px !important;
-                    padding: 8px 12px !important;
+                    padding: 9px 12px !important;
                     margin-bottom: 2px !important;
                 }
-                .lg\:col-span-5 .shrink-0 {
-                    padding: 8px 12px !important;
+                .lg\\:col-span-5 .shrink-0 {
+                    padding: 9px 12px !important;
                 }
-                .lg\:col-span-5 h4 {
+                .lg\\:col-span-5 h4 {
                     font-size: 13px !important;
                 }
-                .lg\:col-span-5 p {
+                .lg\\:col-span-5 p {
                     font-size: 10px !important;
                 }
                 #chat-quick-replies {
                     padding: 6px 12px !important;
                 }
                 #chat-quick-replies button {
-                    font-size: 10px !important;
-                    padding: 5px 10px !important;
+                    font-size: 11px !important;
+                    padding: 6px 11px !important;
                 }
             }
             /* Carrusel horizontal de slots de hora en móvil */
@@ -440,46 +423,45 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 }
                 #time-slots-container button {
                     flex-shrink: 0 !important;
-                    min-width: 72px !important;
-                    padding: 6px 12px !important;
+                    min-width: 76px !important;
+                    padding: 7px 12px !important;
                     font-size: 11px !important;
                 }
             }
         </style>
-
 
         <!-- Blobs decorativos -->
         <div class="absolute -top-[10%] -left-[10%] w-[30vw] h-[30vw] rounded-full bg-accent/5 dark:bg-accent/10 blur-[100px] pointer-events-none"></div>
         <div class="absolute -bottom-[10%] -right-[10%] w-[30vw] h-[30vw] rounded-full bg-success/5 dark:bg-success/10 blur-[100px] pointer-events-none"></div>
         
         <div class="container mx-auto px-4 max-w-6xl relative z-10">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-8 mb-16 border-b border-gray-150/40 dark:border-zinc-800/60 pb-12">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8 mb-14 border-b border-gray-150/40 dark:border-zinc-800/60 pb-10">
                 <div class="lg:w-7/12 text-left">
                     <span class="inline-flex items-center gap-1.5 bg-[#2563eb]/10 dark:bg-[#2563eb]/20 text-accent dark:text-[#53bdeb] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
-                        <i class="fas fa-play-circle"></i> Demo Interactiva en Vivo
+                        <i class="fas fa-play-circle"></i> Demo Interactiva en Vivo · IA Real
                     </span>
-                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">No parecemos un bot de menú aburrido</h2>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-5">Prueba nuestro Agente IA de Agendamiento en Tiempo Real</h2>
                     <p class="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                        Tus clientes odian presionar el "1" o el "2". El Agente de IA para __INDUSTRIA_SINGULAR__ de __CLIENTE_NEGOCIO__ conversa de forma 100% natural: <strong>entiende notas de voz, tolera errores al escribir y agenda de forma autónoma.</strong>
+                        Tus clientes odian presionar el "1" o el "2". El Agente de IA para __INDUSTRIA_SINGULAR__ de __CLIENTE_NEGOCIO__ conversa de forma 100% natural: <strong>consulta disponibilidad real, valida horarios libres y bloquea citas en el calendario automáticamente.</strong>
                     </p>
                 </div>
                 <div class="lg:w-5/12 w-full">
-                    <ul class="space-y-3.5 text-zinc-700 dark:text-zinc-300 font-semibold text-sm">
-                        <li class="flex items-center gap-3"><i class="fas fa-heart text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Tono conversacional y cálido</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-microphone text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Transcribe y entiende audios (notas de voz)</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-spell-check text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Tolera jergas y errores de ortografía</li>
-                        <li class="flex items-center gap-3"><i class="fas fa-image text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Soporta imágenes y procesamiento visual</li>
+                    <ul class="space-y-3 text-zinc-700 dark:text-zinc-300 font-semibold text-sm">
+                        <li class="flex items-center gap-3"><i class="fas fa-calendar-check text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Sincronización en vivo con Google Calendar y CRM</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-microphone text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Procesa notas de voz, texto natural e imágenes</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-user-check text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Califica al prospecto antes de agendar la cita</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-bolt text-[#00a884] dark:text-[#00a884] text-lg shrink-0"></i> Cero menús rígidos: atención consultiva 24/7</li>
                     </ul>
                     <div class="mt-4 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200/60 dark:border-zinc-800/80 rounded-2xl text-[11px] text-zinc-500 dark:text-zinc-400 flex items-center gap-2">
                         <i class="fas fa-info-circle text-[#00a884] shrink-0 text-sm"></i>
-                        <span><strong>¡Pónlo a prueba!</strong> Escríbele al chat de abajo con mala ortografía o dile "quiero agendar cita" para ver el resultado en el calendario de la derecha.</span>
+                        <span><strong>¡Haz la prueba ahora!</strong> Toca un horario libre en el calendario o escríbele en el chat para reservar una cita real y ver cómo se actualiza la agenda.</span>
                     </div>
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-stretch">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-stretch">
                 <!-- Columna Izquierda: Chat de WhatsApp Mockup -->
-                <div class="lg:col-span-5 w-full flex flex-col h-[360px] lg:h-[600px] lg:max-h-[600px] lg:min-h-[600px]">
+                <div class="lg:col-span-5 w-full flex flex-col h-[450px] sm:h-[500px] lg:h-[630px] lg:max-h-[630px] lg:min-h-[630px]">
                     <div class="flex-1 bg-[#efeae2] dark:bg-[#0b141a] rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-2xl overflow-hidden flex flex-col relative h-full max-h-full">
                         <!-- WhatsApp Chat Header -->
                         <div class="bg-[#075E54] dark:bg-[#202c33] px-4 py-3 flex items-center justify-between shrink-0 relative z-10 shadow-md">
@@ -489,42 +471,36 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                                 </div>
                                 <div>
                                     <h4 class="text-white font-medium text-sm leading-tight">Agente IA - __CLIENTE_NEGOCIO__</h4>
-                                    <p id="chat-status" class="text-white/80 text-xs mt-0.5">en línea</p>
+                                    <p id="chat-status" class="text-white/80 text-xs mt-0.5">en línea · IA Activa</p>
                                 </div>
                             </div>
-                            <div class="text-white/80 flex gap-4 text-sm">
-                                <i class="fas fa-video cursor-pointer hover:text-white transition-colors"></i>
-                                <i class="fas fa-phone cursor-pointer hover:text-white transition-colors"></i>
-                                <i class="fas fa-ellipsis-v cursor-pointer hover:text-white transition-colors"></i>
+                            <div class="text-white/80 flex gap-3 text-xs items-center">
+                                <button type="button" id="demo-chat-reset-btn" title="Reiniciar conversación" class="hover:text-white transition-colors px-2.5 py-1 rounded-lg bg-white/10 text-[10px] font-semibold">
+                                    <i class="fas fa-redo-alt mr-1"></i>Reiniciar
+                                </button>
                             </div>
                         </div>
                         
                         <!-- Chat Body -->
                         <div id="demo-chat-body" class="flex-1 overflow-y-auto p-4 flex flex-col gap-3 relative z-10">
-                            <!-- Background Pattern overlay -->
-                            <div class="absolute inset-0 opacity-[0.12] dark:opacity-[0.03] bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center pointer-events-none z-0"></div>
+                            <!-- Background Pattern overlay (pure CSS subtle grid/dots, no external Pinterest dependency) -->
+                            <div class="absolute inset-0 opacity-[0.06] dark:opacity-[0.04] pointer-events-none z-0" style="background-image: radial-gradient(#075E54 1px, transparent 1px); background-size: 18px 18px;"></div>
                         </div>
                         
                         <!-- Botones de Respuesta Rápida (Quick Replies) -->
                         <div id="chat-quick-replies" class="px-4 py-2.5 bg-[#f0f2f5]/90 dark:bg-[#1f2c34]/90 flex flex-wrap gap-2 justify-center border-t border-gray-200/20 dark:border-zinc-800/30 relative z-20 transition-all duration-300">
-                            <button id="btn-quick-reply-1" class="quick-reply-btn text-xs font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5">
-                                👋 Decir "Hola"
+                            <button type="button" id="btn-quick-reply-1" class="quick-reply-btn text-xs font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5">
+                                📅 Quiero agendar una cita
                             </button>
-                            <button id="btn-quick-reply-2" class="quick-reply-btn text-xs font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5">
-                                📅 Agendar Cita
+                            <button type="button" id="btn-quick-reply-2" class="quick-reply-btn text-xs font-bold px-3.5 py-2 rounded-full cursor-pointer flex items-center gap-1.5">
+                                🤖 ¿Qué incluye el Agente IA?
                             </button>
                         </div>
                         
                         <!-- Chat Input Box -->
-                        <div class="p-3 bg-[#f0f2f5] dark:bg-[#1f2c34] flex items-center gap-3 border-t border-gray-200/50 dark:border-zinc-800/80 shrink-0 relative z-10">
-                            <button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 text-lg">
-                                <i class="far fa-laugh"></i>
-                            </button>
-                            <button class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 text-lg">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                            <input type="text" id="demo-chat-input" placeholder="Escribe un mensaje..." class="flex-1 bg-white dark:bg-[#2a3942] text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 px-4 py-2.5 rounded-xl border-none focus:outline-none focus:ring-1 focus:ring-[#075E54] text-sm" />
-                            <button id="demo-chat-send-btn" class="w-10 h-10 rounded-full bg-[#00a884] dark:bg-[#00a884] text-white flex items-center justify-center hover:bg-[#008f72] transition-colors shadow-md">
+                        <div class="p-3 bg-[#f0f2f5] dark:bg-[#1f2c34] flex items-center gap-2.5 border-t border-gray-200/50 dark:border-zinc-800/80 shrink-0 relative z-10">
+                            <input type="text" id="demo-chat-input" aria-label="Escribe un mensaje al agente IA" placeholder="Escribe un mensaje o elige una hora..." class="flex-1 bg-white dark:bg-[#2a3942] text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 px-4 py-2.5 rounded-xl border-none focus:outline-none focus:ring-1 focus:ring-[#075E54] text-base sm:text-sm" />
+                            <button type="button" id="demo-chat-send-btn" aria-label="Enviar mensaje" class="w-10 h-10 rounded-full bg-[#00a884] dark:bg-[#00a884] text-white flex items-center justify-center hover:bg-[#008f72] transition-colors shadow-md shrink-0">
                                 <i class="fas fa-paper-plane text-xs"></i>
                             </button>
                         </div>
@@ -532,26 +508,26 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 </div>
                 
                 <!-- Columna Derecha: Calendario y Disponibilidad -->
-                <div class="lg:col-span-7 w-full flex flex-col h-auto min-h-[380px] lg:h-[600px] lg:min-h-[600px] lg:max-h-[600px]">
-                    <div class="calendar-container flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col lg:flex-row gap-6 h-full lg:max-h-full relative overflow-hidden">
+                <div class="lg:col-span-7 w-full flex flex-col h-auto min-h-[400px] lg:h-[630px] lg:min-h-[630px] lg:max-h-[630px]">
+                    <div class="calendar-container flex-1 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col lg:flex-row gap-5 h-full lg:max-h-full relative overflow-hidden">
                         <!-- Alerta de Confirmación de Cita -->
-                        <div id="booking-success-alert" class="absolute inset-x-4 top-4 z-50 bg-[#e6fffa]/95 dark:bg-[#004d40]/75 backdrop-blur-md border border-[#b2f5ea] dark:border-[#00796b]/60 text-[#134e4a] dark:text-[#b2f5ea] p-3 sm:p-4 rounded-2xl flex items-center gap-3 shadow-xl transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-500">
+                        <div id="booking-success-alert" class="absolute inset-x-4 top-4 z-50 bg-[#e6fffa]/95 dark:bg-[#004d40]/90 backdrop-blur-md border border-[#b2f5ea] dark:border-[#00796b]/60 text-[#134e4a] dark:text-[#b2f5ea] p-3 sm:p-4 rounded-2xl flex items-center gap-3 shadow-xl transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-500">
                             <div class="w-10 h-10 rounded-full bg-[#319795] text-white flex items-center justify-center shrink-0">
                                 <i class="fas fa-check-circle text-lg"></i>
                             </div>
-                            <div>
-                                <h5 class="font-bold text-sm">¡Cita Reservada con Éxito!</h5>
-                                <p class="text-xs opacity-90" id="booking-alert-text">El Agente ha confirmado tu reservación en la agenda.</p>
+                            <div class="flex-1">
+                                <h5 class="font-bold text-sm">¡Cita Confirmada en Tiempo Real!</h5>
+                                <p class="text-xs opacity-90" id="booking-alert-text">El Agente IA ha registrado y bloqueado tu espacio en la agenda.</p>
                             </div>
                         </div>
 
                         <!-- Sección Izquierda: Calendario y Horas -->
                         <div id="calendar-left-col" class="flex-1 flex flex-col min-w-0 h-full justify-between">
                             <div>
-                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-4 mb-4 gap-2">
+                                <div class="flex flex-wrap items-center justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-3 mb-3 gap-2">
                                     <div>
-                                        <h3 class="text-base font-header font-bold text-zinc-900 dark:text-white leading-tight">Agenda de __CLIENTE_NEGOCIO__</h3>
-                                        <p class="text-[10px] text-zinc-500 dark:text-zinc-400">Demostración en tiempo real</p>
+                                        <h3 class="text-base font-header font-bold text-zinc-900 dark:text-white leading-tight whitespace-nowrap">Agenda de __CLIENTE_NEGOCIO__</h3>
+                                        <p class="text-[10px] text-zinc-500 dark:text-zinc-400">Sincronizada en tiempo real · Selecciona un horario libre</p>
                                     </div>
                                     <div class="flex items-center gap-3 shrink-0">
                                         <div class="flex items-center gap-1.5">
@@ -566,100 +542,104 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                                 </div>
                                 
                                 <!-- Calendario Header (Mes y Navegación) -->
-                                <div class="flex items-center justify-between mb-3">
-                                    <span id="calendar-month-year" class="font-bold text-sm text-zinc-800 dark:text-zinc-200 tracking-tight">Junio 2026</span>
+                                <div class="flex items-center justify-between mb-2.5">
+                                    <span id="calendar-month-year" class="font-bold text-sm text-zinc-800 dark:text-zinc-200 tracking-tight">__MES_ACTUAL_LABEL__</span>
                                     <div class="flex gap-1.5">
-                                        <button id="calendar-prev-btn" class="w-7 h-7 rounded-full border border-gray-200/60 dark:border-zinc-800/80 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800/80 hover:border-blue-500 dark:hover:border-blue-400 transition-all text-zinc-500 dark:text-zinc-400 active:scale-90 focus:outline-none">
+                                        <button type="button" id="calendar-prev-btn" aria-label="Mes anterior" class="w-7 h-7 rounded-full border border-gray-200/60 dark:border-zinc-800/80 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800/80 hover:border-blue-500 dark:hover:border-blue-400 transition-all text-zinc-500 dark:text-zinc-400 active:scale-90 focus:outline-none">
                                             <i class="fas fa-chevron-left text-[8px]"></i>
                                         </button>
-                                        <button id="calendar-next-btn" class="w-7 h-7 rounded-full border border-gray-200/60 dark:border-zinc-800/80 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800/80 hover:border-blue-500 dark:hover:border-blue-400 transition-all text-zinc-500 dark:text-zinc-400 active:scale-90 focus:outline-none">
+                                        <button type="button" id="calendar-next-btn" aria-label="Mes siguiente" class="w-7 h-7 rounded-full border border-gray-200/60 dark:border-zinc-800/80 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-zinc-800/80 hover:border-blue-500 dark:hover:border-blue-400 transition-all text-zinc-500 dark:text-zinc-400 active:scale-90 focus:outline-none">
                                             <i class="fas fa-chevron-right text-[8px]"></i>
                                         </button>
                                     </div>
                                 </div>
                                 
                                 <!-- Calendario Días de la Semana -->
-                                <div class="grid grid-cols-7 gap-1 text-center text-[10px] font-bold text-zinc-400 dark:text-zinc-500 mb-2.5 tracking-wider uppercase select-none">
+                                <div class="grid grid-cols-7 gap-1 text-center text-[10px] font-bold text-zinc-400 dark:text-zinc-500 mb-2 tracking-wider uppercase select-none">
                                     <span>DOM</span><span>LUN</span><span>MAR</span><span>MIÉ</span><span>JUE</span><span>VIE</span><span>SÁB</span>
                                 </div>
                                 
                                 <!-- Calendario Celdas (Días del Mes) -->
-                                <div id="calendar-days-grid" class="grid grid-cols-7 gap-1 text-center text-xs font-semibold mb-3">
+                                <div id="calendar-days-grid" class="grid grid-cols-7 gap-1 text-center text-xs font-semibold mb-2">
                                     <!-- Inyectado dinámicamente -->
                                 </div>
                             </div>
                             
                             <!-- Panel de Horas del Día Seleccionado -->
-                            <div class="border-t border-gray-100 dark:border-zinc-800/80 pt-4 shrink-0">
-                                <h4 id="selected-day-label" class="font-bold text-xs text-zinc-800 dark:text-zinc-200 mb-2.5">Disponibilidad:</h4>
-                                <div id="time-slots-container" class="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-[110px] overflow-y-auto pr-1">
+                            <div class="border-t border-gray-100 dark:border-zinc-800/80 pt-3 shrink-0">
+                                <div class="flex flex-wrap items-center justify-between gap-1 mb-2">
+                                    <h4 id="selected-day-label" class="font-bold text-xs text-zinc-800 dark:text-zinc-200">Disponibilidad:</h4>
+                                    <span class="text-[10px] text-emerald-600 dark:text-emerald-400 font-medium whitespace-nowrap">● Toca una hora para agendar</span>
+                                </div>
+                                <div id="time-slots-container" class="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-[135px] overflow-y-auto pr-1">
                                     <!-- Inyectado dinámicamente -->
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Sección Derecha: Estado de la Reserva y Animación -->
-                        <div id="calendar-right-col" class="hidden-mobile lg:flex w-full lg:w-56 border-t lg:border-t-0 lg:border-l border-gray-100 dark:border-zinc-800/80 pt-4 lg:pt-0 lg:pl-4 flex-col shrink-0 lg:h-full">
+                        <div id="calendar-right-col" class="hidden-mobile lg:flex w-full lg:w-64 border-t lg:border-t-0 lg:border-l border-gray-100 dark:border-zinc-800/80 pt-4 lg:pt-0 lg:pl-5 flex-col shrink-0 lg:h-full">
                             <h4 class="font-bold text-xs text-zinc-800 dark:text-zinc-200 mb-2 shrink-0">Estado de Reserva</h4>
-                            <div id="booking-status-card" class="w-full h-auto min-h-[160px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-zinc-50/50 dark:bg-zinc-950/30 border border-dashed border-zinc-200 dark:border-zinc-800/80 transition-all duration-500 overflow-hidden relative">
+                            <div id="booking-status-card" class="w-full h-auto min-h-[160px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-zinc-50/50 dark:bg-zinc-950/30 border border-dashed border-zinc-200 dark:border-zinc-800/80 transition-all duration-500 overflow-y-auto relative">
                                 <!-- Estado Inicial (Vacío) -->
                                 <div id="booking-status-empty" class="flex flex-col items-center py-4">
                                     <div class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-500 dark:text-blue-400 flex items-center justify-center mb-2 animate-pulse">
                                         <i class="far fa-calendar-alt text-base"></i>
                                     </div>
-                                    <p class="text-xs font-bold text-zinc-500 dark:text-zinc-400 leading-tight">Sin Reservas</p>
-                                    <p class="text-[9px] text-zinc-400 dark:text-zinc-500 mt-1 max-w-[150px]">Pide una cita al chatbot facilitando fecha, hora, nombre y correo.</p>
+                                    <p class="text-xs font-bold text-zinc-600 dark:text-zinc-300 leading-tight">Sin Reservas Activas</p>
+                                    <p class="text-[10px] text-zinc-400 dark:text-zinc-500 mt-1.5 max-w-[180px] leading-relaxed">Selecciona un horario libre o pídele una cita al Agente IA indicando tu nombre y correo.</p>
                                 </div>
                                 <!-- Estado Confirmado (Oculto al inicio) -->
                                 <div id="booking-status-success" class="hidden w-full flex-col items-center">
                                     <!-- Checkmark animado -->
-                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-white flex items-center justify-center mb-3 shadow-lg shadow-emerald-500/20 transform scale-0 transition-all duration-500 ease-out ring-8 ring-emerald-500/10 dark:ring-emerald-400/10 relative" id="success-checkmark">
-                                        <div class="absolute inset-0 rounded-full ring-8 ring-emerald-500/10 animate-pulse"></div>
-                                        <i class="fas fa-check text-lg"></i>
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 text-white flex items-center justify-center mb-2 shadow-lg shadow-emerald-500/20 transform scale-0 transition-all duration-500 ease-out ring-4 ring-emerald-500/10 dark:ring-emerald-400/10 relative" id="success-checkmark">
+                                        <i class="fas fa-check text-sm"></i>
                                     </div>
-                                    <span class="inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3.5 border border-emerald-400/20 shadow-sm relative overflow-hidden">
+                                    <span class="inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2.5 border border-emerald-400/20 shadow-sm relative overflow-hidden">
                                         <span class="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer" style="animation: demo-shimmer 2.5s infinite linear;"></span>
-                                        <i class="fas fa-lock text-[8px]"></i> Lugar Bloqueado
+                                        <i class="fas fa-lock text-[8px]"></i> Cita Confirmada
                                     </span>
                                     
                                     <!-- Detalles del ticket -->
-                                    <div class="w-full bg-white dark:bg-zinc-800 border border-gray-150 dark:border-zinc-700/60 rounded-2xl p-4 text-left text-[11px] space-y-2.5 shadow-md relative overflow-hidden">
-                                        <!-- Cutouts left & right -->
-                                        <div class="absolute top-[48%] -left-1.5 w-3 h-3 bg-gradient-to-br from-[#f4fbf9] to-[#edfcf8] dark:from-[#0b1b17] dark:to-[#091a16] rounded-full border-r border-emerald-100 dark:border-emerald-800/35"></div>
-                                        <div class="absolute top-[48%] -right-1.5 w-3 h-3 bg-gradient-to-br from-[#f4fbf9] to-[#edfcf8] dark:from-[#0b1b17] dark:to-[#091a16] rounded-full border-l border-emerald-100 dark:border-emerald-800/35"></div>
-                                        
-                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1.5">
+                                    <div class="w-full bg-white dark:bg-zinc-800 border border-gray-150 dark:border-zinc-700/60 rounded-2xl p-3 text-left text-[11px] space-y-1.5 shadow-md relative overflow-hidden">
+                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1">
                                             <span class="text-zinc-400 font-medium">Cliente:</span>
-                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[110px]" id="ticket-name">-</span>
+                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[130px]" id="ticket-name">-</span>
                                         </div>
-                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1.5">
+                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1">
                                             <span class="text-zinc-400 font-medium">Email:</span>
-                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[110px]" id="ticket-email">-</span>
+                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 truncate max-w-[130px]" id="ticket-email">-</span>
                                         </div>
                                         
-                                        <!-- Dashed separator aligned with cutouts -->
-                                        <div class="border-t border-dashed border-gray-250 dark:border-zinc-700/50 my-2"></div>
+                                        <div class="border-t border-dashed border-gray-200 dark:border-zinc-700/50 my-1"></div>
                                         
-                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1.5">
+                                        <div class="flex justify-between border-b border-gray-50 dark:border-zinc-800/30 pb-1">
                                             <span class="text-zinc-400 font-medium">Fecha:</span>
-                                            <span class="font-bold text-zinc-800 dark:text-zinc-200" id="ticket-date">-</span>
+                                            <span class="font-bold text-zinc-800 dark:text-zinc-200 text-right whitespace-nowrap" id="ticket-date">-</span>
                                         </div>
                                         <div class="flex justify-between">
                                             <span class="text-zinc-400 font-medium">Hora:</span>
                                             <span class="font-bold text-emerald-500 dark:text-emerald-400 text-xs" id="ticket-time">-</span>
                                         </div>
                                     </div>
-                                    <p class="text-[9px] text-zinc-400 dark:text-zinc-500 mt-2 text-center">¡Cita agendada de forma autónoma!</p>
+                                    
+                                    <!-- Acciones Reales post-reserva -->
+                                    <div class="w-full mt-2.5 space-y-1.5">
+                                        <a id="ticket-wa-cta" href="https://wa.me/__WA_NUMERO__" target="_blank" rel="noopener noreferrer" data-no-modal="true" class="w-full py-2 px-3 rounded-xl bg-[#00a884] hover:bg-[#008f72] text-white font-bold text-[11px] flex items-center justify-center gap-1.5 shadow-md transition-all no-underline">
+                                            <i class="fab fa-whatsapp text-sm"></i> Confirmar en WhatsApp
+                                        </a>
+                                        <a id="ticket-gcal-cta" href="https://calendar.google.com" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-200 font-semibold text-[10px] flex items-center justify-center gap-1.5 transition-all no-underline">
+                                            <i class="far fa-calendar-plus text-xs text-blue-500"></i> Añadir a Google Calendar
+                                        </a>
+                                        <button type="button" id="ticket-back-calendar-btn" class="lg:hidden w-full py-1 text-[10px] font-semibold text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-white underline">
+                                            ← Volver a ver el calendario
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Tags de keywords SEO ocultos pero semánticos -->
-            <div class="mt-8 text-center text-xs text-zinc-400/0 select-none pointer-events-none">
-                agente de inteligencia artificial para agendamiento de citas en __CIUDAD__, automatización de reservas por whatsapp __INDUSTRIA_SINGULAR__ __CIUDAD__, chatbot inteligente para __INDUSTRIA_SINGULAR__ en __CIUDAD__, agenda virtual inteligente de __CLIENTE_NEGOCIO__.
             </div>
         </div>
         
@@ -671,19 +651,24 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 const systemPrompt = decodeURIComponent(atob(systemPromptB64).split('').map(function(c) {
                     return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
                 }).join(''));
+                const initialBotMessage = __BOT_INITIAL_MSG_JSON__;
+                const businessWhatsapp = "__WA_NUMERO__";
+                const STORAGE_KEY = "consultoria_demo_booking_v2";
+
                 let chatHistory = [
                     {"role": "system", "content": systemPrompt}
                 ];
                 
                 const chatInput = document.getElementById("demo-chat-input");
                 const chatSendBtn = document.getElementById("demo-chat-send-btn");
+                const chatResetBtn = document.getElementById("demo-chat-reset-btn");
                 const chatBody = document.getElementById("demo-chat-body");
                 const chatStatus = document.getElementById("chat-status");
                 
-                // --- Calendario e Inicialización ---
-                const dateBase = new Date(); // Fecha actual real
+                // --- Calendario e Inicialización con Fecha Real del Navegador ---
+                const dateBase = new Date();
                 let currentYear = dateBase.getFullYear();
-                let currentMonth = dateBase.getMonth(); // Mes actual del sistema
+                let currentMonth = dateBase.getMonth();
                 const todayDay = dateBase.getDate();
                 const actualMonth = dateBase.getMonth();
                 const actualYear = dateBase.getFullYear();
@@ -699,34 +684,15 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 const bookingAlertText = document.getElementById("booking-alert-text");
                 
                 // Datos de disponibilidad en memoria
-                // Estructura: 'YYYY-MM-DD': { 'HH:MM': { status: 'available'|'occupied'|'booked' } }
                 const availabilityDb = {};
                 let selectedDateStr = null;
-                let confirmedBooking = null; // Guardará { date: 'YYYY-MM-DD', time: 'HH:MM' }
+                let confirmedBooking = null;
                 
                 const monthNames = [
                     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
                     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
                 ];
-                
-                // Inicializar base de datos de disponibilidad para los próximos 60 días
-                function initAvailabilityDb() {
-                    const tempDate = new Date();
-                    for (let d = 0; d < 60; d++) {
-                        const dateStr = formatDateKey(tempDate);
-                        availabilityDb[dateStr] = {};
-                        
-                        // Slots de 8:00 AM a 5:30 PM (bloques de 1 hora o 30 min)
-                        const hours = ["08:00", "09:00", "10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00"];
-                        hours.forEach(h => {
-                            // 60% ocupado de forma aleatoria
-                            const isOccupied = Math.random() < 0.6;
-                            availabilityDb[dateStr][h] = isOccupied ? 'occupied' : 'available';
-                        });
-                        
-                        tempDate.setDate(tempDate.getDate() + 1);
-                    }
-                }
+                const dayNamesEs = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
                 
                 function formatDateKey(date) {
                     const y = date.getFullYear();
@@ -738,7 +704,47 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 function formatHumanDate(dateStr) {
                     const parts = dateStr.split('-');
                     const date = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-                    return date.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
+                    return date.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+                }
+
+                function formatShortDate(dateStr) {
+                    const parts = dateStr.split('-');
+                    const date = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+                    return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' });
+                }
+
+                // Determinístico por fecha para que la disponibilidad sea consistente y siempre tenga espacios libres
+                function initAvailabilityDb() {
+                    const tempDate = new Date(actualYear, actualMonth, todayDay);
+                    const hours = ["08:00", "09:00", "10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00"];
+                    for (let d = 0; d < 60; d++) {
+                        const dateStr = formatDateKey(tempDate);
+                        availabilityDb[dateStr] = {};
+                        const seed = tempDate.getDate() + (tempDate.getMonth() + 1) * 7;
+                        hours.forEach((h, idx) => {
+                            // Asegurar al menos 5 horarios disponibles por día (incluyendo siempre 09:00, 10:00, 14:00, 15:00, 16:00)
+                            const isOccupied = ((seed + idx) % 3 === 0) && h !== "09:00" && h !== "10:00" && h !== "14:00" && h !== "15:00" && h !== "16:00";
+                            availabilityDb[dateStr][h] = isOccupied ? 'occupied' : 'available';
+                        });
+                        tempDate.setDate(tempDate.getDate() + 1);
+                    }
+                }
+
+                function buildGoogleCalendarUrl(dateKey, timeKey, clientName, clientEmail) {
+                    const [year, month, day] = dateKey.split('-').map(Number);
+                    const [hour, minute] = timeKey.split(':').map(Number);
+                    const startBasic = `${String(year)}${String(month).padStart(2, '0')}${String(day).padStart(2, '0')}T${String(hour).padStart(2, '0')}${String(minute).padStart(2, '0')}00`;
+                    const endHour = hour + 1;
+                    const endBasic = `${String(year)}${String(month).padStart(2, '0')}${String(day).padStart(2, '0')}T${String(endHour).padStart(2, '0')}${String(minute).padStart(2, '0')}00`;
+                    const title = encodeURIComponent(`Asesoría Agente IA - __CLIENTE_NEGOCIO__ (${clientName})`);
+                    const details = encodeURIComponent(`Cita agendada mediante el Agente de IA de Consultor IA.\nCliente: ${clientName}\nCorreo: ${clientEmail}\nWeb: https://consultor-ia.com.co`);
+                    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startBasic}/${endBasic}&details=${details}`;
+                }
+
+                function buildWhatsAppConfirmUrl(dateKey, timeKey, clientName, clientEmail) {
+                    const humanDate = formatHumanDate(dateKey);
+                    const msg = `Hola Consultor IA, soy ${clientName} (${clientEmail}). Acabo de agendar mi cita en el calendario para el ${humanDate} a las ${timeKey} y quiero confirmar los detalles para mi empresa.`;
+                    return `https://wa.me/${businessWhatsapp}?text=${encodeURIComponent(msg)}`;
                 }
                 
                 // Renderizar el Calendario
@@ -746,12 +752,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                     calendarMonthYear.textContent = `${monthNames[month]} ${year}`;
                     calendarDaysGrid.innerHTML = "";
                     
-                    // Primer día del mes
-                    const firstDayIdx = new Date(year, month, 1).getDay();
-                    // Total de días del mes
                     const totalDays = new Date(year, month + 1, 0).getDate();
-                    
-                    // Rellenar celdas vacías del principio
                     const offset = new Date(year, month, 1).getDay();
                     
                     for (let i = 0; i < offset; i++) {
@@ -766,10 +767,11 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         const dateStr = formatDateKey(cellDate);
                         
                         const dayCell = document.createElement("button");
+                        dayCell.type = "button";
+                        dayCell.setAttribute("data-date", dateStr);
                         dayCell.className = "w-8 h-8 lg:w-9 lg:h-9 mx-auto rounded-full flex items-center justify-center text-xs font-semibold hover:bg-gray-100 dark:hover:bg-zinc-800 hover:scale-105 hover:shadow-sm transition-all focus:outline-none relative";
                         dayCell.textContent = day;
                         
-                        // Validar si es del pasado (en base al día real actual del sistema)
                         const compareDate = new Date(actualYear, actualMonth, todayDay);
                         const cellCompare = new Date(year, month, day);
                         const isPast = cellCompare < compareDate;
@@ -779,7 +781,6 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         } else {
                             dayCell.className += " cursor-pointer";
                             
-                            // Comprobar si hay citas confirmadas en este día en la base de datos
                             const daySlots = availabilityDb[dateStr] || {};
                             const hasBookedSlot = Object.values(daySlots).includes('booked');
                             
@@ -823,27 +824,28 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                     const sortedHours = Object.keys(slots).sort();
                     
                     if (sortedHours.length === 0) {
-                        timeSlotsContainer.innerHTML = '<span class="text-xs text-zinc-400 col-span-4 py-2">No hay horarios definidos para esta fecha.</span>';
+                        timeSlotsContainer.innerHTML = '<span class="text-xs text-zinc-400 col-span-4 py-2">Selecciona una fecha dentro de los próximos 60 días.</span>';
                         return;
                     }
                     
                     sortedHours.forEach(h => {
                         const status = slots[h];
                         const slotBtn = document.createElement("button");
+                        slotBtn.type = "button";
+                        slotBtn.setAttribute("data-time", h);
                         slotBtn.className = "py-2 text-xs font-bold rounded-xl border transition-all focus:outline-none flex items-center justify-center gap-1.5 ";
                         
                         if (status === 'booked') {
                             slotBtn.className += " bg-gradient-to-r from-emerald-500 to-teal-600 border-transparent text-white shadow-md shadow-emerald-500/10 pointer-events-none";
                             slotBtn.innerHTML = '<i class="fas fa-check text-[9px]"></i> ' + h;
                         } else if (status === 'occupied') {
-                            slotBtn.className += " bg-zinc-50 dark:bg-zinc-900/50 border-zinc-100 dark:border-zinc-800/80 text-zinc-300 dark:text-zinc-600 pointer-events-none";
+                            slotBtn.className += " bg-zinc-50 dark:bg-zinc-900/50 border-zinc-100 dark:border-zinc-800/80 text-zinc-300 dark:text-zinc-600 pointer-events-none line-through";
                             slotBtn.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700"></span>' + h;
                         } else {
                             slotBtn.className += " bg-zinc-50/50 dark:bg-zinc-900/30 border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-blue-500 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/30 dark:hover:bg-blue-950/10 cursor-pointer";
                             slotBtn.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>' + h;
                             slotBtn.addEventListener("click", () => {
-                                // Rellenar input del chat automáticamente al hacer clic en un horario libre
-                                chatInput.value = "Hola, me llamo Usuario Demo y mi correo es demo@consultor-ia.com.co. Me gustaría agendar una cita para el " + formatHumanDate(dateStr) + " a las " + h;
+                                chatInput.value = `Quiero agendar una cita para el ${formatHumanDate(dateStr)} (${dateStr}) a las ${h}.`;
                                 chatInput.focus();
                             });
                         }
@@ -851,10 +853,75 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         timeSlotsContainer.appendChild(slotBtn);
                     });
                 }
+
+                function applyConfirmedBookingUI(booking, showBanner) {
+                    const { date: dateKey, time: timeKey, name: clientName, email: clientEmail } = booking;
+                    if (!availabilityDb[dateKey]) {
+                        availabilityDb[dateKey] = {};
+                    }
+                    availabilityDb[dateKey][timeKey] = 'booked';
+
+                    // Saltar automáticamente al mes y día reservado en el calendario
+                    const [bYear, bMonth, bDay] = dateKey.split('-').map(Number);
+                    if (bYear && bMonth && bDay) {
+                        currentYear = bYear;
+                        currentMonth = bMonth - 1;
+                        selectedDateStr = dateKey;
+                        renderCalendar(currentYear, currentMonth);
+                        selectDate(dateKey, new Date(bYear, bMonth - 1, bDay));
+                    }
+
+                    // Actualizar datos del Ticket
+                    document.getElementById("ticket-name").textContent = clientName;
+                    document.getElementById("ticket-email").textContent = clientEmail;
+                    document.getElementById("ticket-date").textContent = formatShortDate(dateKey);
+                    document.getElementById("ticket-time").textContent = timeKey;
+
+                    const waLeadUrl = buildWhatsAppConfirmUrl(dateKey, timeKey, clientName, clientEmail);
+                    const gcalUrl = buildGoogleCalendarUrl(dateKey, timeKey, clientName, clientEmail);
+                    const ticketWaCta = document.getElementById("ticket-wa-cta");
+                    const ticketGcalCta = document.getElementById("ticket-gcal-cta");
+                    if (ticketWaCta) ticketWaCta.href = waLeadUrl;
+                    if (ticketGcalCta) ticketGcalCta.href = gcalUrl;
+
+                    const emptyState = document.getElementById("booking-status-empty");
+                    const successState = document.getElementById("booking-status-success");
+                    const checkmark = document.getElementById("success-checkmark");
+                    const statusCard = document.getElementById("booking-status-card");
+
+                    emptyState.classList.add("hidden");
+                    successState.classList.remove("hidden");
+                    successState.classList.add("flex");
+
+                    statusCard.className = "w-full h-auto min-h-[200px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-gradient-to-br from-emerald-50/40 to-teal-50/30 dark:from-emerald-950/35 dark:to-teal-950/20 border border-emerald-100 dark:border-emerald-800/40 shadow-inner transition-all duration-500 overflow-y-auto relative";
+
+                    const leftCol = document.getElementById("calendar-left-col");
+                    const rightCol = document.getElementById("calendar-right-col");
+                    if (leftCol && rightCol) {
+                        leftCol.classList.add("hidden-mobile");
+                        rightCol.classList.remove("hidden-mobile");
+                        rightCol.classList.add("visible-mobile-flex");
+                    }
+
+                    setTimeout(() => {
+                        checkmark.classList.remove("scale-0");
+                        checkmark.classList.add("scale-100");
+                    }, 100);
+
+                    if (showBanner) {
+                        bookingAlertText.textContent = "El Agente agendó tu cita para el " + formatHumanDate(dateKey) + " a las " + timeKey + ".";
+                        bookingSuccessAlert.classList.remove("opacity-0", "pointer-events-none", "-translate-y-4");
+                        bookingSuccessAlert.classList.add("opacity-100", "translate-y-0");
+                        setTimeout(() => {
+                            bookingSuccessAlert.classList.add("opacity-0", "pointer-events-none", "-translate-y-4");
+                            bookingSuccessAlert.classList.remove("opacity-100", "translate-y-0");
+                        }, 7000);
+                    }
+                }
                 
                 // Controladores de botones del Calendario
                 calendarPrevBtn.addEventListener("click", () => {
-                    if (currentMonth === actualMonth && currentYear === actualYear) return; // No ir al pasado
+                    if (currentMonth === actualMonth && currentYear === actualYear) return;
                     currentMonth--;
                     if (currentMonth < 0) {
                         currentMonth = 11;
@@ -871,25 +938,55 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                     }
                     renderCalendar(currentYear, currentMonth);
                 });
+
+                const ticketBackBtn = document.getElementById("ticket-back-calendar-btn");
+                if (ticketBackBtn) {
+                    ticketBackBtn.addEventListener("click", () => {
+                        const leftCol = document.getElementById("calendar-left-col");
+                        const rightCol = document.getElementById("calendar-right-col");
+                        if (leftCol && rightCol) {
+                            leftCol.classList.remove("hidden-mobile");
+                            rightCol.classList.add("hidden-mobile");
+                            rightCol.classList.remove("visible-mobile-flex");
+                        }
+                    });
+                }
                 
-                // --- Lógica del Chat ---
+                // --- Lógica Dinámica del Contexto de Fechas y Disponibilidad en Tiempo Real ---
                 function getAvailabilityContext() {
-                    let ctx = `\n\nDISPONIBILIDAD REAL EN TIEMPO REAL (Horarios disponibles para agendar citas):\n`;
-                    const tempDate = new Date();
+                    const now = new Date();
+                    const todayKey = formatDateKey(now);
+                    const todayWeekday = dayNamesEs[now.getDay()];
+                    
+                    let refTable = `\n\nCONTEXTO DE FECHA ACTUAL Y DISPONIBILIDAD REAL EN TIEMPO REAL:\n`;
+                    refTable += `- Hoy es ${todayWeekday}, fecha exacta: ${todayKey} (${formatHumanDate(todayKey)}).\n`;
+                    refTable += `- Tabla oficial de correspondencia de los próximos 14 días (USA OBLIGATORIAMENTE ESTAS FECHAS YYYY-MM-DD):\n`;
+                    
+                    const refDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                    for (let r = 0; r < 14; r++) {
+                        const rKey = formatDateKey(refDate);
+                        const rDayName = dayNamesEs[refDate.getDay()];
+                        const relLabel = r === 0 ? " (HOY)" : (r === 1 ? " (MAÑANA)" : (r === 2 ? " (PASADO MAÑANA)" : ""));
+                        refTable += `  * ${rDayName}${relLabel} -> ${rKey}\n`;
+                        refDate.setDate(refDate.getDate() + 1);
+                    }
+
+                    refTable += `\nDISPONIBILIDAD REAL EN TIEMPO REAL (Horarios libres por fecha YYYY-MM-DD):\n`;
+                    const tempDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
                     for (let i = 0; i < 30; i++) {
                         const dateStr = formatDateKey(tempDate);
                         const slots = availabilityDb[dateStr] || {};
                         const freeSlots = [];
-                        Object.keys(slots).forEach(h => {
+                        Object.keys(slots).sort().forEach(h => {
                             if (slots[h] === 'available') {
                                 freeSlots.push(h);
                             }
                         });
                         const dateHuman = formatHumanDate(dateStr);
-                        ctx += `- ${dateHuman} (${dateStr}): Horarios libres: ${freeSlots.length > 0 ? freeSlots.join(", ") : 'Ninguno'}\n`;
+                        refTable += `- ${dateHuman} (${dateStr}): Horarios libres: ${freeSlots.length > 0 ? freeSlots.join(", ") : 'Ninguno'}\n`;
                         tempDate.setDate(tempDate.getDate() + 1);
                     }
-                    return ctx;
+                    return refTable;
                 }
 
                 function appendMessage(sender, text, timestamp) {
@@ -900,7 +997,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         msgDiv.className = "relative z-10 max-w-[85%] self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-zinc-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tr-none shadow-sm text-sm leading-snug";
                         msgDiv.innerHTML = text + `<span class="text-[9px] text-zinc-400 block text-right mt-1">${time} <i class="fas fa-check-double text-blue-400 ml-1"></i></span>`;
                     } else {
-                        msgDiv.className = "relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] text-zinc-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tl-none shadow-sm text-sm leading-snug border border-gray-100 dark:border-zinc-800/80";
+                        msgDiv.className = "relative z-10 max-w-[88%] self-start bg-white dark:bg-[#202c33] text-zinc-800 dark:text-[#e9edef] px-4 py-2.5 rounded-2xl rounded-tl-none shadow-sm text-sm leading-snug border border-gray-100 dark:border-zinc-800/80";
                         msgDiv.innerHTML = text + `<span class="text-[9px] text-zinc-400 block text-right mt-1">${time}</span>`;
                     }
                     
@@ -919,18 +1016,17 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                     
                     appendMessage('user', messageText);
                     chatInput.value = "";
+
+                    if (window.ConsultorAnalytics && typeof window.ConsultorAnalytics.track === 'function') {
+                        window.ConsultorAnalytics.track('demo_chat_message_sent', { message_length: messageText.length });
+                    }
                     
-                    // Mostrar "Escribiendo..." en el estado del header
                     chatStatus.textContent = "escribiendo...";
-                    chatStatus.className = "text-emerald-400 font-semibold animate-pulse text-xs mt-0.5";
+                    chatStatus.className = "text-emerald-300 font-semibold animate-pulse text-xs mt-0.5";
                     
-                    // Guardar en el historial
                     chatHistory.push({"role": "user", "content": messageText});
-                    
-                    // Actualizar el primer mensaje de system con la disponibilidad real actual
                     chatHistory[0].content = systemPrompt + getAvailabilityContext();
                     
-                    // Crear e insertar burbuja de "escribiendo..." en el cuerpo del chat
                     const typingDiv = document.createElement("div");
                     typingDiv.className = "relative z-10 max-w-[85%] self-start bg-white dark:bg-[#202c33] px-4 py-3 rounded-2xl rounded-tl-none shadow-sm flex items-center gap-1 shrink-0 border border-gray-100 dark:border-zinc-800/80";
                     typingDiv.innerHTML = `
@@ -957,7 +1053,7 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                             body: JSON.stringify({
                                 model: "google/gemini-2.5-flash",
                                 messages: chatHistory,
-                                temperature: 0.7
+                                temperature: 0.4
                             })
                         });
                         
@@ -970,132 +1066,102 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                         const data = await response.json();
                         let botResponse = data.choices[0].message.content;
                         
-                        // Esperar al menos 3 segundos en total para simular el tipeado real
                         const elapsed = Date.now() - startTime;
-                        if (elapsed < 3000) {
-                            await new Promise(resolve => setTimeout(resolve, 3000 - elapsed));
+                        if (elapsed < 1200) {
+                            await new Promise(resolve => setTimeout(resolve, 1200 - elapsed));
                         }
                         
-                        // Remover la burbuja de escribiendo
                         typingDiv.remove();
                         
-                        // Parsear de forma ultra robusta y tolerante el tag de confirmación
+                        // Parsear de forma ultra robusta el tag de confirmación [CONFIRMAR_CITA: YYYY-MM-DD HH:MM | NOMBRE | EMAIL]
                         const confirmIdx = botResponse.indexOf("[CONFIRMAR_CITA:");
                         if (confirmIdx !== -1) {
                             const endIdx = botResponse.indexOf("]", confirmIdx);
                             if (endIdx !== -1) {
-                                const fullTag = botResponse.substring(confirmIdx, endIdx + 1);
-                                const tagContent = botResponse.substring(confirmIdx + 16, endIdx).trim();
+                                const tagContent = botResponse.substring(confirmIdx + 16, endIdx).replace(/[*_`]/g, '').trim();
                                 const parts = tagContent.split("|").map(p => p.trim());
                                 
-                                // Extraer fecha y hora de la primera parte
-                                const dateTimePart = parts[0];
-                                const dateMatch = dateTimePart.match(/(\d{4}-\d{2}-\d{2})/);
-                                const timeMatch = dateTimePart.match(/(\d{2}:\d{2})/);
+                                const dateTimePart = parts[0] || "";
+                                const dateMatch = dateTimePart.match(/(\\d{4}-\\d{2}-\\d{2})/);
+                                const timeMatch = dateTimePart.match(/(\\d{1,2}):(\\d{2})/);
                                 
                                 if (dateMatch && timeMatch) {
                                     const dateKey = dateMatch[1];
-                                    const timeKey = timeMatch[1];
+                                    const timeKey = String(timeMatch[1]).padStart(2, '0') + ':' + timeMatch[2];
                                     
-                                    // Nombre es la segunda parte o fallback
-                                    let clientName = "Usuario Demo";
+                                    let clientName = "Cliente Empresarial";
                                     if (parts.length > 1 && parts[1]) {
                                         clientName = parts[1];
                                     }
                                     
-                                    // Email es la tercera parte o fallback
-                                    let clientEmail = "demo@consultor-ia.com.co";
+                                    let clientEmail = "";
                                     if (parts.length > 2 && parts[2]) {
                                         clientEmail = parts[2];
                                     } else if (parts.length > 1 && parts[1].includes("@")) {
                                         clientEmail = parts[1];
-                                        clientName = "Usuario Demo";
+                                        clientName = "Cliente Empresarial";
                                     }
                                     
-                                    // Validar que el email sea provisto por el usuario y sea válido
                                     const isEmailValid = clientEmail && clientEmail.includes("@") && !clientEmail.toUpperCase().includes("EMAIL") && !clientEmail.includes("example.com") && clientEmail.includes(".");
                                     
                                     if (isEmailValid) {
-                                        // Guardar reserva en la base de datos local
                                         confirmedBooking = { date: dateKey, time: timeKey, name: clientName, email: clientEmail };
-                                        if (!availabilityDb[dateKey]) {
-                                            availabilityDb[dateKey] = {};
-                                        }
-                                        availabilityDb[dateKey][timeKey] = 'booked';
-                                        
-                                        // Reemplazar la firma estructurada por un bloque UI hermoso para confirmar en el chat
-                                        const confirmationHtml = `<br><br><div class="bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-lg p-3 text-emerald-800 dark:text-emerald-300 flex items-center gap-2 mt-2"><i class="fas fa-check-circle text-emerald-500 text-lg"></i><div class="leading-tight"><span class="font-bold text-sm block mb-0.5">✅ Cita confirmada exitosamente</span><span class="text-xs opacity-90 block">Para el ${formatHumanDate(dateKey)} a las ${timeKey}</span></div><div id="qa-confirmation-tag" style="display:none">[CONFIRMAR_CITA]</div></div>`;
+                                        try {
+                                            localStorage.setItem(STORAGE_KEY, JSON.stringify(confirmedBooking));
+                                        } catch (e) {}
+
+                                        const waLeadUrl = buildWhatsAppConfirmUrl(dateKey, timeKey, clientName, clientEmail);
+                                        const gcalUrl = buildGoogleCalendarUrl(dateKey, timeKey, clientName, clientEmail);
+
+                                        const confirmationHtml = `<br><br><div class="bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-xl p-3 text-emerald-800 dark:text-emerald-300 mt-2 space-y-2">
+                                            <div class="flex items-center gap-2">
+                                                <i class="fas fa-check-circle text-emerald-500 text-lg shrink-0"></i>
+                                                <div class="leading-tight">
+                                                    <span class="font-bold text-xs block mb-0.5">✅ Cita confirmada en el Calendario</span>
+                                                    <span class="text-[11px] opacity-90 block">${formatHumanDate(dateKey)} a las ${timeKey}</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-col sm:flex-row gap-1.5 pt-1">
+                                                <a href="${waLeadUrl}" target="_blank" rel="noopener noreferrer" data-no-modal="true" class="flex-1 py-2 px-2.5 rounded-lg bg-[#00a884] hover:bg-[#008f72] text-white font-bold text-[11px] flex items-center justify-center gap-1.5 shadow-sm transition-all no-underline">
+                                                    <i class="fab fa-whatsapp"></i> Confirmar en WhatsApp
+                                                </a>
+                                                <a href="${gcalUrl}" target="_blank" rel="noopener noreferrer" class="py-2 px-2.5 rounded-lg bg-white dark:bg-zinc-800 border border-emerald-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-200 font-semibold text-[11px] flex items-center justify-center gap-1 transition-all no-underline">
+                                                    <i class="far fa-calendar-plus text-blue-500"></i> Google Calendar
+                                                </a>
+                                            </div>
+                                            <div id="qa-confirmation-tag" style="display:none">[CONFIRMAR_CITA]</div>
+                                        </div>`;
+
                                         botResponse = botResponse.substring(0, confirmIdx).trim() + confirmationHtml + botResponse.substring(endIdx + 1).trim();
                                         botResponse = botResponse.trim();
-                                        
-                                        // Mostrar alerta premium superior de reserva
-                                        bookingAlertText.textContent = "El Agente agendó tu cita para el " + formatHumanDate(dateKey) + " a las " + timeKey + ".";
-                                        bookingSuccessAlert.classList.remove("opacity-0", "pointer-events-none", "-translate-y-4");
-                                        bookingSuccessAlert.classList.add("opacity-100", "translate-y-0");
-                                        
-                                        // Actualizar los datos del Ticket lateral derecho
-                                        document.getElementById("ticket-name").textContent = clientName;
-                                        document.getElementById("ticket-email").textContent = clientEmail;
-                                        document.getElementById("ticket-date").textContent = formatHumanDate(dateKey);
-                                        document.getElementById("ticket-time").textContent = timeKey;
-                                        
-                                        // Activar visualización del ticket y checkmark animado en el panel derecho
-                                        const emptyState = document.getElementById("booking-status-empty");
-                                        const successState = document.getElementById("booking-status-success");
-                                        const checkmark = document.getElementById("success-checkmark");
-                                        const statusCard = document.getElementById("booking-status-card");
-                                        
-                                        emptyState.classList.add("hidden");
-                                        successState.classList.remove("hidden");
-                                        successState.classList.add("flex");
-                                        
-                                        statusCard.className = "w-full h-auto min-h-[200px] lg:flex-1 flex flex-col items-center justify-center text-center p-4 rounded-3xl bg-gradient-to-br from-emerald-50/40 to-teal-50/30 dark:from-emerald-950/35 dark:to-teal-950/20 border border-emerald-100 dark:border-emerald-800/40 shadow-inner transition-all duration-500 overflow-hidden relative";
-                                        
-                                        // Ocultar calendario y mostrar ticket en versión móvil para maximizar espacio
-                                        const leftCol = document.getElementById("calendar-left-col");
-                                        const rightCol = document.getElementById("calendar-right-col");
-                                        if (leftCol && rightCol) {
-                                            leftCol.classList.add("hidden-mobile");
-                                            rightCol.classList.remove("hidden-mobile");
-                                            rightCol.classList.add("visible-mobile-flex");
-                                        }
-                                        
-                                        setTimeout(() => {
-                                            checkmark.classList.remove("scale-0");
-                                            checkmark.classList.add("scale-100");
-                                        }, 100);
-                                        
-                                        // Actualizar calendario visualmente
-                                        renderCalendar(currentYear, currentMonth);
-                                        if (selectedDateStr === dateKey) {
-                                            const dummyDate = new Date(dateKey + "T00:00:00");
-                                            selectDate(dateKey, dummyDate);
+
+                                        applyConfirmedBookingUI(confirmedBooking, true);
+
+                                        if (window.ConsultorAnalytics && typeof window.ConsultorAnalytics.track === 'function') {
+                                            window.ConsultorAnalytics.track('demo_booking_completed', {
+                                                booking_date: dateKey,
+                                                booking_time: timeKey,
+                                                lead_name: clientName,
+                                                lead_email: clientEmail
+                                            });
                                         }
                                     } else {
-                                        // Si el email no es válido, remover el tag para que no se vea feo pero NO confirmar la cita
                                         botResponse = botResponse.substring(0, confirmIdx).trim() + " " + botResponse.substring(endIdx + 1).trim();
                                         botResponse = botResponse.trim();
                                     }
-                                    
-                                    // Ocultar alerta superior a los 7 segundos
-                                    setTimeout(() => {
-                                        bookingSuccessAlert.classList.add("opacity-0", "pointer-events-none", "-translate-y-4");
-                                        bookingSuccessAlert.classList.remove("opacity-100", "translate-y-0");
-                                    }, 7000);
                                 }
                             }
                         }
                         
-                        // Mostrar respuesta del bot
                         appendMessage('bot', botResponse);
                         chatHistory.push({"role": "assistant", "content": botResponse});
                         
                     } catch (error) {
                         console.error("Error:", error);
                         if (typingDiv) typingDiv.remove();
-                        appendMessage('bot', "Lo siento, tuve un problema al procesar su solicitud. ¿Podría intentarlo de nuevo?");
+                        appendMessage('bot', "En este momento estoy experimentando alta demanda. ¿Podrías enviarme tu mensaje nuevamente o contactarnos directo por WhatsApp?");
                     } finally {
-                        chatStatus.textContent = "en línea";
+                        chatStatus.textContent = "en línea · IA Activa";
                         chatStatus.className = "text-white/80 text-xs mt-0.5";
                     }
                 }
@@ -1114,10 +1180,40 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 }
                 
                 if (btnQuickReply1) {
-                    btnQuickReply1.addEventListener("click", () => handleQuickReply("Hola"));
+                    btnQuickReply1.addEventListener("click", () => handleQuickReply("Hola, me gustaría agendar una cita para mañana a las 10:00"));
                 }
                 if (btnQuickReply2) {
-                    btnQuickReply2.addEventListener("click", () => handleQuickReply("Me gustaría agendar una cita"));
+                    btnQuickReply2.addEventListener("click", () => handleQuickReply("Hola, ¿qué incluye el servicio de Agentes de IA y Automatización?"));
+                }
+
+                if (chatResetBtn) {
+                    chatResetBtn.addEventListener("click", () => {
+                        try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+                        confirmedBooking = null;
+                        initAvailabilityDb();
+                        currentYear = actualYear;
+                        currentMonth = actualMonth;
+                        selectedDateStr = formatDateKey(dateBase);
+                        renderCalendar(currentYear, currentMonth);
+                        selectDate(selectedDateStr, dateBase);
+
+                        document.getElementById("booking-status-empty").classList.remove("hidden");
+                        const successState = document.getElementById("booking-status-success");
+                        successState.classList.add("hidden");
+                        successState.classList.remove("flex");
+                        const leftCol = document.getElementById("calendar-left-col");
+                        const rightCol = document.getElementById("calendar-right-col");
+                        if (leftCol && rightCol) {
+                            leftCol.classList.remove("hidden-mobile");
+                            rightCol.classList.add("hidden-mobile");
+                            rightCol.classList.remove("visible-mobile-flex");
+                        }
+
+                        chatHistory = [{"role": "system", "content": systemPrompt}];
+                        Array.from(chatBody.querySelectorAll("div.self-start, div.self-end")).forEach(el => el.remove());
+                        appendMessage('bot', initialBotMessage);
+                        if (quickRepliesContainer) quickRepliesContainer.style.display = "flex";
+                    });
                 }
 
                 // Vincular eventos del chat
@@ -1133,6 +1229,24 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
                 selectedDateStr = formatDateKey(dateBase);
                 selectDate(selectedDateStr, dateBase);
                 renderCalendar(currentYear, currentMonth);
+
+                // Mostrar saludo inicial del Agente IA
+                appendMessage('bot', initialBotMessage);
+
+                // Restaurar cita previa si existe en localStorage y es futura
+                try {
+                    const savedRaw = localStorage.getItem(STORAGE_KEY);
+                    if (savedRaw) {
+                        const savedBooking = JSON.parse(savedRaw);
+                        if (savedBooking && savedBooking.date && savedBooking.time && savedBooking.email) {
+                            const todayKey = formatDateKey(dateBase);
+                            if (savedBooking.date >= todayKey) {
+                                confirmedBooking = savedBooking;
+                                applyConfirmedBookingUI(confirmedBooking, false);
+                            }
+                        }
+                    }
+                } catch (e) {}
             });
         </script>
     </section>
@@ -1143,7 +1257,9 @@ No uses markdown ni negritas en la marca especial. Escríbela tal cual.
     html = html.replace('__INDUSTRIA__', industria)
     html = html.replace('__INDUSTRIA_SINGULAR__', industria_singular)
     html = html.replace('__CLIENTE_NEGOCIO__', cliente_negocio)
-    html = html.replace('__BOT_INITIAL_MSG__', bot_initial_msg)
+    html = html.replace('__MES_ACTUAL_LABEL__', mes_actual_label)
+    html = html.replace('__WA_NUMERO__', str(WA_NUMERO))
+    html = html.replace('__BOT_INITIAL_MSG_JSON__', json.dumps(bot_initial_msg, ensure_ascii=False))
     import base64
     system_prompt_b64 = base64.b64encode(system_prompt.encode('utf-8')).decode('utf-8')
     html = html.replace('__SYSTEM_PROMPT_B64__', system_prompt_b64)
@@ -1281,62 +1397,158 @@ def build_roadmap_html(row):
 def build_roi_table_html(row):
     moneda = row.get('Moneda', 'USD')
     precio_bajo = row.get('Precio_Bajo', '100')
-    industria = row.get('Industria', '')
+    industria = row.get('Industria', 'Negocios')
+    ind_singular = row.get('Industria_Singular', 'negocio')
+    ciudad = row.get('Ciudad', 'tu ciudad')
+    barrios_list = [b.strip() for b in row.get('Barrios', '').split('|') if b.strip()]
+    barrio1 = barrios_list[0] if barrios_list else ciudad
     
     try:
         precio_num = float(re.sub(r'[^\d.]', '', str(precio_bajo)))
-        
-        # Las exportaciones a veces truncan los miles (ej: 800.0 para COP en vez de 800.000)
-        # Para todas las monedas excepto USD, multiplicamos por 1000 si parece estar truncado
-        # (Todos los CSV analizados para moneda != USD estaban divididos por 1000 en Precio_Bajo)
         if moneda != 'USD':
             precio_num *= 1000
-            
         costo_humano_num = precio_num * 4
         costo_humano = f"{moneda} {costo_humano_num:,.0f}"
         precio_bajo_str = f"{moneda} {precio_num:,.0f}"
     except:
         costo_humano = f"{moneda} 400"
         precio_bajo_str = f"{moneda} 100"
-        
+
+    tareas_por_sector = {
+        'Inmobiliarias': (
+            f"Filtrar presupuesto en zonas como {barrio1} y agendar visita",
+            "Se demora horas en enviar fichas y pierde compradores calientes",
+            "Manda un PDF genérico sin saber cuánto presupuesto tiene el cliente",
+            f"Califica zona ({barrio1}), presupuesto y agenda visita en el calendario del asesor"
+        ),
+        'Clínicas Dentales': (
+            f"Agendar valoración odontológica en {ciudad}",
+            "Solo contesta en horario de consultorio; se pierden urgencias nocturnas",
+            "Pide 'marcar 1 o 2' sin entender qué molestia dental tiene el paciente",
+            "Entiende el caso por texto o voz, revisa agenda del doctor y confirma la cita"
+        ),
+        'Clinicas Dentales': (
+            f"Agendar valoración odontológica en {ciudad}",
+            "Solo contesta en horario de consultorio; se pierden urgencias nocturnas",
+            "Pide 'marcar 1 o 2' sin entender qué molestia dental tiene el paciente",
+            "Entiende el caso por texto o voz, revisa agenda del doctor y confirma la cita"
+        ),
+        'Restaurantes': (
+            f"Reservar mesa o tomar pedido en {barrio1}, {ciudad}",
+            "En hora pico nadie alcanza a contestar el WhatsApp a tiempo",
+            "Menú rígido que no responde dudas de ingredientes ni cambios",
+            "Muestra la carta, entiende notas de voz y confirma la reserva en segundos"
+        ),
+        'Gimnasios': (
+            f"Agendar clase de prueba y explicar planes en {ciudad}",
+            "El interesado pregunta en la noche y cuando le contestan ya se enfrió",
+            "Solo envía precios sueltos y no logra cerrar la visita a la sede",
+            "Resuelve dudas de horarios/sedes y deja agendada la clase de cortesía"
+        ),
+        'Academias y Cursos': (
+            f"Enviar pensum y agendar entrevista de admisión en {ciudad}",
+            "Los asesores no dan abasto en temporada de matrículas",
+            "No sabe explicar diferencias entre programas ni formas de pago",
+            "Explica cada curso, envía brochure y agenda clase o llamada de inscripción"
+        ),
+        'Veterinarias': (
+            f"Agendar consulta veterinaria o baño/peluquería en {ciudad}",
+            "Recepción ocupada atendiendo mascotas en sede y WhatsApp sin responder",
+            "No distingue entre una urgencia veterinaria y una cita de baño",
+            "Prioriza urgencias al instante y agenda citas de control en automático"
+        ),
+        'Hoteles y Hostales': (
+            f"Cotizar habitación y disponibilidad en {ciudad}",
+            "Huéspedes internacionales escriben de madrugada y reservan en otro hotel",
+            "No responde preguntas sobre check-in, parqueadero o turismo local",
+            "Atiende 24/7 en varios idiomas, cotiza fechas y asegura la reserva directa"
+        ),
+        'Salones de Belleza': (
+            f"Agendar cita de estilismo o cuidado personal en {ciudad}",
+            "Interrumpe el trabajo con clientes para contestar mensajes de WhatsApp",
+            "No calcula cuánto dura cada servicio ni qué especialista está libre",
+            "Revisa disponibilidad real por especialista y envía recordatorio automático"
+        ),
+        'Spas y Centros de Estética': (
+            f"Agendar valoración estética o ritual de spa en {ciudad}",
+            "Tarda horas en explicar paquetes y el cliente pierde el impulso",
+            "Respuestas frías que no transmiten confianza ni resuelven dudas",
+            "Asesora con calidez sobre cada tratamiento y bloquea la cita en agenda"
+        ),
+        'Spas y Centros Esteticos': (
+            f"Agendar valoración estética o ritual de spa en {ciudad}",
+            "Tarda horas en explicar paquetes y el cliente pierde el impulso",
+            "Respuestas frías que no transmiten confianza ni resuelven dudas",
+            "Asesora con calidez sobre cada tratamiento y bloquea la cita en agenda"
+        ),
+        'Talleres Automotrices': (
+            f"Agendar revisión mecánica o cotizar servicio en {ciudad}",
+            "Los mecánicos están trabajando y el WhatsApp queda sin respuesta",
+            "No entiende audios describiendo la falla o el ruido del vehículo",
+            "Escucha el audio del cliente, identifica el síntoma y agenda ingreso al taller"
+        ),
+        'Empresas y Corporativos': (
+            f"Calificar prospectos B2B y conectar CRM en {ciudad}",
+            "El equipo comercial gasta horas filtrando curiosos manualmente",
+            "Formularios largos o menús con botones que abandonan los gerentes",
+            "Perfila empresa y necesidad, agenda demo en Google Calendar y actualiza el CRM"
+        ),
+    }
+
+    tarea_label, tarea_manual, tarea_bot, tarea_ia = tareas_por_sector.get(
+        industria,
+        (
+            f"Calificar clientes y agendar citas en {barrio1}, {ciudad}",
+            "Se pierden ventas cuando llegan muchos mensajes al mismo tiempo",
+            "Obliga al cliente a presionar números ('marque 1') y frustra la compra",
+            f"Conversa natural, filtra al interesado y agenda en tu calendario de {ciudad}"
+        )
+    )
+
     if industria == 'Desarrollo de Apps y Software':
         html = f'''
-    <section class="py-16 bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl border-y border-gray-border/50 dark:border-zinc-800/50">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-header font-bold mb-4">Agencia Tradicional vs. Desarrollo IA-Native</h2>
-                <p class="text-lg text-gray-500 dark:text-slate-400">¿Por qué nuestro enfoque es la decisión más inteligente para tu ROI y velocidad?</p>
+    <section class="py-20 bg-white dark:bg-zinc-950 border-y border-gray-border dark:border-zinc-800">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-12">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand/10 text-brand dark:text-brand-light mb-3">Comparativa Clara en {ciudad}</span>
+                <h2 class="text-3xl md:text-4xl font-header font-bold mb-4 text-zinc-900 dark:text-white">Agencia Tradicional vs. Desarrollo con IA en {ciudad}</h2>
+                <p class="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Mira de un vistazo por qué desarrollar tu plataforma con Inteligencia Artificial integrada ahorra meses de espera en {ciudad}.</p>
             </div>
             
-            <div class="overflow-x-auto rounded-2xl shadow-xl">
-                <table class="w-full text-left bg-white dark:bg-zinc-900 border-collapse min-w-[600px]">
+            <div class="overflow-x-auto rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-xl">
+                <table class="w-full text-left bg-white dark:bg-zinc-900 border-collapse min-w-[640px]">
                     <thead>
-                        <tr class="bg-gray-100 dark:bg-zinc-800 border-b border-gray-border dark:border-zinc-700">
-                            <th class="p-6 font-bold text-gray-700 dark:text-slate-300 w-1/3">Característica</th>
-                            <th class="p-6 font-bold text-gray-500 dark:text-slate-400 w-1/3 text-center border-x border-gray-border dark:border-zinc-700">Agencia Tradicional</th>
-                            <th class="p-6 font-bold text-brand dark:text-brand-light w-1/3 text-center bg-brand/5 dark:bg-brand/10">Desarrollo IA-Native (Consultor IA)</th>
+                        <tr class="bg-zinc-100 dark:bg-zinc-800/90 border-b border-gray-200 dark:border-zinc-700 text-sm">
+                            <th class="p-5 font-bold text-zinc-800 dark:text-zinc-200 w-1/4">¿Qué comparamos en {ciudad}?</th>
+                            <th class="p-5 font-bold text-zinc-500 dark:text-zinc-400 w-1/4 text-center border-x border-gray-200 dark:border-zinc-700">Programación Antigua</th>
+                            <th class="p-5 font-bold text-zinc-500 dark:text-zinc-400 w-1/4 text-center border-r border-gray-200 dark:border-zinc-700">Plantillas Limitadas</th>
+                            <th class="p-5 font-bold text-brand dark:text-brand-light w-1/4 text-center bg-emerald-500/10 dark:bg-emerald-500/15">Desarrollo IA-Native (Consultor IA)</th>
                         </tr>
                     </thead>
-                    <tbody class="text-gray-600 dark:text-slate-400">
-                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Tiempo de Lanzamiento</td>
-                            <td class="p-5 text-center">3 a 6 meses</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">4 a 8 semanas (Desarrollo Ágil)</td>
+                    <tbody class="text-sm text-zinc-600 dark:text-zinc-300">
+                        <tr class="border-b border-gray-100 dark:border-zinc-800">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">⏱️ Tiempo para salir al mercado</td>
+                            <td class="p-5 text-center">4 a 6 meses de espera</td>
+                            <td class="p-5 text-center">Rápido pero se rompe al crecer</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">4 a 8 semanas llave en mano</td>
                         </tr>
-                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Integración de IA (LLMs)</td>
-                            <td class="p-5 text-center">Costosa, como módulo adicional posterior</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">Nativa de Fábrica (Gemini, Speech, Visión)</td>
+                        <tr class="border-b border-gray-100 dark:border-zinc-800">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">🧠 Inteligencia Artificial y WhatsApp</td>
+                            <td class="p-5 text-center">Se cobra aparte como extra caro</td>
+                            <td class="p-5 text-center">No conecta con tus datos reales</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">Incluida de fábrica (Voz, Texto y API)</td>
                         </tr>
-                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Costo de Implementación</td>
-                            <td class="p-5 text-center text-red-500 font-medium">Elevado ($15,000+ USD)</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">Optimizado (Desde {precio_bajo_str})</td>
+                        <tr class="border-b border-gray-100 dark:border-zinc-800">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">🔑 ¿De quién es el código y la base de datos?</td>
+                            <td class="p-5 text-center">Depende del proveedor</td>
+                            <td class="p-5 text-center">Alquilado (no eres dueño)</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">100% propiedad de tu empresa en {ciudad}</td>
                         </tr>
-                        <tr class="hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Propiedad del Código</td>
-                            <td class="p-5 text-center">A menudo cautivo o limitado</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">100% Tuyo (Código y BD Libres)</td>
+                        <tr>
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">💰 Inversión estimada en {ciudad}</td>
+                            <td class="p-5 text-center text-red-500 font-semibold">Más de $15,000 USD</td>
+                            <td class="p-5 text-center">Pagos mensuales sin soporte local</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">Desde {precio_bajo_str}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1346,42 +1558,66 @@ def build_roi_table_html(row):
         '''
     else:
         html = f'''
-    <section class="py-16 bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl border-y border-gray-border/50 dark:border-zinc-800/50">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-header font-bold mb-4">Humano vs. Agente IA</h2>
-                <p class="text-lg text-gray-500 dark:text-slate-400">¿Por qué un Agente es la decisión más inteligente para tu ROI?</p>
+    <section class="py-20 bg-white dark:bg-zinc-950 border-y border-gray-border dark:border-zinc-800">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-12">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 mb-3">
+                    <i class="fas fa-balance-scale"></i> Comparativa Clara para {industria} en {ciudad}
+                </span>
+                <h2 class="text-3xl md:text-5xl font-header font-bold mb-4 text-zinc-900 dark:text-white">
+                    Atender a Mano vs. Bot Antiguo vs. Tu Agente IA
+                </h2>
+                <p class="text-lg text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto">
+                    Explicado sin tecnicismos: así cambia el día a día de tu <strong>{ind_singular} en {ciudad}</strong> cuando dejas atrás los mensajes sin responder y los bots rígidos de botones.
+                </p>
             </div>
             
-            <div class="overflow-x-auto rounded-2xl shadow-xl">
-                <table class="w-full text-left bg-white dark:bg-zinc-900 border-collapse min-w-[600px]">
+            <div class="overflow-x-auto rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-2xl">
+                <table class="w-full text-left bg-white dark:bg-zinc-900 border-collapse min-w-[720px]">
                     <thead>
-                        <tr class="bg-gray-100 dark:bg-zinc-800 border-b border-gray-border dark:border-zinc-700">
-                            <th class="p-6 font-bold text-gray-700 dark:text-slate-300 w-1/3">Característica</th>
-                            <th class="p-6 font-bold text-gray-500 dark:text-slate-400 w-1/3 text-center border-x border-gray-border dark:border-zinc-700">Empleado Tradicional</th>
-                            <th class="p-6 font-bold text-brand dark:text-brand-light w-1/3 text-center bg-brand/5 dark:bg-brand/10">Agente IA Consultor</th>
+                        <tr class="bg-zinc-100 dark:bg-zinc-800/90 border-b border-gray-200 dark:border-zinc-700 text-xs sm:text-sm">
+                            <th class="p-5 font-bold text-zinc-800 dark:text-zinc-200 w-[24%]">Situación Real en {ciudad}</th>
+                            <th class="p-5 font-bold text-zinc-500 dark:text-zinc-400 w-[24%] text-center border-l border-gray-200 dark:border-zinc-700">1. Atender WhatsApp a Mano</th>
+                            <th class="p-5 font-bold text-zinc-500 dark:text-zinc-400 w-[24%] text-center border-x border-gray-200 dark:border-zinc-700">2. Bot Viejo ("Marque 1 o 2")</th>
+                            <th class="p-5 font-bold text-emerald-700 dark:text-emerald-400 w-[28%] text-center bg-emerald-500/10 dark:bg-emerald-500/15">3. Tu Agente IA en {ciudad} (Consultor IA)</th>
                         </tr>
                     </thead>
-                    <tbody class="text-gray-600 dark:text-slate-400">
-                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Disponibilidad</td>
-                            <td class="p-5 text-center">8 horas / Lunes a Viernes</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">24/7/365 (Sin descansos)</td>
+                    <tbody class="text-sm text-zinc-600 dark:text-zinc-300">
+                        <tr class="border-b border-gray-100 dark:border-zinc-800 hover:bg-zinc-50/70 dark:hover:bg-zinc-800/40 transition-colors">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">⏰ ¿A qué hora contesta?</td>
+                            <td class="p-5 text-center border-l border-gray-100 dark:border-zinc-800">Solo en horario de oficina (8h al día)</td>
+                            <td class="p-5 text-center border-x border-gray-100 dark:border-zinc-800">24/7 pero se traba si el cliente pregunta distinto</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">24/7 los 365 días (noches, domingos y festivos)</td>
                         </tr>
-                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Velocidad de Respuesta</td>
-                            <td class="p-5 text-center">15 min - 2 horas</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">&lt; 3 Segundos</td>
+                        <tr class="border-b border-gray-100 dark:border-zinc-800 hover:bg-zinc-50/70 dark:hover:bg-zinc-800/40 transition-colors">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">⚡ ¿Cuánto tarda en responder?</td>
+                            <td class="p-5 text-center border-l border-gray-100 dark:border-zinc-800">De 20 minutos a varias horas</td>
+                            <td class="p-5 text-center border-x border-gray-100 dark:border-zinc-800">Rápido, pero con menús aburridos</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">Menos de 3 segundos conversando como humano</td>
                         </tr>
-                        <tr class="border-b border-gray-border dark:border-zinc-800 hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Capacidad Simultánea</td>
-                            <td class="p-5 text-center">1 cliente a la vez</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">Ilimitada</td>
+                        <tr class="border-b border-gray-100 dark:border-zinc-800 hover:bg-zinc-50/70 dark:hover:bg-zinc-800/40 transition-colors">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">🎙️ ¿Entiende notas de voz (audios)?</td>
+                            <td class="p-5 text-center border-l border-gray-100 dark:border-zinc-800">Sí, pero quita mucho tiempo escucharlos</td>
+                            <td class="p-5 text-center border-x border-gray-100 dark:border-zinc-800 text-red-500">❌ No entiende notas de voz</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">✅ Escucha audios largos y responde al instante</td>
                         </tr>
-                        <tr class="hover:bg-slate-50 dark:hover:bg-zinc-900/50 transition-colors">
-                            <td class="p-5 font-medium text-gray-800 dark:text-slate-200">Costo Mensual Estimado</td>
-                            <td class="p-5 text-center text-red-500 font-medium">Aprox. {costo_humano}</td>
-                            <td class="p-5 text-center font-bold text-brand dark:text-brand-light bg-brand/5 dark:bg-brand/10">Desde {precio_bajo_str}</td>
+                        <tr class="border-b border-gray-100 dark:border-zinc-800 hover:bg-zinc-50/70 dark:hover:bg-zinc-800/40 transition-colors">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">🎯 {tarea_label}</td>
+                            <td class="p-5 text-center border-l border-gray-100 dark:border-zinc-800">{tarea_manual}</td>
+                            <td class="p-5 text-center border-x border-gray-100 dark:border-zinc-800">{tarea_bot}</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">✅ {tarea_ia}</td>
+                        </tr>
+                        <tr class="border-b border-gray-100 dark:border-zinc-800 hover:bg-zinc-50/70 dark:hover:bg-zinc-800/40 transition-colors">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">📅 ¿Agenda citas y guarda en CRM?</td>
+                            <td class="p-5 text-center border-l border-gray-100 dark:border-zinc-800">A mano en libreta o Excel (riesgo de olvidos)</td>
+                            <td class="p-5 text-center border-x border-gray-100 dark:border-zinc-800">Solo deja el chat pendiente para que llames</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">✅ Bloquea hora en Google Calendar y actualiza CRM</td>
+                        </tr>
+                        <tr class="hover:bg-zinc-50/70 dark:hover:bg-zinc-800/40 transition-colors">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">💰 Costo operativo en {ciudad}</td>
+                            <td class="p-5 text-center border-l border-gray-100 dark:border-zinc-800 text-red-500 font-semibold">Aprox. {costo_humano} / mes por turno</td>
+                            <td class="p-5 text-center border-x border-gray-100 dark:border-zinc-800">Ventas perdidas por clientes que no responden menús</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">Desde {precio_bajo_str} (Listo en 5 a 7 días)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1955,15 +2191,15 @@ def build_hero_visual_html(row, hero_chat_user, hero_chat_bot):
                             <i class="fas fa-robot text-xl text-[#00a884] dark:text-[#8696a0]"></i>
                         </div>
                         <div class="flex-1">
-                            <h3 class="font-medium text-white text-base leading-tight">Consultor-IA Bot</h3>
-                            <p class="text-white/80 text-xs mt-0.5">en línea</p>
+                            <h3 class="font-medium text-white text-base leading-tight">Agente IA · Consultor-IA</h3>
+                            <p class="text-white/80 text-xs mt-0.5">en línea · Respuesta inmediata</p>
                         </div>
                     </div>
                     
                     <!-- Chat Body -->
                     <div class="p-5 flex flex-col gap-3 relative z-10 min-h-[300px]">
-                        <!-- Chat pattern background -->
-                        <div class="absolute inset-0 opacity-40 dark:opacity-[0.05] bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center -z-10"></div>
+                        <!-- Chat pattern background (pure CSS, no external request) -->
+                        <div class="absolute inset-0 opacity-[0.06] dark:opacity-[0.04] pointer-events-none -z-10" style="background-image: radial-gradient(#075E54 1px, transparent 1px); background-size: 18px 18px;"></div>
                         
                         <!-- Client Message -->
                         <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
@@ -1975,12 +2211,12 @@ def build_hero_visual_html(row, hero_chat_user, hero_chat_bot):
                             {hero_chat_bot}
                         </div>
                         
-                        <!-- ROI Box inside Chat -->
+                        <!-- Operational Guarantee Box inside Chat -->
                         <div class="self-start w-full mt-2 animate-fade-in-up animation-delay-1000">
                             <div class="bg-white/90 dark:bg-[#202c33]/90 backdrop-blur-sm border border-gray-100 dark:border-zinc-800 rounded-xl p-4 flex justify-between shadow-sm">
                                 <div>
-                                    <p class="text-xs text-gray-500 dark:text-[#8696a0]">ROI Promedio</p>
-                                    <p class="font-bold text-accent dark:text-[#53bdeb] text-lg">+315%</p>
+                                    <p class="text-xs text-gray-500 dark:text-[#8696a0]">Atención y Citas</p>
+                                    <p class="font-bold text-accent dark:text-[#53bdeb] text-lg">24/7 Voz y Texto</p>
                                 </div>
                                 <div class="text-right">
                                     <p class="text-xs text-gray-500 dark:text-[#8696a0]">Implementación</p>
@@ -1996,7 +2232,7 @@ def build_hero_visual_html(row, hero_chat_user, hero_chat_bot):
     return html
 
 def build_precios_seccion_html(row):
-    """Genera el bloque HTML de precios adaptado para chatbots o desarrollo de aplicaciones."""
+    """Genera el bloque HTML de precios adaptado para agentes IA/flujos o desarrollo de aplicaciones."""
     ind = row.get('Industria', '')
     pais = row.get('País', '')
     ciudad = row.get('Ciudad', '')
@@ -2059,41 +2295,72 @@ def build_precios_seccion_html(row):
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="text-center mb-16">
                     <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
-                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios en {pais}</h2>
-                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes de Automatización con IA en {pais}</h2>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Desde un Agente IA llave en mano para WhatsApp hasta flujos empresariales integrados a medida.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
-                    <!-- Pricing Card 1: Setup -->
-                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
-                        <h3 class="font-header font-bold text-2xl mb-2">Configuración Completa</h3>
-                        <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Pago único por la creación del sistema</p>
-                        <div class="text-4xl font-bold mb-6 text-gray-1 dark:text-white">$497 <span class="text-lg font-normal text-gray-400">USD</span></div>
-                        <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-slate-300">
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Desarrollo y entrenamiento del Agente IA</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Integración completa con WhatsApp y Web</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Ingesta de base de conocimiento (FAQ, servicios)</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Pruebas y despliegue inicial (5-7 días)</li>
-                        </ul>
-                        <a href="https://wa.me/{wa_numero}" target="_blank" class="block w-full text-center border border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-zinc-800 py-3 rounded-xl font-medium transition-colors">Solicitar Configuración</a>
+                <div class="grid md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+                    <!-- Plan 1: Agente IA WhatsApp Llave en Mano -->
+                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="inline-block bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">Llave en Mano · 5 a 7 Días</div>
+                            <h3 class="font-header font-bold text-2xl mb-2 text-zinc-900 dark:text-white">Agente IA para WhatsApp</h3>
+                            <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Atención automática 24/7, calificación de prospectos y agendamiento en calendario.</p>
+                            
+                            <div class="p-4 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 mb-6">
+                                <div class="flex items-baseline justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-3 mb-3">
+                                    <div>
+                                        <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 block">1. Configuración Completa</span>
+                                        <span class="text-xs text-zinc-500">Pago único de creación y entrenamiento</span>
+                                    </div>
+                                    <div class="text-3xl font-bold text-zinc-900 dark:text-white">$497 <span class="text-xs font-normal text-gray-400">USD</span></div>
+                                </div>
+                                <div class="flex items-baseline justify-between">
+                                    <div>
+                                        <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 block">2. Operación y Soporte</span>
+                                        <span class="text-xs text-zinc-500">Hosting cloud, consumo IA y ajustes</span>
+                                    </div>
+                                    <div class="text-xl font-bold text-zinc-800 dark:text-zinc-200">$97 <span class="text-xs font-normal text-gray-400">USD/mes</span></div>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-3.5 mb-8 text-sm text-gray-600 dark:text-slate-300">
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Entrenamiento del Agente IA con la información de tu negocio</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Conexión oficial con WhatsApp Business y chat web</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Agendamiento autónomo en Google Calendar y lectura de audios</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Soporte técnico prioritario y optimización mensual incluida</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/{wa_numero}?text=Hola%2C%20quiero%20cotizar%20el%20Agente%20IA%20Llave%20en%20Mano%20(%24497%20USD%20Setup%20%2B%20%2497/mes)%20para%20mi%20empresa%20en%20{ciudad}" target="_blank" class="block w-full text-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:opacity-90 py-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all shadow-lg">
+                            Cotizar Agente Llave en Mano <i class="fab fa-whatsapp ml-1 text-sm"></i>
+                        </a>
                     </div>
                     
-                    <!-- Pricing Card 2: Mantenimiento (Destacada) -->
-                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Esencial</div>
-                        <h3 class="font-header font-bold text-2xl mb-2 text-white">Mantenimiento Mensual</h3>
-                        <p class="text-brand-100 text-sm mb-6">Suscripción para el funcionamiento de la IA</p>
-                        <div class="text-4xl font-bold mb-6 text-white">$97 <span class="text-lg font-normal text-brand-200">USD /mes</span></div>
-                        <ul class="space-y-4 mb-8 text-sm">
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Hosting del agente y consumo de IA</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Soporte técnico prioritario</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Ajustes y optimizaciones mensuales</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Actualizaciones de plataforma automáticas</li>
-                        </ul>
-                        <a href="https://wa.me/{wa_numero}" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-3.5 rounded-xl overflow-hidden transition-all duration-500">
+                    <!-- Plan 2: Flujos Inteligentes y Automatización Corporativa (B2B) -->
+                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Empresas & B2B</div>
+                            <div class="inline-block bg-white/10 text-[#E8DAC1] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">Arquitectura Avanzada</div>
+                            <h3 class="font-header font-bold text-2xl mb-2 text-white">Flujos Inteligentes & CRM</h3>
+                            <p class="text-zinc-300 text-sm mb-6">Para empresas que requieren integrar múltiples sistemas, CRMs y procesos operativos.</p>
+                            
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 mb-6">
+                                <span class="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-1">Inversión según alcance técnico</span>
+                                <div class="text-3xl font-bold text-white">Cotización a Medida</div>
+                                <span class="text-xs text-zinc-400 block mt-1">Diagnóstico técnico y diseño de arquitectura inicial</span>
+                            </div>
+
+                            <ul class="space-y-3.5 mb-8 text-sm text-zinc-200">
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Agentes IA multi-departamento (Ventas, Soporte, Cartera)</li>
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Flujos automatizados e integración con CRM/ERP (HubSpot, Kommo, Zoho, APIs)</li>
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Enrutamiento inteligente a asesores humanos y reportes automáticos</li>
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Desarrollo de integraciones, cotizadores o webhooks personalizados</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/{wa_numero}?text=Hola%2C%20busco%20una%20cotizaci%C3%B3n%20a%20medida%20de%20Flujos%20Inteligentes%20y%20Automatizaci%C3%B3n%20B2B%20en%20{ciudad}" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-4 rounded-xl overflow-hidden transition-all duration-500">
                             <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
-                            <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
-                                Ver Detalles <i class="fas fa-arrow-right text-[12px]"></i>
+                            <span class="relative z-10 flex items-center gap-3 font-body text-xs font-bold uppercase tracking-widest text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                                Solicitar Diagnóstico B2B <i class="fab fa-whatsapp text-sm"></i>
                             </span>
                         </a>
                     </div>
@@ -2105,7 +2372,7 @@ def build_precios_seccion_html(row):
 
 
 def build_footer_html(data):
-    """Genera un footer premium con enlaces a industrias y ciudades principales."""
+    """Genera un footer premium con enlaces a industrias, ciudades principales y capa global de analítica de conversiones."""
     
     # Obtener industrias únicas y sus URLs de Hub
     industries = {}
@@ -2155,18 +2422,18 @@ def build_footer_html(data):
                     <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 </a>
                 <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-                    Transformamos la atención al cliente en LATAM con Agentes de Inteligencia Artificial que trabajan 24/7 en WhatsApp.
+                    Implementamos Agentes de Inteligencia Artificial, automatizaciones de WhatsApp y flujos inteligentes para empresas en Colombia y Latinoamérica.
                 </p>
                 <div class="flex gap-4">
-                    <a href="https://wa.me/{{WA_NUMERO}}" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/{{WA_NUMERO}}?text=Hola%2C%20quiero%20cotizar%20un%20Agente%20de%20IA%20o%20automatizaci%C3%B3n%20para%20mi%20empresa" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/company/consultor-ia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Consultor IA" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/consultoria_col" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Consultor IA" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
             <!-- Col 2: Industrias -->
             <div>
-                <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones</h4>
+                <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones por Sector</h4>
                 <ul class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
                     {ind_links}
                 </ul>
@@ -2193,25 +2460,78 @@ def build_footer_html(data):
         </div>
     </div>
 </footer>
+<!-- Capa Global de Medición de Conversiones (GA4 / Google Ads / GTM dataLayer) -->
+<script>
+(function() {{
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function() {{ window.dataLayer.push(arguments); }};
+    
+    // Persistir parámetros UTM y GCLID de Google Ads en la sesión para atribución de leads
+    try {{
+        var params = new URLSearchParams(window.location.search);
+        var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+        var storedUtm = JSON.parse(sessionStorage.getItem('consultoria_utm') || '{{}}');
+        var updated = false;
+        utmKeys.forEach(function(k) {{
+            if (params.get(k)) {{
+                storedUtm[k] = params.get(k);
+                updated = true;
+            }}
+        }});
+        if (updated) sessionStorage.setItem('consultoria_utm', JSON.stringify(storedUtm));
+    }} catch (e) {{}}
+
+    window.ConsultorAnalytics = {{
+        getUtm: function() {{
+            try {{ return JSON.parse(sessionStorage.getItem('consultoria_utm') || '{{}}'); }} catch (e) {{ return {{}}; }}
+        }},
+        track: function(eventName, eventParams) {{
+            var payload = Object.assign({{
+                event: eventName,
+                page_path: window.location.pathname,
+                page_title: document.title,
+                timestamp: new Date().toISOString()
+            }}, this.getUtm(), eventParams || {{}});
+            window.dataLayer.push(payload);
+            if (typeof window.gtag === 'function') {{
+                window.gtag('event', eventName, payload);
+            }}
+        }}
+    }};
+
+    // Rastrear clics en todos los enlaces de WhatsApp y llamadas a la acción
+    document.addEventListener('click', function(e) {{
+        var waLink = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+        if (waLink) {{
+            window.ConsultorAnalytics.track('whatsapp_click', {{
+                cta_text: (waLink.innerText || waLink.getAttribute('aria-label') || 'WhatsApp CTA').trim().substring(0, 80),
+                cta_href: waLink.href,
+                bypass_modal: waLink.dataset.noModal === 'true'
+            }});
+        }}
+    }}, true);
+}})();
+</script>
 <!-- Script del Modal de WhatsApp (con cache buster) -->
-<script src="/js/wa-modal.js?v=1.4" charset="utf-8" defer></script>
+<script src="/js/wa-modal.js?v=1.5" charset="utf-8" defer></script>
 '''
     return footer.replace("{WA_NUMERO}", str(WA_NUMERO))
+
 def build_home_page(data):
     footer_html = build_footer_html(data)
-    """Genera homepage con el mismo design system de las landings."""
+    """Genera homepage optimizada para conversión B2B (Agentes IA, Automatización WhatsApp y Flujos Inteligentes)."""
     
     # Generar demo interactiva para la home
     demo_row = {
-        'Ciudad': 'Colombia',
-        'Industria': 'Automatización de Ventas',
-        'Industria_Singular': 'agencia de automatización',
+        'Ciudad': 'Colombia y LATAM',
+        'Industria': 'Automatización Empresarial',
+        'Industria_Singular': 'empresa',
         'Cliente_Negocio': 'Consultor IA',
         'País': 'Colombia',
-        'Demónimo': 'colombianos',
-        'Barrios': 'Bogotá | Medellín | Cali | Barranquilla',
-        'Dolor_Principal': 'perder clientes por no responder rápido',
-        'Solución_Clave': 'automatizar la atención y agendar citas'
+        'Demónimo': 'empresarios',
+        'Barrios': 'Bogotá | Medellín | Cali | Barranquilla | CDMX | Santiago | Lima',
+        'Dolor_Principal': 'perder prospectos por demoras en WhatsApp y procesos manuales',
+        'Solución_Clave': 'implementar Agentes de IA, automatizaciones de WhatsApp y flujos inteligentes'
     }
     demo_html = build_demo_interactiva_html(demo_row)
 
@@ -2241,13 +2561,10 @@ def build_home_page(data):
         icon = industry_icons.get(ind, 'fa-robot')
         industries_html += f"""
         <a href="{url}" class="group relative flex flex-col items-center justify-center gap-4 p-8 rounded-3xl border border-gray-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:border-zinc-900 dark:hover:border-white dark:hover:border-white/50 transition-all duration-500 hover:-translate-y-1 text-center">
-            <!-- Hover Glow -->
             <div class="absolute inset-0 rounded-[inherit] bg-zinc-50 dark:bg-zinc-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
             <div class="relative z-10 w-16 h-16 rounded-2xl bg-brand/5 dark:bg-white/5 border border-brand/10 dark:border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-brand/10 dark:group-hover:bg-white/10 transition-all duration-500 shadow-inner">
                 <i class="fas {icon} text-2xl text-brand dark:text-brand-light dark:text-white group-hover:text-zinc-900 dark:group-hover:text-white transition-colors"></i>
             </div>
-
             <div class="relative z-10 flex flex-col items-center">
                 <span class="text-sm font-bold text-zinc-900 dark:text-white tracking-wide">{ind}</span>
                 <div class="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:mt-2 transition-all duration-300 overflow-hidden flex items-center justify-center">
@@ -2257,9 +2574,9 @@ def build_home_page(data):
         </a>"""
 
     steps_data = [
-        ("fa-search", "1. Diagnóstico", "Analizamos tu negocio, flujos de atención y dónde estás perdiendo clientes."),
-        ("fa-brain", "2. Entrenamiento IA", "Cargamos tu información para que la IA responda como tu mejor vendedor."),
-        ("fa-rocket", "3. Lanzamiento", "Activamos el agente en tu WhatsApp oficial con monitoreo en tiempo real."),
+        ("fa-search", "1. Diagnóstico y Arquitectura", "Mapeamos tu embudo comercial, preguntas frecuentes, calendario y sistemas (CRM/ERP) para diseñar el flujo exacto."),
+        ("fa-brain", "2. Entrenamiento e Integración", "Entrenamos el Agente de IA con los documentos de tu empresa y lo conectamos a tu línea de WhatsApp y herramientas."),
+        ("fa-rocket", "3. Despliegue en 5 a 7 Días", "Lanzamos tu sistema en producción con pruebas reales, monitoreo continuo y optimización mensual incluida."),
     ]
     steps_html = ""
     for icon, title, desc in steps_data:
@@ -2272,15 +2589,6 @@ def build_home_page(data):
             <p class="text-gray-500 dark:text-slate-400 text-sm leading-relaxed">{desc}</p>
         </div>"""
 
-    stats_data = [("297+", "Landings Activas"), ("24/7", "Disponibilidad"), ("&lt;3s", "Respuesta"), ("10+", "Países LATAM")]
-    stats_html = ""
-    for val, label in stats_data:
-        stats_html += f"""
-        <div class="text-center p-6 rounded-3xl border border-gray-border dark:border-zinc-800 bg-[#FDFBF7] dark:bg-zinc-900">
-            <div class="text-4xl font-header font-extrabold text-brand dark:text-brand-light mb-1">{val}</div>
-            <div class="text-sm text-gray-500 dark:text-slate-400">{label}</div>
-        </div>"""
-
     html = f"""<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -2289,34 +2597,50 @@ def build_home_page(data):
     <link rel="icon" type="image/png" sizes="48x48" href="https://consultor-ia.com.co/favicon-48x48.png">
     <link rel="icon" type="image/x-icon" href="https://consultor-ia.com.co/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="https://consultor-ia.com.co/apple-touch-icon.png">
-    <title>Chatbot de WhatsApp Corporativo y Automatización de Ventas | Consultor IA</title>
-    <meta name="description" content="Automatiza tus ventas y atención al cliente 24/7. Creamos Chatbots de WhatsApp corporativos a medida integrados con IA para empresas en Latinoamérica.">
+    <title>Agentes de IA, Automatización de WhatsApp y Flujos para Empresas | Consultor IA</title>
+    <meta name="description" content="Implementamos Agentes de Inteligencia Artificial, automatizaciones de WhatsApp y flujos inteligentes para empresas. Califica leads, agenda citas 24/7 y conecta tu CRM.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://consultor-ia.com.co/">
-    <meta property="og:title" content="Chatbot de WhatsApp Corporativo y Automatización de Ventas">
-    <meta property="og:description" content="Automatiza tus ventas y atención al cliente 24/7 con Chatbots de WhatsApp corporativos e IA conversacional para negocios en LATAM.">
+    <meta property="og:title" content="Agentes de IA, Automatización de WhatsApp y Flujos para Empresas | Consultor IA">
+    <meta property="og:description" content="Implementamos Agentes de IA conversacionales, automatizaciones de WhatsApp Business API y flujos inteligentes conectados a tu calendario y CRM.">
     <meta property="og:url" content="https://consultor-ia.com.co/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_CO">
     <meta property="og:site_name" content="Consultor IA">
-    <meta property="og:image" content="https://consultor-ia.com.co/images/og-home.webp">
+    <meta property="og:image" content="https://consultor-ia.com.co/images/blog/chatbot-whatsapp/hero.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Chatbot de WhatsApp Corporativo y Automatización de Ventas">
-    <meta name="twitter:description" content="Automatiza tus ventas y atención al cliente 24/7 con Chatbots de WhatsApp corporativos e IA conversacional.">
-    <meta name="twitter:image" content="https://consultor-ia.com.co/images/og-home.webp">
-    <!-- Schema: Organization & Product & FAQPage -->
+    <meta name="twitter:title" content="Agentes de IA, Automatización de WhatsApp y Flujos para Empresas">
+    <meta name="twitter:description" content="Atiende prospectos 24/7, califica leads, agenda citas en tiempo real y automatiza tus flujos empresariales en WhatsApp.">
+    <meta name="twitter:image" content="https://consultor-ia.com.co/images/blog/chatbot-whatsapp/hero.webp">
+    <!-- Schema: Organization, Service & FAQPage (Grafo Híbrido GEO sin datos inventados) -->
     <script type="application/ld+json">
     {{
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://consultor-ia.com.co/#organization",
       "name": "Consultor IA",
       "url": "https://consultor-ia.com.co",
       "logo": "https://consultor-ia.com.co/favicon-192x192.png",
-      "description": "Automatizamos la atención al cliente, ventas y operaciones con Agentes de Inteligencia Artificial para empresas en toda Latinoamérica.",
+      "description": "Consultor IA es una consultora tecnológica especializada en Agentes de Inteligencia Artificial, automatización de WhatsApp Business Cloud API y flujos inteligentes conectados a CRM para empresas en Colombia y Latinoamérica.",
+      "knowsAbout": [
+        "Agentes de Inteligencia Artificial",
+        "Automatización de WhatsApp Business Cloud API",
+        "Arquitectura RAG sobre Documentos Empresariales",
+        "Agendamiento Autónomo en Google Calendar",
+        "Integración de Flujos con CRM y n8n"
+      ],
+      "contactPoint": {{
+        "@type": "ContactPoint",
+        "telephone": "+57-315-120-6985",
+        "contactType": "sales",
+        "areaServed": ["CO", "MX", "CL", "PE", "AR", "EC", "PA", "CR", "US", "ES"],
+        "availableLanguage": ["Spanish"]
+      }},
       "sameAs": [
         "https://www.linkedin.com/company/consultor-ia",
+        "https://github.com/Createia",
         "https://www.instagram.com/consultoria_col"
       ]
     }}
@@ -2325,16 +2649,20 @@ def build_home_page(data):
     <script type="application/ld+json">
     {{
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Chatbot de WhatsApp Corporativo con IA",
-      "description": "Agente de Inteligencia Artificial para automatizar atención al cliente, ventas y reservas por WhatsApp en negocios LATAM.",
-      "brand": {{"@type": "Brand", "name": "Consultor IA"}},
-      "aggregateRating": {{
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "115"
+      "@type": "Service",
+      "@id": "https://consultor-ia.com.co/#service",
+      "name": "Agentes de IA, Automatización de WhatsApp y Flujos Inteligentes B2B",
+      "description": "Diseño, entrenamiento e implementación de Agentes de Inteligencia Artificial para WhatsApp Business, agendamiento autónomo de citas e integración con sistemas CRM.",
+      "provider": {{
+        "@id": "https://consultor-ia.com.co/#organization"
+      }},
+      "areaServed": "Latin America",
+      "offers": {{
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "97",
+        "highPrice": "497",
+        "offerCount": "2"
       }}
     }}
     </script>
@@ -2345,10 +2673,10 @@ def build_home_page(data):
       "mainEntity": [
         {{
           "@type": "Question",
-          "name": "¿Qué es un Agente IA para WhatsApp y cómo funciona?",
+          "name": "¿Qué diferencia hay entre un chatbot tradicional y un Agente de IA con flujos inteligentes?",
           "acceptedAnswer": {{
             "@type": "Answer",
-            "text": "Es un asistente conversacional avanzado configurado con la base de conocimiento de tu negocio. Responde preguntas, califica prospectos, toma pedidos y agenda citas las 24 horas del día de forma automática directamente en WhatsApp."
+            "text": "Un chatbot tradicional obliga al cliente a elegir opciones rígidas ('presiona 1 o 2'). Nuestros Agentes de IA conversan de forma natural, comprenden notas de voz, califican al prospecto según las reglas de tu negocio, agendan citas en tiempo real en tu calendario y actualizan tu CRM automáticamente."
           }}
         }},
         {{
@@ -2356,23 +2684,23 @@ def build_home_page(data):
           "name": "¿Se utiliza la API oficial de WhatsApp?",
           "acceptedAnswer": {{
             "@type": "Answer",
-            "text": "Sí, realizamos la integración utilizando la API Cloud oficial de Meta para garantizar la estabilidad de la línea, evitar bloqueos y permitir el envío de notificaciones masivas de forma segura."
+            "text": "Sí, realizamos la integración utilizando la API Cloud oficial de Meta para garantizar la estabilidad de la línea, evitar bloqueos y permitir flujos escalables de atención y seguimiento."
           }}
         }},
         {{
           "@type": "Question",
-          "name": "¿Cuánto tiempo toma el despliegue del chatbot?",
+          "name": "¿Cuánto tiempo toma la implementación?",
           "acceptedAnswer": {{
             "@type": "Answer",
-            "text": "El proceso completo de diseño de flujos, carga de base de conocimientos, entrenamiento del modelo de lenguaje y despliegue final toma entre 5 y 7 días hábiles."
+            "text": "El proceso completo de diagnóstico, diseño de flujos, entrenamiento del Agente de IA con tus documentos y despliegue toma entre 5 y 7 días hábiles."
           }}
         }},
         {{
           "@type": "Question",
-          "name": "¿Se puede integrar con mi CRM actual?",
+          "name": "¿Se puede integrar con nuestro CRM, calendario o sistemas internos?",
           "acceptedAnswer": {{
             "@type": "Answer",
-            "text": "Absolutamente. Integramos los agentes IA con CRM populares como HubSpot, Zoho, Salesforce o tu propio sistema de base de datos a través de APIs y webhooks para registrar todos los leads generados."
+            "text": "Absolutamente. Conectamos tus agentes y flujos con Google Calendar, HubSpot, Kommo, Zoho, Salesforce, hojas de cálculo o ERPs propios mediante APIs y webhooks en tiempo real."
           }}
         }}
       ]
@@ -2380,38 +2708,11 @@ def build_home_page(data):
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <script>
-        tailwind.config = {{
-            darkMode: 'class',
-            theme: {{
-                extend: {{
-                    colors: {{
-                        'brand': '#18181b',
-                        'brand-light': '#f4f4f5',
-                        'accent': '#2563eb',
-                        'success': '#10b981',
-                        'gray-2': '#52525b',
-                        'gray-border': '#e4e4e7',
-                    }},
-                    fontFamily: {{
-                        body: ['"Inter"', 'sans-serif'],
-                        header: ['"Playfair Display"', 'serif'],
-                    }},
-                    borderRadius: {{ '3xl': '24px' }},
-                    animation: {{ 'fade-in-up': 'fadeInUp 0.8s ease-out forwards' }},
-                    keyframes: {{
-                        fadeInUp: {{
-                            '0%': {{ opacity: '0', transform: 'translateY(20px)' }},
-                            '100%': {{ opacity: '1', transform: 'translateY(0)' }},
-                        }}
-                    }}
-                }}
-            }}
-        }}
-    </script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=2.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <script>
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {{
             document.documentElement.classList.add('dark');
@@ -2430,22 +2731,6 @@ def build_home_page(data):
         .typing-dot:nth-child(3) {{ animation-delay:.4s; }}
         @keyframes typingBounce {{ 0%,80%,100% {{ transform:translateY(0); }} 40% {{ transform:translateY(-5px); }} }}
     
-        /* Background Animated Blobs */
-        @keyframes blob-move-1 {{
-            0% {{ transform: translate(0, 0) scale(1) rotate(0deg); }}
-            33% {{ transform: translate(15vw, -10vh) scale(1.2) rotate(15deg); }}
-            66% {{ transform: translate(-10vw, 15vh) scale(0.8) rotate(-15deg); }}
-            100% {{ transform: translate(0, 0) scale(1) rotate(0deg); }}
-        }}
-        @keyframes blob-move-2 {{
-            0% {{ transform: translate(0, 0) scale(1) rotate(0deg); }}
-            33% {{ transform: translate(-15vw, 15vh) scale(1.2) rotate(-15deg); }}
-            66% {{ transform: translate(15vw, -10vh) scale(0.8) rotate(15deg); }}
-            100% {{ transform: translate(0, 0) scale(1) rotate(0deg); }}
-        }}
-        .bg-blob-1 {{ animation: blob-move-1 12s infinite ease-in-out; }}
-        .bg-blob-2 {{ animation: blob-move-2 15s infinite ease-in-out; }}
-
         /* Smooth Global Background Blobs */
         @keyframes global-blob-1 {{
             0% {{ transform: translate(0, 0) scale(1) rotate(0deg); }}
@@ -2478,88 +2763,86 @@ def build_home_page(data):
     <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
 </div>
 
-
-
-
-
 <!-- HEADER -->
 <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
     <div class="w-full max-w-7xl glass rounded-full border border-gray-200 dark:border-zinc-800/80 shadow-2xl pointer-events-auto flex justify-between items-center px-6 py-3">
         <a href="/" class="flex items-center gap-2">
             <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
         </a>
-        <nav class="hidden md:flex space-x-8 items-center">
-            <a href="#como-funciona" class="font-medium text-zinc-600 dark:text-zinc-600 hover:text-brand dark:hover:text-brand-light transition-colors">Como Funciona</a>
-            <a href="#industrias" class="font-medium text-zinc-600 dark:text-zinc-600 hover:text-brand dark:hover:text-brand-light transition-colors">Industrias</a>
-            <a href="/blog/" class="font-medium text-zinc-600 dark:text-zinc-600 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
-            <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
+        <nav class="hidden md:flex space-x-6 lg:space-x-8 items-center text-sm">
+            <a href="#demo-interactiva" class="font-semibold text-emerald-600 dark:text-emerald-400 hover:opacity-80 transition-opacity flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>Demo en Vivo</a>
+            <a href="#eeat-geo-home" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Así Funciona</a>
+            <a href="#soluciones-b2b" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Soluciones</a>
+            <a href="#sectores-potenciales" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Sectores</a>
+            <a href="#precios" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+            <a href="/blog/" class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
+            <button id="theme-toggle" aria-label="Cambiar tema de color" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2 transition-colors">
                 <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                 <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
             </button>
-            <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C+quiero+una+demo+del+agente+IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
+            <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n%20de%20Agentes%20de%20IA%20y%20Automatizaci%C3%B3n%20para%20mi%20empresa" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-5 py-2.5 rounded-full overflow-hidden transition-all duration-500">
                 <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
-                <span class="relative z-10 flex items-center gap-2 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">Demo <i class="fab fa-whatsapp text-sm"></i></span>
+                <span class="relative z-10 flex items-center gap-2 font-body text-[11px] font-bold uppercase tracking-[0.15em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">Cotizar <i class="fab fa-whatsapp text-sm"></i></span>
             </a>
         </nav>
-        <button class="md:hidden text-zinc-900 dark:text-slate-200 text-2xl" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        <button class="md:hidden text-zinc-900 dark:text-slate-200 text-2xl p-1" id="mobile-menu-btn" aria-label="Abrir menú de navegación"><i class="fas fa-bars"></i></button>
     </div>
 </header>
 
 <!-- HERO -->
-<section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden flex items-center min-h-[90vh]">
+<section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden flex items-center min-h-[88vh]">
     <div class="absolute top-20 right-20 w-72 h-72 bg-accent/5 rounded-full blur-3xl -z-10"></div>
     <div class="absolute bottom-10 left-10 w-48 h-48 bg-success/5 rounded-full blur-2xl -z-10"></div>
     <div class="container mx-auto px-4 relative z-10 animate-fade-in-up">
         <div class="flex flex-col lg:flex-row items-center gap-12">
             <div class="lg:w-3/5">
-                <span class="inline-flex items-center bg-brand/10 dark:bg-white/10 text-brand dark:text-brand-light px-4 py-2 rounded-full text-sm font-normal mb-6 shadow-sm border border-brand/20">
-                    <span class="w-2 h-2 rounded-full bg-brand dark:bg-brand-light mr-2 animate-pulse"></span>
-                    Automatización WhatsApp API con IA
+                <span class="inline-flex items-center bg-brand/10 dark:bg-white/10 text-brand dark:text-brand-light px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-6 shadow-sm border border-brand/20">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+                    Agentes de IA · Automatización de WhatsApp · Flujos B2B
                 </span>
-                <h1 class="text-5xl lg:text-7xl font-header font-extrabold mb-6 leading-[1.1] tracking-tight">
-                    Chatbot de WhatsApp con IA<br>
-                    para Automatizar tus Ventas
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-header font-extrabold mb-6 leading-[1.12] tracking-tight">
+                    Agentes de IA y Automatización de WhatsApp para Empresas
                 </h1>
-                <p class="text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
-                    Califica prospectos, atiende clientes 24/7 y agenda citas de forma automática directamente en tu WhatsApp Business.
+                <p class="text-lg sm:text-xl text-zinc-600 dark:text-zinc-300 mb-10 leading-relaxed max-w-2xl">
+                    <strong>Consultor IA</strong> es una consultora tecnológica especializada en <strong>Agentes de Inteligencia Artificial</strong>, automatización de <strong>WhatsApp Business API</strong> y flujos inteligentes para empresas en Colombia y Latinoamérica: tu agente responde en 3 segundos 24/7, entiende audios, agenda citas en tu calendario y sincroniza tu CRM en automático.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 mb-12">
-                    <a href="https://wa.me/{WA_NUMERO}?text=Hola,%20me%20interesa%20automatizar%20las%20ventas%20de%20mi%20negocio%20con%20un%20Chatbot%20de%20WhatsApp%20IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-8 py-4 overflow-hidden transition-all duration-500">
-                        <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
-                        <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">Cotizar Chatbot WhatsApp <i class="fab fa-whatsapp text-[14px]"></i></span>
+                <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                    <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20quiero%20solicitar%20un%20diagn%C3%B3stico%20y%20cotizaci%C3%B3n%20para%20automatizar%20mi%20empresa%20con%20IA" target="_blank" class="group relative inline-flex items-center justify-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 border border-zinc-900 dark:border-white px-8 py-4 rounded-xl overflow-hidden transition-all duration-300 shadow-xl hover:opacity-95">
+                        <span class="relative z-10 flex items-center gap-3 font-body text-xs font-bold uppercase tracking-[0.18em]">
+                            Solicitar Diagnóstico y Cotización <i class="fab fa-whatsapp text-base text-emerald-400 dark:text-emerald-600"></i>
+                        </span>
                     </a>
-                    <a href="#industrias" class="bg-transparent text-gray-800 dark:text-white border border-gray-border dark:border-zinc-700 px-8 py-4 rounded-full font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-all flex items-center justify-center text-lg">Ver Industrias</a>
+                    <a href="#demo-interactiva" class="bg-white/80 dark:bg-zinc-900/80 text-zinc-900 dark:text-white border border-gray-300 dark:border-zinc-700 px-8 py-4 rounded-xl font-semibold hover:border-emerald-500 dark:hover:border-emerald-400 transition-all flex items-center justify-center gap-2 text-sm shadow-sm">
+                        <i class="fas fa-calendar-check text-emerald-500"></i> Probar Agente IA en Vivo
+                    </a>
                 </div>
-                <div class="flex flex-wrap items-center gap-6 border-t border-gray-border dark:border-zinc-800 pt-6">
-                    <div class="flex items-center gap-3">
-                        <div class="flex items-center text-[#FFD700] text-xl"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <div class="text-sm"><p class="font-normal">4.9/5.0</p><p class="text-gray-500 dark:text-slate-400 text-xs">Negocios en LATAM</p></div>
-                    </div>
-                    <div class="h-8 w-px bg-gray-border dark:bg-zinc-800 hidden sm:block"></div>
-                    <div class="flex gap-4">
-                        <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i>Setup 5-7 Dias</span>
-                        <span class="flex items-center text-sm font-normal text-gray-600 dark:text-slate-400"><i class="fas fa-check-circle text-success mr-1.5"></i>WhatsApp Oficial</span>
-                    </div>
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-gray-border dark:border-zinc-800 pt-6 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
+                    <span class="flex items-center font-medium"><i class="fas fa-check-circle text-success mr-2"></i>WhatsApp Business API Oficial</span>
+                    <span class="flex items-center font-medium"><i class="fas fa-check-circle text-success mr-2"></i>Integración con Google Calendar y CRM</span>
+                    <span class="flex items-center font-medium"><i class="fas fa-check-circle text-success mr-2"></i>Implementación Llave en Mano en 5-7 Días</span>
                 </div>
             </div>
             <div class="lg:w-2/5 w-full">
                 <div class="relative bg-[#efeae2] dark:bg-[#0b141a] border border-gray-200 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_-12px_rgba(79,70,229,0.2)] transition-all">
-                    <div class="bg-[#00a884] dark:bg-[#202c33] p-4 flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0"><i class="fas fa-robot text-xl text-[#00a884]"></i></div>
-                        <div><h3 class="font-medium text-white text-base">Consultor-IA Bot</h3><p class="text-white/80 text-xs">en linea</p></div>
-                    </div>
-                    <div class="p-5 flex flex-col gap-3 min-h-[280px] relative">
-                        <div class="absolute inset-0 opacity-30 bg-[url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')] bg-cover bg-center -z-10"></div>
-                        <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tr-none py-2 px-3 max-w-[85%] text-[15px] shadow-sm">
-                            hola buenas! tienen cita para manana? es urgente
+                    <div class="bg-[#00a884] dark:bg-[#202c33] p-4 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0"><i class="fas fa-robot text-xl text-[#00a884]"></i></div>
+                            <div><h3 class="font-medium text-white text-base">Agente IA · Consultor-IA</h3><p class="text-white/80 text-xs">en línea · Flujo B2B Activo</p></div>
                         </div>
-                        <div class="chat-bot self-start bg-white dark:bg-[#202c33] text-gray-800 dark:text-[#e9edef] rounded-lg rounded-tl-none py-2 px-3 max-w-[90%] text-[15px] shadow-sm">
-                            Hola! Claro que si. Tengo un espacio manana a las 9am y otro a las 3pm. Cual te queda mejor? Te lo reservo de una vez
+                        <span class="text-[10px] bg-white/15 text-white px-2.5 py-1 rounded-full font-semibold">24/7</span>
+                    </div>
+                    <div class="p-5 flex flex-col gap-3 min-h-[290px] relative">
+                        <div class="absolute inset-0 opacity-[0.06] dark:opacity-[0.04] pointer-events-none -z-10" style="background-image: radial-gradient(#075E54 1px, transparent 1px); background-size: 18px 18px;"></div>
+                        <div class="self-end bg-[#d9fdd3] dark:bg-[#005c4b] text-gray-800 dark:text-[#e9edef] rounded-2xl rounded-tr-none py-2.5 px-3.5 max-w-[85%] text-sm shadow-sm">
+                            Hola, vimos su anuncio. Buscamos automatizar la calificación de leads y el agendamiento de citas para nuestro equipo comercial.
+                        </div>
+                        <div class="chat-bot self-start bg-white dark:bg-[#202c33] text-gray-800 dark:text-[#e9edef] rounded-2xl rounded-tl-none py-2.5 px-3.5 max-w-[90%] text-sm shadow-sm">
+                            ¡Hola! Con gusto. Conectamos un Agente IA a tu WhatsApp y CRM que filtra cada prospecto y agenda reuniones directamente en tu calendario. ¿Agendamos una demostración mañana a las 10:00 AM o a las 3:00 PM?
                         </div>
                         <div class="self-start w-full mt-2">
-                            <div class="bg-white/90 dark:bg-[#202c33]/90 backdrop-blur-sm border border-gray-100 dark:border-zinc-800 rounded-xl p-4 flex justify-between shadow-sm">
-                                <div><p class="text-xs text-gray-500 dark:text-[#8696a0]">ROI Promedio</p><p class="font-bold text-accent dark:text-[#53bdeb] text-lg">+315%</p></div>
-                                <div class="text-right"><p class="text-xs text-gray-500 dark:text-[#8696a0]">Implementacion</p><p class="font-bold text-gray-800 dark:text-[#e9edef] text-lg">5-7 Dias</p></div>
+                            <div class="bg-white/95 dark:bg-[#202c33]/95 backdrop-blur-sm border border-gray-100 dark:border-zinc-800 rounded-xl p-4 flex justify-between items-center shadow-sm">
+                                <div><p class="text-xs text-gray-500 dark:text-[#8696a0]">Capacidad Operativa</p><p class="font-bold text-accent dark:text-[#53bdeb] text-base">Voz, Texto y Agenda</p></div>
+                                <div class="text-right"><p class="text-xs text-gray-500 dark:text-[#8696a0]">Despliegue</p><p class="font-bold text-gray-800 dark:text-[#e9edef] text-base">5 a 7 Días Hábiles</p></div>
                             </div>
                         </div>
                     </div>
@@ -2569,74 +2852,363 @@ def build_home_page(data):
     </div>
 </section>
 
-<!-- Testimonials Marquee (Scroll Infinito de Reseñas) -->
+<!-- Marquee de Capacidades Reales -->
 {{TESTIMONIALS_HTML}}
 
-<!-- Métricas de Éxito y Testimonios B2B -->
-<section class="py-12 border-t border-gray-border dark:border-zinc-800 bg-brand/5 dark:bg-zinc-900/40">
-    <div class="container mx-auto px-4 max-w-5xl">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center mb-16">
-            <div class="p-6 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
-                <div class="text-4xl font-header font-extrabold text-brand dark:text-brand-light mb-2">+315%</div>
-                <div class="text-sm text-zinc-500 dark:text-zinc-400">ROI Promedio</div>
-            </div>
-            <div class="p-6 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
-                <div class="text-4xl font-header font-extrabold text-brand dark:text-brand-light mb-2">&lt;3 seg</div>
-                <div class="text-sm text-zinc-500 dark:text-zinc-400">Tiempo de Respuesta</div>
-            </div>
-            <div class="p-6 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
-                <div class="text-4xl font-header font-extrabold text-brand dark:text-brand-light mb-2">85%</div>
-                <div class="text-sm text-zinc-500 dark:text-zinc-400">Consultas Automatizadas</div>
-            </div>
-            <div class="p-6 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
-                <div class="text-4xl font-header font-extrabold text-brand dark:text-brand-light mb-2">24/7</div>
-                <div class="text-sm text-zinc-500 dark:text-zinc-400">Ventas Activas</div>
-            </div>
-        </div>
+<!-- BLOQUE VISUAL DINÁMICO E-E-A-T & GEO (Explicado fácil + Fotografías Realistas + Tabla Comparativa Semántica) -->
+<section id="eeat-geo-home" class="scroll-mt-24 py-20 lg:py-24 bg-white dark:bg-zinc-950 border-b border-gray-200 dark:border-zinc-800">
+    <div class="container mx-auto px-4 max-w-6xl">
         
-        <div class="text-center mb-12">
-            <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Casos Reales</span>
-            <h2 class="text-3xl md:text-4xl font-header font-bold text-gray-1 dark:text-white">Lo que dicen nuestros clientes</h2>
-        </div>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-slate-50 dark:bg-zinc-900 p-8 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm relative">
-                <div class="text-amber-400 text-lg mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-zinc-600 dark:text-zinc-300 italic mb-6">"El chatbot de WhatsApp transformó por completo nuestro restaurante. Ahora toma los pedidos en automático los fines de semana y el tiempo de respuesta bajó a cero segundos. Las ventas aumentaron un 30%."</p>
-                <div>
-                    <p class="font-bold text-gray-1 dark:text-white">Alejandro Gómez</p>
-                    <p class="text-sm text-zinc-500">Propietario de Le Bistro, Colombia</p>
+        <!-- 1. Encabezado + Explicación en 3 Pasos Simples -->
+        <div class="text-center mb-16 max-w-4xl mx-auto">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 mb-4">
+                <i class="fas fa-bolt"></i> Explicado sin tecnicismos · Así funciona en la vida real
+            </span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-header font-bold text-zinc-900 dark:text-white leading-tight mb-6">
+                ¿Qué hace exactamente un Agente de IA por tu Empresa?
+            </h2>
+            <p class="text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed mb-8">
+                Imagina tener a tu mejor asesor comercial despierto las 24 horas en el WhatsApp de tu negocio. No es un robot viejo que dice <em>"presiona 1 o 2"</em>: es un <strong>Agente de Inteligencia Artificial</strong> que conversa igual que una persona, entiende audios y agenda citas reales en <strong>3 pasos simples</strong>:
+            </p>
+
+            <!-- Los 3 Pasos Visuales Simples -->
+            <div class="grid md:grid-cols-3 gap-5 text-left">
+                <div class="p-6 rounded-3xl bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-sm relative">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="w-10 h-10 rounded-2xl bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 font-extrabold text-base flex items-center justify-center">1</span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full">Día y Noche</span>
+                    </div>
+                    <h3 class="font-header font-bold text-xl text-zinc-900 dark:text-white mb-2">El cliente te escribe al WhatsApp</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                        Tu cliente manda un mensaje o una nota de voz preguntando precios, horarios o disponibilidad (incluso un domingo a las 10:00 PM).
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-3xl bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-sm relative">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="w-10 h-10 rounded-2xl bg-blue-500/15 text-blue-700 dark:text-blue-400 font-extrabold text-base flex items-center justify-center">2</span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full">En 3 Segundos</span>
+                    </div>
+                    <h3 class="font-header font-bold text-xl text-zinc-900 dark:text-white mb-2">Tu Agente IA entiende y responde</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                        El agente lee tus listas de precios y documentos oficiales (sin inventar nada), resuelve las dudas con amabilidad y hace las preguntas filtro de tu negocio.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-3xl bg-[#FDFBF7] dark:bg-zinc-900 border-2 border-emerald-500/35 dark:border-emerald-500/40 shadow-lg relative">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="w-10 h-10 rounded-2xl bg-purple-500/15 text-purple-700 dark:text-purple-400 font-extrabold text-base flex items-center justify-center">3</span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full">Automático</span>
+                    </div>
+                    <h3 class="font-header font-bold text-xl text-zinc-900 dark:text-white mb-2">Agenda la cita y guarda en tu CRM</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                        Revisa tu Google Calendar en vivo, bloquea la fecha con el cliente, registra sus datos en tu CRM y te avisa cuando el negocio está listo para cerrar.
+                    </p>
                 </div>
             </div>
-            <div class="bg-slate-50 dark:bg-zinc-900 p-8 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm relative">
-                <div class="text-amber-400 text-lg mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="text-zinc-600 dark:text-zinc-300 italic mb-6">"En el sector inmobiliario, la velocidad es todo. El agente de IA califica a los leads que llegan por anuncios en la madrugada y les agenda visitas al día siguiente. Una maravilla."</p>
+        </div>
+
+        <!-- 2. Galería Dinámica con Fotografías Realistas y Casos Reales en Latinoamérica -->
+        <div class="mb-20">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                 <div>
-                    <p class="font-bold text-gray-1 dark:text-white">Clara Restrepo</p>
-                    <p class="text-sm text-zinc-500">Directora Comercial, InmoLATAM</p>
+                    <span class="text-brand dark:text-brand-light font-bold uppercase tracking-wider text-xs block mb-2">Escenarios Reales de Operación</span>
+                    <h3 class="text-2xl sm:text-3xl font-header font-bold text-zinc-900 dark:text-white">
+                        Así se ve tu operación cuando el WhatsApp trabaja solo
+                    </h3>
+                </div>
+                <a href="#demo-interactiva" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 hover:underline">
+                    Probar el Agente en Vivo abajo <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card Foto 1: Empresas B2B -->
+                <div class="group relative rounded-3xl overflow-hidden border border-gray-200 dark:border-zinc-800 shadow-lg bg-zinc-900 h-[380px]">
+                    <img src="/images/eeat/ejecutivo-b2b-latam.webp" alt="Director de empresa B2B en Colombia revisando citas agendadas por Agente de IA" loading="lazy" decoding="async" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/30"></div>
+                    <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                        <span class="bg-zinc-950/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/15">🏢 Empresas & B2B</span>
+                        <span class="bg-emerald-500 text-zinc-950 text-[10px] font-extrabold px-2.5 py-1 rounded-full">CRM Sync</span>
+                    </div>
+                    <div class="absolute bottom-3.5 left-3.5 right-3.5 p-3.5 rounded-2xl bg-zinc-950/90 backdrop-blur-md border border-white/15 text-white">
+                        <p class="text-[11px] text-zinc-300 mb-1 font-medium">"Necesitamos cotizar 40 licencias y agendar demo."</p>
+                        <p class="text-xs font-bold text-emerald-400 flex items-center gap-1.5"><i class="fas fa-check-circle"></i> Calificado + Agendado en HubSpot</p>
+                    </div>
+                </div>
+
+                <!-- Card Foto 2: Clínicas y Salud -->
+                <div class="group relative rounded-3xl overflow-hidden border border-gray-200 dark:border-zinc-800 shadow-lg bg-zinc-900 h-[380px]">
+                    <img src="/images/eeat/clinica-salud-latam.webp" alt="Doctora especialista en clínica odontológica y médica con agenda automatizada por IA" loading="lazy" decoding="async" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/30"></div>
+                    <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                        <span class="bg-zinc-950/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/15">🩺 Clínicas & Salud</span>
+                        <span class="bg-emerald-500 text-zinc-950 text-[10px] font-extrabold px-2.5 py-1 rounded-full">Agenda 24/7</span>
+                    </div>
+                    <div class="absolute bottom-3.5 left-3.5 right-3.5 p-3.5 rounded-2xl bg-zinc-950/90 backdrop-blur-md border border-white/15 text-white">
+                        <p class="text-[11px] text-zinc-300 mb-1 font-medium">"¿Tienen valoración mañana por la tarde?"</p>
+                        <p class="text-xs font-bold text-emerald-400 flex items-center gap-1.5"><i class="fas fa-check-circle"></i> Cita bloqueada en Google Calendar</p>
+                    </div>
+                </div>
+
+                <!-- Card Foto 3: Inmobiliarias -->
+                <div class="group relative rounded-3xl overflow-hidden border border-gray-200 dark:border-zinc-800 shadow-lg bg-zinc-900 h-[380px]">
+                    <img src="/images/eeat/inmobiliaria-asesor-latam.webp" alt="Asesora inmobiliaria en sala de ventas recibiendo compradores pre-calificados por WhatsApp IA" loading="lazy" decoding="async" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/30"></div>
+                    <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                        <span class="bg-zinc-950/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/15">🏙️ Inmobiliarias</span>
+                        <span class="bg-emerald-500 text-zinc-950 text-[10px] font-extrabold px-2.5 py-1 rounded-full">Filtro IA</span>
+                    </div>
+                    <div class="absolute bottom-3.5 left-3.5 right-3.5 p-3.5 rounded-2xl bg-zinc-950/90 backdrop-blur-md border border-white/15 text-white">
+                        <p class="text-[11px] text-zinc-300 mb-1 font-medium">"Busco apto de 3 habitaciones en el norte."</p>
+                        <p class="text-xs font-bold text-emerald-400 flex items-center gap-1.5"><i class="fas fa-check-circle"></i> Presupuesto validado + Visita lista</p>
+                    </div>
+                </div>
+
+                <!-- Card Foto 4: Negocios y Comercios -->
+                <div class="group relative rounded-3xl overflow-hidden border border-gray-200 dark:border-zinc-800 shadow-lg bg-zinc-900 h-[380px]">
+                    <img src="/images/eeat/negocio-comercio-latam.webp" alt="Empresario gastronómico y comercial atendiendo reservas y pedidos por voz con IA" loading="lazy" decoding="async" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/30"></div>
+                    <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
+                        <span class="bg-zinc-950/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/15">☕ Comercios & Servicios</span>
+                        <span class="bg-emerald-500 text-zinc-950 text-[10px] font-extrabold px-2.5 py-1 rounded-full">Voz + Texto</span>
+                    </div>
+                    <div class="absolute bottom-3.5 left-3.5 right-3.5 p-3.5 rounded-2xl bg-zinc-950/90 backdrop-blur-md border border-white/15 text-white">
+                        <p class="text-[11px] text-zinc-300 mb-1 font-medium">🎙️ Nota de voz: "Quisiera reservar para 6 hoy..."</p>
+                        <p class="text-xs font-bold text-emerald-400 flex items-center gap-1.5"><i class="fas fa-check-circle"></i> Audio entendido + Mesa confirmada</p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- 3. Tabla Comparativa Nativa GEO (Atender a Mano vs Bot Antiguo vs Agente IA) -->
+        <div>
+            <div class="text-center mb-10 max-w-3xl mx-auto">
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 px-3.5 py-1.5 rounded-full inline-block mb-3">
+                    Comparativa Directa (GEO & ROI)
+                </span>
+                <h3 class="text-2xl sm:text-4xl font-header font-bold text-zinc-900 dark:text-white mb-3">
+                    ¿Por qué un Agente de IA supera a contestar a mano o usar un bot antiguo?
+                </h3>
+                <p class="text-base text-zinc-600 dark:text-zinc-400">
+                    Compara en segundos la diferencia real en velocidad, atención de audios y agendamiento de clientes.
+                </p>
+            </div>
+
+            <div class="overflow-x-auto rounded-3xl border border-gray-200 dark:border-zinc-800 shadow-xl">
+                <table class="w-full text-left bg-white dark:bg-zinc-900 border-collapse min-w-[720px]">
+                    <thead>
+                        <tr class="bg-zinc-100 dark:bg-zinc-800/90 border-b border-gray-200 dark:border-zinc-700 text-xs sm:text-sm">
+                            <th class="p-5 font-bold text-zinc-800 dark:text-zinc-200 w-[24%]">Criterio Operativo</th>
+                            <th class="p-5 font-bold text-zinc-500 dark:text-zinc-400 w-[24%] text-center border-l border-gray-200 dark:border-zinc-700">1. Atender WhatsApp a Mano</th>
+                            <th class="p-5 font-bold text-zinc-500 dark:text-zinc-400 w-[24%] text-center border-x border-gray-200 dark:border-zinc-700">2. Chatbot Antiguo ("Marque 1 o 2")</th>
+                            <th class="p-5 font-bold text-emerald-700 dark:text-emerald-400 w-[28%] text-center bg-emerald-500/10 dark:bg-emerald-500/15">3. Agente IA + Flujos (Consultor IA)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm text-zinc-600 dark:text-zinc-300">
+                        <tr class="border-b border-gray-100 dark:border-zinc-800">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">⏱️ Tiempo de respuesta al cliente</td>
+                            <td class="p-5 text-center border-l border-gray-100 dark:border-zinc-800">15 minutos a 3 horas (según ocupación)</td>
+                            <td class="p-5 text-center border-x border-gray-100 dark:border-zinc-800">Inmediato pero con menús rígidos</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">Menos de 3 segundos (24/7 los 365 días)</td>
+                        </tr>
+                        <tr class="border-b border-gray-100 dark:border-zinc-800">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">🎙️ Comprensión de notas de voz</td>
+                            <td class="p-5 text-center border-l border-gray-100 dark:border-zinc-800">Lento (hay que parar para escucharlas)</td>
+                            <td class="p-5 text-center border-x border-gray-100 dark:border-zinc-800 text-red-500">❌ No entiende notas de voz</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">✅ Escucha audios y responde con naturalidad</td>
+                        </tr>
+                        <tr class="border-b border-gray-100 dark:border-zinc-800">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">🧠 Conocimiento de tus precios y PDFs</td>
+                            <td class="p-5 text-center border-l border-gray-100 dark:border-zinc-800">Depende de la memoria de cada vendedor</td>
+                            <td class="p-5 text-center border-x border-gray-100 dark:border-zinc-800">Solo textos fijos pre-programados</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">✅ Arquitectura RAG sobre tus catálogos reales</td>
+                        </tr>
+                        <tr class="border-b border-gray-100 dark:border-zinc-800">
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">📅 Agendamiento y conexión CRM</td>
+                            <td class="p-5 text-center border-l border-gray-100 dark:border-zinc-800">Digitación manual (olvidos frecuentes)</td>
+                            <td class="p-5 text-center border-x border-gray-100 dark:border-zinc-800">No bloquea citas reales en vivo</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">✅ Bloquea Google Calendar y actualiza tu CRM</td>
+                        </tr>
+                        <tr>
+                            <td class="p-5 font-bold text-zinc-900 dark:text-white">💰 Inversión y puesta en marcha</td>
+                            <td class="p-5 text-center border-l border-gray-100 dark:border-zinc-800 text-red-500 font-semibold">Nómina mensual + prestaciones por turno</td>
+                            <td class="p-5 text-center border-x border-gray-100 dark:border-zinc-800">Clientes perdidos por frustración</td>
+                            <td class="p-5 text-center font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/5">Setup $497 USD + $97 USD/mes (En 5-7 días)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </div>
 </section>
 
-<!-- STATS -->
-<section class="py-12 border-y border-gray-border dark:border-zinc-800 bg-[#FDFBF7] dark:bg-zinc-900">
-    <div class="container mx-auto px-4 max-w-5xl">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {stats_html}
-        </div>
-    </div>
-</section>
-
+<!-- DEMO INTERACTIVA EN VIVO (Posición prioritaria para maximizar conversión) -->
 {demo_html}
 
-<!-- COMO FUNCIONA -->
-<section id="como-funciona" class="py-24">
+<!-- ECOSISTEMA DE AUTOMATIZACIÓN B2B (Reemplaza métricas y reseñas genéricas por arquitectura verificable) -->
+<section id="soluciones-b2b" class="scroll-mt-24 py-24 border-y border-gray-border dark:border-zinc-800 bg-brand/5 dark:bg-zinc-900/40">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <!-- 4 Compromisos Técnicos Verificables -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center mb-20">
+            <div class="p-6 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
+                <div class="text-3xl md:text-4xl font-header font-extrabold text-brand dark:text-brand-light mb-1">5-7 Días</div>
+                <div class="text-xs md:text-sm text-zinc-500 dark:text-zinc-400">Implementación Llave en Mano</div>
+            </div>
+            <div class="p-6 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
+                <div class="text-3xl md:text-4xl font-header font-extrabold text-brand dark:text-brand-light mb-1">24/7</div>
+                <div class="text-xs md:text-sm text-zinc-500 dark:text-zinc-400">Atención y Calificación Continua</div>
+            </div>
+            <div class="p-6 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
+                <div class="text-3xl md:text-4xl font-header font-extrabold text-brand dark:text-brand-light mb-1">Voz y Texto</div>
+                <div class="text-xs md:text-sm text-zinc-500 dark:text-zinc-400">Procesamiento Nativo de Audios</div>
+            </div>
+            <div class="p-6 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
+                <div class="text-3xl md:text-4xl font-header font-extrabold text-brand dark:text-brand-light mb-1">API + CRM</div>
+                <div class="text-xs md:text-sm text-zinc-500 dark:text-zinc-400">Integración con tus Sistemas</div>
+            </div>
+        </div>
+
+        <div class="text-center mb-14 max-w-3xl mx-auto">
+            <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Propuesta de Valor B2B</span>
+            <h2 class="text-3xl md:text-5xl font-header font-bold text-gray-1 dark:text-white mb-4">Más que un Chatbot: Ecosistema Completo de Automatización con IA</h2>
+            <p class="text-lg text-zinc-600 dark:text-zinc-400">Diseñamos la infraestructura conversacional y operativa que conecta tu WhatsApp con tu equipo comercial, tu agenda y tu CRM.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white dark:bg-zinc-900 p-8 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-5">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3 class="font-header font-bold text-xl text-gray-1 dark:text-white mb-3">1. Agentes de IA en WhatsApp</h3>
+                    <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6">Entrenados con tus catálogos, políticas, precios y documentos PDF. Escuchan notas de voz, resuelven objeciones y atienden múltiples conversaciones en simultáneo sin menús rígidos.</p>
+                </div>
+                <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20me%20interesa%20implementar%20un%20Agente%20de%20IA%20en%20WhatsApp%20para%20mi%20empresa" target="_blank" class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 hover:gap-2.5 transition-all">
+                    Cotizar Agente IA <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+            <div class="bg-white dark:bg-zinc-900 p-8 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl mb-5">
+                        <i class="far fa-calendar-check"></i>
+                    </div>
+                    <h3 class="font-header font-bold text-xl text-gray-1 dark:text-white mb-3">2. Calificación y Agendamiento</h3>
+                    <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6">El agente perfila a cada prospecto con las preguntas clave de tu negocio, consulta disponibilidad real en Google Calendar y bloquea citas o visitas automáticamente.</p>
+                </div>
+                <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20quiero%20automatizar%20la%20calificaci%C3%B3n%20de%20leads%20y%20el%20agendamiento%20de%20citas" target="_blank" class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 flex items-center gap-1.5 hover:gap-2.5 transition-all">
+                    Automatizar mi Agenda <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+            <div class="bg-white dark:bg-zinc-900 p-8 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-5">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="font-header font-bold text-xl text-gray-1 dark:text-white mb-3">3. Flujos Inteligentes y CRM</h3>
+                    <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6">Sincronizamos las conversaciones con HubSpot, Kommo, Zoho, bases de datos o ERPs mediante APIs y webhooks, asignando asesores humanos cuando el lead está listo para cerrar.</p>
+                </div>
+                <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20busco%20integrar%20Flujos%20Inteligentes%20de%20WhatsApp%20con%20nuestro%20CRM%20u%20operaci%C3%B3n" target="_blank" class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400 flex items-center gap-1.5 hover:gap-2.5 transition-all">
+                    Integrar Flujos y CRM <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTORES EMPRESARIALES DE MAYOR IMPACTO -->
+<section id="sectores-potenciales" class="scroll-mt-24 py-24 bg-white dark:bg-zinc-950 border-b border-gray-border dark:border-zinc-800">
     <div class="container mx-auto px-4 max-w-6xl">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-            <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Proceso</span>
-            <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">Activo en 7 dias</h2>
-            <p class="text-xl text-zinc-600 dark:text-zinc-400">Sin codigo, sin complicaciones. Nosotros hacemos todo el trabajo tecnico.</p>
+            <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Enfoque Sectorial</span>
+            <h2 class="text-3xl md:text-5xl font-header font-bold mb-4 leading-tight">Flujos Diseñados para los Sectores con Mayor Retorno</h2>
+            <p class="text-lg text-zinc-600 dark:text-zinc-400">Adaptamos las reglas de negocio, el vocabulario y las integraciones a la operación real de tu industria.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+            <!-- Sector 1: Clínicas Odontológicas, Estéticas y Salud -->
+            <div class="p-8 rounded-3xl border border-gray-200 dark:border-zinc-800 bg-[#FDFBF7]/70 dark:bg-zinc-900/60 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400">Salud, Clínicas y Estética</span>
+                        <i class="fas fa-user-md text-xl text-zinc-400"></i>
+                    </div>
+                    <h3 class="font-header font-bold text-2xl mb-3 text-zinc-900 dark:text-white">Agendamiento de Valoraciones y Reducción de Inasistencias</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-5">Resuelve dudas sobre tratamientos las 24 horas, filtra pacientes por especialidad o sede, agenda valoraciones directamente en el calendario de cada doctor y envía recordatorios automáticos.</p>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-gray-200/60 dark:border-zinc-800">
+                    <a href="/chatbot-whatsapp-para-clinicas-dentales/" class="text-xs font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-white underline">Ver solución para Clínicas</a>
+                    <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20tengo%20una%20cl%C3%ADnica%20o%20centro%20de%20salud%20y%20quiero%20cotizar%20el%20Agente%20IA%20de%20agendamiento" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-4 py-2.5 rounded-xl hover:opacity-90 transition-opacity">
+                        Cotizar Flujo para Salud <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sector 2: Inmobiliarias y Constructoras -->
+            <div class="p-8 rounded-3xl border border-gray-200 dark:border-zinc-800 bg-[#FDFBF7]/70 dark:bg-zinc-900/60 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-500/10 text-blue-700 dark:text-blue-400">Inmobiliarias y Constructoras</span>
+                        <i class="fas fa-building text-xl text-zinc-400"></i>
+                    </div>
+                    <h3 class="font-header font-bold text-2xl mb-3 text-zinc-900 dark:text-white">Pre-Calificación de Compradores y Visitas a Sala de Ventas</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-5">Atiende en segundos los leads de pauta digital, perfila presupuesto, zona de interés y método de financiación, envía fichas técnicas y agenda citas únicamente con prospectos calificados.</p>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-gray-200/60 dark:border-zinc-800">
+                    <a href="/chatbot-whatsapp-para-inmobiliarias/" class="text-xs font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-white underline">Ver solución Inmobiliaria</a>
+                    <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20soy%20del%20sector%20inmobiliario%20y%20quiero%20cotizar%20un%20Agente%20IA%20para%20calificar%20leads%20y%20agendar%20visitas" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-4 py-2.5 rounded-xl hover:opacity-90 transition-opacity">
+                        Cotizar Flujo Inmobiliario <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sector 3: Educación, Academias e Instituciones -->
+            <div class="p-8 rounded-3xl border border-gray-200 dark:border-zinc-800 bg-[#FDFBF7]/70 dark:bg-zinc-900/60 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400">Educación y Academias</span>
+                        <i class="fas fa-graduation-cap text-xl text-zinc-400"></i>
+                    </div>
+                    <h3 class="font-header font-bold text-2xl mb-3 text-zinc-900 dark:text-white">Admisiones, Envío de Pensum y Cierre de Matrículas</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-5">Responde al instante consultas sobre programas, costos y horarios, envía brochures en PDF, agenda clases demostrativas o entrevistas de admisión y registra al aspirante en tu CRM.</p>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-gray-200/60 dark:border-zinc-800">
+                    <a href="/chatbot-whatsapp-para-academias-cursos/" class="text-xs font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-white underline">Ver solución Educativa</a>
+                    <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20represento%20a%20una%20instituci%C3%B3n%20educativa%20o%20academia%20y%20quiero%20automatizar%20admisiones%20en%20WhatsApp" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-4 py-2.5 rounded-xl hover:opacity-90 transition-opacity">
+                        Cotizar Flujo Educativo <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sector 4: Empresas B2B, Concesionarios, Logística y Servicios Profesionales -->
+            <div class="p-8 rounded-3xl border border-gray-200 dark:border-zinc-800 bg-[#FDFBF7]/70 dark:bg-zinc-900/60 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-500/10 text-purple-700 dark:text-purple-400">Empresas B2B y Servicios</span>
+                        <i class="fas fa-briefcase text-xl text-zinc-400"></i>
+                    </div>
+                    <h3 class="font-header font-bold text-2xl mb-3 text-zinc-900 dark:text-white">SDR con IA, Cotizaciones y Enrutamiento a Ejecutivos</h3>
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-5">Captura requerimientos técnicos de clientes corporativos, valida volumen de compra, genera pre-cotizaciones o agenda reuniones directamente en el calendario de tus ejecutivos de cuenta.</p>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-gray-200/60 dark:border-zinc-800">
+                    <a href="#precios" class="text-xs font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-white underline">Ver planes empresariales</a>
+                    <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20busco%20automatizar%20el%20proceso%20comercial%20y%20operativo%20de%20nuestra%20empresa%20B2B" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-4 py-2.5 rounded-xl hover:opacity-90 transition-opacity">
+                        Cotizar Flujo Corporativo <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona" class="scroll-mt-24 py-24">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-16 max-w-3xl mx-auto">
+            <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Metodología de Implementación</span>
+            <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">Tu Sistema Activo en 5 a 7 Días</h2>
+            <p class="text-xl text-zinc-600 dark:text-zinc-400">Sin código ni fricciones para tu equipo. Nos encargamos de toda la configuración e integración técnica.</p>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
             {steps_html}
@@ -2645,12 +3217,12 @@ def build_home_page(data):
 </section>
 
 <!-- INDUSTRIAS -->
-<section id="industrias" class="py-24 bg-[#FDFBF7] dark:bg-zinc-900 border-y border-gray-border dark:border-zinc-800">
+<section id="industrias" class="scroll-mt-24 py-24 bg-[#FDFBF7] dark:bg-zinc-900 border-y border-gray-border dark:border-zinc-800">
     <div class="container mx-auto px-4 max-w-6xl">
         <div class="text-center mb-16 max-w-3xl mx-auto">
-            <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Especializacion</span>
-            <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">Soluciones por Industria</h2>
-            <p class="text-xl text-zinc-600 dark:text-zinc-400">Cada agente es entrenado con el lenguaje y procesos especificos de tu sector.</p>
+            <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Directorio de Verticales</span>
+            <h2 class="text-3xl md:text-5xl font-header font-bold mb-6 leading-tight">Explora Todas las Industrias</h2>
+            <p class="text-xl text-zinc-600 dark:text-zinc-400">Selecciona tu sector para conocer los casos de uso específicos en tu ciudad.</p>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {industries_html}
@@ -2658,46 +3230,77 @@ def build_home_page(data):
     </div>
 </section>
 
-<!-- PLANES Y PRECIOS -->
-<section id="precios" class="py-24 bg-brand/5 dark:bg-brand/10 border-b border-gray-border dark:border-zinc-800">
+<!-- PLANES Y PRECIOS CLARIFICADOS -->
+<section id="precios" class="scroll-mt-24 py-24 bg-brand/5 dark:bg-brand/10 border-b border-gray-border dark:border-zinc-800">
     <div class="container mx-auto px-4 max-w-5xl">
         <div class="text-center mb-16">
             <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
-            <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios</h2>
-            <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+            <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes de Automatización con IA</h2>
+            <p class="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">Precios claros en USD. Elige entre nuestro Agente IA llave en mano o una arquitectura de flujos empresariales a medida.</p>
         </div>
         
-        <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
-            <!-- Pricing Card 1: Setup -->
-            <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
-                <h3 class="font-header font-bold text-2xl mb-2 text-zinc-900 dark:text-white">Configuración Completa</h3>
-                <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Pago único por la creación del sistema</p>
-                <div class="text-4xl font-bold mb-6 text-gray-1 dark:text-white">$497 <span class="text-lg font-normal text-gray-400">USD</span></div>
-                <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-slate-300">
-                    <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Desarrollo y entrenamiento del Agente IA</li>
-                    <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Integración completa con WhatsApp y Web</li>
-                    <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Ingesta de base de conocimiento (FAQ, servicios)</li>
-                    <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Pruebas y despliegue inicial (5-7 días)</li>
-                </ul>
-                <a href="https://wa.me/{WA_NUMERO}?text=Hola,%20quiero%20cotizar%20la%20Configuración%20Completa%20de%20mi%20Agente%20IA%20de%20WhatsApp%20($497%20USD)" target="_blank" class="block w-full text-center border border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-zinc-800 py-3 rounded-xl font-medium transition-colors">Solicitar Configuración</a>
+        <div class="grid md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+            <!-- Plan 1: Agente IA WhatsApp (Setup + Mensualidad explicados con total claridad) -->
+            <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="inline-block bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">Llave en Mano · 5 a 7 Días</div>
+                    <h3 class="font-header font-bold text-2xl mb-2 text-zinc-900 dark:text-white">Agente IA para WhatsApp</h3>
+                    <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Ideal para empresas que buscan automatizar atención 24/7, calificación de prospectos y agendamiento de citas.</p>
+                    
+                    <div class="p-4 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 mb-6">
+                        <div class="flex items-baseline justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-3 mb-3">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 block">1. Configuración Completa</span>
+                                <span class="text-xs text-zinc-500">Pago único de creación y entrenamiento</span>
+                            </div>
+                            <div class="text-3xl font-bold text-zinc-900 dark:text-white">$497 <span class="text-xs font-normal text-gray-400">USD</span></div>
+                        </div>
+                        <div class="flex items-baseline justify-between">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 block">2. Operación y Soporte</span>
+                                <span class="text-xs text-zinc-500">Hosting cloud, consumo IA y ajustes</span>
+                            </div>
+                            <div class="text-xl font-bold text-zinc-800 dark:text-zinc-200">$97 <span class="text-xs font-normal text-gray-400">USD/mes</span></div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3.5 mb-8 text-sm text-gray-600 dark:text-slate-300">
+                        <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Entrenamiento del Agente IA con la información de tu negocio</li>
+                        <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Conexión oficial con WhatsApp Business y chat web</li>
+                        <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Agendamiento autónomo en Google Calendar y lectura de audios</li>
+                        <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Soporte técnico prioritario y optimización mensual incluida</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20quiero%20cotizar%20el%20Agente%20IA%20Llave%20en%20Mano%20(%24497%20USD%20Setup%20%2B%20%2497/mes)" target="_blank" class="block w-full text-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:opacity-90 py-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all shadow-lg">
+                    Cotizar Agente Llave en Mano <i class="fab fa-whatsapp ml-1 text-sm"></i>
+                </a>
             </div>
             
-            <!-- Pricing Card 2: Mantenimiento (Destacada) -->
-            <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Esencial</div>
-                <h3 class="font-header font-bold text-2xl mb-2 text-white">Mantenimiento Mensual</h3>
-                <p class="text-brand-100 text-sm mb-6">Suscripción para el funcionamiento de la IA</p>
-                <div class="text-4xl font-bold mb-6 text-white">$97 <span class="text-lg font-normal text-brand-200">USD /mes</span></div>
-                <ul class="space-y-4 mb-8 text-sm">
-                    <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Hosting del agente y consumo de IA</li>
-                    <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Soporte técnico prioritario</li>
-                    <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Ajustes y optimizaciones mensuales</li>
-                    <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Actualizaciones de plataforma automáticas</li>
-                </ul>
-                <a href="https://wa.me/{WA_NUMERO}?text=Hola,%20me%20interesa%20el%20Plan%20de%20Mantenimiento%20Mensual%20para%20el%20Agente%20IA%20de%20WhatsApp%20($97%20USD/mes)" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-3.5 rounded-xl overflow-hidden transition-all duration-500">
+            <!-- Plan 2: Flujos Inteligentes y Automatización Corporativa (B2B) -->
+            <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                <div>
+                    <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Empresas & B2B</div>
+                    <div class="inline-block bg-white/10 text-[#E8DAC1] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">Arquitectura Avanzada</div>
+                    <h3 class="font-header font-bold text-2xl mb-2 text-white">Flujos Inteligentes & Ecosistema B2B</h3>
+                    <p class="text-zinc-300 text-sm mb-6">Para empresas que requieren integrar múltiples sistemas, CRMs y procesos operativos complejos.</p>
+                    
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 mb-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-1">Inversión según alcance técnico</span>
+                        <div class="text-3xl font-bold text-white">Cotización a Medida</div>
+                        <span class="text-xs text-zinc-400 block mt-1">Diagnóstico técnico y levantamiento de flujos inicial</span>
+                    </div>
+
+                    <ul class="space-y-3.5 mb-8 text-sm text-zinc-200">
+                        <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Agentes IA multi-departamento (Ventas, Soporte, Operaciones)</li>
+                        <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Automatización de flujos e integración con CRM/ERP (HubSpot, Kommo, Zoho, APIs)</li>
+                        <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Enrutamiento inteligente a asesores humanos y reportes automáticos</li>
+                        <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Desarrollo de integraciones, cotizadores o webhooks personalizados</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20busco%20una%20cotizaci%C3%B3n%20a%20medida%20de%20Flujos%20Inteligentes%20y%20Automatizaci%C3%B3n%20B2B%20para%20mi%20empresa" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-4 rounded-xl overflow-hidden transition-all duration-500">
                     <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
-                    <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
-                        Contratar Mantenimiento <i class="fas fa-arrow-right text-[12px]"></i>
+                    <span class="relative z-10 flex items-center gap-3 font-body text-xs font-bold uppercase tracking-widest text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                        Solicitar Diagnóstico B2B <i class="fab fa-whatsapp text-sm"></i>
                     </span>
                 </a>
             </div>
@@ -2714,68 +3317,94 @@ def build_home_page(data):
         </div>
         <div class="space-y-6">
             <div class="bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
-                <h3 class="font-header font-bold text-xl text-gray-1 dark:text-white mb-2">¿Qué es un Agente IA para WhatsApp y cómo funciona?</h3>
-                <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">Es un asistente conversacional avanzado configurado con la base de conocimiento de tu negocio. Responde preguntas, califica prospectos, toma pedidos y agenda citas las 24 horas del día de forma automática directamente en WhatsApp.</p>
+                <h3 class="font-header font-bold text-xl text-gray-1 dark:text-white mb-2">¿Qué diferencia hay entre un chatbot tradicional y un Agente de IA con flujos inteligentes?</h3>
+                <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">Un chatbot tradicional obliga al cliente a elegir opciones rígidas ("presiona 1 o 2"). Nuestros Agentes de IA conversan de forma natural, comprenden notas de voz, califican al prospecto según las reglas de tu negocio, agendan citas en tiempo real en tu calendario y actualizan tu CRM automáticamente.</p>
             </div>
             <div class="bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
                 <h3 class="font-header font-bold text-xl text-gray-1 dark:text-white mb-2">¿Se utiliza la API oficial de WhatsApp?</h3>
-                <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">Sí, realizamos la integración utilizando la API Cloud oficial de Meta para garantizar la estabilidad de la línea, evitar bloqueos y permitir el envío de notificaciones masivas de forma segura.</p>
+                <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">Sí, realizamos la integración utilizando la API Cloud oficial de Meta para garantizar la estabilidad de la línea, evitar bloqueos y permitir flujos escalables de atención y seguimiento.</p>
             </div>
             <div class="bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
-                <h3 class="font-header font-bold text-xl text-gray-1 dark:text-white mb-2">¿Cuánto tiempo toma el despliegue del chatbot?</h3>
-                <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">El proceso completo de diseño de flujos, carga de base de conocimientos, entrenamiento del modelo de lenguaje y despliegue final toma entre 5 y 7 días hábiles.</p>
+                <h3 class="font-header font-bold text-xl text-gray-1 dark:text-white mb-2">¿Cuánto tiempo toma la implementación?</h3>
+                <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">El proceso completo de diagnóstico, diseño de flujos, entrenamiento del Agente de IA con tus documentos y despliegue toma entre 5 y 7 días hábiles.</p>
             </div>
             <div class="bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-border dark:border-zinc-800 shadow-sm">
-                <h3 class="font-header font-bold text-xl text-gray-1 dark:text-white mb-2">¿Se puede integrar con mi CRM actual?</h3>
-                <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">Absolutamente. Integramos los agentes IA con CRM populares como HubSpot, Zoho, Salesforce o tu propio sistema de base de datos a través de APIs y webhooks para registrar todos los leads generados.</p>
+                <h3 class="font-header font-bold text-xl text-gray-1 dark:text-white mb-2">¿Se puede integrar con nuestro CRM, calendario o sistemas internos?</h3>
+                <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">Absolutamente. Conectamos tus agentes y flujos con Google Calendar, HubSpot, Kommo, Zoho, Salesforce, hojas de cálculo o ERPs propios mediante APIs y webhooks en tiempo real.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- CTA FINAL -->
-<section class="py-32 relative overflow-hidden border-t border-gray-border dark:border-zinc-800 bg-brand/5 dark:bg-zinc-900/40">
+<section class="py-28 relative overflow-hidden border-t border-gray-border dark:border-zinc-800 bg-brand/5 dark:bg-zinc-900/40">
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-3xl -z-10"></div>
     <div class="container mx-auto px-4 max-w-4xl text-center">
-        <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-4 block">Listo para empezar?</span>
-        <h2 class="text-4xl md:text-6xl font-header font-bold mb-6">Nunca pierdas<br>un cliente mas</h2>
-        <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">Unete a los negocios de LATAM que ya atienden, agendan y venden en piloto automatico.</p>
-        <a href="https://wa.me/{WA_NUMERO}?text=Hola,%20me%20interesa%20automatizar%20las%20ventas%20de%20mi%20negocio%20con%20un%20Chatbot%20de%20WhatsApp%20IA" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-10 py-5 overflow-hidden transition-all duration-500">
-            <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
-            <span class="relative z-10 flex items-center gap-3 font-body text-sm font-bold uppercase tracking-[0.2em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75"><i class="fab fa-whatsapp text-lg"></i> Hablar con un Asesor</span>
-        </a>
-        <p class="text-gray-400 dark:text-slate-500 text-sm mt-6">Sin compromisos - Demo gratuita - Respuesta en menos de 1 hora</p>
+        <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-4 block">¿Listo para automatizar tu operación comercial?</span>
+        <h2 class="text-4xl md:text-6xl font-header font-bold mb-6">Convierte tu WhatsApp en un Canal de Ventas Autónomo</h2>
+        <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">Solicita un diagnóstico de tu caso y descubre cómo un Agente de IA y flujos inteligentes pueden operar en tu empresa en menos de 7 días.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20quiero%20hablar%20con%20un%20consultor%20para%20cotizar%20un%20Agente%20de%20IA%20y%20automatizaci%C3%B3n%20en%20mi%20empresa" target="_blank" class="group relative inline-flex items-center justify-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 border border-zinc-900 dark:border-white px-10 py-5 rounded-xl overflow-hidden transition-all duration-300 shadow-xl hover:opacity-95">
+                <span class="relative z-10 flex items-center gap-3 font-body text-sm font-bold uppercase tracking-[0.2em]"><i class="fab fa-whatsapp text-lg text-emerald-400 dark:text-emerald-600"></i> Solicitar Cotización por WhatsApp</span>
+            </a>
+            <a href="#demo-interactiva" class="inline-flex items-center justify-center border border-zinc-300 dark:border-zinc-700 px-8 py-5 rounded-xl font-bold text-xs uppercase tracking-widest text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all">
+                Agendar en el Calendario IA
+            </a>
+        </div>
+        <p class="text-gray-400 dark:text-slate-500 text-sm mt-6">Atención directa · Diagnóstico técnico de tu flujo · Implementación llave en mano</p>
     </div>
 </section>
 
 {footer_html}
 
+<!-- Sticky CTA Flotante para Móvil y Escritorio -->
+<div id="sticky-cta-bar" class="fixed bottom-4 inset-x-4 md:inset-x-auto md:right-6 md:bottom-6 z-[90] transition-all duration-300">
+    <!-- Versión Móvil -->
+    <div class="md:hidden bg-white/95 dark:bg-zinc-900/95 backdrop-blur-xl border border-gray-200 dark:border-zinc-800 rounded-2xl p-3 shadow-2xl flex items-center justify-between gap-3">
+        <div class="pl-1">
+            <p class="text-xs font-bold text-zinc-900 dark:text-white leading-tight">¿Automatizamos tu empresa?</p>
+            <p class="text-[10px] text-zinc-500 dark:text-zinc-400">Agentes IA · WhatsApp · CRM</p>
+        </div>
+        <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20quiero%20cotizar%20un%20Agente%20de%20IA%20y%20automatizaci%C3%B3n%20para%20mi%20empresa" target="_blank" class="bg-[#00a884] hover:bg-[#008f72] text-white font-bold text-xs px-4 py-2.5 rounded-xl flex items-center gap-1.5 shadow-md shrink-0">
+            <i class="fab fa-whatsapp text-sm"></i> Cotizar Ahora
+        </a>
+    </div>
+    <!-- Versión Escritorio -->
+    <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20quiero%20cotizar%20un%20Agente%20de%20IA%20y%20automatizaci%C3%B3n%20para%20mi%20empresa" target="_blank" aria-label="Cotizar por WhatsApp" class="hidden md:inline-flex items-center gap-2.5 bg-[#00a884] hover:bg-[#008f72] text-white font-bold text-xs uppercase tracking-wider px-5 py-3.5 rounded-full shadow-2xl hover:scale-105 transition-all">
+        <i class="fab fa-whatsapp text-lg"></i> Cotizar Proyecto IA
+    </a>
+</div>
+
 <!-- Mobile Menu Overlay -->
 <div id="mobile-menu" class="fixed inset-0 z-[110] bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl translate-x-full transition-transform duration-500 ease-in-out md:hidden">
     <div class="flex flex-col h-full p-8">
-        <div class="flex justify-between items-center mb-12">
+        <div class="flex justify-between items-center mb-10">
             <span class="font-header font-extrabold text-2xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
             <div class="flex items-center gap-4">
-                <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-2xl p-2 transition-colors">
+                <button id="theme-toggle-mobile" aria-label="Cambiar tema de color" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-2xl p-2 transition-colors">
                     <i id="theme-toggle-dark-icon-mobile" class="fas fa-moon hidden"></i>
                     <i id="theme-toggle-light-icon-mobile" class="fas fa-sun hidden"></i>
                 </button>
-                <button id="close-menu-btn" class="text-3xl text-zinc-900 dark:text-white focus:outline-none">
+                <button id="close-menu-btn" aria-label="Cerrar menú" class="text-3xl text-zinc-900 dark:text-white focus:outline-none">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
         </div>
         
-        <nav class="flex flex-col space-y-6 text-2xl font-header font-bold">
+        <nav class="flex flex-col space-y-5 text-xl font-header font-bold">
             <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a>
+            <a href="#demo-interactiva" class="mobile-link text-emerald-600 dark:text-emerald-400 hover:opacity-80 transition-colors flex items-center gap-2"><i class="fas fa-play-circle text-base"></i> Demo Interactiva IA</a>
+            <a href="#soluciones-b2b" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Soluciones B2B</a>
+            <a href="#sectores-potenciales" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Sectores de Alto ROI</a>
             <a href="#como-funciona" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
-            <a href="#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+            <a href="#industrias" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Industrias</a>
+            <a href="#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Planes y Precios</a>
             <a href="/blog/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
         </nav>
 
         <div class="mt-auto pt-8 border-t border-zinc-200 dark:border-zinc-800">
-            <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C+quiero+una+demo+del+agente+IA" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
-                Asesoría WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+            <a href="https://wa.me/{WA_NUMERO}?text=Hola%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n%20de%20Agentes%20de%20IA%20para%20mi%20empresa" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
+                Solicitar Cotización <i class="fab fa-whatsapp text-lg"></i>
             </a>
         </div>
     </div>
@@ -2836,6 +3465,19 @@ def build_home_page(data):
             document.body.classList.remove('overflow-hidden');
         }});
     }});
+
+    // Ocultar barra flotante cuando el usuario está interactuando con la sección de demo interactiva
+    const demoSection = document.getElementById('demo-interactiva');
+    const stickyBar = document.getElementById('sticky-cta-bar');
+    if (demoSection && stickyBar && 'IntersectionObserver' in window) {{
+        const obs = new IntersectionObserver((entries) => {{
+            entries.forEach(entry => {{
+                stickyBar.style.opacity = entry.isIntersecting ? '0' : '1';
+                stickyBar.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
+            }});
+        }}, {{ threshold: 0.08 }});
+        obs.observe(demoSection);
+    }}
 </script>
 </body>
 </html>"""
@@ -3687,7 +4329,7 @@ def build_blog_recomendaciones_html(row):
         slug = blog.get('slug', '')
         title = blog.get('title', '')
         desc = blog.get('description', '')
-        image = blog.get('image', '/images/og-home.webp')
+        image = blog.get('image', '/images/blog/chatbot-whatsapp/hero.webp')
         category = blog.get('category', 'Negocios')
         
         # Localize category tag if mapped
@@ -3697,7 +4339,7 @@ def build_blog_recomendaciones_html(row):
         card = f"""
                 <a href="/blog/{slug}/" class="blog-card-rec bg-white dark:bg-zinc-900 rounded-3xl border border-gray-border dark:border-zinc-800 overflow-hidden shadow-sm flex flex-col h-full">
                     <div class="h-48 relative overflow-hidden">
-                        <img src="{image}" alt="{title}" class="blog-card-img w-full h-full object-cover">
+                        <img src="{image}" alt="{title}" loading="lazy" decoding="async" class="blog-card-img w-full h-full object-cover">
                         <div class="absolute top-4 left-4 bg-brand/90 dark:bg-brand-light/90 text-white dark:text-zinc-950 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full z-10">
                             {tag_text}
                         </div>
@@ -3780,24 +4422,73 @@ def build_dynamic_eeat_html(row):
     if not html_content:
         return ""
     
+    ciudad = row.get('Ciudad', 'tu ciudad')
+    pais = row.get('País', 'Colombia')
+    industria = row.get('Industria', 'Empresas')
+    ind_singular = row.get('Industria_Singular', 'empresa')
+    demonimo = row.get('Demónimo', 'clientes locales') or 'clientes locales'
+    barrios_raw = row.get('Barrios', '')
+    barrios_list = [b.strip() for b in barrios_raw.split('|') if b.strip()]
+    barrio1 = barrios_list[0] if len(barrios_list) > 0 else f'el centro de {ciudad}'
+    barrio2 = barrios_list[1] if len(barrios_list) > 1 else f'el norte de {ciudad}'
+    local_context_text = build_local_context(row)
+
+    # Selección de fotografía realista por vertical
+    if industria in ['Clínicas Dentales', 'Clinicas Dentales', 'Veterinarias', 'Salones de Belleza', 'Spas y Centros de Estética', 'Spas y Centros Esteticos']:
+        eeat_img = "/images/eeat/clinica-salud-latam.webp"
+        eeat_img_alt = f"Especialista de {industria} en {ciudad} gestionando citas automatizadas por WhatsApp con IA"
+        live_badge_role = f"Agenda Activa · {industria}"
+        live_sample_msg = f"Hola, ¿tienen cita de valoración disponible mañana en {barrio1}?"
+        live_sample_action = f"Cita confirmada en Google Calendar · Sede {barrio1}"
+    elif industria in ['Inmobiliarias', 'Hoteles y Hostales']:
+        eeat_img = "/images/eeat/inmobiliaria-asesor-latam.webp"
+        eeat_img_alt = f"Asesora de {industria} en {ciudad} recibiendo prospectos calificados por Agente de IA"
+        live_badge_role = f"Filtro de Leads · {industria}"
+        live_sample_msg = f"Hola, busco información y disponibilidad en la zona de {barrio1}, {ciudad}."
+        live_sample_action = f"Prospecto calificado + Visita agendada en {barrio1}"
+    elif industria in ['Restaurantes', 'Gimnasios', 'Talleres Automotrices']:
+        eeat_img = "/images/eeat/negocio-comercio-latam.webp"
+        eeat_img_alt = f"Dueño de {ind_singular} en {ciudad} con atención automatizada de WhatsApp 24/7"
+        live_badge_role = f"Atención 24/7 · {industria}"
+        live_sample_msg = f"Hola, te envié un audio para reservar hoy en la sede de {barrio1}."
+        live_sample_action = f"Nota de voz procesada + Reserva confirmada en 2.4s"
+    else:
+        eeat_img = "/images/eeat/ejecutivo-b2b-latam.webp"
+        eeat_img_alt = f"Director empresarial en {ciudad} operando con Agentes de IA y flujos de WhatsApp B2B"
+        live_badge_role = f"Operación B2B · {ciudad}"
+        live_sample_msg = f"Hola, necesitamos cotizar y agendar una reunión comercial en {ciudad}."
+        live_sample_action = f"Lead calificado en CRM + Reunión agendada en Calendar"
+
+    # Píldoras visuales de barrios reales para SEO Local y GEO
+    barrios_pills_html = ""
+    for b in barrios_list[:6]:
+        barrios_pills_html += f'''
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 border border-gray-200 dark:border-zinc-700 shadow-sm">
+            <i class="fas fa-map-marker-alt text-emerald-500 text-[11px]"></i> {b}
+        </span>'''
+    if not barrios_pills_html:
+        barrios_pills_html = f'''
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 border border-gray-200 dark:border-zinc-700 shadow-sm">
+            <i class="fas fa-map-marker-alt text-emerald-500 text-[11px]"></i> Cobertura total en {ciudad}
+        </span>'''
+
     # Extraer H2
     h2_match = re.search(r'<h2[^>]*>(.*?)</h2>', html_content, re.DOTALL | re.IGNORECASE)
-    h2_text = h2_match.group(1).strip() if h2_match else ""
+    h2_text = h2_match.group(1).strip() if h2_match else f"Cómo Automatizar tu {ind_singular.title()} en {ciudad}"
     
     # Extraer H3
     h3_match = re.search(r'<h3[^>]*>(.*?)</h3>', html_content, re.DOTALL | re.IGNORECASE)
-    h3_text = h3_match.group(1).strip() if h3_match else ""
+    h3_text = h3_match.group(1).strip() if h3_match else f"Tu Agente IA trabajando 24/7 en {ciudad}"
     
     # Extraer párrafos
     paragraphs = re.findall(r'<p[^>]*>(.*?)</p>', html_content, re.DOTALL | re.IGNORECASE)
     paragraphs = [p.strip() for p in paragraphs]
     
-    if not h2_text or not paragraphs:
+    if not paragraphs:
         return html_content
         
     p_extra_html = ""
     
-    # Segmentación inteligente de párrafos
     if len(paragraphs) == 3:
         p1_lead = paragraphs[0]
         p2_lead = paragraphs[1]
@@ -3806,103 +4497,216 @@ def build_dynamic_eeat_html(row):
         p1_lead = paragraphs[0]
         p2_lead = paragraphs[1]
         p3_lead = paragraphs[-1]
-        
-        # El párrafo extra es el intermedio (normalmente el de Consultor IA, índice 2)
         p_extra = paragraphs[2]
         p_extra_html = f"""
-        <div class="mt-16 pt-8 border-t border-zinc-100 dark:border-zinc-800/80 max-w-4xl mx-auto text-center">
-            <p class="text-base md:text-[17px] font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                {p_extra}
-            </p>
+        <div class="mt-8 p-6 rounded-2xl bg-[#FDFBF7] dark:bg-zinc-900/90 border border-gray-200 dark:border-zinc-800">
+            <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-xl bg-brand/10 dark:bg-white/10 text-brand dark:text-brand-light flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fas fa-shield-alt text-sm"></i>
+                </div>
+                <p class="text-sm md:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                    {p_extra}
+                </p>
+            </div>
         </div>
         """
     else:
         p1_lead = paragraphs[0]
-        p2_lead = ""
+        p2_lead = f"En {ciudad}, responder mensajes horas después o usar un bot antiguo de botones ('marque 1 o 2') hace que los {demonimo} abandonen el chat y compren en la competencia."
         p3_lead = paragraphs[-1] if len(paragraphs) > 1 else ""
 
     wa_bubble_html = ""
-    # Buscar texto entre comillas dobles y asteriscos, o simplemente entre asteriscos
     wa_match = re.search(r'"\*(.*?)\*"|\*(.*?)\*', p3_lead)
     if wa_match:
         wa_text = wa_match.group(1) or wa_match.group(2)
         if wa_text:
             wa_bubble_html = f"""
-            <div class="mt-6 p-4 bg-[#E2F8CB] dark:bg-[#0b5c49] rounded-2xl rounded-tr-none border border-[#b2dca2]/40 dark:border-[#008f72]/20 shadow-md max-w-[95%] ml-auto relative">
-                <p class="text-xs text-zinc-800 dark:text-zinc-100 font-sans leading-normal">
-                    {wa_text}
+            <div class="mt-5 p-4 bg-[#E2F8CB] dark:bg-[#0b5c49] rounded-2xl rounded-tr-none border border-[#b2dca2]/50 dark:border-[#008f72]/30 shadow-md max-w-[96%] ml-auto relative">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-200 block mb-1">Ejemplo real de mensaje en {ciudad}:</span>
+                <p class="text-xs sm:text-sm text-zinc-800 dark:text-zinc-100 font-sans leading-normal">
+                    "{wa_text}"
                 </p>
-                <span class="absolute top-0 right-[-8px] w-0 h-0 border-t-[8px] border-t-[#E2F8CB] dark:border-t-[#0b5c49] border-r-[8px] border-r-transparent"></span>
-                <div class="text-[9px] text-zinc-500 dark:text-zinc-300 text-right mt-1">
-                    <i class="fas fa-check-double text-sky-500 mr-0.5"></i> Entregado
+                <div class="text-[10px] text-zinc-600 dark:text-zinc-300 text-right mt-1.5 font-medium">
+                    <i class="fas fa-check-double text-sky-500 mr-1"></i> Respondido en 2.4 seg por tu Agente IA
                 </div>
             </div>
             """
     
-    # Formatear párrafos de las columnas (usando estilos grises/neutros elegantes, no el negro fuerte)
-    p1_html = f'<p class="text-base md:text-[17px] font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">{p1_lead}</p>'
-    p2_html = f'<p class="text-base md:text-[17px] font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">{p2_lead}</p>'
-    p3_html = f'<p class="text-base md:text-[17px] font-medium text-zinc-600 dark:text-zinc-400 leading-relaxed">{p3_lead}</p>'
+    p1_html = f'<p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">{p1_lead}</p>'
+    p2_html = f'<p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">{p2_lead}</p>'
+    p3_html = f'<p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">{p3_lead}</p>'
     
     new_html = f"""
-    <section class="py-24 bg-white dark:bg-zinc-950 border-t border-gray-100 dark:border-zinc-900 relative overflow-hidden">
-        <div class="absolute top-1/2 left-0 w-72 h-72 bg-[#E8DAC1]/10 dark:bg-brand/5 rounded-full blur-3xl pointer-events-none"></div>
-        
+    <section id="eeat-geo-visual" class="py-20 lg:py-24 bg-white dark:bg-zinc-950 border-t border-gray-200 dark:border-zinc-800 relative overflow-hidden">
         <div class="container mx-auto px-4 max-w-6xl relative z-10">
-            <!-- Título Principal -->
-            <div class="text-center mb-20 max-w-3xl mx-auto">
-                <span class="text-brand dark:text-brand-light font-body text-xs font-bold uppercase tracking-widest mb-3 block">Flujo de Trabajo y Contexto</span>
-                <h2 class="text-3xl md:text-5xl font-header font-bold text-zinc-900 dark:text-white leading-tight">
+            <!-- Encabezado + Resumen GEO en Palabras Simples -->
+            <div class="text-center mb-14 max-w-4xl mx-auto">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 mb-4">
+                    <i class="fas fa-map-pin"></i> Guía Visual y Realidad Local en {ciudad}, {pais}
+                </span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-header font-bold text-zinc-900 dark:text-white leading-tight mb-6">
                     {h2_text}
                 </h2>
-            </div>
-            
-            <!-- Contenedor del Flujo Horizontal -->
-            <div class="relative">
-                <!-- Línea de conexión horizontal con degradado (solo en desktop) -->
-                <div class="absolute top-4 left-4 right-4 h-[2px] bg-gradient-to-r from-zinc-200 via-brand/30 to-zinc-200 dark:from-zinc-800 dark:via-brand-light/30 dark:to-zinc-800 hidden lg:block -z-10"></div>
                 
-                <div class="grid lg:grid-cols-3 gap-12 lg:gap-16 items-stretch">
-                    <!-- Paso 1: La Oportunidad -->
-                    <div class="flex flex-col items-start relative group">
-                        <div class="w-8 h-8 rounded-full border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-400 dark:text-zinc-600 font-bold text-xs flex items-center justify-center mb-6 transition-colors group-hover:border-brand dark:group-hover:border-brand-light group-hover:text-brand dark:group-hover:text-brand-light">
-                            01
-                        </div>
-                        <h3 class="text-lg font-header font-bold text-zinc-900 dark:text-white mb-3">Contexto de la Industria</h3>
-                        <div class="prose dark:prose-invert max-w-none">
-                            {p1_html}
-                        </div>
+                <!-- Bloque Resumen GEO (Explicado tan fácil que cualquiera lo entiende en 5 segundos) -->
+                <div class="p-6 sm:p-7 rounded-3xl bg-[#FDFBF7] dark:bg-zinc-900 border-2 border-emerald-500/25 dark:border-emerald-500/30 shadow-lg text-left">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-4 border-b border-gray-200 dark:border-zinc-800">
+                        <span class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+                            <i class="fas fa-lightbulb text-amber-500 text-sm"></i> Explicado en palabras simples (En 10 segundos)
+                        </span>
+                        <span class="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                            Especial para <strong>{industria}</strong> en <strong>{ciudad}</strong>
+                        </span>
                     </div>
-                    
-                    <!-- Paso 2: El Desafío -->
-                    <div class="flex flex-col items-start relative group">
-                        <div class="w-8 h-8 rounded-full border-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-zinc-400 dark:text-zinc-600 font-bold text-xs flex items-center justify-center mb-6 transition-colors group-hover:border-red-400 group-hover:text-red-400">
-                            02
-                        </div>
-                        <h3 class="text-lg font-header font-bold text-zinc-900 dark:text-white mb-3">El Dolor de Gestión</h3>
-                        <div class="prose dark:prose-invert max-w-none">
-                            {p2_html}
-                        </div>
-                    </div>
-                    
-                    <!-- Paso 3: La Solución con IA -->
-                    <div class="flex flex-col items-start relative group">
-                        <div class="w-8 h-8 rounded-full bg-brand dark:bg-brand-light text-white dark:text-zinc-950 font-bold text-xs flex items-center justify-center mb-6 shadow-md shadow-brand/10">
-                            03
-                        </div>
-                        <h3 class="text-lg font-header font-bold text-zinc-900 dark:text-white mb-3">Solución con IA</h3>
-                        <div class="w-full">
-                            <h4 class="text-sm font-semibold text-brand dark:text-brand-light mb-3">{h3_text}</h4>
-                            <div class="prose dark:prose-invert max-w-none">
-                                {p3_html}
+                    <p class="text-base sm:text-lg text-zinc-800 dark:text-zinc-200 leading-relaxed mb-5">
+                        <strong>Consultor IA</strong> conecta un <strong>Agente de Inteligencia Artificial</strong> al WhatsApp de tu <strong>{ind_singular} en {ciudad}</strong> (atendiendo clientes desde <strong>{barrio1}</strong> hasta <strong>{barrio2}</strong>). Funciona como tu mejor empleado disponible día y noche en <strong>3 pasos muy fáciles</strong>:
+                    </p>
+                    <div class="grid sm:grid-cols-3 gap-3 text-sm">
+                        <div class="p-3.5 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 flex items-start gap-3">
+                            <span class="w-7 h-7 rounded-xl bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+                            <div>
+                                <strong class="block text-zinc-900 dark:text-white">Te escriben al WhatsApp</strong>
+                                <span class="text-xs text-zinc-500 dark:text-zinc-400">El cliente manda texto o audio preguntando precios o citas en {ciudad}.</span>
                             </div>
-                            {wa_bubble_html}
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 flex items-start gap-3">
+                            <span class="w-7 h-7 rounded-xl bg-blue-500/15 text-blue-700 dark:text-blue-400 font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+                            <div>
+                                <strong class="block text-zinc-900 dark:text-white">La IA responde en 3 seg</strong>
+                                <span class="text-xs text-zinc-500 dark:text-zinc-400">Lee tus precios reales y conversa amable sin usar menús robóticos.</span>
+                            </div>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 flex items-start gap-3">
+                            <span class="w-7 h-7 rounded-xl bg-purple-500/15 text-purple-700 dark:text-purple-400 font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+                            <div>
+                                <strong class="block text-zinc-900 dark:text-white">Agenda y te avisa listo</strong>
+                                <span class="text-xs text-zinc-500 dark:text-zinc-400">Aparta la hora en tu Google Calendar/CRM y te entrega el cliente listo.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            {p_extra_html}
+            <!-- Bento Visual: Fotografía Realista + Tarjetas Dinámicas Paso a Paso -->
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+                
+                <!-- Columna Izquierda (5 cols): Fotografía Editorial Realista + Tarjetas en Vivo + Barrios de {ciudad} -->
+                <div class="lg:col-span-5 flex flex-col gap-6">
+                    <div class="relative rounded-3xl overflow-hidden border border-gray-200 dark:border-zinc-800 shadow-2xl group bg-zinc-900">
+                        <img src="{eeat_img}" alt="{eeat_img_alt}" loading="lazy" decoding="async" class="w-full h-[420px] sm:h-[460px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                        
+                        <!-- Degradado suave para legibilidad de las tarjetas flotantes -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/35 pointer-events-none"></div>
+                        
+                        <!-- Badge Superior Flotante (HTML Nítido) -->
+                        <div class="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
+                            <span class="inline-flex items-center gap-2 bg-zinc-950/85 backdrop-blur-md text-white text-xs font-semibold px-3.5 py-2 rounded-full border border-white/15 shadow-lg">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                {live_badge_role}
+                            </span>
+                            <span class="bg-emerald-500 text-zinc-950 text-[11px] font-extrabold px-3 py-1.5 rounded-full shadow-lg">
+                                ⚡ 2.4 seg
+                            </span>
+                        </div>
+                        
+                        <!-- Tarjeta Inferior Flotante con Caso Real en {ciudad} -->
+                        <div class="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-zinc-950/90 backdrop-blur-md border border-white/15 text-white shadow-2xl">
+                            <div class="flex items-center justify-between text-[11px] text-zinc-300 mb-2">
+                                <span class="font-semibold flex items-center gap-1.5"><i class="fab fa-whatsapp text-emerald-400 text-sm"></i> Cliente real en {ciudad}</span>
+                                <span class="text-emerald-400 font-bold">24/7 Activo</span>
+                            </div>
+                            <p class="text-xs text-zinc-100 italic bg-white/10 rounded-xl px-3 py-2 mb-2.5 border border-white/10">
+                                "{live_sample_msg}"
+                            </p>
+                            <div class="flex items-center gap-2 text-xs font-bold text-emerald-300">
+                                <i class="fas fa-check-circle text-emerald-400"></i>
+                                <span>{live_sample_action}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Caja de Contexto Hiper-Local por Barrios en {ciudad} (SEO Local + GEO) -->
+                    <div class="p-6 rounded-3xl bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-sm">
+                        <div class="flex items-center gap-2.5 mb-3">
+                            <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                                <i class="fas fa-compass"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-header font-bold text-base text-zinc-900 dark:text-white leading-tight">Cobertura Hiper-Local en {ciudad}</h3>
+                                <p class="text-xs text-zinc-500 dark:text-zinc-400">Zonas donde operan empresas y {demonimo}</p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">
+                            {local_context_text}
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            {barrios_pills_html}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Columna Derecha (7 cols): Las 3 Tarjetas Dinámicas de Diagnóstico y Solución -->
+                <div class="lg:col-span-7 flex flex-col gap-5">
+                    
+                    <!-- Tarjeta 01: Lo que pasa hoy en {ciudad} -->
+                    <div class="p-6 sm:p-7 rounded-3xl bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-brand/40 transition-all shadow-sm">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand dark:text-brand-light bg-brand/10 dark:bg-white/10 px-3 py-1 rounded-full">
+                                <i class="fas fa-city"></i> Paso 01 · Realidad hoy en {ciudad}
+                            </span>
+                            <span class="text-xs font-semibold text-zinc-400">Demanda Local</span>
+                        </div>
+                        <h3 class="text-xl font-header font-bold text-zinc-900 dark:text-white mb-2.5">
+                            ¿Cómo buscan y compran hoy los {demonimo} en {ciudad}?
+                        </h3>
+                        {p1_html}
+                    </div>
+                    
+                    <!-- Tarjeta 02: El Problema de contestar tarde -->
+                    <div class="p-6 sm:p-7 rounded-3xl bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 hover:border-amber-500/40 transition-all shadow-sm">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full">
+                                <i class="fas fa-exclamation-triangle"></i> Paso 02 · El cuello de botella
+                            </span>
+                            <span class="text-xs font-semibold text-zinc-400">Fuga de Clientes</span>
+                        </div>
+                        <h3 class="text-xl font-header font-bold text-zinc-900 dark:text-white mb-2.5">
+                            Por qué se escapan las ventas cuando respondes a mano
+                        </h3>
+                        {p2_html}
+                    </div>
+                    
+                    <!-- Tarjeta 03: La Solución con Agente IA (Destacada) -->
+                    <div class="p-6 sm:p-7 rounded-3xl bg-white dark:bg-zinc-900 border-2 border-emerald-500/40 dark:border-emerald-500/40 shadow-xl relative overflow-hidden">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 bg-emerald-500/15 px-3.5 py-1 rounded-full">
+                                <i class="fas fa-robot"></i> Paso 03 · Solución con Agente IA en {ciudad}
+                            </span>
+                            <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400">Activo en 5-7 Días</span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-header font-bold text-zinc-900 dark:text-white mb-3">
+                            {h3_text}
+                        </h3>
+                        {p3_html}
+                        {wa_bubble_html}
+                        
+                        <!-- Respaldo de Ingeniería Verificable (E-E-A-T Técnico sin métricas inventadas) -->
+                        <div class="mt-6 pt-5 border-t border-gray-200 dark:border-zinc-800 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                            <div class="flex items-center gap-2 font-semibold text-zinc-700 dark:text-zinc-300">
+                                <i class="fas fa-check-circle text-emerald-500"></i> WhatsApp Cloud API Oficial
+                            </div>
+                            <div class="flex items-center gap-2 font-semibold text-zinc-700 dark:text-zinc-300">
+                                <i class="fas fa-check-circle text-emerald-500"></i> Lee tus PDFs y Precios (RAG)
+                            </div>
+                            <div class="flex items-center gap-2 font-semibold text-zinc-700 dark:text-zinc-300">
+                                <i class="fas fa-check-circle text-emerald-500"></i> Google Calendar + CRM
+                            </div>
+                        </div>
+                    </div>
+
+                    {p_extra_html}
+                </div>
+            </div>
         </div>
     </section>
     """
@@ -4179,6 +4983,7 @@ def build():
             replacements = {
                 '{FOOTER_HTML}': footer_html,
                 '{MEGA_MENU}': mega_menu_html,
+                '{PRECIOS_SECCION_HTML}': build_precios_seccion_html({}),
                 '{H1}': row.get('H1', ''),
                 '{H1_HTML}': format_h1(row.get('H1', '')),
                 '{TITLE_SEO}': row.get('Title', ''),
@@ -4256,6 +5061,7 @@ def build():
             '{WA_MENSAJE_ENCODED}': wa_mensaje,
             '{MEGA_MENU}': mega_menu_html,
             '{FOOTER_HTML}': footer_html,
+            '{PRECIOS_SECCION_HTML}': build_precios_seccion_html({'Industria': ind_name}),
             '{IND_CANONICAL}': ind_canonical,
             '{IND_DESCRIPTION}': ind_description,
             '{IND_SCHEMA}': ind_schema,
@@ -4299,13 +5105,16 @@ def build():
                 }
             }, ensure_ascii=False, indent=2)
 
+            p_wa_mensaje = f"Hola%2C+quiero+info+sobre+agentes+IA+para+{quote(ind_name)}+en+{quote(p_name)}"
             p_replacements = {
                 '{INDUSTRIA}': ind_name,
                 '{PAIS}': p_name,
                 '{INDUSTRIA_SLUG}': ind_slug,
                 '{WA_NUMERO}': WA_NUMERO,
+                '{WA_MENSAJE_ENCODED}': p_wa_mensaje,
                 '{MEGA_MENU}': mega_menu_html,
                 '{FOOTER_HTML}': footer_html,
+                '{PRECIOS_SECCION_HTML}': build_precios_seccion_html({'Industria': ind_name, 'Ciudad': p_name}),
                 '{PAIS_CANONICAL}': pais_canonical,
                 '{PAIS_DESCRIPTION}': pais_description,
                 '{PAIS_SCHEMA}': pais_schema,
@@ -4400,30 +5209,62 @@ def build():
     # Generate llms.txt and llms-full.txt for RAG / AI crawlers
     llms_txt_content = """# Consultor IA
 
-> Consultora tecnológica especializada en desarrollo e integración de Agentes de Inteligencia Artificial y automatización de ventas por WhatsApp Business Cloud API en Latinoamérica.
+> Consultora tecnológica especializada en desarrollo e integración de Agentes de Inteligencia Artificial, automatización de WhatsApp Business Cloud API y flujos inteligentes conectados a CRM para empresas en Colombia y Latinoamérica.
 
-## Resumen de Servicios
-- **Agentes IA Conversacionales:** Entrenados con RAG sobre base documental/PDF del cliente, sin alucinaciones.
-- **Canal Oficial:** Integración directa con Meta WhatsApp Business Cloud API.
-- **Integraciones:** Google Calendar (agendamiento 24/7), CRMs (HubSpot, Clientify, Salesforce) y pasarelas locales (Nequi, PSE, Wompi).
-- **Formatos:** Procesamiento nativo de notas de voz y mensajes de texto.
+## Qué Hace Consultor IA (En 3 Pasos Simples)
+1. **Recepción 24/7 en WhatsApp:** El cliente envía texto o nota de voz a cualquier hora.
+2. **Respuesta en < 3 Segundos con RAG:** El Agente de IA consulta los documentos, precios y políticas reales de la empresa sin inventar datos.
+3. **Agendamiento y Cierre en CRM:** Bloquea citas en vivo en Google Calendar y registra el prospecto calificado en el CRM (HubSpot, Kommo, Zoho, Pipedrive).
 
 ## Precios y Estructura Comercial
-- **Configuración Completa (Setup):** USD $497 (pago único)
-- **Mantenimiento y Hosting Cloud:** USD $97/mes
+- **Configuración Completa Llave en Mano (Setup):** USD $497 (pago único, entrega en 5 a 7 días hábiles)
+- **Mantenimiento, Hosting Cloud y Soporte:** USD $97/mes
+- **Flujos Corporativos B2B a Medida:** Cotización según integraciones ERP/CRM
+
+## Agencias de Inteligencia Artificial por Ciudad (Colombia)
+- [Agencia de IA en Bogotá](https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-bogota/)
+- [Agencia de IA en Medellín](https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-medellin/)
+- [Agencia de IA en Cali](https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-cali/)
+- [Agencia de IA en Barranquilla](https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-barranquilla/)
+- [Agencia de IA en Bucaramanga](https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-bucaramanga/)
+- [Agencia de IA en Cartagena](https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-cartagena/)
+- [Agencia de IA en Pereira](https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-pereira/)
+- [Agencia de IA en Manizales](https://consultor-ia.com.co/agencia-de-inteligencia-artificial-en-manizales/)
+
+## Soluciones Verticales por Industria
+- [Inmobiliarias](https://consultor-ia.com.co/chatbot-whatsapp-para-inmobiliarias/)
+- [Clínicas Dentales y Salud](https://consultor-ia.com.co/chatbot-whatsapp-para-clinicas-dentales/)
+- [Restaurantes y Gastronomía](https://consultor-ia.com.co/chatbot-whatsapp-para-restaurantes/)
+- [Academias y Educación](https://consultor-ia.com.co/chatbot-whatsapp-para-academias-cursos/)
+- [Gimnasios y Fitness](https://consultor-ia.com.co/chatbot-whatsapp-para-gimnasios/)
+- [Hoteles y Hostales](https://consultor-ia.com.co/chatbot-whatsapp-para-hoteles-hostales/)
+- [Veterinarias](https://consultor-ia.com.co/chatbot-whatsapp-para-veterinarias/)
+- [Salones de Belleza](https://consultor-ia.com.co/chatbot-whatsapp-para-salones-de-belleza/)
+- [Spas y Centros Estéticos](https://consultor-ia.com.co/chatbot-whatsapp-para-spas-centros-esteticos/)
+- [Talleres Automotrices](https://consultor-ia.com.co/chatbot-whatsapp-para-talleres-automotrices/)
+- [Desarrollo de Apps y Software con IA](https://consultor-ia.com.co/desarrollo-apps-software/)
 
 ## Enlaces Principales
 - [Home](https://consultor-ia.com.co/)
 - [Agente IA vs Chatbot Tradicional](https://consultor-ia.com.co/agente-ia-vs-chatbot/)
 - [Consultor Inteligencia Artificial](https://consultor-ia.com.co/consultor-inteligencia-artificial/)
 - [IA para Negocios](https://consultor-ia.com.co/ia-para-negocios/)
-- [Aviso Legal](https://consultor-ia.com.co/aviso-legal/)
-- [Política de Privacidad](https://consultor-ia.com.co/politica-de-privacidad/)
+- [Blog de Inteligencia Artificial B2B](https://consultor-ia.com.co/blog/)
 """
     with open(os.path.join(DIST_DIR, "llms.txt"), "w", encoding="utf-8") as f:
         f.write(llms_txt_content)
     with open(os.path.join(DIST_DIR, "llms-full.txt"), "w", encoding="utf-8") as f:
         f.write(llms_txt_content)
+
+    # Recompile Tailwind CSS so all utility classes in dist/ and build.py are included
+    import subprocess
+    try:
+        tw_bin = "./node_modules/.bin/tailwindcss" if os.path.exists("./node_modules/.bin/tailwindcss") else "npx"
+        tw_cmd = [tw_bin, "-i", "./input.css", "-o", "./assets/css/styles.css", "--minify"] if tw_bin != "npx" else ["npx", "-y", "tailwindcss@3", "-i", "./input.css", "-o", "./assets/css/styles.css", "--minify"]
+        subprocess.run(tw_cmd, check=False)
+        print("Compiled Tailwind CSS -> assets/css/styles.css")
+    except Exception as e:
+        print(f"Warning: Tailwind compilation skipped ({e})")
 
     # Copy Assets to dist (including subdirectories like assets/css)
     import shutil
@@ -4488,9 +5329,9 @@ def build_automatizacion_dinamica(footer_html, mega_menu_html):
         'Precio_Bajo': '<span class="dyn-price">499</span>',
         'Precio_Medio': '<span class="dyn-price-medio">1,800</span>',
         'Precio_Alto': '<span class="dyn-price-alto">3,500</span>',
-        'WA_Numero': '573132644262',
-        'Testimonio_Texto': 'Nuestra atención al cliente mejoró en un 40% gracias a la automatización inteligente.',
-        'Testimonio_Autor': 'Negocio Local',
+        'WA_Numero': WA_NUMERO,
+        'Testimonio_Texto': 'Atención y calificación de leads automatizada 24/7 con agentes de IA conectados a WhatsApp y CRM.',
+        'Testimonio_Autor': 'Operación Automatizada',
         'Testimonio_Compania': '<span class="dyn-company">Tu Empresa</span>'
     }
 
@@ -4503,6 +5344,7 @@ def build_automatizacion_dinamica(footer_html, mega_menu_html):
     hero_visual_html = build_hero_visual_html(mock_row, hero_chat_user, hero_chat_bot)
     precios_html = build_precios_seccion_html(mock_row)
     testimonials_html = build_testimonials_html(mock_row)
+    demo_interactiva_html = build_demo_interactiva_html(mock_row)
     faqs_html, schema_faq = build_faqs(mock_row, {})
     
     html = html.replace('{FOOTER_HTML}', footer_html)
@@ -4511,11 +5353,12 @@ def build_automatizacion_dinamica(footer_html, mega_menu_html):
     html = html.replace('{SPIN_INTRO}', 'Automatiza ventas, reservas y atención al cliente en <span class="dyn-city">tu ciudad</span> sin contratar más personal.')
     html = html.replace('{INDUSTRIA}', 'cualquier industria')
     html = html.replace('{PAIS_SLUG}', 'tu-pais')
-    html = html.replace('{WA_NUMERO}', '573132644262')
+    html = html.replace('{WA_NUMERO}', WA_NUMERO)
     html = html.replace('{WA_MENSAJE_ENCODED}', wa_encoded)
     html = html.replace('{HERO_VISUAL_HTML}', hero_visual_html)
     html = html.replace('{TESTIMONIALS_HTML}', testimonials_html)
     html = html.replace('{PRECIOS_SECCION_HTML}', precios_html)
+    html = html.replace('{DEMO_INTERACTIVA_HTML}', demo_interactiva_html)
     html = html.replace('{SERVICIOS_SECCION_TITULO}', 'Todo lo que tu negocio en <span class="dyn-city">tu ciudad</span> necesita')
     html = html.replace('{SERVICIOS_SECCION_SUBTITULO}', 'Automatiza procesos repetitivos con IA.')
     html = html.replace('{FAQS_HTML}', faqs_html)
@@ -4542,42 +5385,127 @@ def build_agencia_pages(data, footer_html, mega_menu_html, urls):
     with open(os.path.join(SRC_DIR, "agencia.html"), "r", encoding="utf-8") as f:
         agencia_template = f.read()
         
-    ciudades_colombia = set()
+    ciudades_map = {}
     for row in data:
         if row.get('País') == 'Colombia' and row.get('Estado') == 'PUBLICAR':
-            ciudades_colombia.add(row.get('Ciudad'))
+            c_name = row.get('Ciudad')
+            c_slug = row.get('Ciudad_Slug', '')
+            if c_name and c_slug and c_name not in ciudades_map:
+                ciudades_map[c_name] = row
             
-    for ciudad in ciudades_colombia:
-        # Encuentra una fila representativa de esta ciudad para usar sus variables genéricas
-        row = next(r for r in data if r.get('Ciudad') == ciudad and r.get('País') == 'Colombia')
+    for ciudad, base_row in sorted(ciudades_map.items()):
+        row = base_row.copy()
+        row['Industria'] = 'Empresas y Corporativos'
+        row['Industria_Singular'] = 'empresa'
         
         ciudad_slug = row.get('Ciudad_Slug', '')
-        if not ciudad_slug: continue
+        if not ciudad_slug:
+            continue
         
+        barrios_list = [b.strip() for b in row.get('Barrios', '').split('|') if b.strip()]
+        barrio1 = barrios_list[0] if len(barrios_list) > 0 else f"el centro empresarial de {ciudad}"
+        barrio2 = barrios_list[1] if len(barrios_list) > 1 else f"las zonas comerciales de {ciudad}"
+        demonimo = row.get('Demónimo', 'empresarios locales') or 'empresarios locales'
+
+        row['Dolor_Principal'] = f"perder clientes en {ciudad} por demorar en responder WhatsApp y anotar citas o pedidos manualmente"
+        row['Solución_Clave'] = f"implementar un Agente de IA conectado a WhatsApp Cloud API, Google Calendar y tu CRM en {ciudad}"
+        row['Contenido_EEAT'] = f"""
+        <h2>Cómo Funciona Nuestra Agencia de Inteligencia Artificial en {ciudad}</h2>
+        <h3>Tu Agente de IA atendiendo, calificando y agendando 24/7 en {ciudad}</h3>
+        <p>En polos empresariales como <strong>{barrio1}</strong> y <strong>{barrio2}</strong> en <strong>{ciudad}</strong>, los {demonimo} escriben por WhatsApp esperando respuesta inmediata. Si tu empresa solo contesta en horario de oficina o tarda más de 10 minutos, ese prospecto ya le escribió a tres competidores más.</p>
+        <p>El problema de contratar más personal solo para contestar preguntas repetitivas (precios, ubicaciones, horarios o disponibilidad) o instalar un chatbot antiguo de botones ('marque 1, marque 2') es que los clientes se frustran cuando envían una nota de voz o hacen una pregunta específica y nadie les resuelve.</p>
+        <p>En <strong>Consultor IA</strong> somos una agencia de ingeniería especializada en <strong>{ciudad}</strong>: entrenamos un Agente de Inteligencia Artificial con tus propios documentos, precios y reglas comerciales (arquitectura RAG), lo conectamos a tu línea oficial de WhatsApp Business API y hacemos que agende citas directo en tu Google Calendar y CRM en 5 a 7 días.</p>
+        <p>Así, cada vez que un cliente escribe en {ciudad}, recibe atención en menos de 3 segundos a cualquier hora. "*Hola, vi sus servicios en {ciudad} y quiero agendar una reunión esta semana en su sede de {barrio1}.*"</p>
+        """
+
+        # FAQs específicas y claras para la Agencia de IA en {ciudad}
+        agencia_questions = [
+            (
+                f"¿Qué hace exactamente su Agencia de Inteligencia Artificial en {ciudad}?",
+                f"Diseñamos e instalamos Agentes de Inteligencia Artificial para empresas en {ciudad} (desde {barrio1} hasta {barrio2}). El agente se conecta a tu WhatsApp, responde en 3 segundos día y noche, entiende notas de voz, filtra clientes reales y agenda citas en tu calendario o CRM sin que tengas que contestar a mano."
+            ),
+            (
+                f"¿En qué se diferencia un Agente de IA de un chatbot tradicional de botones?",
+                f"Un chatbot viejo obliga al cliente a presionar números ('marque 1 para ventas') y se traba si le mandan un audio. Nuestro Agente de IA conversa como tu mejor vendedor en {ciudad}, entiende audios largos, lee tus catálogos en PDF sin inventar datos y cierra el agendamiento en tiempo real."
+            ),
+            (
+                f"¿Cuánto cuesta implementar un Agente de IA para mi empresa en {ciudad}?",
+                f"Manejamos precios 100% transparentes: la Configuración Completa Llave en Mano es un pago único de $497 USD y la operación mensual (servidor cloud, consumo de IA y soporte continuo) es de $97 USD/mes. Para integraciones corporativas complejas con ERP/CRM en {ciudad}, realizamos cotización a medida."
+            ),
+            (
+                f"¿Cuánto tiempo tardan en dejar funcionando el sistema en {ciudad}?",
+                f"Entre 5 y 7 días hábiles. Nosotros nos encargamos de todo el trabajo técnico: entrenamiento con tus documentos, conexión con la API Oficial de WhatsApp de Meta y pruebas con tu equipo en {ciudad}."
+            ),
+        ]
+        faqs_html = ""
+        schema_entities = []
+        for q, a in agencia_questions:
+            faqs_html += f'''
+            <details class="faq-item group">
+                <summary>{q}</summary>
+                <p>{a}</p>
+            </details>
+            '''
+            schema_entities.append({
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": a
+                }
+            })
+        schema_faq_json = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": schema_entities
+        }, ensure_ascii=False)
+        schema_faq_script = f'<script type="application/ld+json">\n{schema_faq_json}\n</script>'
+
         url_final = f"/agencia-de-inteligencia-artificial-en-{ciudad_slug}"
-        
         out_html = agencia_template
         
-        wa_mensaje = f"Hola, busco una Agencia de IA en {ciudad}"
+        wa_mensaje = f"Hola, busco una Agencia de IA para mi empresa en {ciudad}"
         wa_encoded = quote(wa_mensaje)
         
-        hero_chat_user = f"Hola, quisiera saber si tienen inventario del producto X y el estado de mi envío a {ciudad}."
-        hero_chat_bot = f"¡Hola! Sí tenemos stock del producto X. Tu envío actual llegará mañana en la tarde. ¿Deseas que agregue el producto X a tu pedido?"
+        hero_chat_user = f"Hola, queremos automatizar la calificación de prospectos en WhatsApp y agendar citas en nuestro CRM en {ciudad}."
+        hero_chat_bot = f"¡Hola! Implementamos Agentes de IA conectados a WhatsApp Cloud API, Google Calendar y tu CRM en 5 a 7 días. ¿Agendamos una demo técnica?"
+        
+        hermanas_links = []
+        for other_city, other_row in sorted(ciudades_map.items()):
+            if other_city == ciudad:
+                continue
+            other_slug = other_row.get('Ciudad_Slug', '')
+            hermanas_links.append(f'<a href="/agencia-de-inteligencia-artificial-en-{other_slug}/" class="card-ciudad">Agencia IA en {other_city}</a>')
+        hermanas_agencia_html = "\n".join(hermanas_links)
         
         replacements = {
             '{FOOTER_HTML}': footer_html,
             '{MEGA_MENU}': mega_menu_html,
             '{HERO_CHAT_USER}': hero_chat_user,
             '{HERO_CHAT_BOT}': hero_chat_bot,
+            '{HERO_VISUAL_HTML}': build_hero_visual_html(row, hero_chat_user, hero_chat_bot),
+            '{CONTENIDO_EEAT}': build_dynamic_eeat_html(row),
+            '{ROADMAP_HTML}': build_roadmap_html(row),
+            '{TABLA_ROI_HTML}': build_roi_table_html(row),
+            '{FAQS_HTML}': faqs_html,
+            '{SCHEMA_FAQ}': schema_faq_script,
+            '{BLOG_RECOMENDACIONES_HTML}': build_blog_recomendaciones_html(row),
+            '{DEMO_INTERACTIVA_HTML}': build_demo_interactiva_html(row),
+            '{PRECIOS_SECCION_HTML}': build_precios_seccion_html(row),
+            '{CIUDADES_HERMANAS_HTML}': hermanas_agencia_html,
             '{H1}': f"Agencia de Inteligencia Artificial en {ciudad}",
             '{H1_HTML}': f'Agencia de <span class="text-brand dark:text-brand-light block mt-2">Inteligencia Artificial en {ciudad}<span class="typewriter-cursor"></span></span>',
-            '{TITLE_SEO}': f"🤖 Agencia de Inteligencia Artificial en {ciudad} [Agentes IA 24/7]",
-            '{META_DESCRIPTION}': f"Agencia de Inteligencia Artificial en {ciudad}. Implementamos agentes de IA conversacionales, automatización de ventas por WhatsApp y consultoría B2B. ¡Pide tu Demo!",
+            '{TITLE_SEO}': f"Agencia de Inteligencia Artificial en {ciudad} | Agentes IA y WhatsApp B2B",
+            '{META_DESCRIPTION}': f"Agencia de Inteligencia Artificial en {ciudad} ({barrio1}, {barrio2}). Implementamos agentes de IA en WhatsApp API, agendamiento 24/7 y flujos con CRM en 5-7 días.",
+            '{KEYWORD_PRINCIPAL}': f"agencia de inteligencia artificial en {ciudad.lower()}",
+            '{KEYWORD_SECUNDARIA}': f"agentes de ia whatsapp {ciudad.lower()}",
+            '{KEYWORD_TERCIARIA}': f"automatizacion empresarial ia {ciudad.lower()}",
+            '{BARRIO_PRINCIPAL}': barrio1,
             '{CIUDAD}': ciudad,
             '{PAIS}': row.get('País', ''),
             '{CODIGO_PAIS}': get_country_iso(row.get('País_Slug') or row.get('Codigo_Pais')),
             '{URL_FINAL}': url_final + "/",
-            '{WA_NUMERO}': '573132644262',
+            '{WA_NUMERO}': WA_NUMERO,
             '{WA_MENSAJE_ENCODED}': wa_encoded,
             '{PRECIO_BAJO}': row.get('Precio_Bajo', '800.000'),
             '{PRECIO_MEDIO}': row.get('Precio_Medio', '1.800.000'),

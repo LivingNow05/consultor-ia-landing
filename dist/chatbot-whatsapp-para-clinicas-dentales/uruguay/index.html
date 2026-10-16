@@ -62,33 +62,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
-    <!-- Tailwind -->
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'brand': '#18181b',      /* Zinc 900 */
-                        'brand-light': '#f4f4f5',/* Zinc 100 */
-                        'accent': '#2563eb',     /* Blue 600 */
-                        'success': '#10b981',
-                        'gray-1': '#18181b',
-                        'gray-2': '#52525b',
-                        'gray-card': '#ffffff',
-                        'gray-border': '#e4e4e7',
-                    },
-                    fontFamily: {
-                        body: ['"Inter"', 'sans-serif'],
-                        header: ['"Playfair Display"', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind Compiled CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css?v=2.0">
     
     <!-- Dark Mode Init -->
     <script>
@@ -110,6 +88,8 @@
         .dark .glass {
             background: rgba(24, 24, 27, 0.7);
         }
+        .mega-menu { display: none; }
+        .group:hover .mega-menu { display: block; }
         
         /* FIX OVERSCROLL */
         html, body { overscroll-behavior: none; }
@@ -146,11 +126,6 @@
     <div class="global-blob-3 absolute -bottom-[20%] left-[20%] w-[60vw] h-[60vw] md:w-[45vw] md:h-[45vw] rounded-full bg-gradient-to-br from-[#3b82f6]/10 to-[#8b5cf6]/10 dark:from-[#3b82f6]/15 dark:to-[#8b5cf6]/15 blur-[100px] md:blur-[150px]"></div>
 </div>
 
-
-
-
-
-
     <!-- HEADER -->
     <header class="fixed top-4 inset-x-0 z-[100] flex justify-center px-4 pointer-events-none">
         <div class="w-full max-w-7xl glass rounded-full border border-gray-200 dark:border-zinc-800/80 shadow-2xl pointer-events-auto flex justify-between items-center px-6 py-3">
@@ -159,9 +134,10 @@
             </a>
             
             <nav class="hidden md:flex space-x-8 items-center">
+                <a href="/#demo-interactiva" class="font-semibold text-emerald-700 dark:text-emerald-400 hover:text-brand transition-colors flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Demo en Vivo</a>
                 <!-- Mega Menu Industrias -->
                 <div class="relative group z-50 py-2">
-                    <button class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light flex items-center gap-1 transition-colors">
+                    <button class="font-medium text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light flex items-center gap-1 transition-colors">
                         Industrias <i class="fas fa-chevron-down text-xs"></i>
                     </button>
                     <div class="absolute top-full left-0 mt-0 w-64 bg-white dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 shadow-xl rounded-2xl p-4 mega-menu transition-all duration-300 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
@@ -169,17 +145,17 @@
                     </div>
                 </div>
                 
-                <a href="/#como-funciona" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Cómo Funciona</a>
-                <a href="/#precios" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Precios</a>
-                <a href="/blog/" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Blog</a>
+                <a href="/#como-funciona" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
+                <a href="#precios" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+                <a href="/blog/" class="font-normal text-zinc-600 dark:text-zinc-300 hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
                 
                 <!-- Dark Mode Toggle -->
-                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
+                <button id="theme-toggle" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-lg p-2.5 transition-colors">
                     <i id="theme-toggle-dark-icon" class="fas fa-moon hidden"></i>
                     <i id="theme-toggle-light-icon" class="fas fa-sun hidden"></i>
                 </button>
 
-                <a href="https://wa.me/573151206985?text={WA_MENSAJE_ENCODED}" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
+                <a href="https://wa.me/573151206985?text=Hola%2C+quiero+info+sobre+agentes+IA+para+Cl%C3%ADnicas%20Dentales+en+Uruguay" target="_blank" class="group relative inline-flex items-center justify-center border border-zinc-900 dark:border-white px-6 py-2 overflow-hidden transition-all duration-500">
                     <span class="absolute inset-0 w-full h-full bg-zinc-900 dark:bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
                     <span class="relative z-10 flex items-center gap-2 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-900 dark:text-white group-hover:text-white dark:group-hover:text-zinc-900 transition-colors duration-500 delay-75">
                         Asesoría <i class="fab fa-whatsapp text-sm"></i>
@@ -196,8 +172,8 @@
     <!-- 2. Breadcrumbs -->
     <div class="pt-24 pb-2 border-b border-gray-200/50 dark:border-zinc-800/50 relative z-10">
         <div class="container mx-auto px-4 py-3 text-sm text-zinc-600 dark:text-zinc-400">
-            <a href="/" class="hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Inicio</a> <span class="mx-2 opacity-50">&gt;</span> 
-            <a href="/chatbot-whatsapp-para-clinicas-dentales/" class="hover:text-brand dark:hover:text-brand-light dark:hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light-light transition-colors">Clínicas Dentales</a> <span class="mx-2 opacity-50">&gt;</span> 
+            <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a> <span class="mx-2 opacity-50">&gt;</span> 
+            <a href="/chatbot-whatsapp-para-clinicas-dentales/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Clínicas Dentales</a> <span class="mx-2 opacity-50">&gt;</span> 
             <span class="text-gray-1 dark:text-slate-200 font-normal">Uruguay</span>
         </div>
     </div>
@@ -211,7 +187,7 @@
             <div class="container mx-auto px-4 max-w-4xl text-center relative z-10">
                 <span class="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">Soluciones Especializadas</span>
                 <h1 class="text-4xl md:text-6xl font-header font-bold mb-6">Inteligencia Artificial para <br><span class="text-brand dark:text-brand-light">Clínicas Dentales en Uruguay</span></h1>
-                <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">Selecciona tu ciudad para conocer las soluciones de IA disponibles y adaptadas al mercado local.</p>
+                <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">Selecciona tu ciudad para conocer las soluciones de Agentes IA, Automatización de WhatsApp y Flujos Inteligentes adaptadas al mercado local.</p>
             </div>
         </section>
 
@@ -226,52 +202,85 @@
             </div>
         </section>
 
-        <!-- 6. Precios (Tarjetas Premium) -->
+        <!-- 6. Precios -->
+        
         <section id="precios" class="py-24">
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="text-center mb-16">
                     <span class="text-brand dark:text-brand-light font-normal tracking-wider uppercase text-sm mb-2 block">Inversión Transparente</span>
-                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes y Precios</h2>
-                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Precios en USD. Sin sorpresas, cobros ocultos ni letra pequeña.</p>
+                    <h2 class="text-3xl md:text-5xl font-header font-bold mb-6">Planes de Automatización con IA en </h2>
+                    <p class="text-xl text-zinc-600 dark:text-zinc-400">Desde un Agente IA llave en mano para WhatsApp hasta flujos empresariales integrados a medida.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto">
-                    <!-- Pricing Card 1: Setup -->
-                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300">
-                        <h3 class="font-header font-bold text-2xl mb-2">Configuración Completa</h3>
-                        <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Pago único por la creación del sistema</p>
-                        <div class="text-4xl font-bold mb-6 text-gray-1 dark:text-white">$497 <span class="text-lg font-normal text-gray-400">USD</span></div>
-                        <ul class="space-y-4 mb-8 text-sm text-gray-600 dark:text-slate-300">
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Desarrollo y entrenamiento del Agente IA</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Integración completa con WhatsApp y Web</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Ingesta de base de conocimiento (FAQ, servicios)</li>
-                            <li class="flex items-start"><i class="fas fa-check text-brand dark:text-brand-light mt-1 mr-3"></i> Pruebas y despliegue inicial (5-7 días)</li>
-                        </ul>
-                        <a href="https://wa.me/573151206985" target="_blank" class="block w-full text-center border border-gray-300 dark:border-zinc-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-zinc-800 py-3 rounded-xl font-medium transition-colors">Solicitar Configuración</a>
+                <div class="grid md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
+                    <!-- Plan 1: Agente IA WhatsApp Llave en Mano -->
+                    <div class="bg-[#FDFBF7] dark:bg-zinc-900 border border-gray-border dark:border-zinc-800 rounded-3xl p-8 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="inline-block bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">Llave en Mano · 5 a 7 Días</div>
+                            <h3 class="font-header font-bold text-2xl mb-2 text-zinc-900 dark:text-white">Agente IA para WhatsApp</h3>
+                            <p class="text-gray-500 dark:text-slate-400 text-sm mb-6">Atención automática 24/7, calificación de prospectos y agendamiento en calendario.</p>
+                            
+                            <div class="p-4 rounded-2xl bg-white dark:bg-zinc-950 border border-gray-200 dark:border-zinc-800 mb-6">
+                                <div class="flex items-baseline justify-between border-b border-gray-100 dark:border-zinc-800/80 pb-3 mb-3">
+                                    <div>
+                                        <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 block">1. Configuración Completa</span>
+                                        <span class="text-xs text-zinc-500">Pago único de creación y entrenamiento</span>
+                                    </div>
+                                    <div class="text-3xl font-bold text-zinc-900 dark:text-white">$497 <span class="text-xs font-normal text-gray-400">USD</span></div>
+                                </div>
+                                <div class="flex items-baseline justify-between">
+                                    <div>
+                                        <span class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 block">2. Operación y Soporte</span>
+                                        <span class="text-xs text-zinc-500">Hosting cloud, consumo IA y ajustes</span>
+                                    </div>
+                                    <div class="text-xl font-bold text-zinc-800 dark:text-zinc-200">$97 <span class="text-xs font-normal text-gray-400">USD/mes</span></div>
+                                </div>
+                            </div>
+
+                            <ul class="space-y-3.5 mb-8 text-sm text-gray-600 dark:text-slate-300">
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Entrenamiento del Agente IA con la información de tu negocio</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Conexión oficial con WhatsApp Business y chat web</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Agendamiento autónomo en Google Calendar y lectura de audios</li>
+                                <li class="flex items-start"><i class="fas fa-check text-success mt-1 mr-3"></i> Soporte técnico prioritario y optimización mensual incluida</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/573151206985?text=Hola%2C%20quiero%20cotizar%20el%20Agente%20IA%20Llave%20en%20Mano%20(%24497%20USD%20Setup%20%2B%20%2497/mes)%20para%20mi%20empresa%20en%20Uruguay" target="_blank" class="block w-full text-center bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:opacity-90 py-4 rounded-xl font-bold text-xs uppercase tracking-widest transition-all shadow-lg">
+                            Cotizar Agente Llave en Mano <i class="fab fa-whatsapp ml-1 text-sm"></i>
+                        </a>
                     </div>
                     
-                    <!-- Pricing Card 2: Mantenimiento (Destacada) -->
-                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Esencial</div>
-                        <h3 class="font-header font-bold text-2xl mb-2 text-white">Mantenimiento Mensual</h3>
-                        <p class="text-brand-100 text-sm mb-6">Suscripción para el funcionamiento de la IA</p>
-                        <div class="text-4xl font-bold mb-6 text-white">$97 <span class="text-lg font-normal text-brand-200">USD /mes</span></div>
-                        <ul class="space-y-4 mb-8 text-sm">
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Hosting del agente y consumo de IA</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Soporte técnico prioritario</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Ajustes y optimizaciones mensuales</li>
-                            <li class="flex items-start"><i class="fas fa-check text-accent mt-1 mr-3"></i> Actualizaciones de plataforma automáticas</li>
-                        </ul>
-                        <a href="https://wa.me/573151206985" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-3.5 rounded-xl overflow-hidden transition-all duration-500">
+                    <!-- Plan 2: Flujos Inteligentes y Automatización Corporativa (B2B) -->
+                    <div class="bg-brand text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="absolute top-0 right-0 bg-[#E8DAC1] text-zinc-900 text-xs font-semibold px-3 py-1 rounded-bl-xl uppercase tracking-wide">Empresas & B2B</div>
+                            <div class="inline-block bg-white/10 text-[#E8DAC1] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">Arquitectura Avanzada</div>
+                            <h3 class="font-header font-bold text-2xl mb-2 text-white">Flujos Inteligentes & CRM</h3>
+                            <p class="text-zinc-300 text-sm mb-6">Para empresas que requieren integrar múltiples sistemas, CRMs y procesos operativos.</p>
+                            
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 mb-6">
+                                <span class="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-1">Inversión según alcance técnico</span>
+                                <div class="text-3xl font-bold text-white">Cotización a Medida</div>
+                                <span class="text-xs text-zinc-400 block mt-1">Diagnóstico técnico y diseño de arquitectura inicial</span>
+                            </div>
+
+                            <ul class="space-y-3.5 mb-8 text-sm text-zinc-200">
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Agentes IA multi-departamento (Ventas, Soporte, Cartera)</li>
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Flujos automatizados e integración con CRM/ERP (HubSpot, Kommo, Zoho, APIs)</li>
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Enrutamiento inteligente a asesores humanos y reportes automáticos</li>
+                                <li class="flex items-start"><i class="fas fa-check text-[#E8DAC1] mt-1 mr-3"></i> Desarrollo de integraciones, cotizadores o webhooks personalizados</li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/573151206985?text=Hola%2C%20busco%20una%20cotizaci%C3%B3n%20a%20medida%20de%20Flujos%20Inteligentes%20y%20Automatizaci%C3%B3n%20B2B%20en%20Uruguay" target="_blank" class="group relative inline-flex w-full items-center justify-center border border-white px-8 py-4 rounded-xl overflow-hidden transition-all duration-500">
                             <span class="absolute inset-0 w-full h-full bg-white origin-bottom scale-y-0 transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.3,1)] group-hover:scale-y-100"></span>
-                            <span class="relative z-10 flex items-center gap-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
-                                Ver Detalles <i class="fas fa-arrow-right text-[12px]"></i>
+                            <span class="relative z-10 flex items-center gap-3 font-body text-xs font-bold uppercase tracking-widest text-white group-hover:text-zinc-900 transition-colors duration-500 delay-75">
+                                Solicitar Diagnóstico B2B <i class="fab fa-whatsapp text-sm"></i>
                             </span>
                         </a>
                     </div>
                 </div>
             </div>
         </section>
+        
     </main>
 
     
@@ -284,18 +293,18 @@
                     <span class="font-header font-extrabold tracking-tighter text-3xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 </a>
                 <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-                    Transformamos la atención al cliente en LATAM con Agentes de Inteligencia Artificial que trabajan 24/7 en WhatsApp.
+                    Implementamos Agentes de Inteligencia Artificial, automatizaciones de WhatsApp y flujos inteligentes para empresas en Colombia y Latinoamérica.
                 </p>
                 <div class="flex gap-4">
-                    <a href="https://wa.me/573151206985" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/573151206985?text=Hola%2C%20quiero%20cotizar%20un%20Agente%20de%20IA%20o%20automatizaci%C3%B3n%20para%20mi%20empresa" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.linkedin.com/company/consultor-ia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Consultor IA" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/consultoria_col" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Consultor IA" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-600 dark:text-slate-400 hover:bg-accent hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
             <!-- Col 2: Industrias -->
             <div>
-                <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones</h4>
+                <h4 class="font-header font-bold text-zinc-900 dark:text-white text-lg mb-6">Soluciones por Sector</h4>
                 <ul class="space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
                     <li><a href="/chatbot-whatsapp-para-academias-cursos/" class="hover:text-accent transition-colors">Academias y Cursos</a></li><li><a href="/chatbot-whatsapp-para-clinicas-dentales/" class="hover:text-accent transition-colors">Clínicas Dentales</a></li><li><a href="/desarrollo-apps-y-software/" class="hover:text-accent transition-colors">Desarrollo de Apps y Software</a></li><li><a href="/chatbot-whatsapp-para-gimnasios/" class="hover:text-accent transition-colors">Gimnasios</a></li><li><a href="/chatbot-whatsapp-para-hoteles-y-hostales/" class="hover:text-accent transition-colors">Hoteles y Hostales</a></li><li><a href="/chatbot-whatsapp-para-inmobiliarias/" class="hover:text-accent transition-colors">Inmobiliarias</a></li><li><a href="/chatbot-whatsapp-para-restaurantes/" class="hover:text-accent transition-colors">Restaurantes</a></li><li><a href="/chatbot-whatsapp-para-salones-de-belleza/" class="hover:text-accent transition-colors">Salones de Belleza</a></li><li><a href="/chatbot-whatsapp-para-spas-centros-esteticos/" class="hover:text-accent transition-colors">Spas y Centros de Estética</a></li><li><a href="/chatbot-whatsapp-para-talleres-automotrices/" class="hover:text-accent transition-colors">Talleres Automotrices</a></li>
                 </ul>
@@ -322,9 +331,69 @@
         </div>
     </div>
 </footer>
-<!-- Script del Modal de WhatsApp (con cache buster) -->
-<script src="/js/wa-modal.js?v=1.4" charset="utf-8" defer></script>
+<!-- Capa Global de Medición de Conversiones (GA4 / Google Ads / GTM dataLayer) -->
+<script>
+(function() {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
+    
+    // Persistir parámetros UTM y GCLID de Google Ads en la sesión para atribución de leads
+    try {
+        var params = new URLSearchParams(window.location.search);
+        var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+        var storedUtm = JSON.parse(sessionStorage.getItem('consultoria_utm') || '{}');
+        var updated = false;
+        utmKeys.forEach(function(k) {
+            if (params.get(k)) {
+                storedUtm[k] = params.get(k);
+                updated = true;
+            }
+        });
+        if (updated) sessionStorage.setItem('consultoria_utm', JSON.stringify(storedUtm));
+    } catch (e) {}
 
+    window.ConsultorAnalytics = {
+        getUtm: function() {
+            try { return JSON.parse(sessionStorage.getItem('consultoria_utm') || '{}'); } catch (e) { return {}; }
+        },
+        track: function(eventName, eventParams) {
+            var payload = Object.assign({
+                event: eventName,
+                page_path: window.location.pathname,
+                page_title: document.title,
+                timestamp: new Date().toISOString()
+            }, this.getUtm(), eventParams || {});
+            window.dataLayer.push(payload);
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', eventName, payload);
+            }
+        }
+    };
+
+    // Rastrear clics en todos los enlaces de WhatsApp y llamadas a la acción
+    document.addEventListener('click', function(e) {
+        var waLink = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+        if (waLink) {
+            window.ConsultorAnalytics.track('whatsapp_click', {
+                cta_text: (waLink.innerText || waLink.getAttribute('aria-label') || 'WhatsApp CTA').trim().substring(0, 80),
+                cta_href: waLink.href,
+                bypass_modal: waLink.dataset.noModal === 'true'
+            });
+        }
+    }, true);
+})();
+</script>
+<!-- Script del Modal de WhatsApp (con cache buster) -->
+<script src="/js/wa-modal.js?v=1.5" charset="utf-8" defer></script>
+
+
+    <!-- WhatsApp Flotante -->
+    <a id="floating-wa-btn" href="https://wa.me/573151206985?text=Hola%2C+quiero+info+sobre+agentes+IA+para+Cl%C3%ADnicas%20Dentales+en+Uruguay" target="_blank" aria-label="Contactar por WhatsApp" class="fixed bottom-6 right-6 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center text-2xl md:text-3xl shadow-lg shadow-green-500/30 z-40 hover:scale-110 transition-all duration-300 hover:shadow-2xl group">
+        <i class="fab fa-whatsapp"></i>
+        <span class="hidden md:block absolute right-full mr-4 bg-white dark:bg-zinc-800 text-gray-800 dark:text-white text-sm font-normal px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">
+            ¡Escríbenos!
+        </span>
+    </a>
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 z-[110] bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl translate-x-full transition-transform duration-500 ease-in-out md:hidden">
@@ -332,7 +401,7 @@
             <div class="flex justify-between items-center mb-12">
                 <span class="font-header font-extrabold text-2xl text-zinc-900 dark:text-white">Consultor-<span class="text-brand dark:text-brand-light">IA</span></span>
                 <div class="flex items-center gap-4">
-                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand dark:hover:text-brand-light-light focus:outline-none rounded-lg text-2xl p-2 transition-colors">
+                    <button id="theme-toggle-mobile" class="text-gray-500 dark:text-slate-400 hover:text-brand dark:hover:text-brand-light focus:outline-none rounded-lg text-2xl p-2 transition-colors">
                         <i id="theme-toggle-dark-icon-mobile" class="fas fa-moon hidden"></i>
                         <i id="theme-toggle-light-icon-mobile" class="fas fa-sun hidden"></i>
                     </button>
@@ -341,16 +410,28 @@
                     </button>
                 </div>
             </div>
+            <nav class="flex flex-col space-y-6 text-2xl font-header font-bold">
+                <a href="/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Inicio</a>
+                <a href="/#demo-interactiva" class="text-emerald-700 dark:text-emerald-400 hover:text-brand transition-colors flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span> Demo en Vivo</a>
+                <a href="/#como-funciona" class="hover:text-brand dark:hover:text-brand-light transition-colors">Cómo Funciona</a>
+                <a href="#precios" class="mobile-link hover:text-brand dark:hover:text-brand-light transition-colors">Precios</a>
+                <a href="/blog/" class="hover:text-brand dark:hover:text-brand-light transition-colors">Blog</a>
+            </nav>
+            <div class="mt-auto pt-8 border-t border-zinc-200 dark:border-zinc-800">
+                <a href="https://wa.me/573151206985?text=Hola%2C+quiero+info+sobre+agentes+IA+para+Cl%C3%ADnicas%20Dentales+en+Uruguay" target="_blank" class="flex items-center justify-center gap-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 py-4 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl">
+                    Asesoría WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
-    <!-- Dark Mode Toggle Script -->
+    <!-- Dark Mode & Mobile Menu Toggle Script -->
     <script>
-        // Setup Theme Toggle
         const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
         const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
         const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
 
-        // Check current state
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             if (themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
             if (themeToggleLightIconMobile) themeToggleLightIconMobile.classList.remove('hidden');
@@ -386,9 +467,26 @@
 
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
-
         if(themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
         if(themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const toggleMenu = () => {
+            if (mobileMenu) mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        };
+        if (openMenuBtn) openMenuBtn.addEventListener('click', toggleMenu);
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileMenu) mobileMenu.classList.add('translate-x-full');
+                document.body.classList.remove('overflow-hidden');
+            });
+        });
     </script>
+    <script src="/js/wa-modal.js?v=1.5" charset="utf-8" defer></script>
 </body>
 </html>

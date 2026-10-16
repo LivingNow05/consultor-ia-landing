@@ -1,5 +1,5 @@
 (function () {
-  // ─── Inyección de estilos dedicados y estructura del modal ──────────────────
+  // ─── Inyección de estilos dedicados y estructura del modal B2B (2 pasos) ───
   const modalStyles = `
   <style id="wa-modal-inline-styles">
     #wa-modal-overlay {
@@ -19,7 +19,7 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.25s ease;
+      transition: opacity 0.22s ease;
     }
     #wa-modal-overlay.wa-open {
       opacity: 1;
@@ -37,23 +37,23 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 530px;
+      max-width: 540px;
       margin: auto;
       border-radius: 24px;
-      padding: 32px 28px 24px;
+      padding: 30px 26px 22px;
       box-sizing: border-box;
       background: #ffffff;
       color: #18181b;
       border: 1px solid #e4e4e7;
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0,0,0,0.05);
-      transform: scale(0.95);
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0,0,0,0.05);
+      transform: scale(0.96);
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.22s ease;
     }
     .dark #wa-modal-card {
       background: #09090b;
       color: #f4f4f5;
       border-color: #27272a;
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255,255,255,0.08);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255,255,255,0.08);
     }
     #wa-modal-overlay.wa-open #wa-modal-card {
       transform: scale(1);
@@ -71,7 +71,7 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
       background: rgba(0, 0, 0, 0.04);
       color: #71717a;
-      font-size: 16px;
+      font-size: 15px;
       cursor: pointer;
       transition: all 0.2s ease;
       outline: none;
@@ -80,7 +80,7 @@
     #wa-modal-close:hover {
       background: rgba(0, 0, 0, 0.08);
       color: #18181b;
-      transform: scale(1.08);
+      transform: scale(1.06);
     }
     .dark #wa-modal-close {
       border-color: rgba(255, 255, 255, 0.1);
@@ -94,36 +94,39 @@
     .wa-options-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 10px;
+    }
+    .wa-options-grid.wa-cols-3 {
+      grid-template-columns: 1fr;
     }
     @media (max-width: 520px) {
       .wa-options-grid {
         grid-template-columns: 1fr;
       }
       #wa-modal-card {
-        padding: 26px 18px 20px;
+        padding: 24px 18px 18px;
       }
     }
     .wa-modal-opt {
       background: #fdfbf7;
       border: 1px solid #e4e4e7;
-      border-radius: 18px;
-      padding: 18px 14px;
-      text-align: center;
+      border-radius: 16px;
+      padding: 15px 16px;
+      text-align: left;
       cursor: pointer;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 14px;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
       outline: none;
       user-select: none;
+      width: 100%;
     }
     .wa-modal-opt:hover {
       background: #ffffff;
-      border-color: #18181b;
+      border-color: #2563eb;
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.12);
     }
     .dark .wa-modal-opt {
       background: #18181b;
@@ -132,30 +135,44 @@
     }
     .dark .wa-modal-opt:hover {
       background: #27272a;
-      border-color: #f4f4f5;
+      border-color: #3b82f6;
       box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
     }
-    .wa-opt-icon {
-      font-size: 26px;
-      color: #71717a;
-      margin-bottom: 10px;
-      transition: color 0.2s ease, transform 0.2s ease;
+    .wa-opt-icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(37, 99, 235, 0.08);
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+      transition: all 0.2s ease;
     }
-    .wa-modal-opt:hover .wa-opt-icon {
-      color: #18181b;
-      transform: scale(1.1);
-    }
-    .dark .wa-opt-icon {
-      color: #a1a1aa;
-    }
-    .dark .wa-modal-opt:hover .wa-opt-icon {
+    .wa-modal-opt:hover .wa-opt-icon-wrap {
+      background: #2563eb;
       color: #ffffff;
     }
+    .dark .wa-opt-icon-wrap {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+    }
+    .dark .wa-modal-opt:hover .wa-opt-icon-wrap {
+      background: #3b82f6;
+      color: #ffffff;
+    }
+    .wa-opt-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
     .wa-opt-label {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       color: #18181b;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
       line-height: 1.25;
     }
     .dark .wa-opt-label {
@@ -173,8 +190,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-top: 18px;
-      font-size: 13px;
+      margin-top: 16px;
+      font-size: 12px;
+      font-weight: 600;
       color: #71717a;
       text-decoration: none;
       cursor: pointer;
@@ -204,35 +222,35 @@
     <div id="wa-modal-backdrop"></div>
     <div id="wa-modal-card">
 
-      <!-- Botón de Cerrar (limpio, sin abrir WhatsApp) -->
+      <!-- Botón de Cerrar -->
       <button id="wa-modal-close" aria-label="Cerrar modal">
         <i class="fas fa-times"></i>
       </button>
 
       <!-- Intro -->
-      <div style="text-align: center; margin-bottom: 16px;">
-        <span style="font-size: 11px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: #2563eb; display: block; margin-bottom: 6px;">
-          Personalización de Asesoría
+      <div style="text-align: center; margin-bottom: 14px;">
+        <span style="font-size: 10px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #2563eb; display: block; margin-bottom: 5px;">
+          Atención B2B Inmediata • Paso <span id="wa-step-counter">1</span> de 2
         </span>
-        <h2 id="wa-modal-title" style="font-size: 22px; font-weight: 800; margin: 0 0 6px 0; line-height: 1.25;">
-          Cuéntanos sobre tu empresa
+        <h2 id="wa-modal-title" style="font-size: 20px; font-weight: 800; margin: 0 0 4px 0; line-height: 1.25;">
+          Conectemos con un ingeniero especialista
         </h2>
-        <p style="font-size: 13px; color: #71717a; margin: 0; line-height: 1.4;">
-          Para asignarte al consultor experto ideal para tu caso.
+        <p style="font-size: 12px; color: #71717a; margin: 0; line-height: 1.4;">
+          Selecciona 2 opciones rápidas para preparar tu cotización en WhatsApp.
         </p>
       </div>
 
       <!-- Barra de progreso -->
-      <div id="wa-modal-progress" style="display: flex; gap: 6px; margin: 18px 0 22px 0;"></div>
+      <div id="wa-modal-progress" style="display: flex; gap: 6px; margin: 14px 0 18px 0;"></div>
 
       <!-- Steps container -->
-      <div id="wa-modal-steps" style="transition: opacity 0.25s ease; opacity: 1;"></div>
+      <div id="wa-modal-steps" style="transition: opacity 0.18s ease; opacity: 1;"></div>
 
       <!-- Enlace para omitir e ir directo a WhatsApp -->
       <div style="text-align: center;">
         <button id="wa-modal-skip" class="wa-skip-btn" type="button">
-          <span>Omitir preguntas y chatear directo en WhatsApp</span>
-          <i class="fas fa-arrow-right" style="font-size: 11px;"></i>
+          <span>Ir directo a WhatsApp sin responder</span>
+          <i class="fas fa-arrow-right" style="font-size: 10px;"></i>
         </button>
       </div>
 
@@ -242,52 +260,51 @@
   document.body.insertAdjacentHTML('beforeend', modalHTML);
 
   // ─── Estado ─────────────────────────────────────────────────────────────────
-  const state = { size: '', goal: '', crm: '', urgency: '' };
+  const SESSION_KEY = 'consultoria_wa_profile_v2';
+  const state = { solution: '', intent: '' };
   let currentStep = 0;
   let pendingHref = '';
   let isAnimating = false;
 
-  // Definición de pasos
+  // Definición de 2 pasos de alta conversión B2B
   const steps = [
     {
-      key: 'size',
-      question: '¿De qué tamaño es tu empresa?',
+      key: 'solution',
+      cols: 3,
+      question: '1. ¿Qué solución buscas implementar en tu empresa?',
       options: [
-        { value: 'pequena', icon: 'fa-store',     label: 'Pequeña',           sub: 'De 1 a 10 empleados' },
-        { value: 'mediana', icon: 'fa-building',  label: 'Mediana / Grande',  sub: 'Más de 10 empleados' }
+        { value: 'agente_whatsapp', icon: 'fa-robot',          label: 'Agente IA para WhatsApp',       sub: 'Atención 24/7, calificación de leads y agendamiento ($497 Setup + $97/mes)' },
+        { value: 'flujos_crm',      icon: 'fa-diagram-project',label: 'Flujos Inteligentes y CRM',     sub: 'Automatización de procesos comerciales, HubSpot, Kommo o ERP' },
+        { value: 'medida_b2b',      icon: 'fa-microchip',      label: 'Ecosistema IA a Medida (B2B)',  sub: 'Arquitectura multi-agente, reglas de negocio complejas y APIs' }
       ]
     },
     {
-      key: 'goal',
-      question: '¿Qué área buscas automatizar con IA?',
+      key: 'intent',
+      cols: 2,
+      question: '2. ¿Cómo prefieres avanzar con nuestro equipo?',
       options: [
-        { value: 'ventas',      icon: 'fa-comments',  label: 'Ventas y Atención',  sub: 'Chatbots, WhatsApp, CRM' },
-        { value: 'operaciones', icon: 'fa-gears',     label: 'Operaciones',        sub: 'Procesos internos y Datos' }
-      ]
-    },
-    {
-      key: 'crm',
-      question: '¿Cómo gestionan a sus clientes hoy?',
-      options: [
-        { value: 'crm',   icon: 'fa-laptop-code',  label: 'Usamos un CRM',   sub: 'HubSpot, Kommo, etc.' },
-        { value: 'excel', icon: 'fa-file-excel',   label: 'Excel / Manual',  sub: 'Planillas o chat manual' }
-      ]
-    },
-    {
-      key: 'urgency',
-      question: '¿Cuál es tu nivel de urgencia?',
-      options: [
-        { value: 'pronto',     icon: 'fa-bolt',     label: 'Lo necesito pronto',  sub: 'Implementar este mes' },
-        { value: 'explorando', icon: 'fa-compass',  label: 'Estoy explorando',    sub: 'Evaluando opciones' }
+        { value: 'cotizacion',  icon: 'fa-file-invoice-dollar', label: 'Solicitar Cotización',     sub: 'Recibir propuesta económica y alcance hoy' },
+        { value: 'diagnostico', icon: 'fa-calendar-check',      label: 'Diagnóstico de 15 min',    sub: 'Revisar mi flujo actual con un consultor' }
       ]
     }
   ];
 
   const totalSteps = steps.length;
 
+  function trackModalEvent(eventName, params) {
+    if (window.ConsultorAnalytics && typeof window.ConsultorAnalytics.track === 'function') {
+      window.ConsultorAnalytics.track(eventName, params || {});
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: eventName }, params || {}));
+    }
+  }
+
   // ─── Helpers ────────────────────────────────────────────────────────────────
   function buildProgressBar() {
     const bar = document.getElementById('wa-modal-progress');
+    const counter = document.getElementById('wa-step-counter');
+    if (counter) counter.textContent = String(currentStep + 1);
     if (!bar) return;
     bar.innerHTML = '';
     for (let i = 0; i < totalSteps; i++) {
@@ -295,45 +312,61 @@
       seg.style.height = '5px';
       seg.style.borderRadius = '9999px';
       seg.style.flex = '1';
-      seg.style.transition = 'background-color 0.3s ease';
+      seg.style.transition = 'background-color 0.25s ease';
       seg.style.backgroundColor = (i <= currentStep) ? '#2563eb' : 'rgba(113, 113, 122, 0.2)';
       bar.appendChild(seg);
     }
   }
 
   function buildStepHTML(step) {
+    const gridClass = step.cols === 3 ? 'wa-options-grid wa-cols-3' : 'wa-options-grid';
     return `
-      <h3 style="font-size: 16px; font-weight: 700; text-align: center; margin: 0 0 16px 0;">
+      <h3 style="font-size: 15px; font-weight: 700; text-align: center; margin: 0 0 14px 0;">
         ${step.question}
       </h3>
-      <div class="wa-options-grid">
+      <div class="${gridClass}">
         ${step.options.map(opt => `
           <button type="button" class="wa-modal-opt" data-key="${step.key}" data-val="${opt.value}">
-            <i class="fas ${opt.icon} wa-opt-icon"></i>
-            <span class="wa-opt-label">${opt.label}</span>
-            <span class="wa-opt-sub">${opt.sub}</span>
+            <div class="wa-opt-icon-wrap">
+              <i class="fas ${opt.icon}"></i>
+            </div>
+            <div class="wa-opt-text">
+              <span class="wa-opt-label">${opt.label}</span>
+              <span class="wa-opt-sub">${opt.sub}</span>
+            </div>
           </button>`).join('')}
       </div>`;
   }
 
-  function attachStepListeners(step) {
+  function attachStepListeners() {
     const container = document.getElementById('wa-modal-steps');
     if (!container) return;
     container.querySelectorAll('.wa-modal-opt').forEach(btn => {
       btn.addEventListener('click', function () {
         if (isAnimating) return;
-        state[this.dataset.key] = this.dataset.val;
+        const key = this.dataset.key;
+        const val = this.dataset.val;
+        state[key] = val;
+
+        trackModalEvent('wa_modal_step', {
+          step_number: currentStep + 1,
+          step_key: key,
+          step_value: val
+        });
+
         currentStep++;
         if (currentStep < steps.length) {
           goToStep();
         } else {
-          finalize();
+          try {
+            sessionStorage.setItem(SESSION_KEY, JSON.stringify(state));
+          } catch (e) {}
+          finalize(false);
         }
       });
     });
   }
 
-  // ─── Animación de cambio de paso ─────────────────────────────────────────────
   function goToStep() {
     if (isAnimating) return;
     isAnimating = true;
@@ -345,11 +378,11 @@
     setTimeout(function () {
       buildProgressBar();
       container.innerHTML = buildStepHTML(steps[currentStep]);
-      attachStepListeners(steps[currentStep]);
-      void container.offsetHeight; // trigger reflow
+      attachStepListeners();
+      void container.offsetHeight;
       container.style.opacity = '1';
       isAnimating = false;
-    }, 220);
+    }, 170);
   }
 
   function renderStep() {
@@ -358,78 +391,110 @@
     if (!container) return;
     container.style.opacity = '1';
     container.innerHTML = buildStepHTML(steps[currentStep]);
-    attachStepListeners(steps[currentStep]);
+    attachStepListeners();
   }
 
-  // ─── Construcción del mensaje ────────────────────────────────────────────────
-  function buildMessage() {
+  // ─── Construcción del mensaje con datos parciales o completos ──────────────
+  function buildMessage(profileData) {
+    const data = profileData || state;
     const labels = {
-      size:    { pequena: 'Pequeña (1-10 emp.)', mediana: 'Mediana/Grande (+10 emp.)' },
-      goal:    { ventas: 'Ventas y Atención', operaciones: 'Operaciones e Interno' },
-      crm:     { crm: 'Sí, usamos un CRM', excel: 'No, usamos Excel / Manual' },
-      urgency: { pronto: 'Alta (Quiero implementar pronto)', explorando: 'Baja (Solo explorando opciones)' }
+      solution: {
+        agente_whatsapp: 'Agente IA para WhatsApp ($497 Setup + $97/mes)',
+        flujos_crm: 'Flujos Inteligentes y Conexión CRM',
+        medida_b2b: 'Ecosistema IA a Medida (B2B)'
+      },
+      intent: {
+        cotizacion: 'Solicitar Cotización Comercial',
+        diagnostico: 'Agendar Diagnóstico Técnico (15 min)'
+      }
     };
 
-    let msg = `\n\n[ Perfil de Empresa ]\n`;
-    msg += `▪ Tamaño: ${labels.size[state.size] || state.size}\n`;
-    msg += `▪ Objetivo principal: ${labels.goal[state.goal] || state.goal}\n`;
-    msg += `▪ Gestión actual: ${labels.crm[state.crm] || state.crm}\n`;
-    msg += `▪ Urgencia: ${labels.urgency[state.urgency] || state.urgency}`;
-    return msg;
-  }
-
-  function finalize() {
-    let finalUrl = pendingHref;
-    
-    try {
-      const urlObj = new URL(pendingHref);
-      let currentText = urlObj.searchParams.get('text') || '';
-      
-      if (!currentText.trim()) {
-        currentText = "Hola, me interesa agendar una asesoría sobre automatización con IA.";
-      }
-      
-      const msg = buildMessage();
-      urlObj.searchParams.set('text', currentText + msg);
-      finalUrl = urlObj.toString();
-    } catch (e) {
-      if (pendingHref.includes('?text=')) {
-        finalUrl = pendingHref + encodeURIComponent(buildMessage());
-      } else {
-        finalUrl = pendingHref + '?text=' + encodeURIComponent(buildMessage());
-      }
+    const lines = [];
+    if (data.solution && labels.solution[data.solution]) {
+      lines.push(`▪ Solución de interés: ${labels.solution[data.solution]}`);
+    }
+    if (data.intent && labels.intent[data.intent]) {
+      lines.push(`▪ Siguiente paso: ${labels.intent[data.intent]}`);
     }
 
+    if (lines.length === 0) return '';
+    return `\n\n[ Solicitud B2B ]\n` + lines.join('\n');
+  }
+
+  function appendMessageToHref(href, extraMessage) {
+    if (!extraMessage) return href;
+    try {
+      const urlObj = new URL(href);
+      let currentText = urlObj.searchParams.get('text') || '';
+      if (!currentText.trim()) {
+        currentText = 'Hola, quiero información sobre automatización con IA para mi empresa.';
+      }
+      urlObj.searchParams.set('text', currentText + extraMessage);
+      return urlObj.toString();
+    } catch (e) {
+      if (href.includes('?text=')) {
+        return href + encodeURIComponent(extraMessage);
+      }
+      return href + '?text=' + encodeURIComponent(extraMessage);
+    }
+  }
+
+  function finalize(wasSkipped, customProfile) {
+    const profileToUse = customProfile || state;
+    const extraMsg = buildMessage(profileToUse);
+    const finalUrl = appendMessageToHref(pendingHref, extraMsg);
+
+    trackModalEvent('wa_lead_redirect', {
+      solution: profileToUse.solution || 'unspecified',
+      intent: profileToUse.intent || 'unspecified',
+      skipped: !!wasSkipped,
+      destination_url: finalUrl
+    });
+
     closeModal();
-    window.open(finalUrl, '_blank');
+    window.open(finalUrl, '_blank', 'noopener,noreferrer');
   }
 
   // ─── Control del modal ───────────────────────────────────────────────────────
   function openModal(originalHref) {
     pendingHref = originalHref;
+
+    // Si el usuario ya completó el perfil en esta sesión, no volver a mostrar el modal
+    try {
+      const savedProfileRaw = sessionStorage.getItem(SESSION_KEY);
+      if (savedProfileRaw) {
+        const savedProfile = JSON.parse(savedProfileRaw);
+        if (savedProfile && savedProfile.solution) {
+          finalize(false, savedProfile);
+          return;
+        }
+      }
+    } catch (e) {}
+
     currentStep = 0;
     isAnimating = false;
-    
-    // Limpiar estado
     Object.keys(state).forEach(k => state[k] = '');
-    
+
     renderStep();
     const overlay = document.getElementById('wa-modal-overlay');
     if (!overlay) return;
-    
+
     overlay.classList.add('wa-open');
     document.body.style.overflow = 'hidden';
+
+    trackModalEvent('wa_modal_open', {
+      trigger_href: originalHref
+    });
   }
 
   function closeModal() {
     const overlay = document.getElementById('wa-modal-overlay');
     if (!overlay) return;
-    
+
     overlay.classList.remove('wa-open');
     document.body.style.overflow = '';
   }
 
-  // Cerrar limpiamente con × o backdrop (SIN forzar abrir WhatsApp)
   const closeBtn = document.getElementById('wa-modal-close');
   if (closeBtn) {
     closeBtn.addEventListener('click', function (e) {
@@ -437,7 +502,7 @@
       closeModal();
     });
   }
-  
+
   const backdrop = document.getElementById('wa-modal-backdrop');
   if (backdrop) {
     backdrop.addEventListener('click', function (e) {
@@ -446,17 +511,19 @@
     });
   }
 
-  // Botón para saltar e ir a WhatsApp voluntariamente
+  // Botón para saltar e ir a WhatsApp conservando respuestas parciales si las hay
   const skipBtn = document.getElementById('wa-modal-skip');
   if (skipBtn) {
     skipBtn.addEventListener('click', function (e) {
       e.stopPropagation();
-      closeModal();
-      if (pendingHref) window.open(pendingHref, '_blank');
+      trackModalEvent('wa_modal_skip', {
+        step_abandoned: currentStep + 1,
+        partial_solution: state.solution || 'none'
+      });
+      finalize(true);
     });
   }
 
-  // Cerrar con tecla Escape
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       const overlay = document.getElementById('wa-modal-overlay');
@@ -470,8 +537,7 @@
   document.addEventListener('click', function (e) {
     const link = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
     if (!link) return;
-    
-    // Excluir si ya tiene un flujo especial o no queremos modal
+
     if (link.dataset.noModal === 'true') return;
 
     e.preventDefault();
