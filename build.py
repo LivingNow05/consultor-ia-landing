@@ -3858,15 +3858,34 @@ def build_pillar_content(row):
             'steps': [('Mide antes', 'Antes de implementar, registra tu tasa de respuesta, tiempo promedio de atención y conversión actual.'), ('Implementa', 'Lanza el agente con los flujos básicos y mide semanalmente durante el primer mes.'), ('Compara y escala', 'Con los datos reales, optimiza y expande a más canales y procesos.')],
             'faqs': [('¿Estos resultados están garantizados?', 'No garantizamos números específicos porque dependen del negocio, la industria y cómo se implemente. Sí garantizamos que si en 14 días no ves mejora, te devolvemos el dinero.'), ('¿Puedo hablar con clientes actuales de Consultor IA?', 'Sí. En la demo gratuita podemos conectarte con un cliente de tu misma industria para que escuches su experiencia directamente.'), ('¿Cuánto tiempo tarda en verse el primer impacto?', 'La velocidad de respuesta mejora desde el día 1. Las métricas de conversión suelen mejorar en las primeras 2-4 semanas.'), ('¿Qué industrias tienen mejores resultados?', 'Salud (por la reducción de ausentismo), restaurantes (por el volumen de reservas) e inmobiliarias (por la calificación de leads) son los casos con mayor ROI documentado.')],
         },
+        'chatbot-whatsapp': {
+            'intro': 'Un Chatbot de WhatsApp con Inteligencia Artificial conectado a la API Oficial de Meta transforma el teléfono de tu empresa en un canal de ventas y agendamiento automático que nunca duerme. A diferencia de los bots antiguos de opciones numéricas ("Marque 1 o 2"), entiende mensajes de texto libre y notas de voz en menos de 3 segundos.',
+            'intro2': 'Implementamos tu Agente de IA llave en mano en 5 a 7 días hábiles: entrenado con tus documentos, catálogo, precios y políticas reales (arquitectura RAG), conectado en vivo con Google Calendar y tu CRM corporativo.',
+            'callout': 'El cliente actual en Colombia y LATAM no llena formularios ni espera al lunes a las 8:00 a.m. Responde en segundos por WhatsApp o pierdes el prospecto frente al competidor que contesta primero.',
+            'stats': [('< 3 seg', 'tiempo de respuesta 24/7 en texto y audio'), ('5-7 días', 'implementación llave en mano en tu número'), ('API Oficial', 'WhatsApp Business Cloud API sin bloqueos'), ('CRM + Agenda', 'sincronización en tiempo real con tu equipo')],
+            'benefits': [('fa-microphone-alt', 'Procesamiento de Notas de Voz', 'Transcribe e interpreta audios de WhatsApp al instante y responde con precisión usando las reglas de tu negocio.'), ('fa-calendar-check', 'Agendamiento Directo en Calendar', 'Consulta tu disponibilidad real, bloquea el espacio en Google Calendar y envía recordatorios automáticos.'), ('fa-plug', 'Conexión Nativa con tu CRM', 'Califica presupuesto, urgencia y zona del prospecto y lo registra listo para cerrar en HubSpot, Kommo, Zoho o Pipedrive.')],
+            'steps': [('Diagnóstico y Entrenamiento (Días 1-2)', 'Recopilamos tus precios, servicios, preguntas frecuentes y reglas de negocio sin que tengas que programar nada.'), ('Integración WhatsApp API + Calendar (Días 3-5)', 'Conectamos el Agente de IA a tu línea de WhatsApp Business y a la agenda de tu equipo comercial.'), ('Pruebas en Vivo y Lanzamiento (Días 6-7)', 'Verificamos cada flujo contigo y activamos la atención automatizada 24/7 con monitoreo continuo.')],
+            'faqs': [('¿Cuánto cuesta implementar el Chatbot de WhatsApp con IA?', 'La configuración completa llave en mano es un pago único de USD $497 y el mantenimiento mensual (servidor cloud, IA y soporte) es de USD $97/mes.'), ('¿Pierdo el acceso a mi WhatsApp actual?', 'No. Tu equipo puede seguir viendo las conversaciones e intervenir desde el celular o computador en cualquier momento cuando el cliente requiera atención humana.'), ('¿Entiende notas de voz y modismos locales?', 'Sí. El motor de IA procesa audios, errores de digitación y modismos de Colombia, México y LATAM con total naturalidad.'), ('¿En cuánto tiempo queda funcionando?', 'Entre 5 y 7 días hábiles desde la reunión inicial hasta el lanzamiento en producción.')],
+        },
     }
 
-    data = PILLAR_DATA.get(slug, {
+    SLUG_ALIASES = {
+        'chatbot-whatsapp-para-negocios': 'ia-para-negocios',
+        'chatbot-whatsapp-para-empresas': 'ia-para-empresas',
+        'chatbot-whatsapp-para-industria': 'ia-para-industria',
+        'chatbot-whatsapp-para-pymes': 'ia-para-pymes',
+        'chatbot-whatsapp-para-retail': 'ia-para-retail',
+        'chatbot-whatsapp-para-salud': 'ia-para-salud',
+    }
+    lookup_slug = SLUG_ALIASES.get(slug, slug)
+
+    data = PILLAR_DATA.get(lookup_slug, {
         'intro': f'La inteligencia artificial está transformando los negocios LATAM. Descubre cómo implementar {kw} para mejorar tu atención al cliente y aumentar tus ventas.',
         'intro2': 'Nuestros agentes IA para WhatsApp trabajan 24/7, responden en segundos y se adaptan completamente a tu negocio.',
-        'stats': [('73%', 'de PYMES LATAM pierde clientes por respuesta tardía'), ('3 seg', 'tiempo de respuesta del agente IA'), ('40%', 'más conversiones vs. atención manual'), ('5-10', 'días de implementación')],
-        'benefits': [('fa-robot', 'Automatización inteligente', 'Responde clientes, agenda citas y cierra ventas automáticamente.'), ('fa-chart-line', 'Más resultados', 'Aumenta conversiones y reduce costos operativos desde el primer mes.'), ('fa-headset', 'Soporte incluido', 'Acompañamiento completo durante la implementación y el primer mes.')],
-        'steps': [('Diagnóstico', 'Analizamos tu negocio y definimos la mejor estrategia.'), ('Implementación', 'Configuramos y entrenamos el agente en 5-10 días.'), ('Optimización', 'Ajustamos basándonos en datos reales del primer mes.')],
-        'faqs': [('¿Cuánto cuesta?', 'Desde USD 79/mes dependiendo del volumen y las integraciones necesarias.'), ('¿Cuánto tarda la implementación?', 'Entre 5 y 10 días hábiles desde el kick-off hasta el lanzamiento.'), ('¿Necesito conocimientos técnicos?', 'No. Nos encargamos de todo el proceso técnico.'), ('¿Funciona para mi industria?', 'Sí. Tenemos experiencia en más de 10 industrias LATAM.')],
+        'stats': [('< 3 seg', 'tiempo de respuesta del agente IA 24/7'), ('5-7 días', 'de implementación llave en mano'), ('API Oficial', 'conexión estable en WhatsApp Business'), ('CRM + Agenda', 'citas confirmadas en Google Calendar')],
+        'benefits': [('fa-robot', 'Automatización inteligente', 'Responde clientes, agenda citas y cierra ventas automáticamente.'), ('fa-chart-line', 'Más resultados', 'Aumenta conversiones y reduce costos operativos desde el primer mes.'), ('fa-headset', 'Soporte incluido', 'Acompañamiento completo durante la implementación y operación mensual.')],
+        'steps': [('Diagnóstico', 'Analizamos tu negocio y definimos la mejor estrategia.'), ('Implementación', 'Configuramos y entrenamos el agente en 5-7 días.'), ('Optimización', 'Ajustamos basándonos en datos reales del primer mes.')],
+        'faqs': [('¿Cuánto cuesta?', 'Configuración completa llave en mano de USD $497 (pago único) + USD $97/mes de mantenimiento y soporte.'), ('¿Cuánto tarda la implementación?', 'Entre 5 y 7 días hábiles desde el kick-off hasta el lanzamiento.'), ('¿Necesito conocimientos técnicos?', 'No. Nos encargamos de todo el proceso técnico.'), ('¿Funciona para mi industria?', 'Sí. Implementamos flujos especializados para más de 11 sectores en LATAM.')],
     })
 
     intro = data['intro']
@@ -4245,13 +4264,13 @@ def calculate_reading_time(slug):
     return 5
 
 INDUSTRY_BLOG_MAPPING = {
-    'Restaurantes': 'ia-para-restaurantes',
-    'Salones de Belleza': 'ia-para-salones-de-belleza',
+    'Restaurantes': 'chatbot-whatsapp-catering-eventos-banquetes-ia',
+    'Salones de Belleza': 'chatbot-whatsapp-spas-centros-estetica-ia',
     'Spas y Centros de Estética': 'chatbot-whatsapp-spas-centros-estetica-ia',
     'Clínicas Dentales': 'chatbot-whatsapp-clinicas-dentales-odontologia-ia',
     'Veterinarias': 'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia',
-    'Hoteles y Hostales': 'ia-para-hoteles',
-    'Inmobiliarias': 'chatbot-whatsapp-para-inmobiliarias',
+    'Hoteles y Hostales': 'chatbot-whatsapp-agencias-viajes-turismo-ia',
+    'Inmobiliarias': 'chatbot-whatsapp-constructoras-proyectos-inmobiliarios-ia',
     'Gimnasios': 'chatbot-whatsapp-gimnasios-fitness-ia',
     'Academias y Cursos': 'chatbot-whatsapp-academias-cursos-capacitacion-ia',
     'Talleres Automotrices': 'chatbot-whatsapp-talleres-mecanicos-automotrices-ia',
@@ -4259,34 +4278,32 @@ INDUSTRY_BLOG_MAPPING = {
 }
 
 GENERAL_BLOG_SLUGS = [
-    'precios-agente-ia-latam',
-    'como-implementar-agente-ia',
-    'casos-exito-ia-pymes',
-    'agente-ia-vs-chatbot',
-    'chatbot-whatsapp',
-    'ia-para-negocios',
-    'ia-para-empresas',
-    'ia-para-pymes'
+    'precios-whatsapp-business-api-2026',
+    'agentes-autonomos-ia-whatsapp',
+    'chatbot-whatsapp-crm',
+    'calificacion-leads-whatsapp-ia',
+    'embudo-de-ventas-whatsapp-ia',
+    'automatizacion-ventas-whatsapp-ia',
+    'whatsapp-corporativo-ia-ventas',
+    'chatbot-whatsapp-agendamiento-demos-b2b-ia'
 ]
 
 BLOG_CATEGORY_TAGS = {
-    'ia-para-restaurantes': 'Restaurantes',
-    'ia-para-salones-de-belleza': 'Estética',
-    'ia-para-salud': 'Salud',
-    'ia-para-hoteles': 'Hotelería',
-    'chatbot-whatsapp-para-inmobiliarias': 'Inmobiliaria',
-    'ia-para-retail': 'Retail',
-    'precios-agente-ia-latam': 'Precios',
-    'como-implementar-agente-ia': 'Implementación',
-    'agente-ia-vs-chatbot': 'Tecnología',
-    'casos-exito-ia-pymes': 'Casos de Éxito',
-    'chatbot-whatsapp': 'Automatización',
+    'precios-whatsapp-business-api-2026': 'Costos y API',
+    'agentes-autonomos-ia-whatsapp': 'Agentes IA',
+    'chatbot-whatsapp-crm': 'Integración CRM',
+    'calificacion-leads-whatsapp-ia': 'Calificación de Leads',
+    'embudo-de-ventas-whatsapp-ia': 'Embudo Comercial',
+    'automatizacion-ventas-whatsapp-ia': 'Ventas B2B',
+    'whatsapp-corporativo-ia-ventas': 'WhatsApp Corporativo',
+    'chatbot-whatsapp-constructoras-proyectos-inmobiliarios-ia': 'Inmobiliaria',
+    'chatbot-whatsapp-agencias-viajes-turismo-ia': 'Hotelería & Turismo',
     'chatbot-whatsapp-agendamiento-demos-b2b-ia': 'Agendamiento B2B',
     'chatbot-whatsapp-veterinarias-clinicas-mascotas-ia': 'Veterinarias & Mascotas',
     'chatbot-whatsapp-gimnasios-fitness-ia': 'Gimnasios & Fitness',
     'chatbot-whatsapp-academias-cursos-capacitacion-ia': 'Academias & Cursos',
     'chatbot-whatsapp-talleres-mecanicos-automotrices-ia': 'Talleres Mecánicos',
-    'chatbot-whatsapp-catering-eventos-banquetes-ia': 'Catering & Eventos',
+    'chatbot-whatsapp-catering-eventos-banquetes-ia': 'Gastronomía & Eventos',
     'chatbot-whatsapp-spas-centros-estetica-ia': 'Spas & Estética',
     'chatbot-whatsapp-climatizacion-aire-acondicionado-ia': 'Climatización & HVAC',
     'chatbot-whatsapp-desarrollo-software-apps-ia': 'Software & Tecnología'
@@ -5237,7 +5254,7 @@ def build():
 - [Restaurantes y Gastronomía](https://consultor-ia.com.co/chatbot-whatsapp-para-restaurantes/)
 - [Academias y Educación](https://consultor-ia.com.co/chatbot-whatsapp-para-academias-cursos/)
 - [Gimnasios y Fitness](https://consultor-ia.com.co/chatbot-whatsapp-para-gimnasios/)
-- [Hoteles y Hostales](https://consultor-ia.com.co/chatbot-whatsapp-para-hoteles-hostales/)
+- [Hoteles y Hostales](https://consultor-ia.com.co/chatbot-whatsapp-para-hoteles-y-hostales/)
 - [Veterinarias](https://consultor-ia.com.co/chatbot-whatsapp-para-veterinarias/)
 - [Salones de Belleza](https://consultor-ia.com.co/chatbot-whatsapp-para-salones-de-belleza/)
 - [Spas y Centros Estéticos](https://consultor-ia.com.co/chatbot-whatsapp-para-spas-centros-esteticos/)
@@ -5247,8 +5264,10 @@ def build():
 ## Enlaces Principales
 - [Home](https://consultor-ia.com.co/)
 - [Agente IA vs Chatbot Tradicional](https://consultor-ia.com.co/agente-ia-vs-chatbot/)
-- [Consultor Inteligencia Artificial](https://consultor-ia.com.co/consultor-inteligencia-artificial/)
-- [IA para Negocios](https://consultor-ia.com.co/ia-para-negocios/)
+- [Consultoría en Inteligencia Artificial](https://consultor-ia.com.co/consultor-inteligencia-artificial/)
+- [IA para Negocios](https://consultor-ia.com.co/chatbot-whatsapp-para-negocios/)
+- [IA para Empresas](https://consultor-ia.com.co/chatbot-whatsapp-para-empresas/)
+- [Precios de Agentes de IA en LATAM](https://consultor-ia.com.co/precios-agente-ia-latam/)
 - [Blog de Inteligencia Artificial B2B](https://consultor-ia.com.co/blog/)
 """
     with open(os.path.join(DIST_DIR, "llms.txt"), "w", encoding="utf-8") as f:
