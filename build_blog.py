@@ -75,7 +75,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-salud-ocupacional-sst-ia': 'Salud Ocupacional & SST',
     'chatbot-whatsapp-concesionarios-motos-credito-ia': 'Motos & Créditos',
     'chatbot-whatsapp-imprentas-litografias-artes-graficas-ia': 'Imprentas & Litografías',
-    'chatbot-whatsapp-insumos-agricolas-agroquimicos-ia': 'Agroindustria & Insumos'
+    'chatbot-whatsapp-insumos-agricolas-agroquimicos-ia': 'Agroindustria & Insumos',
+    'chatbot-whatsapp-distribuidoras-alimentos-horeca-ia': 'Alimentos & HORECA'
 }
 
 def calculate_reading_time(slug):

@@ -4,7 +4,7 @@ import urllib.parse
 import datetime
 import shutil
 from build_blog import build_blog_index
-from build import get_mega_menu
+from build import get_mega_menu, build_precios_seccion_html
 import csv
 
 def publish_blog(json_path):
@@ -83,6 +83,7 @@ def publish_blog(json_path):
         
     html = html.replace('{MEGA_MENU}', mega_menu_html)
     html = html.replace('{FOOTER_HTML}', footer)
+    html = html.replace('{PRECIOS_SECCION_HTML}', build_precios_seccion_html({}))
     
     # Reemplazar variables de WhatsApp en todo el documento (incluyendo header/footer)
     html = html.replace('{WA_NUMERO}', wa_num)
