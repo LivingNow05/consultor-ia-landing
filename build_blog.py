@@ -77,7 +77,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-imprentas-litografias-artes-graficas-ia': 'Imprentas & Litografías',
     'chatbot-whatsapp-insumos-agricolas-agroquimicos-ia': 'Agroindustria & Insumos',
     'chatbot-whatsapp-distribuidoras-alimentos-horeca-ia': 'Alimentos & HORECA',
-    'chatbot-whatsapp-opticas-salud-visual-ia': 'Salud Visual & Ópticas'
+    'chatbot-whatsapp-opticas-salud-visual-ia': 'Salud Visual & Ópticas',
+    'chatbot-whatsapp-hoteles-cadenas-hoteleras-ia': 'Hotelería & Hospedaje'
 }
 
 def calculate_reading_time(slug):
