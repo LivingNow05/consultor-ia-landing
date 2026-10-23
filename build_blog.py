@@ -78,7 +78,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-insumos-agricolas-agroquimicos-ia': 'Agroindustria & Insumos',
     'chatbot-whatsapp-distribuidoras-alimentos-horeca-ia': 'Alimentos & HORECA',
     'chatbot-whatsapp-opticas-salud-visual-ia': 'Salud Visual & Ópticas',
-    'chatbot-whatsapp-hoteles-cadenas-hoteleras-ia': 'Hotelería & Hospedaje'
+    'chatbot-whatsapp-hoteles-cadenas-hoteleras-ia': 'Hotelería & Hospedaje',
+    'chatbot-whatsapp-restaurantes-cadenas-gastronomicas-ia': 'Restaurantes & Gastronomía'
 }
 
 def calculate_reading_time(slug):
