@@ -79,7 +79,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-distribuidoras-alimentos-horeca-ia': 'Alimentos & HORECA',
     'chatbot-whatsapp-opticas-salud-visual-ia': 'Salud Visual & Ópticas',
     'chatbot-whatsapp-hoteles-cadenas-hoteleras-ia': 'Hotelería & Hospedaje',
-    'chatbot-whatsapp-restaurantes-cadenas-gastronomicas-ia': 'Restaurantes & Gastronomía'
+    'chatbot-whatsapp-restaurantes-cadenas-gastronomicas-ia': 'Restaurantes & Gastronomía',
+    'chatbot-whatsapp-limpieza-corporativa-facility-management-ia': 'Facility Management & Limpieza'
 }
 
 def calculate_reading_time(slug):
