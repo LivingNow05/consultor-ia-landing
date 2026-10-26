@@ -81,7 +81,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-hoteles-cadenas-hoteleras-ia': 'Hotelería & Hospedaje',
     'chatbot-whatsapp-restaurantes-cadenas-gastronomicas-ia': 'Restaurantes & Gastronomía',
     'chatbot-whatsapp-limpieza-corporativa-facility-management-ia': 'Facility Management & Limpieza',
-    'chatbot-whatsapp-mudanzas-trasteos-fletes-ia': 'Mudanzas & Trasteos'
+    'chatbot-whatsapp-mudanzas-trasteos-fletes-ia': 'Mudanzas & Trasteos',
+    'chatbot-whatsapp-funerarias-prevision-exequial-ia': 'Previsión Exequial & Funerarias'
 }
 
 def calculate_reading_time(slug):
