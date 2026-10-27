@@ -9,6 +9,7 @@ BLOG_CATEGORY_TAGS = {
     'ia-para-salud': 'Salud',
     'ia-para-hoteles': 'Hotelería',
     'chatbot-whatsapp-para-inmobiliarias': 'Inmobiliaria',
+    'chatbot-whatsapp-inmobiliarias-bienes-raices-ia': 'Inmobiliarias & Real Estate',
     'ia-para-retail': 'Retail',
     'precios-agente-ia-latam': 'Precios',
     'como-implementar-agente-ia': 'Implementación',
