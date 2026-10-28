@@ -4306,7 +4306,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-catering-eventos-banquetes-ia': 'Gastronomía & Eventos',
     'chatbot-whatsapp-spas-centros-estetica-ia': 'Spas & Estética',
     'chatbot-whatsapp-climatizacion-aire-acondicionado-ia': 'Climatización & HVAC',
-    'chatbot-whatsapp-desarrollo-software-apps-ia': 'Software & Tecnología'
+    'chatbot-whatsapp-desarrollo-software-apps-ia': 'Software & Tecnología',
+    'chatbot-whatsapp-agencias-marketing-digital-ia': 'Agencias & Marketing'
 }
 
 def build_blog_recomendaciones_html(row):
