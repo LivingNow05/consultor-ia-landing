@@ -84,7 +84,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-limpieza-corporativa-facility-management-ia': 'Facility Management & Limpieza',
     'chatbot-whatsapp-mudanzas-trasteos-fletes-ia': 'Mudanzas & Trasteos',
     'chatbot-whatsapp-funerarias-prevision-exequial-ia': 'Previsión Exequial & Funerarias',
-    'chatbot-whatsapp-agencias-marketing-digital-ia': 'Agencias & Marketing'
+    'chatbot-whatsapp-agencias-marketing-digital-ia': 'Agencias & Marketing',
+    'chatbot-whatsapp-turismo-medico-cirugia-plastica-ia': 'Turismo Médico & Cirugía Plástica'
 }
 
 def calculate_reading_time(slug):
