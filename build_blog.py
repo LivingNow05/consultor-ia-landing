@@ -85,7 +85,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-mudanzas-trasteos-fletes-ia': 'Mudanzas & Trasteos',
     'chatbot-whatsapp-funerarias-prevision-exequial-ia': 'Previsión Exequial & Funerarias',
     'chatbot-whatsapp-agencias-marketing-digital-ia': 'Agencias & Marketing',
-    'chatbot-whatsapp-turismo-medico-cirugia-plastica-ia': 'Turismo Médico & Cirugía Plástica'
+    'chatbot-whatsapp-turismo-medico-cirugia-plastica-ia': 'Turismo Médico & Cirugía Plástica',
+    'chatbot-whatsapp-reactivacion-leads-base-de-datos-ia': 'Reactivación & Leads'
 }
 
 def calculate_reading_time(slug):
