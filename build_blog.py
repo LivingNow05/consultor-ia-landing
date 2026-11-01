@@ -86,7 +86,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-funerarias-prevision-exequial-ia': 'Previsión Exequial & Funerarias',
     'chatbot-whatsapp-agencias-marketing-digital-ia': 'Agencias & Marketing',
     'chatbot-whatsapp-turismo-medico-cirugia-plastica-ia': 'Turismo Médico & Cirugía Plástica',
-    'chatbot-whatsapp-reactivacion-leads-base-de-datos-ia': 'Reactivación & Leads'
+    'chatbot-whatsapp-reactivacion-leads-base-de-datos-ia': 'Reactivación & Leads',
+    'chatbot-whatsapp-franquicias-cadenas-multisede-ia': 'Franquicias & Redes Multisede'
 }
 
 def calculate_reading_time(slug):
