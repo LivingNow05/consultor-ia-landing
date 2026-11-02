@@ -87,7 +87,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-agencias-marketing-digital-ia': 'Agencias & Marketing',
     'chatbot-whatsapp-turismo-medico-cirugia-plastica-ia': 'Turismo Médico & Cirugía Plástica',
     'chatbot-whatsapp-reactivacion-leads-base-de-datos-ia': 'Reactivación & Leads',
-    'chatbot-whatsapp-franquicias-cadenas-multisede-ia': 'Franquicias & Redes Multisede'
+    'chatbot-whatsapp-franquicias-cadenas-multisede-ia': 'Franquicias & Redes Multisede',
+    'chatbot-whatsapp-ecommerce-tiendas-online-ia': 'E-commerce & Tiendas Online'
 }
 
 def calculate_reading_time(slug):
