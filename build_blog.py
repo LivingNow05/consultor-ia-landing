@@ -88,7 +88,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-turismo-medico-cirugia-plastica-ia': 'Turismo Médico & Cirugía Plástica',
     'chatbot-whatsapp-reactivacion-leads-base-de-datos-ia': 'Reactivación & Leads',
     'chatbot-whatsapp-franquicias-cadenas-multisede-ia': 'Franquicias & Redes Multisede',
-    'chatbot-whatsapp-ecommerce-tiendas-online-ia': 'E-commerce & Tiendas Online'
+    'chatbot-whatsapp-ecommerce-tiendas-online-ia': 'E-commerce & Tiendas Online',
+    'chatbot-whatsapp-cooperativas-credito-microfinanzas-ia': 'Cooperativas & Microfinanzas'
 }
 
 def calculate_reading_time(slug):
