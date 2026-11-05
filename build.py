@@ -5276,6 +5276,17 @@ def build():
     with open(os.path.join(DIST_DIR, "llms-full.txt"), "w", encoding="utf-8") as f:
         f.write(llms_txt_content)
 
+    # Generate private independent B2B proposal pages (excluded from sitemap, menus, and all_urls.txt)
+    labancli_tpl_path = os.path.join("templates", "propuesta_labancli.html")
+    if os.path.exists(labancli_tpl_path):
+        with open(labancli_tpl_path, "r", encoding="utf-8") as f:
+            labancli_html = f.read()
+        labancli_dir = os.path.join(DIST_DIR, "propuesta-labancli")
+        os.makedirs(labancli_dir, exist_ok=True)
+        with open(os.path.join(labancli_dir, "index.html"), "w", encoding="utf-8") as f:
+            f.write(labancli_html)
+        print("Generated private B2B proposal: /propuesta-labancli/ (noindex, excluded from menus/sitemap)")
+
     # Recompile Tailwind CSS so all utility classes in dist/ and build.py are included
     import subprocess
     try:
