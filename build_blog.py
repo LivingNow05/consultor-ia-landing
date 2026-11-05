@@ -90,7 +90,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-franquicias-cadenas-multisede-ia': 'Franquicias & Redes Multisede',
     'chatbot-whatsapp-ecommerce-tiendas-online-ia': 'E-commerce & Tiendas Online',
     'chatbot-whatsapp-cooperativas-credito-microfinanzas-ia': 'Cooperativas & Microfinanzas',
-    'chatbot-whatsapp-colegios-privados-admisiones-ia': 'Colegios & Admisiones K-12'
+    'chatbot-whatsapp-colegios-privados-admisiones-ia': 'Colegios & Admisiones K-12',
+    'chatbot-whatsapp-casilleros-virtuales-courier-ia': 'Casilleros & Courier'
 }
 
 def calculate_reading_time(slug):
