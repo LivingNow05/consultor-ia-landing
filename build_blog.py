@@ -91,7 +91,8 @@ BLOG_CATEGORY_TAGS = {
     'chatbot-whatsapp-ecommerce-tiendas-online-ia': 'E-commerce & Tiendas Online',
     'chatbot-whatsapp-cooperativas-credito-microfinanzas-ia': 'Cooperativas & Microfinanzas',
     'chatbot-whatsapp-colegios-privados-admisiones-ia': 'Colegios & Admisiones K-12',
-    'chatbot-whatsapp-casilleros-virtuales-courier-ia': 'Casilleros & Courier'
+    'chatbot-whatsapp-casilleros-virtuales-courier-ia': 'Casilleros & Courier',
+    'chatbot-whatsapp-centros-diagnostico-automotor-cda-rtm-ia': 'CDA & Revisión Automotriz'
 }
 
 def calculate_reading_time(slug):
